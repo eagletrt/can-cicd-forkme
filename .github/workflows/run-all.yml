@@ -1,0 +1,54 @@
+name: Run all
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+    - 'networks/**'
+    branches:
+      - master
+
+jobs:
+  run-all:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-python@v2
+      name: Set up Python 3.8
+      with:
+        python-version: 3.8
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+    - name: Run ID generator
+      run: |
+        pip install -r can-cicd/id_generator/requirements.txt
+        python -m can-cicd.id_generator.main networks id_generator
+        mkdir -p /tmp/workspace/id_generator/ && cp -R id_generator/* /tmp/workspace/id_generator/
+    - name: Run Includes generator
+      run: |
+        pip install -r can-cicd/includes_generator/requirements.txt
+        python -m can-cicd.includes_generator.main networks id_generator includes_generator
+        mkdir -p /tmp/workspace/includes_generator/ && cp -R includes_generator/* /tmp/workspace/includes_generator/
+    - name: Run naked generator
+      run: |
+        pip install -r can-cicd/naked_generator/requirements.txt
+        python -m can-cicd.naked_generator.main networks naked_generator
+        mkdir -p /tmp/workspace/naked_generator/ && cp -R naked_generator/* /tmp/workspace/naked_generator/
+        # TESTS
+        python -m can-cicd.naked_generator.tests.test_all naked_generator networks
+    - name: Run sheet generator
+      run: |
+        pip install -r can-cicd/sheet_generator/requirements.txt
+        python -m can-cicd.sheet_generator.main networks id_generator sheet_generator
+        mkdir -p /tmp/workspace/sheet_generator/ && cp -R sheet_generator/* /tmp/workspace/sheet_generator/
+    - uses: actions/checkout@v2
+      with:
+        ref: build
+    - name: Push generated includes
+      run: |
+        git config --global user.name 'Automated CICD'
+        git config --global user.email noreply@noone.com
+        git rm -r --ignore-unmatch */*
+        cp -r /tmp/workspace/* .
+        git add .
+        if [[ $(git status --porcelain) ]]; then git commit -am "Automatically generated files" && git push; fi
