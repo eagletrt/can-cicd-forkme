@@ -6,7 +6,7 @@ on:
     paths:
     - 'networks/**'
     branches:
-      - master
+      - main
 
 jobs:
   run-all:
