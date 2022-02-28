@@ -1,31 +1,37 @@
 {
     "network_version": 1.2,
     "topics": {
-        "PEDALS": {
+        "BROADCAST": {
             "id": 0,
             "messages": {
-                "SET_ACCELERATOR_RANGE": {
+                "STEER_VERSION": {
                     "id": 1024
                 },
-                "PEDALS_ADC_RANGES": {
+                "DAS_VERSION": {
                     "id": 1056
                 },
-                "ACCELERATOR_PEDAL_VAL": {
+                "HV_VERSION": {
+                    "id": 1088
+                },
+                "LV_VERSION": {
+                    "id": 1120
+                },
+                "TLM_VERSION": {
+                    "id": 1152
+                },
+                "TIMESTAMP": {
                     "id": 256
-                },
-                "BRAKE_PEDAL_VAL": {
-                    "id": 288
-                },
-                "PCU_STATUS": {
-                    "id": 512
                 }
             }
         },
-        "BROADCAST": {
+        "TLM": {
             "id": 1,
             "messages": {
-                "TIMESTAMP": {
-                    "id": 1537
+                "SET_TLM_STATUS": {
+                    "id": 257
+                },
+                "STEER_SYSTEM_STATUS": {
+                    "id": 1793
                 }
             }
         },
@@ -36,103 +42,89 @@
                     "id": 258
                 },
                 "CAR_STATUS": {
-                    "id": 2
+                    "id": 514
+                },
+                "SPEED": {
+                    "id": 546
                 }
             }
         },
-        "TLM": {
+        "DASnSTEERnCART": {
             "id": 3,
             "messages": {
-                "SET_TLM_STATUS": {
-                    "id": 259
-                },
-                "GPS_COORDS": {
+                "HV_VOLTAGE": {
                     "id": 771
                 },
-                "GPS_SPEED": {
-                    "id": 1027
-                }
-            }
-        },
-        "ECUnSTEERnCART": {
-            "id": 4,
-            "messages": {
-                "HV_VOLTAGE": {
-                    "id": 772
-                },
                 "HV_CURRENT": {
-                    "id": 804
+                    "id": 803
                 },
                 "HV_TEMP": {
-                    "id": 836
+                    "id": 835
                 },
                 "HV_ERRORS": {
-                    "id": 260
+                    "id": 3
                 },
                 "TS_STATUS": {
-                    "id": 4
+                    "id": 35
                 }
             }
         },
         "BMS_HV": {
-            "id": 5,
+            "id": 4,
             "messages": {
                 "SET_TS_STATUS": {
-                    "id": 5
+                    "id": 4
+                },
+                "SET_CELL_BALANCING_STATUS": {
+                    "id": 516
+                },
+                "HANDCART_STATUS": {
+                    "id": 772
                 }
             }
         },
-        "ECU": {
-            "id": 6,
+        "DAS": {
+            "id": 5,
             "messages": {
                 "STEER_STATUS": {
-                    "id": 6
+                    "id": 261
                 },
                 "SET_CAR_STATUS": {
-                    "id": 38
+                    "id": 773
                 },
-                "GET_CAR_STATUS": {
-                    "id": 70
+                "SET_PEDALS_RANGE": {
+                    "id": 1029
                 }
             }
         },
-        "ECUnSTEER": {
-            "id": 7,
+        "DASnSTEER": {
+            "id": 6,
             "messages": {
                 "LV_CURRENT": {
-                    "id": 775
+                    "id": 774
                 },
                 "LV_VOLTAGE": {
-                    "id": 807
+                    "id": 806
                 },
                 "LV_TEMPERATURE": {
-                    "id": 839
+                    "id": 838
                 },
                 "COOLING_STATUS": {
-                    "id": 871
+                    "id": 870
                 }
             }
         },
         "HANDCART": {
-            "id": 8,
+            "id": 7,
             "messages": {
                 "HV_CELLS_VOLTAGE": {
-                    "id": 520
+                    "id": 519
                 },
                 "HV_CELLS_TEMP": {
-                    "id": 552
+                    "id": 551
                 },
-                "SET_CHG_POWER": {
-                    "id": 264
-                },
-                "CHG_STATUS": {
-                    "id": 8
-                },
-                "SET_CHG_STATUS": {
-                    "id": 40
-                },
-                "CHG_SETTINGS": {
-                    "id": 72
+                "HV_CELL_BALANCING_STATUS": {
+                    "id": 583
                 }
             }
         }

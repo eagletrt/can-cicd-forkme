@@ -1,6 +1,20 @@
 {
     "network_version": 0,
     "topics": {
+        "STEER": {
+            "id": 1,
+            "messages": {
+                "GPS_COORDS": {
+                    "id": 1025
+                },
+                "GPS_SPEED": {
+                    "id": 1057
+                },
+                "LAP_COUNT": {
+                    "id": 1089
+                }
+            }
+        },
         "FIXED_IDS": {
             "messages": {
                 "IMU_ANGULAR_RATE": {

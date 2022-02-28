@@ -74,4 +74,20 @@ Rear Right wheel InfraRed Temperature Sensor data, channels 13 through 16. 0.1˚
 """
 ID_IRTS_RR_3 = 0b10111000011
 
+# TOPIC STEER
+TOPIC_STEER_MASK = 0b00000011111
+TOPIC_STEER_FILTER = 0b00000000001
+"""
+Coordinates received from GPS
+"""
+ID_GPS_COORDS = 0b10000000001
+"""
+Speed received from GPS
+"""
+ID_GPS_SPEED = 0b10000100001
+"""
+Lap counter and associated timestamp
+"""
+ID_LAP_COUNT = 0b10001000001
+
 

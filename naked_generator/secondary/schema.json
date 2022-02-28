@@ -106,6 +106,17 @@
             "channel14": "uint16",
             "channel15": "uint16",
             "channel16": "uint16"
+        },
+        "GPS_COORDS": {
+            "latitude": "float32",
+            "longitude": "float32"
+        },
+        "GPS_SPEED": {
+            "speed": "uint16"
+        },
+        "LAP_COUNT": {
+            "lap_count": "uint8",
+            "timestamp": "uint32"
         }
     }
 }

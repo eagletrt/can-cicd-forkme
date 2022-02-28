@@ -1,65 +1,67 @@
 const byteify = require('byteify');
 
-function serializePrimarySetAcceleratorRange(data) {
+function serializePrimarySteerVersion(data) {
     return Uint8Array.from([
-        ...byteify.serializeInt8(data.sync_state),
+        ...byteify.serializeUint8(data.component_version),
+        ...byteify.serializeUint8(data.cancicd_version),
     ]);
 }
-function deserializePrimarySetAcceleratorRange(bytes) {
+function deserializePrimarySteerVersion(bytes) {
     return {
-        sync_state: byteify.deserializeInt8(bytes.slice(0, 1)),
+        component_version: byteify.deserializeUint8(bytes.slice(0, 1)),
+        cancicd_version: byteify.deserializeUint8(bytes.slice(1, 2)),
     }
 }
 
-function serializePrimaryPedalsAdcRanges(data) {
+function serializePrimaryDasVersion(data) {
     return Uint8Array.from([
-        ...byteify.serializeUint16(data.accel1_raw_adc_min),
-        ...byteify.serializeUint16(data.accel1_raw_adc_max),
-        ...byteify.serializeUint16(data.accel2_raw_adc_min),
-        ...byteify.serializeUint16(data.accel2_raw_adc_max),
+        ...byteify.serializeUint8(data.component_version),
+        ...byteify.serializeUint8(data.cancicd_version),
     ]);
 }
-function deserializePrimaryPedalsAdcRanges(bytes) {
+function deserializePrimaryDasVersion(bytes) {
     return {
-        accel1_raw_adc_min: byteify.deserializeUint16(bytes.slice(0, 2)),
-        accel1_raw_adc_max: byteify.deserializeUint16(bytes.slice(2, 4)),
-        accel2_raw_adc_min: byteify.deserializeUint16(bytes.slice(4, 6)),
-        accel2_raw_adc_max: byteify.deserializeUint16(bytes.slice(6, 8)),
+        component_version: byteify.deserializeUint8(bytes.slice(0, 1)),
+        cancicd_version: byteify.deserializeUint8(bytes.slice(1, 2)),
     }
 }
 
-function serializePrimaryAcceleratorPedalVal(data) {
+function serializePrimaryHvVersion(data) {
     return Uint8Array.from([
-        ...byteify.serializeUint8(data.level),
+        ...byteify.serializeUint8(data.component_version),
+        ...byteify.serializeUint8(data.cancicd_version),
     ]);
 }
-function deserializePrimaryAcceleratorPedalVal(bytes) {
+function deserializePrimaryHvVersion(bytes) {
     return {
-        level: byteify.deserializeUint8(bytes.slice(0, 1)),
+        component_version: byteify.deserializeUint8(bytes.slice(0, 1)),
+        cancicd_version: byteify.deserializeUint8(bytes.slice(1, 2)),
     }
 }
 
-function serializePrimaryBrakePedalVal(data) {
+function serializePrimaryLvVersion(data) {
     return Uint8Array.from([
-        ...byteify.serializeUint8(data.level),
+        ...byteify.serializeUint8(data.component_version),
+        ...byteify.serializeUint8(data.cancicd_version),
     ]);
 }
-function deserializePrimaryBrakePedalVal(bytes) {
+function deserializePrimaryLvVersion(bytes) {
     return {
-        level: byteify.deserializeUint8(bytes.slice(0, 1)),
+        component_version: byteify.deserializeUint8(bytes.slice(0, 1)),
+        cancicd_version: byteify.deserializeUint8(bytes.slice(1, 2)),
     }
 }
 
-function serializePrimaryPcuStatus(data) {
+function serializePrimaryTlmVersion(data) {
     return Uint8Array.from([
-        ...byteify.serializeInt8(data.warnings),
-        ...byteify.serializeInt8(data.errors),
+        ...byteify.serializeUint8(data.component_version),
+        ...byteify.serializeUint8(data.cancicd_version),
     ]);
 }
-function deserializePrimaryPcuStatus(bytes) {
+function deserializePrimaryTlmVersion(bytes) {
     return {
-        warnings: byteify.deserializeInt8(bytes.slice(0, 1)),
-        errors: byteify.deserializeInt8(bytes.slice(1, 2)),
+        component_version: byteify.deserializeUint8(bytes.slice(0, 1)),
+        cancicd_version: byteify.deserializeUint8(bytes.slice(1, 2)),
     }
 }
 
@@ -71,6 +73,34 @@ function serializePrimaryTimestamp(data) {
 function deserializePrimaryTimestamp(bytes) {
     return {
         timestamp: byteify.deserializeUint32(bytes.slice(0, 4)),
+    }
+}
+
+function serializePrimarySetTlmStatus(data) {
+    return Uint8Array.from([
+        ...byteify.serializeInt8(data.tlm_status_set),
+        ...byteify.serializeInt8(data.race_type),
+        ...byteify.serializeUint8(data.driver),
+        ...byteify.serializeUint8(data.circuit),
+    ]);
+}
+function deserializePrimarySetTlmStatus(bytes) {
+    return {
+        tlm_status_set: byteify.deserializeInt8(bytes.slice(0, 1)),
+        race_type: byteify.deserializeInt8(bytes.slice(1, 2)),
+        driver: byteify.deserializeUint8(bytes.slice(2, 3)),
+        circuit: byteify.deserializeUint8(bytes.slice(3, 4)),
+    }
+}
+
+function serializePrimarySteerSystemStatus(data) {
+    return Uint8Array.from([
+        ...byteify.serializeUint8(data.soc_temp),
+    ]);
+}
+function deserializePrimarySteerSystemStatus(bytes) {
+    return {
+        soc_temp: byteify.deserializeUint8(bytes.slice(0, 1)),
     }
 }
 
@@ -93,57 +123,33 @@ function deserializePrimaryTlmStatus(bytes) {
 
 function serializePrimaryCarStatus(data) {
     return Uint8Array.from([
-        ...byteify.serializeInt8(data.car_status),
         ...byteify.serializeInt8(data.inverter_l),
         ...byteify.serializeInt8(data.inverter_r),
+        ...byteify.serializeInt8(data.car_status),
     ]);
 }
 function deserializePrimaryCarStatus(bytes) {
     return {
-        car_status: byteify.deserializeInt8(bytes.slice(0, 1)),
-        inverter_l: byteify.deserializeInt8(bytes.slice(1, 2)),
-        inverter_r: byteify.deserializeInt8(bytes.slice(2, 3)),
+        inverter_l: byteify.deserializeInt8(bytes.slice(0, 1)),
+        inverter_r: byteify.deserializeInt8(bytes.slice(1, 2)),
+        car_status: byteify.deserializeInt8(bytes.slice(2, 3)),
     }
 }
 
-function serializePrimarySetTlmStatus(data) {
+function serializePrimarySpeed(data) {
     return Uint8Array.from([
-        ...byteify.serializeInt8(data.tlm_status),
-        ...byteify.serializeInt8(data.race_type),
-        ...byteify.serializeUint8(data.driver),
-        ...byteify.serializeUint8(data.circuit),
+        ...byteify.serializeUint16(data.encoder_r),
+        ...byteify.serializeUint16(data.encoder_l),
+        ...byteify.serializeUint16(data.inverter_r),
+        ...byteify.serializeUint16(data.inverter_l),
     ]);
 }
-function deserializePrimarySetTlmStatus(bytes) {
+function deserializePrimarySpeed(bytes) {
     return {
-        tlm_status: byteify.deserializeInt8(bytes.slice(0, 1)),
-        race_type: byteify.deserializeInt8(bytes.slice(1, 2)),
-        driver: byteify.deserializeUint8(bytes.slice(2, 3)),
-        circuit: byteify.deserializeUint8(bytes.slice(3, 4)),
-    }
-}
-
-function serializePrimaryGpsCoords(data) {
-    return Uint8Array.from([
-        ...byteify.serializeFloat32(data.latitude),
-        ...byteify.serializeFloat32(data.longitude),
-    ]);
-}
-function deserializePrimaryGpsCoords(bytes) {
-    return {
-        latitude: byteify.deserializeFloat32(bytes.slice(0, 4)),
-        longitude: byteify.deserializeFloat32(bytes.slice(4, 8)),
-    }
-}
-
-function serializePrimaryGpsSpeed(data) {
-    return Uint8Array.from([
-        ...byteify.serializeUint16(data.speed),
-    ]);
-}
-function deserializePrimaryGpsSpeed(bytes) {
-    return {
-        speed: byteify.deserializeUint16(bytes.slice(0, 2)),
+        encoder_r: byteify.deserializeUint16(bytes.slice(0, 2)),
+        encoder_l: byteify.deserializeUint16(bytes.slice(2, 4)),
+        inverter_r: byteify.deserializeUint16(bytes.slice(4, 6)),
+        inverter_l: byteify.deserializeUint16(bytes.slice(6, 8)),
     }
 }
 
@@ -166,13 +172,13 @@ function deserializePrimaryHvVoltage(bytes) {
 
 function serializePrimaryHvCurrent(data) {
     return Uint8Array.from([
-        ...byteify.serializeUint16(data.current),
+        ...byteify.serializeInt16(data.current),
         ...byteify.serializeInt16(data.power),
     ]);
 }
 function deserializePrimaryHvCurrent(bytes) {
     return {
-        current: byteify.deserializeUint16(bytes.slice(0, 2)),
+        current: byteify.deserializeInt16(bytes.slice(0, 2)),
         power: byteify.deserializeInt16(bytes.slice(2, 4)),
     }
 }
@@ -200,8 +206,8 @@ function serializePrimaryHvErrors(data) {
 }
 function deserializePrimaryHvErrors(bytes) {
     return {
-        warnings: byteify.deserializeInt8(bytes.slice(0, 2)),
-        errors: byteify.deserializeInt8(bytes.slice(2, 4)),
+        warnings: byteify.deserializeInt8(bytes.slice(0, 1)),
+        errors: byteify.deserializeInt8(bytes.slice(1, 2)),
     }
 }
 
@@ -227,18 +233,38 @@ function deserializePrimarySetTsStatus(bytes) {
     }
 }
 
+function serializePrimarySetCellBalancingStatus(data) {
+    return Uint8Array.from([
+        ...byteify.serializeInt8(data.set_balancing_status),
+    ]);
+}
+function deserializePrimarySetCellBalancingStatus(bytes) {
+    return {
+        set_balancing_status: byteify.deserializeInt8(bytes.slice(0, 1)),
+    }
+}
+
+function serializePrimaryHandcartStatus(data) {
+    return Uint8Array.from([
+        ...byteify.serializeBool(data.connected),
+    ]);
+}
+function deserializePrimaryHandcartStatus(bytes) {
+    return {
+        connected: byteify.deserializeBool(bytes.slice(0, 1)),
+    }
+}
+
 function serializePrimarySteerStatus(data) {
     return Uint8Array.from([
         ...byteify.serializeInt8(data.traction_control),
         ...byteify.serializeInt8(data.map),
-        ...byteify.serializeBool(data.radio_on),
     ]);
 }
 function deserializePrimarySteerStatus(bytes) {
     return {
         traction_control: byteify.deserializeInt8(bytes.slice(0, 1)),
         map: byteify.deserializeInt8(bytes.slice(1, 2)),
-        radio_on: byteify.deserializeBool(bytes.slice(2, 3)),
     }
 }
 
@@ -250,6 +276,19 @@ function serializePrimarySetCarStatus(data) {
 function deserializePrimarySetCarStatus(bytes) {
     return {
         car_status_set: byteify.deserializeInt8(bytes.slice(0, 1)),
+    }
+}
+
+function serializePrimarySetPedalsRange(data) {
+    return Uint8Array.from([
+        ...byteify.serializeInt8(data.bound),
+        ...byteify.serializeInt8(data.pedal),
+    ]);
+}
+function deserializePrimarySetPedalsRange(bytes) {
+    return {
+        bound: byteify.deserializeInt8(bytes.slice(0, 1)),
+        pedal: byteify.deserializeInt8(bytes.slice(1, 2)),
     }
 }
 
@@ -287,14 +326,14 @@ function serializePrimaryLvTemperature(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.dcdc_temperature),
         ...byteify.serializeUInt8(data.__unused_padding_1),
-        ...byteify.serializeUint16(data.battery_temperature),
+        ...byteify.serializeUint16(data.bp_temperature),
     ]);
 }
 function deserializePrimaryLvTemperature(bytes) {
     return {
         dcdc_temperature: byteify.deserializeUint8(bytes.slice(0, 1)),
         __unused_padding_1: byteify.deserializeUInt8(bytes.slice(1, 2)),
-        battery_temperature: byteify.deserializeUint16(bytes.slice(2, 4)),
+        bp_temperature: byteify.deserializeUint16(bytes.slice(2, 4)),
     }
 }
 
@@ -357,48 +396,13 @@ function deserializePrimaryHvCellsTemp(bytes) {
     }
 }
 
-function serializePrimarySetChgPower(data) {
+function serializePrimaryHvCellBalancingStatus(data) {
     return Uint8Array.from([
-        ...byteify.serializeUint16(data.current),
-        ...byteify.serializeUint16(data.voltage),
+        ...byteify.serializeInt8(data.balancing_status),
     ]);
 }
-function deserializePrimarySetChgPower(bytes) {
+function deserializePrimaryHvCellBalancingStatus(bytes) {
     return {
-        current: byteify.deserializeUint16(bytes.slice(0, 2)),
-        voltage: byteify.deserializeUint16(bytes.slice(2, 4)),
-    }
-}
-
-function serializePrimaryChgStatus(data) {
-    return Uint8Array.from([
-        ...byteify.serializeInt8(data.status),
-    ]);
-}
-function deserializePrimaryChgStatus(bytes) {
-    return {
-        status: byteify.deserializeInt8(bytes.slice(0, 1)),
-    }
-}
-
-function serializePrimarySetChgStatus(data) {
-    return Uint8Array.from([
-        ...byteify.serializeInt8(data.status),
-    ]);
-}
-function deserializePrimarySetChgStatus(bytes) {
-    return {
-        status: byteify.deserializeInt8(bytes.slice(0, 1)),
-    }
-}
-
-function serializePrimaryChgSettings(data) {
-    return Uint8Array.from([
-        ...byteify.serializeUint8(data.v_cutoff),
-    ]);
-}
-function deserializePrimaryChgSettings(bytes) {
-    return {
-        v_cutoff: byteify.deserializeUint8(bytes.slice(0, 1)),
+        balancing_status: byteify.deserializeInt8(bytes.slice(0, 1)),
     }
 }

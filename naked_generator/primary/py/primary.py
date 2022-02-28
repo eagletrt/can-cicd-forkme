@@ -2,13 +2,6 @@ from enum import IntEnum, IntFlag
 from struct import pack, unpack
 from collections import namedtuple
 
-class pcu_flags(IntFlag):
-    IMPLAUSIBILITY = 1
-    ADC_ERROR = 2
-    UART_ERROR = 4
-    CALIBRATION_INCOMPLETE = 8
-    CAN_ERROR = 16
-
 class Hv_Errors(IntFlag):
     LTC_PEC_ERROR = 1
     CELL_UNDER_VOLTAGE = 2
@@ -17,17 +10,10 @@ class Hv_Errors(IntFlag):
     OVER_CURRENT = 16
     ADC_INIT = 32
     ADC_TIMEOUT = 64
-    INT_VOLTAGE_MISMATCH = 128
-    FEEDBACK_HARD = 256
-    FEEDBACK_SOFT = 512
     
-class Sync_State(IntEnum):
-    MAX_SET = 0
-    MIN_SET = 1
-    
-class Tlm_Status(IntEnum):
-    ON = 0
-    OFF = 1
+class Tlm_Status_Set(IntEnum):
+    OFF = 0
+    ON = 1
     
 class Race_Type(IntEnum):
     ACCELERATION = 0
@@ -35,15 +21,19 @@ class Race_Type(IntEnum):
     AUTOCROSS = 2
     ENDURANCE = 3
     
-class Car_Status(IntEnum):
-    IDLE = 0
-    SETUP = 1
-    RUN = 2
+class Tlm_Status(IntEnum):
+    ON = 0
+    OFF = 1
     
 class Inverter_Status(IntEnum):
     OFF = 0
     IDLE = 1
     ON = 2
+    
+class Car_Status(IntEnum):
+    IDLE = 0
+    SETUP = 1
+    RUN = 2
     
 class Ts_Status(IntEnum):
     OFF = 0
@@ -52,6 +42,10 @@ class Ts_Status(IntEnum):
     FATAL = 3
     
 class Ts_Status_Set(IntEnum):
+    OFF = 0
+    ON = 1
+    
+class Set_Balancing_Status(IntEnum):
     OFF = 0
     ON = 1
     
@@ -73,77 +67,83 @@ class Car_Status_Set(IntEnum):
     IDLE = 0
     RUN = 1
     
-class Status(IntEnum):
-    CHG_OFF = 0
-    CHG_TC = 1
-    CHG_CC = 2
-    CHG_CV = 3
+class Bound(IntEnum):
+    SET_MAX = 0
+    SET_MIN = 1
+    
+class Pedal(IntEnum):
+    ACCELERATOR = 0
+    BRAKE = 1
+    
+class Balancing_Status(IntEnum):
+    ON = 0
+    OFF = 1
 
 
-# SetAcceleratorRange
-class SetAcceleratorRange:
-    struct = namedtuple("SetAcceleratorRange_struct", "sync_state", rename=True)
-    schema = "<B"
-    
-    @staticmethod
-    def serialize(sync_state) -> bytes:
-        return pack(SetAcceleratorRange.schema, sync_state)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SetAcceleratorRange.struct":
-        return SetAcceleratorRange.struct._make(unpack(SetAcceleratorRange.schema, buffer))
-
-# PedalsAdcRanges
-class PedalsAdcRanges:
-    struct = namedtuple("PedalsAdcRanges_struct", "accel1_raw_adc_min accel1_raw_adc_max accel2_raw_adc_min accel2_raw_adc_max", rename=True)
-    schema = "<hhhh"
-    
-    @staticmethod
-    def serialize(accel1_raw_adc_min, accel1_raw_adc_max, accel2_raw_adc_min, accel2_raw_adc_max) -> bytes:
-        return pack(PedalsAdcRanges.schema, accel1_raw_adc_min, accel1_raw_adc_max, accel2_raw_adc_min, accel2_raw_adc_max)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "PedalsAdcRanges.struct":
-        return PedalsAdcRanges.struct._make(unpack(PedalsAdcRanges.schema, buffer))
-
-# AcceleratorPedalVal
-class AcceleratorPedalVal:
-    struct = namedtuple("AcceleratorPedalVal_struct", "level", rename=True)
-    schema = "<b"
-    
-    @staticmethod
-    def serialize(level) -> bytes:
-        return pack(AcceleratorPedalVal.schema, level)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "AcceleratorPedalVal.struct":
-        return AcceleratorPedalVal.struct._make(unpack(AcceleratorPedalVal.schema, buffer))
-
-# BrakePedalVal
-class BrakePedalVal:
-    struct = namedtuple("BrakePedalVal_struct", "level", rename=True)
-    schema = "<b"
-    
-    @staticmethod
-    def serialize(level) -> bytes:
-        return pack(BrakePedalVal.schema, level)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "BrakePedalVal.struct":
-        return BrakePedalVal.struct._make(unpack(BrakePedalVal.schema, buffer))
-
-# PcuStatus
-class PcuStatus:
-    struct = namedtuple("PcuStatus_struct", "warnings errors", rename=True)
+# SteerVersion
+class SteerVersion:
+    struct = namedtuple("SteerVersion_struct", "component_version cancicd_version", rename=True)
     schema = "<bb"
     
     @staticmethod
-    def serialize(warnings, errors) -> bytes:
-        return pack(PcuStatus.schema, warnings, errors)
+    def serialize(component_version, cancicd_version) -> bytes:
+        return pack(SteerVersion.schema, component_version, cancicd_version)
     
     @staticmethod
-    def deserialize(buffer: bytes) -> "PcuStatus.struct":
-        return PcuStatus.struct._make(unpack(PcuStatus.schema, buffer))
+    def deserialize(buffer: bytes) -> "SteerVersion.struct":
+        return SteerVersion.struct._make(unpack(SteerVersion.schema, buffer))
+
+# DasVersion
+class DasVersion:
+    struct = namedtuple("DasVersion_struct", "component_version cancicd_version", rename=True)
+    schema = "<bb"
+    
+    @staticmethod
+    def serialize(component_version, cancicd_version) -> bytes:
+        return pack(DasVersion.schema, component_version, cancicd_version)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "DasVersion.struct":
+        return DasVersion.struct._make(unpack(DasVersion.schema, buffer))
+
+# HvVersion
+class HvVersion:
+    struct = namedtuple("HvVersion_struct", "component_version cancicd_version", rename=True)
+    schema = "<bb"
+    
+    @staticmethod
+    def serialize(component_version, cancicd_version) -> bytes:
+        return pack(HvVersion.schema, component_version, cancicd_version)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "HvVersion.struct":
+        return HvVersion.struct._make(unpack(HvVersion.schema, buffer))
+
+# LvVersion
+class LvVersion:
+    struct = namedtuple("LvVersion_struct", "component_version cancicd_version", rename=True)
+    schema = "<bb"
+    
+    @staticmethod
+    def serialize(component_version, cancicd_version) -> bytes:
+        return pack(LvVersion.schema, component_version, cancicd_version)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "LvVersion.struct":
+        return LvVersion.struct._make(unpack(LvVersion.schema, buffer))
+
+# TlmVersion
+class TlmVersion:
+    struct = namedtuple("TlmVersion_struct", "component_version cancicd_version", rename=True)
+    schema = "<bb"
+    
+    @staticmethod
+    def serialize(component_version, cancicd_version) -> bytes:
+        return pack(TlmVersion.schema, component_version, cancicd_version)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "TlmVersion.struct":
+        return TlmVersion.struct._make(unpack(TlmVersion.schema, buffer))
 
 # Timestamp
 class Timestamp:
@@ -157,6 +157,32 @@ class Timestamp:
     @staticmethod
     def deserialize(buffer: bytes) -> "Timestamp.struct":
         return Timestamp.struct._make(unpack(Timestamp.schema, buffer))
+
+# SetTlmStatus
+class SetTlmStatus:
+    struct = namedtuple("SetTlmStatus_struct", "tlm_status_set race_type driver circuit", rename=True)
+    schema = "<BBbb"
+    
+    @staticmethod
+    def serialize(tlm_status_set, race_type, driver, circuit) -> bytes:
+        return pack(SetTlmStatus.schema, tlm_status_set, race_type, driver, circuit)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "SetTlmStatus.struct":
+        return SetTlmStatus.struct._make(unpack(SetTlmStatus.schema, buffer))
+
+# SteerSystemStatus
+class SteerSystemStatus:
+    struct = namedtuple("SteerSystemStatus_struct", "soc_temp", rename=True)
+    schema = "<b"
+    
+    @staticmethod
+    def serialize(soc_temp) -> bytes:
+        return pack(SteerSystemStatus.schema, soc_temp)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "SteerSystemStatus.struct":
+        return SteerSystemStatus.struct._make(unpack(SteerSystemStatus.schema, buffer))
 
 # TlmStatus
 class TlmStatus:
@@ -173,55 +199,29 @@ class TlmStatus:
 
 # CarStatus
 class CarStatus:
-    struct = namedtuple("CarStatus_struct", "car_status inverter_l inverter_r", rename=True)
+    struct = namedtuple("CarStatus_struct", "inverter_l inverter_r car_status", rename=True)
     schema = "<BBB"
     
     @staticmethod
-    def serialize(car_status, inverter_l, inverter_r) -> bytes:
-        return pack(CarStatus.schema, car_status, inverter_l, inverter_r)
+    def serialize(inverter_l, inverter_r, car_status) -> bytes:
+        return pack(CarStatus.schema, inverter_l, inverter_r, car_status)
     
     @staticmethod
     def deserialize(buffer: bytes) -> "CarStatus.struct":
         return CarStatus.struct._make(unpack(CarStatus.schema, buffer))
 
-# SetTlmStatus
-class SetTlmStatus:
-    struct = namedtuple("SetTlmStatus_struct", "tlm_status race_type driver circuit", rename=True)
-    schema = "<BBbb"
+# Speed
+class Speed:
+    struct = namedtuple("Speed_struct", "encoder_r encoder_l inverter_r inverter_l", rename=True)
+    schema = "<hhhh"
     
     @staticmethod
-    def serialize(tlm_status, race_type, driver, circuit) -> bytes:
-        return pack(SetTlmStatus.schema, tlm_status, race_type, driver, circuit)
+    def serialize(encoder_r, encoder_l, inverter_r, inverter_l) -> bytes:
+        return pack(Speed.schema, encoder_r, encoder_l, inverter_r, inverter_l)
     
     @staticmethod
-    def deserialize(buffer: bytes) -> "SetTlmStatus.struct":
-        return SetTlmStatus.struct._make(unpack(SetTlmStatus.schema, buffer))
-
-# GpsCoords
-class GpsCoords:
-    struct = namedtuple("GpsCoords_struct", "latitude longitude", rename=True)
-    schema = "<dd"
-    
-    @staticmethod
-    def serialize(latitude, longitude) -> bytes:
-        return pack(GpsCoords.schema, latitude, longitude)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "GpsCoords.struct":
-        return GpsCoords.struct._make(unpack(GpsCoords.schema, buffer))
-
-# GpsSpeed
-class GpsSpeed:
-    struct = namedtuple("GpsSpeed_struct", "speed", rename=True)
-    schema = "<h"
-    
-    @staticmethod
-    def serialize(speed) -> bytes:
-        return pack(GpsSpeed.schema, speed)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "GpsSpeed.struct":
-        return GpsSpeed.struct._make(unpack(GpsSpeed.schema, buffer))
+    def deserialize(buffer: bytes) -> "Speed.struct":
+        return Speed.struct._make(unpack(Speed.schema, buffer))
 
 # HvVoltage
 class HvVoltage:
@@ -239,7 +239,7 @@ class HvVoltage:
 # HvCurrent
 class HvCurrent:
     struct = namedtuple("HvCurrent_struct", "current power", rename=True)
-    schema = "<hH"
+    schema = "<HH"
     
     @staticmethod
     def serialize(current, power) -> bytes:
@@ -265,7 +265,7 @@ class HvTemp:
 # HvErrors
 class HvErrors:
     struct = namedtuple("HvErrors_struct", "warnings errors", rename=True)
-    schema = "<hh"
+    schema = "<bb"
     
     @staticmethod
     def serialize(warnings, errors) -> bytes:
@@ -301,14 +301,40 @@ class SetTsStatus:
     def deserialize(buffer: bytes) -> "SetTsStatus.struct":
         return SetTsStatus.struct._make(unpack(SetTsStatus.schema, buffer))
 
-# SteerStatus
-class SteerStatus:
-    struct = namedtuple("SteerStatus_struct", "traction_control map radio_on", rename=True)
-    schema = "<BBb"
+# SetCellBalancingStatus
+class SetCellBalancingStatus:
+    struct = namedtuple("SetCellBalancingStatus_struct", "set_balancing_status", rename=True)
+    schema = "<B"
     
     @staticmethod
-    def serialize(traction_control, map, radio_on) -> bytes:
-        return pack(SteerStatus.schema, traction_control, map, radio_on)
+    def serialize(set_balancing_status) -> bytes:
+        return pack(SetCellBalancingStatus.schema, set_balancing_status)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "SetCellBalancingStatus.struct":
+        return SetCellBalancingStatus.struct._make(unpack(SetCellBalancingStatus.schema, buffer))
+
+# HandcartStatus
+class HandcartStatus:
+    struct = namedtuple("HandcartStatus_struct", "connected", rename=True)
+    schema = "<b"
+    
+    @staticmethod
+    def serialize(connected) -> bytes:
+        return pack(HandcartStatus.schema, connected)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "HandcartStatus.struct":
+        return HandcartStatus.struct._make(unpack(HandcartStatus.schema, buffer))
+
+# SteerStatus
+class SteerStatus:
+    struct = namedtuple("SteerStatus_struct", "traction_control map", rename=True)
+    schema = "<BB"
+    
+    @staticmethod
+    def serialize(traction_control, map) -> bytes:
+        return pack(SteerStatus.schema, traction_control, map)
     
     @staticmethod
     def deserialize(buffer: bytes) -> "SteerStatus.struct":
@@ -326,6 +352,19 @@ class SetCarStatus:
     @staticmethod
     def deserialize(buffer: bytes) -> "SetCarStatus.struct":
         return SetCarStatus.struct._make(unpack(SetCarStatus.schema, buffer))
+
+# SetPedalsRange
+class SetPedalsRange:
+    struct = namedtuple("SetPedalsRange_struct", "bound pedal", rename=True)
+    schema = "<BB"
+    
+    @staticmethod
+    def serialize(bound, pedal) -> bytes:
+        return pack(SetPedalsRange.schema, bound, pedal)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "SetPedalsRange.struct":
+        return SetPedalsRange.struct._make(unpack(SetPedalsRange.schema, buffer))
 
 # LvCurrent
 class LvCurrent:
@@ -355,12 +394,12 @@ class LvVoltage:
 
 # LvTemperature
 class LvTemperature:
-    struct = namedtuple("LvTemperature_struct", "dcdc_temperature __unused_padding_1 battery_temperature", rename=True)
+    struct = namedtuple("LvTemperature_struct", "dcdc_temperature __unused_padding_1 bp_temperature", rename=True)
     schema = "<bXh"
     
     @staticmethod
-    def serialize(dcdc_temperature, battery_temperature) -> bytes:
-        return pack(LvTemperature.schema, dcdc_temperature, battery_temperature)
+    def serialize(dcdc_temperature, bp_temperature) -> bytes:
+        return pack(LvTemperature.schema, dcdc_temperature, bp_temperature)
     
     @staticmethod
     def deserialize(buffer: bytes) -> "LvTemperature.struct":
@@ -405,54 +444,15 @@ class HvCellsTemp:
     def deserialize(buffer: bytes) -> "HvCellsTemp.struct":
         return HvCellsTemp.struct._make(unpack(HvCellsTemp.schema, buffer))
 
-# SetChgPower
-class SetChgPower:
-    struct = namedtuple("SetChgPower_struct", "current voltage", rename=True)
-    schema = "<hh"
-    
-    @staticmethod
-    def serialize(current, voltage) -> bytes:
-        return pack(SetChgPower.schema, current, voltage)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SetChgPower.struct":
-        return SetChgPower.struct._make(unpack(SetChgPower.schema, buffer))
-
-# ChgStatus
-class ChgStatus:
-    struct = namedtuple("ChgStatus_struct", "status", rename=True)
+# HvCellBalancingStatus
+class HvCellBalancingStatus:
+    struct = namedtuple("HvCellBalancingStatus_struct", "balancing_status", rename=True)
     schema = "<B"
     
     @staticmethod
-    def serialize(status) -> bytes:
-        return pack(ChgStatus.schema, status)
+    def serialize(balancing_status) -> bytes:
+        return pack(HvCellBalancingStatus.schema, balancing_status)
     
     @staticmethod
-    def deserialize(buffer: bytes) -> "ChgStatus.struct":
-        return ChgStatus.struct._make(unpack(ChgStatus.schema, buffer))
-
-# SetChgStatus
-class SetChgStatus:
-    struct = namedtuple("SetChgStatus_struct", "status", rename=True)
-    schema = "<B"
-    
-    @staticmethod
-    def serialize(status) -> bytes:
-        return pack(SetChgStatus.schema, status)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SetChgStatus.struct":
-        return SetChgStatus.struct._make(unpack(SetChgStatus.schema, buffer))
-
-# ChgSettings
-class ChgSettings:
-    struct = namedtuple("ChgSettings_struct", "v_cutoff", rename=True)
-    schema = "<b"
-    
-    @staticmethod
-    def serialize(v_cutoff) -> bytes:
-        return pack(ChgSettings.schema, v_cutoff)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "ChgSettings.struct":
-        return ChgSettings.struct._make(unpack(ChgSettings.schema, buffer))
+    def deserialize(buffer: bytes) -> "HvCellBalancingStatus.struct":
+        return HvCellBalancingStatus.struct._make(unpack(HvCellBalancingStatus.schema, buffer))

@@ -294,4 +294,52 @@ int main() {
     assert(memcmp(&secondary_irts_rr_3_s, secondary_irts_rr_3_d, sizeof(secondary_IRTS_RR_3)) == 0);
     puts("SUCCESS!\n");
         
+
+/* secondary_GPS_COORDS */
+    printf("secondary_GPS_COORDS:\n");
+    uint8_t* buffer_secondary_gps_coords = (uint8_t*)malloc(sizeof(secondary_GPS_COORDS));
+    
+    secondary_GPS_COORDS secondary_gps_coords_s = { 21779887.858, 910086971.126 };
+    serialize_secondary_GPS_COORDS(buffer_secondary_gps_coords, secondary_gps_coords_s.latitude, secondary_gps_coords_s.longitude);
+    printf("\tSerialized\n\t\n", (long long int)secondary_gps_coords_s.latitude, (long long int)secondary_gps_coords_s.longitude);
+    
+    secondary_GPS_COORDS* secondary_gps_coords_d = (secondary_GPS_COORDS*)malloc(sizeof(secondary_GPS_COORDS));
+    deserialize_secondary_GPS_COORDS(buffer_secondary_gps_coords, secondary_gps_coords_d);
+    printf("\tDeserialized\n\t\n", (long long int)secondary_gps_coords_d->latitude, (long long int)secondary_gps_coords_d->longitude);
+    
+    assert(memcmp(&secondary_gps_coords_s, secondary_gps_coords_d, sizeof(secondary_GPS_COORDS)) == 0);
+    puts("SUCCESS!\n");
+        
+
+/* secondary_GPS_SPEED */
+    printf("secondary_GPS_SPEED:\n");
+    uint8_t* buffer_secondary_gps_speed = (uint8_t*)malloc(sizeof(secondary_GPS_SPEED));
+    
+    secondary_GPS_SPEED secondary_gps_speed_s = { 37992.0 };
+    serialize_secondary_GPS_SPEED(buffer_secondary_gps_speed, secondary_gps_speed_s.speed);
+    printf("\tSerialized\n\t%llu\n", (long long unsigned int)secondary_gps_speed_s.speed);
+    
+    secondary_GPS_SPEED* secondary_gps_speed_d = (secondary_GPS_SPEED*)malloc(sizeof(secondary_GPS_SPEED));
+    deserialize_secondary_GPS_SPEED(buffer_secondary_gps_speed, secondary_gps_speed_d);
+    printf("\tDeserialized\n\t%llu\n", (long long unsigned int)secondary_gps_speed_d->speed);
+    
+    assert(memcmp(&secondary_gps_speed_s, secondary_gps_speed_d, sizeof(secondary_GPS_SPEED)) == 0);
+    puts("SUCCESS!\n");
+        
+
+/* secondary_LAP_COUNT */
+    printf("secondary_LAP_COUNT:\n");
+    uint8_t* buffer_secondary_lap_count = (uint8_t*)malloc(sizeof(secondary_LAP_COUNT));
+    
+    secondary_LAP_COUNT secondary_lap_count_s = { 80.0, 0, 0, 0, 4047411032.0 };
+    serialize_secondary_LAP_COUNT(buffer_secondary_lap_count, secondary_lap_count_s.lap_count, secondary_lap_count_s.timestamp);
+    printf("\tSerialized\n\t%llu %llu\n", (long long unsigned int)secondary_lap_count_s.lap_count, (long long unsigned int)secondary_lap_count_s.timestamp);
+    
+    secondary_LAP_COUNT* secondary_lap_count_d = (secondary_LAP_COUNT*)malloc(sizeof(secondary_LAP_COUNT));
+    deserialize_secondary_LAP_COUNT(buffer_secondary_lap_count, secondary_lap_count_d);
+    printf("\tDeserialized\n\t%llu %llu\n", (long long unsigned int)secondary_lap_count_d->lap_count, (long long unsigned int)secondary_lap_count_d->timestamp);
+    
+    assert(memcmp(&secondary_lap_count_s, secondary_lap_count_d, sizeof(secondary_LAP_COUNT)) == 0);
+    puts("SUCCESS!\n");
+        
 }

@@ -1,6 +1,6 @@
 #include <string.h>
 
-void bms_msgname_from_id(uint32_t msg_id, char buffer[static 14]) {
+void bms_msgname_from_id(uint32_t msg_id, char buffer[static 15]) {
     /*
     *       Returns a string containing the name of the message having the specified id
     *           Parameters:
@@ -44,29 +44,26 @@ void bms_msgname_from_id(uint32_t msg_id, char buffer[static 14]) {
         case 1441:
             strcpy(buffer, "TEMP_STATS_5");
             break;
-        case 1538:
-            strcpy(buffer, "BALANCING");
-            break;
-        case 1795:
-            strcpy(buffer, "MASTER_SYNC");
-            break;
-        case 516:
+        case 514:
             strcpy(buffer, "VOLTAGES_0");
             break;
-        case 548:
+        case 546:
             strcpy(buffer, "VOLTAGES_1");
             break;
-        case 580:
+        case 578:
             strcpy(buffer, "VOLTAGES_2");
             break;
-        case 612:
+        case 610:
             strcpy(buffer, "VOLTAGES_3");
             break;
-        case 644:
+        case 642:
             strcpy(buffer, "VOLTAGES_4");
             break;
-        case 676:
+        case 674:
             strcpy(buffer, "VOLTAGES_5");
+            break;
+        case 1539:
+            strcpy(buffer, "BALANCING");
             break;
         default:
             strcpy(buffer, ""); // Unknown message

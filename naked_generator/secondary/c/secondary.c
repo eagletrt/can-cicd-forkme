@@ -220,3 +220,39 @@ size_t deserialize_secondary_IRTS_RR_3(uint8_t* buffer, secondary_IRTS_RR_3* sec
 	memcpy(secondary_irts_rr_3, buffer, sizeof(secondary_IRTS_RR_3));
     return sizeof(secondary_IRTS_RR_3);
 }
+/* secondary_GPS_COORDS */
+size_t serialize_secondary_GPS_COORDS(uint8_t* buffer, float latitude, float longitude) {
+    secondary_GPS_COORDS secondary_gps_coords = { latitude, longitude };
+	// assert(buf_len >= sizeof(secondary_GPS_COORDS));
+	memcpy(buffer, &secondary_gps_coords, sizeof(secondary_GPS_COORDS));
+    return sizeof(secondary_GPS_COORDS);
+} 
+size_t deserialize_secondary_GPS_COORDS(uint8_t* buffer, secondary_GPS_COORDS* secondary_gps_coords) {
+	// assert(buf_len >= sizeof(secondary_GPS_COORDS));
+	memcpy(secondary_gps_coords, buffer, sizeof(secondary_GPS_COORDS));
+    return sizeof(secondary_GPS_COORDS);
+}
+/* secondary_GPS_SPEED */
+size_t serialize_secondary_GPS_SPEED(uint8_t* buffer, uint16_t speed) {
+    secondary_GPS_SPEED secondary_gps_speed = { speed };
+	// assert(buf_len >= sizeof(secondary_GPS_SPEED));
+	memcpy(buffer, &secondary_gps_speed, sizeof(secondary_GPS_SPEED));
+    return sizeof(secondary_GPS_SPEED);
+} 
+size_t deserialize_secondary_GPS_SPEED(uint8_t* buffer, secondary_GPS_SPEED* secondary_gps_speed) {
+	// assert(buf_len >= sizeof(secondary_GPS_SPEED));
+	memcpy(secondary_gps_speed, buffer, sizeof(secondary_GPS_SPEED));
+    return sizeof(secondary_GPS_SPEED);
+}
+/* secondary_LAP_COUNT */
+size_t serialize_secondary_LAP_COUNT(uint8_t* buffer, uint8_t lap_count, uint32_t timestamp) {
+    secondary_LAP_COUNT secondary_lap_count = { lap_count, 0x00, 0x00, 0x00, timestamp };
+	// assert(buf_len >= sizeof(secondary_LAP_COUNT));
+	memcpy(buffer, &secondary_lap_count, sizeof(secondary_LAP_COUNT));
+    return sizeof(secondary_LAP_COUNT);
+} 
+size_t deserialize_secondary_LAP_COUNT(uint8_t* buffer, secondary_LAP_COUNT* secondary_lap_count) {
+	// assert(buf_len >= sizeof(secondary_LAP_COUNT));
+	memcpy(secondary_lap_count, buffer, sizeof(secondary_LAP_COUNT));
+    return sizeof(secondary_LAP_COUNT);
+}

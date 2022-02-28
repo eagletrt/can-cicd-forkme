@@ -236,3 +236,42 @@ class IrtsRr3:
     @staticmethod
     def deserialize(buffer: bytes) -> "IrtsRr3.struct":
         return IrtsRr3.struct._make(unpack(IrtsRr3.schema, buffer))
+
+# GpsCoords
+class GpsCoords:
+    struct = namedtuple("GpsCoords_struct", "latitude longitude", rename=True)
+    schema = "<dd"
+    
+    @staticmethod
+    def serialize(latitude, longitude) -> bytes:
+        return pack(GpsCoords.schema, latitude, longitude)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "GpsCoords.struct":
+        return GpsCoords.struct._make(unpack(GpsCoords.schema, buffer))
+
+# GpsSpeed
+class GpsSpeed:
+    struct = namedtuple("GpsSpeed_struct", "speed", rename=True)
+    schema = "<h"
+    
+    @staticmethod
+    def serialize(speed) -> bytes:
+        return pack(GpsSpeed.schema, speed)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "GpsSpeed.struct":
+        return GpsSpeed.struct._make(unpack(GpsSpeed.schema, buffer))
+
+# LapCount
+class LapCount:
+    struct = namedtuple("LapCount_struct", "lap_count __unused_padding_1 __unused_padding_2 __unused_padding_3 timestamp", rename=True)
+    schema = "<bXXXi"
+    
+    @staticmethod
+    def serialize(lap_count, timestamp) -> bytes:
+        return pack(LapCount.schema, lap_count, timestamp)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "LapCount.struct":
+        return LapCount.struct._make(unpack(LapCount.schema, buffer))

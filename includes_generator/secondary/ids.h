@@ -78,4 +78,20 @@
 */
 #define ID_IRTS_RR_3 0b10111000011
 
+/* TOPIC STEER */
+#define TOPIC_STEER_MASK 0b00000011111
+#define TOPIC_STEER_FILTER 0b00000000001
+/*
+* Coordinates received from GPS
+*/
+#define ID_GPS_COORDS 0b10000000001
+/*
+* Speed received from GPS
+*/
+#define ID_GPS_SPEED 0b10000100001
+/*
+* Lap counter and associated timestamp
+*/
+#define ID_LAP_COUNT 0b10001000001
+
 #endif

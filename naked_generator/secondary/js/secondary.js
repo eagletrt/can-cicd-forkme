@@ -301,3 +301,46 @@ function deserializeSecondaryIrtsRr3(bytes) {
         channel16: byteify.deserializeUint16(bytes.slice(6, 8)),
     }
 }
+
+function serializeSecondaryGpsCoords(data) {
+    return Uint8Array.from([
+        ...byteify.serializeFloat32(data.latitude),
+        ...byteify.serializeFloat32(data.longitude),
+    ]);
+}
+function deserializeSecondaryGpsCoords(bytes) {
+    return {
+        latitude: byteify.deserializeFloat32(bytes.slice(0, 4)),
+        longitude: byteify.deserializeFloat32(bytes.slice(4, 8)),
+    }
+}
+
+function serializeSecondaryGpsSpeed(data) {
+    return Uint8Array.from([
+        ...byteify.serializeUint16(data.speed),
+    ]);
+}
+function deserializeSecondaryGpsSpeed(bytes) {
+    return {
+        speed: byteify.deserializeUint16(bytes.slice(0, 2)),
+    }
+}
+
+function serializeSecondaryLapCount(data) {
+    return Uint8Array.from([
+        ...byteify.serializeUint8(data.lap_count),
+        ...byteify.serializeUInt8(data.__unused_padding_1),
+        ...byteify.serializeUInt8(data.__unused_padding_2),
+        ...byteify.serializeUInt8(data.__unused_padding_3),
+        ...byteify.serializeUint32(data.timestamp),
+    ]);
+}
+function deserializeSecondaryLapCount(bytes) {
+    return {
+        lap_count: byteify.deserializeUint8(bytes.slice(0, 1)),
+        __unused_padding_1: byteify.deserializeUInt8(bytes.slice(1, 2)),
+        __unused_padding_2: byteify.deserializeUInt8(bytes.slice(2, 3)),
+        __unused_padding_3: byteify.deserializeUInt8(bytes.slice(3, 4)),
+        timestamp: byteify.deserializeUint32(bytes.slice(4, 8)),
+    }
+}

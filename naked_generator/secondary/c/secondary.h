@@ -292,6 +292,38 @@ static_assert(sizeof(secondary_IRTS_RR_3) == 8, "struct size mismatch");
     
 size_t serialize_secondary_IRTS_RR_3(uint8_t* buffer, uint16_t channel13, uint16_t channel14, uint16_t channel15, uint16_t channel16);
 size_t deserialize_secondary_IRTS_RR_3(uint8_t* buffer, secondary_IRTS_RR_3* secondary_irts_rr_3);
+
+/* secondary_GPS_COORDS */
+typedef struct __is_packed {
+    float latitude;
+    float longitude;
+} secondary_GPS_COORDS;
+static_assert(sizeof(secondary_GPS_COORDS) == 8, "struct size mismatch");
+    
+size_t serialize_secondary_GPS_COORDS(uint8_t* buffer, float latitude, float longitude);
+size_t deserialize_secondary_GPS_COORDS(uint8_t* buffer, secondary_GPS_COORDS* secondary_gps_coords);
+
+/* secondary_GPS_SPEED */
+typedef struct __is_packed {
+    uint16_t speed;
+} secondary_GPS_SPEED;
+static_assert(sizeof(secondary_GPS_SPEED) == 2, "struct size mismatch");
+    
+size_t serialize_secondary_GPS_SPEED(uint8_t* buffer, uint16_t speed);
+size_t deserialize_secondary_GPS_SPEED(uint8_t* buffer, secondary_GPS_SPEED* secondary_gps_speed);
+
+/* secondary_LAP_COUNT */
+typedef struct __is_packed {
+    uint8_t lap_count;
+    uint8_t __unused_padding_1;
+    uint8_t __unused_padding_2;
+    uint8_t __unused_padding_3;
+    uint32_t timestamp;
+} secondary_LAP_COUNT;
+static_assert(sizeof(secondary_LAP_COUNT) == 8, "struct size mismatch");
+    
+size_t serialize_secondary_LAP_COUNT(uint8_t* buffer, uint8_t lap_count, uint32_t timestamp);
+size_t deserialize_secondary_LAP_COUNT(uint8_t* buffer, secondary_LAP_COUNT* secondary_lap_count);
 #endif
 
 #ifdef __cplusplus

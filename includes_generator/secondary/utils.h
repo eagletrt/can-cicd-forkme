@@ -1,6 +1,6 @@
 #include <string.h>
 
-void secondary_msgname_from_id(uint32_t msg_id, char buffer[static 16]) {
+void secondary_msgname_from_id(uint32_t msg_id, char buffer[static 17]) {
     /*
     *       Returns a string containing the name of the message having the specified id
     *           Parameters:
@@ -61,6 +61,15 @@ void secondary_msgname_from_id(uint32_t msg_id, char buffer[static 16]) {
             break;
         case 1475:
             strcpy(buffer, "IRTS_RR_3");
+            break;
+        case 1025:
+            strcpy(buffer, "GPS_COORDS");
+            break;
+        case 1057:
+            strcpy(buffer, "GPS_SPEED");
+            break;
+        case 1089:
+            strcpy(buffer, "LAP_COUNT");
             break;
         default:
             strcpy(buffer, ""); // Unknown message
