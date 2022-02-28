@@ -2,16 +2,6 @@
     "network_version": 1.2,
     "max_payload_size": 8,
     "types": {
-        "pcu_flags": {
-            "type": "bitset",
-            "items": [
-                "IMPLAUSIBILITY",
-                "ADC_ERROR",
-                "UART_ERROR",
-                "CALIBRATION_INCOMPLETE",
-                "CAN_ERROR"
-            ]
-        },
         "Hv_Errors": {
             "type": "bitset",
             "items": [
@@ -21,130 +11,127 @@
                 "CELL_OVER_TEMPERATURE",
                 "OVER_CURRENT",
                 "ADC_INIT",
-                "ADC_TIMEOUT",
-                "INT_VOLTAGE_MISMATCH",
-                "FEEDBACK_HARD",
-                "FEEDBACK_SOFT"
+                "ADC_TIMEOUT"
             ]
         }
     },
     "messages": [
         {
-            "name": "SET_ACCELERATOR_RANGE",
-            "topic": "PEDALS",
+            "name": "STEER_VERSION",
+            "topic": "BROADCAST",
             "priority": 3,
             "sending": [
-                "STEER",
-                "ECU"
+                "STEER"
             ],
             "receiving": [
-                "PCU",
-                "ECU"
+                "DAS",
+                "STEER"
             ],
-            "description": "Syncronization message from Steering Wheel or ECU to PCU for calibration purpose.\nMessage semantic: sets (max|min) value for accelerator pedal the moment PCU receives the message with the current read value.",
+            "description": "periodic message containing current can definitions version; one every 1000 ms",
             "contents": {
-                "sync_state": [
-                    "MAX_SET",
-                    "MIN_SET"
-                ]
+                "component_version": "uint8",
+                "cancicd_version": "uint8"
             }
         },
         {
-            "name": "PEDALS_ADC_RANGES",
-            "topic": "PEDALS",
+            "name": "DAS_VERSION",
+            "topic": "BROADCAST",
             "priority": 3,
             "sending": [
-                "ECU",
-                "PCU"
+                "DAS"
             ],
             "receiving": [
-                "PCU",
-                "ECU"
+                "DAS",
+                "STEER"
             ],
-            "description": "This message contains accelarator ADC raw values used by PCU to set 0->255 range when sending accelerator value. This value is either sent by ECU or by PCU",
+            "description": "periodic message containing current can definitions version; one every 1000 ms",
             "contents": {
-                "accel1_raw_adc_min": "uint16",
-                "accel1_raw_adc_max": "uint16",
-                "accel2_raw_adc_min": "uint16",
-                "accel2_raw_adc_max": "uint16"
+                "component_version": "uint8",
+                "cancicd_version": "uint8"
             }
         },
         {
-            "name": "ACCELERATOR_PEDAL_VAL",
-            "topic": "PEDALS",
-            "priority": 6,
+            "name": "HV_VERSION",
+            "topic": "BROADCAST",
+            "priority": 3,
             "sending": [
-                "PCU"
+                "BMS_HW"
             ],
             "receiving": [
-                "ECU,TLM"
+                "DAS",
+                "STEER"
             ],
-            "description": "Accelerator Pedal potentiometer Value. Average of 2 sensors normalized from 0 to 255, linear, 8bit total, unsigned.",
+            "description": "periodic message containing current can definitions version; one every 1000 ms",
             "contents": {
-                "level": "uint8"
+                "component_version": "uint8",
+                "cancicd_version": "uint8"
             }
         },
         {
-            "name": "BRAKE_PEDAL_VAL",
-            "topic": "PEDALS",
-            "priority": 6,
+            "name": "LV_VERSION",
+            "topic": "BROADCAST",
+            "priority": 3,
             "sending": [
-                "PCU"
+                "BMS_LW"
             ],
             "receiving": [
-                "ECU,TLM"
+                "DAS",
+                "STEER"
             ],
-            "description": "Brake Pedal pressure sensor Value. Normalized from 0 to 255, linear, 8bit total, unsigned.",
+            "description": "periodic message containing current can definitions version; one every 1000 ms",
             "contents": {
-                "level": "uint8"
+                "component_version": "uint8",
+                "cancicd_version": "uint8"
             }
         },
         {
-            "name": "PCU_STATUS",
-            "topic": "PEDALS",
-            "priority": 5,
+            "name": "TLM_VERSION",
+            "topic": "BROADCAST",
+            "priority": 3,
             "sending": [
-                "PCU"
+                "TLM"
             ],
             "receiving": [
-                "ECU,TLM,STEER"
+                "DAS",
+                "STEER"
             ],
-            "description": "PCU current status. Warnings and errors.",
+            "description": "periodic message containing current can definitions version; one every 1000 ms",
             "contents": {
-                "warnings": "pcu_flags",
-                "errors": "pcu_flags"
+                "component_version": "uint8",
+                "cancicd_version": "uint8"
             }
         },
         {
             "name": "TIMESTAMP",
             "topic": "BROADCAST",
-            "priority": 1,
+            "priority": 6,
             "sending": [
                 "TLM"
             ],
             "receiving": [
                 "STEER",
+                "DAS",
                 "BMS_HV",
                 "BMS_LV",
-                "ECU",
-                "PEDALS"
+                "TLM"
             ],
             "contents": {
                 "timestamp": "uint32"
             }
         },
         {
-            "name": "TLM_STATUS",
-            "topic": "STEER",
+            "name": "SET_TLM_STATUS",
+            "topic": "TLM",
             "priority": 6,
             "sending": [
-                "TLM"
-            ],
-            "receiving": [
                 "STEER"
             ],
+            "receiving": [
+                "TLM"
+            ],
+            "description": "Ask telemetry to turn on/off and send a tuple containing the current{test, driver, map(soon implemented}; only once",
             "contents": {
-                "tlm_status": [
+                "tlm_status_set": [
                     "OFF",
                     "ON"
                 ],
@@ -159,15 +146,16 @@
             }
         },
         {
-            "name": "SET_TLM_STATUS",
-            "topic": "TLM",
+            "name": "TLM_STATUS",
+            "topic": "STEER",
             "priority": 6,
             "sending": [
-                "STEER"
-            ],
-            "receiving": [
                 "TLM"
             ],
+            "receiving": [
+                "STEER"
+            ],
+            "description": "The answer to the steering wheel's message that changes the status of the telemetry; one every 1000 ms",
             "contents": {
                 "tlm_status": [
                     "ON",
@@ -184,17 +172,33 @@
             }
         },
         {
+            "name": "STEER_SYSTEM_STATUS",
+            "topic": "TLM",
+            "priority": 0,
+            "sending": [
+                "STEER"
+            ],
+            "receiving": [
+                "TLM"
+            ],
+            "description": "System stats of the raspberry pi inside the steering wheel; one every 2000 ms",
+            "contents": {
+                "soc_temp": "uint8"
+            }
+        },
+        {
             "name": "HV_VOLTAGE",
-            "topic": "ECUnSTEERnCART",
+            "topic": "DASnSTEERnCART",
             "priority": 4,
             "sending": [
                 "BMS_HV"
             ],
             "receiving": [
-                "ECU",
+                "DAS",
                 "STEER",
                 "HANDCART"
             ],
+            "description": "Pack stats; one every 20 ms",
             "contents": {
                 "pack_voltage": "uint16",
                 "bus_voltage": "uint16",
@@ -204,33 +208,35 @@
         },
         {
             "name": "HV_CURRENT",
-            "topic": "ECUnSTEERnCART",
+            "topic": "DASnSTEERnCART",
             "priority": 4,
             "sending": [
                 "BMS_HV"
             ],
             "receiving": [
-                "ECU",
+                "DAS",
                 "STEER",
                 "HANDCART"
             ],
+            "description": "Current supplied by the pack; one every 20 ms",
             "contents": {
-                "current": "uint16",
+                "current": "int16",
                 "power": "int16"
             }
         },
         {
             "name": "HV_TEMP",
-            "topic": "ECUnSTEERnCART",
+            "topic": "DASnSTEERnCART",
             "priority": 4,
             "sending": [
                 "BMS_HV"
             ],
             "receiving": [
-                "ECU",
+                "DAS",
                 "STEER",
                 "HANDCART"
             ],
+            "description": "Cell temperatures; one every 20 ms",
             "contents": {
                 "average_temp": "uint16",
                 "max_temp": "uint16",
@@ -239,16 +245,17 @@
         },
         {
             "name": "HV_ERRORS",
-            "topic": "ECUnSTEERnCART",
-            "priority": 6,
+            "topic": "DASnSTEERnCART",
+            "priority": 7,
             "sending": [
                 "BMS_HV"
             ],
             "receiving": [
-                "ECU",
+                "DAS",
                 "STEER",
                 "HANDCART"
             ],
+            "description": "Battery-related errors; if there are, one every 20 ms",
             "contents": {
                 "warnings": "Hv_Errors",
                 "errors": "Hv_Errors"
@@ -256,16 +263,17 @@
         },
         {
             "name": "TS_STATUS",
-            "topic": "ECUnSTEERnCART",
+            "topic": "DASnSTEERnCART",
             "priority": 7,
             "sending": [
                 "BMS_HV"
             ],
             "receiving": [
-                "ECU",
+                "DAS",
                 "STEER",
                 "HANDCART"
             ],
+            "description": "BMS status; one every 20 ms",
             "contents": {
                 "ts_status": [
                     "OFF",
@@ -280,12 +288,13 @@
             "topic": "BMS_HV",
             "priority": 7,
             "sending": [
-                "ECU",
+                "DAS",
                 "HANDCART"
             ],
             "receiving": [
                 "BMS_HV"
             ],
+            "description": "Requests a TS status; only once",
             "contents": {
                 "ts_status_set": [
                     "OFF",
@@ -295,14 +304,15 @@
         },
         {
             "name": "STEER_STATUS",
-            "topic": "ECU",
-            "priority": 7,
+            "topic": "DAS",
+            "priority": 6,
             "sending": [
                 "STEER"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
+            "description": "Send update of the tuneable values from the steering wheel; one every 100 ms",
             "contents": {
                 "traction_control": [
                     "OFF",
@@ -317,20 +327,20 @@
                     "D60",
                     "D80",
                     "D100"
-                ],
-                "radio_on": "bool"
+                ]
             }
         },
         {
             "name": "SET_CAR_STATUS",
-            "topic": "ECU",
-            "priority": 7,
+            "topic": "DAS",
+            "priority": 4,
             "sending": [
                 "STEER"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
+            "description": "Ask to DAS to change car status; only once",
             "contents": {
                 "car_status_set": [
                     "IDLE",
@@ -339,33 +349,39 @@
             }
         },
         {
-            "name": "GET_CAR_STATUS",
-            "topic": "ECU",
-            "priority": 7,
+            "name": "SET_PEDALS_RANGE",
+            "topic": "DAS",
+            "priority": 3,
             "sending": [
                 "STEER"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
-            "contents": {}
+            "description": "Ask to calibrate pedals and steer in x_START, x_END steps; only once",
+            "contents": {
+                "bound": [
+                    "SET_MAX",
+                    "SET_MIN"
+                ],
+                "pedal": [
+                    "ACCELERATOR",
+                    "BRAKE"
+                ]
+            }
         },
         {
             "name": "CAR_STATUS",
             "topic": "STEER",
-            "priority": 7,
+            "priority": 5,
             "sending": [
-                "ECU"
+                "DAS"
             ],
             "receiving": [
                 "STEER"
             ],
+            "description": "Car status, all states managed by the DAS will be send (car status, inverters status); one every 100 ms",
             "contents": {
-                "car_status": [
-                    "IDLE",
-                    "SETUP",
-                    "RUN"
-                ],
                 "Inverter_status: inverter_l": [
                     "OFF",
                     "IDLE",
@@ -375,35 +391,42 @@
                     "OFF",
                     "IDLE",
                     "ON"
+                ],
+                "car_status": [
+                    "IDLE",
+                    "SETUP",
+                    "RUN"
                 ]
             }
         },
         {
             "name": "LV_CURRENT",
-            "topic": "ECUnSTEER",
+            "topic": "DASnSTEER",
             "priority": 4,
             "sending": [
                 "BMS_LV"
             ],
             "receiving": [
-                "ECU",
+                "DAS",
                 "STEER"
             ],
+            "description": "Current of LV battery pack: total current taken from the battery itself; one every 500 ms",
             "contents": {
                 "current": "uint8"
             }
         },
         {
             "name": "LV_VOLTAGE",
-            "topic": "ECUnSTEER",
+            "topic": "DASnSTEER",
             "priority": 4,
             "sending": [
                 "BMS_LV"
             ],
             "receiving": [
-                "ECU",
+                "DAS",
                 "STEER"
             ],
+            "description": "Voltages of LV battery pack: total voltage 16 bit [12,17.2]V (0x0000 under_voltage,0xFFFF over_voltage), 4x single cell voltage 8bit [3,4.2]V 0.005mV/bit (no additional info, 0x000 is 3V 0xFFFF is 4.2V); one every 200 ms",
             "contents": {
                 "total_voltage": "uint16",
                 "voltage_1": "uint8",
@@ -414,31 +437,33 @@
         },
         {
             "name": "LV_TEMPERATURE",
-            "topic": "ECUnSTEER",
+            "topic": "DASnSTEER",
             "priority": 4,
             "sending": [
                 "BMS_LV"
             ],
             "receiving": [
-                "ECU",
+                "DAS",
                 "STEER"
             ],
+            "description": "Temperature of LV battery pack,[0,80]Celsius, uint8 0.32C/bit. battery pack and dcdc converter; one every 200 ms",
             "contents": {
-                "battery_temperature": "uint16",
+                "bp_temperature": "uint16",
                 "dcdc_temperature": "uint8"
             }
         },
         {
             "name": "COOLING_STATUS",
-            "topic": "ECUnSTEER",
+            "topic": "DASnSTEER",
             "priority": 4,
             "sending": [
                 "BMS_LV"
             ],
             "receiving": [
-                "ECU",
+                "DAS",
                 "STEER"
             ],
+            "description": "Percentage value 0% to 100% of bms_hv_fans, bms_lv_fans, pump_speed, 8bit; one every 1000 ms",
             "contents": {
                 "hv_fan_speed": "uint8",
                 "lv_fan_speed": "uint8",
@@ -455,6 +480,7 @@
             "receiving": [
                 "HANDCART"
             ],
+            "description": "Voltages for each cell; one every 200 ms",
             "contents": {
                 "cell_index": "uint8",
                 "voltage_0": "uint16",
@@ -472,6 +498,7 @@
             "receiving": [
                 "HANDCART"
             ],
+            "description": "Cell temperatures; one every 100 ms",
             "contents": {
                 "cell_index": "uint8",
                 "temp_0": "uint8",
@@ -484,101 +511,72 @@
             }
         },
         {
-            "name": "SET_CHG_POWER",
+            "name": "HV_CELL_BALANCING_STATUS",
             "topic": "HANDCART",
-            "priority": 6,
+            "priority": 5,
             "sending": [
                 "BMS_HV"
             ],
             "receiving": [
                 "HANDCART"
             ],
+            "description": "Cell balancing status; one every 500 ms",
             "contents": {
-                "current": "uint16",
-                "voltage": "uint16"
-            }
-        },
-        {
-            "name": "CHG_STATUS",
-            "topic": "HANDCART",
-            "priority": 7,
-            "sending": [
-                "BMS_HV"
-            ],
-            "receiving": [
-                "HANDCART"
-            ],
-            "contents": {
-                "status": [
-                    "CHG_OFF",
-                    "CHG_TC",
-                    "CHG_CC",
-                    "CHG_CV"
+                "balancing_status": [
+                    "ON",
+                    "OFF"
                 ]
             }
         },
         {
-            "name": "SET_CHG_STATUS",
-            "topic": "HANDCART",
-            "priority": 7,
+            "name": "SET_CELL_BALANCING_STATUS",
+            "topic": "BMS_HV",
+            "priority": 5,
             "sending": [
                 "HANDCART"
             ],
             "receiving": [
                 "BMS_HV"
             ],
+            "description": "Set cell balancing status; only once",
             "contents": {
-                "status": [
-                    "CHG_OFF",
-                    "CHG_TC",
-                    "CHG_CC",
-                    "CHG_CV"
+                "set_balancing_status": [
+                    "OFF",
+                    "ON"
                 ]
             }
         },
         {
-            "name": "CHG_SETTINGS",
-            "topic": "HANDCART",
-            "priority": 7,
-            "sending": [
-                "HANDCART"
-            ],
-            "receiving": [
-                "BMS_HV"
-            ],
-            "contents": {
-                "v_cutoff": "uint8"
-            }
-        },
-        {
-            "name": "GPS_COORDS",
-            "topic": "TLM",
+            "name": "HANDCART_STATUS",
+            "topic": "BMS_HV",
             "priority": 4,
-            "description": "Coordinates received from GPS",
             "sending": [
-                "TLM"
+                "HANDCART"
             ],
             "receiving": [
-                "STEER"
+                "BMS_HV"
             ],
+            "description": "Sends updates on the presence of the handcart; one every 500 ms",
             "contents": {
-                "latitude": "float32",
-                "longitude": "float32"
+                "connected": "bool"
             }
         },
         {
-            "name": "GPS_SPEED",
-            "topic": "TLM",
-            "priority": 3,
-            "description": "Speed received from GPS",
+            "name": "SPEED",
+            "topic": "STEER",
+            "priority": 5,
             "sending": [
-                "TLM"
+                "DAS"
             ],
             "receiving": [
                 "STEER"
             ],
+            "description": "Encoder speed and inverter RPMs; one every ? ms",
             "contents": {
-                "speed": "uint16"    
+                "encoder_r": "uint16",
+                "encoder_l": "uint16",
+                "inverter_r": "uint16",
+                "inverter_l": "uint16"
             }
         }
     ]

@@ -10,7 +10,7 @@
                 "IMU"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Inertial Measurement Unit [x,y,z]-axis angular rate value. 0.01dps per bit, Big-Endian, 16bit Total, signed",
             "contents": {
@@ -26,7 +26,7 @@
                 "IMU"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Inertial Measurement Unit [x,y,z]-axis acceleration value. 0.01g per bit, Big-Endian, 16bit Total, signed",
             "contents": {
@@ -42,7 +42,7 @@
                 "IRTS_FL"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Front Left wheel InfraRed Temperature Sensor data, channels 1 through 4. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -59,7 +59,7 @@
                 "IRTS_FL"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Front Left wheel InfraRed Temperature Sensor data, channels 5 through 8. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -76,7 +76,7 @@
                 "IRTS_FL"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Front Left wheel InfraRed Temperature Sensor data, channels 9 through 12. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -93,7 +93,7 @@
                 "IRTS_FL"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Front Left wheel InfraRed Temperature Sensor data, channels 13 through 16. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -110,7 +110,7 @@
                 "IRTS_FR"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Front Right wheel InfraRed Temperature Sensor data, channels 1 through 4. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -127,7 +127,7 @@
                 "IRTS_FR"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Front Right wheel InfraRed Temperature Sensor data, channels 5 through 8. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -144,7 +144,7 @@
                 "IRTS_FR"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Front Right wheel InfraRed Temperature Sensor data, channels 9 through 12. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -161,7 +161,7 @@
                 "IRTS_FR"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Front Right wheel InfraRed Temperature Sensor data, channels 13 through 16. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -178,7 +178,7 @@
                 "IRTS_RL"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Rear Left wheel InfraRed Temperature Sensor data, channels 1 through 4. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -195,7 +195,7 @@
                 "IRTS_RL"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Rear Left wheel InfraRed Temperature Sensor data, channels 5 through 8. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -212,7 +212,7 @@
                 "IRTS_RL"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Rear Left wheel InfraRed Temperature Sensor data, channels 9 through 12. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -229,7 +229,7 @@
                 "IRTS_RL"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Rear Left wheel InfraRed Temperature Sensor data, channels 13 through 16. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -246,7 +246,7 @@
                 "IRTS_RR"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Rear Right wheel InfraRed Temperature Sensor data, channels 1 through 4. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -263,7 +263,7 @@
                 "IRTS_RR"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Rear Right wheel InfraRed Temperature Sensor data, channels 5 through 8. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -280,7 +280,7 @@
                 "IRTS_RR"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Rear Right wheel InfraRed Temperature Sensor data, channels 9 through 12. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -297,7 +297,7 @@
                 "IRTS_RR"
             ],
             "receiving": [
-                "ECU"
+                "DAS"
             ],
             "description": "Rear Right wheel InfraRed Temperature Sensor data, channels 13 through 16. 0.1˚C per bit, -100˚C offset, Big-Endian, 16bit Total, unsigned.",
             "contents": {
@@ -305,6 +305,53 @@
                 "channel14": "uint16",
                 "channel15": "uint16",
                 "channel16": "uint16"
+            }
+        },
+        {
+            "name": "GPS_COORDS",
+            "topic": "STEER",
+            "priority": 3,
+            "sending": [
+                "TLM"
+            ],
+            "receiving": [
+                "STEER"
+            ],
+            "description": "Coordinates received from GPS",
+            "contents": {
+                "latitude": "float32",
+                "longitude": "float32"
+            }
+        },
+        {
+            "name": "GPS_SPEED",
+            "topic": "STEER",
+            "priority": 3,
+            "sending": [
+                "TLM"
+            ],
+            "receiving": [
+                "STEER"
+            ],
+            "description": "Speed received from GPS",
+            "contents": {
+                "speed": "uint16"
+            }
+        },
+        {
+            "name": "LAP_COUNT",
+            "topic": "STEER",
+            "priority": 3,
+            "sending": [
+                "TLM"
+            ],
+            "receiving": [
+                "STEER"
+            ],
+            "description": "Lap counter and associated timestamp",
+            "contents": {
+                "lap_count": "uint8",
+                "timestamp": "uint32"
             }
         }
     ]

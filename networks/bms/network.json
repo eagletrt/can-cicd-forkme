@@ -51,206 +51,44 @@
     
     "messages": [
         {
-            "name": "BOARD_STATUS_0",
+            "name": "BOARD_STATUS",
             "topic": "STATUS",
             "priority": 1,
+            "split_senders": true,
             "sending": [
-                "CELLBOARD0"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "errors": "errors",
-                "balancing_status": "balancing_status"
-            }
-        },
-        {
-            "name": "BOARD_STATUS_1",
-            "topic": "STATUS",
-            "priority": 1,
-            "sending": [
-                "CELLBOARD1"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "errors": "errors",
-                "balancing_status": "balancing_status"
-            }
-        },
-        {
-            "name": "BOARD_STATUS_2",
-            "topic": "STATUS",
-            "priority": 1,
-            "sending": [
-                "CELLBOARD2"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "errors": "errors",
-                "balancing_status": "balancing_status"
-            }
-        },
-        {
-            "name": "BOARD_STATUS_3",
-            "topic": "STATUS",
-            "priority": 1,
-            "sending": [
-                "CELLBOARD3"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "errors": "errors",
-                "balancing_status": "balancing_status"
-            }
-        },
-        {
-            "name": "BOARD_STATUS_4",
-            "topic": "STATUS",
-            "priority": 1,
-            "sending": [
-                "CELLBOARD4"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "errors": "errors",
-                "balancing_status": "balancing_status"
-            }
-        },
-        {
-            "name": "BOARD_STATUS_5",
-            "topic": "STATUS",
-            "priority": 1,
-            "sending": [
+                "CELLBOARD0",
+                "CELLBOARD1",
+                "CELLBOARD2",
+                "CELLBOARD3",
+                "CELLBOARD4",
                 "CELLBOARD5"
             ],
             "receiving": [
                 "MAINBOARD"
             ],
+            "description": "Cellboard's status",
             "contents": {
                 "errors": "errors",
                 "balancing_status": "balancing_status"
             }
         },
-
         {
-            "name": "TEMP_STATS_0",
+            "name": "TEMP_STATS",
             "topic": "TEMPERATURE_INFO",
             "priority": 2,
+            "split_senders": true,
             "sending": [
-                "CELLBOARD0"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "temp0": "uint8",
-                "temp1": "uint8",
-                "temp2": "uint8",
-                "temp3": "uint8",
-                "temp4": "uint8",
-                "temp5": "uint8"
-            }
-        },
-        {
-            "name": "TEMP_STATS_1",
-            "topic": "TEMPERATURE_INFO",
-            "priority": 2,
-            "sending": [
-                "CELLBOARD1"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "temp0": "uint8",
-                "temp1": "uint8",
-                "temp2": "uint8",
-                "temp3": "uint8",
-                "temp4": "uint8",
-                "temp5": "uint8"
-            }
-        },
-        {
-            "name": "TEMP_STATS_2",
-            "topic": "TEMPERATURE_INFO",
-            "priority": 2,
-            "sending": [
-                "CELLBOARD2"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "temp0": "uint8",
-                "temp1": "uint8",
-                "temp2": "uint8",
-                "temp3": "uint8",
-                "temp4": "uint8",
-                "temp5": "uint8"
-            }
-        },
-        {
-            "name": "TEMP_STATS_3",
-            "topic": "TEMPERATURE_INFO",
-            "priority": 2,
-            "sending": [
-                "CELLBOARD3"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "temp0": "uint8",
-                "temp1": "uint8",
-                "temp2": "uint8",
-                "temp3": "uint8",
-                "temp4": "uint8",
-                "temp5": "uint8"
-            }
-        },
-        {
-            "name": "TEMP_STATS_4",
-            "topic": "TEMPERATURE_INFO",
-            "priority": 2,
-            "sending": [
-                "CELLBOARD4"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "temp0": "uint8",
-                "temp1": "uint8",
-                "temp2": "uint8",
-                "temp3": "uint8",
-                "temp4": "uint8",
-                "temp5": "uint8"
-            }
-        },
-        {
-            "name": "TEMP_STATS_5",
-            "topic": "TEMPERATURE_INFO",
-            "priority": 2,
-            "sending": [
+                "CELLBOARD0",
+                "CELLBOARD1",
+                "CELLBOARD2",
+                "CELLBOARD3",
+                "CELLBOARD4",
                 "CELLBOARD5"
             ],
             "receiving": [
                 "MAINBOARD"
             ],
+            "description": "Cells' temperatures",
             "contents": {
                 "start_index": "uint8",
                 "temp0": "uint8",
@@ -261,7 +99,30 @@
                 "temp5": "uint8"
             }
         },
-
+        {
+            "name": "VOLTAGES",
+            "topic": "VOLTAGE_INFO",
+            "priority": 5,
+            "split_senders": true,
+            "sending": [
+                "CELLBOARD0",
+                "CELLBOARD1",
+                "CELLBOARD2",
+                "CELLBOARD3",
+                "CELLBOARD4",
+                "CELLBOARD5"
+            ],
+            "receiving": [
+                "MAINBOARD"
+            ],
+            "description": "Cells' voltages",
+            "contents": {
+                "start_index": "uint8",
+                "voltage0": "uint16",
+                "voltage1": "uint16",
+                "voltage2": "uint16"
+            }
+        },
         {
             "name": "BALANCING",
             "topic": "BALANCING",
@@ -272,132 +133,10 @@
             "receiving": [
                 "CELLBOARD0","CELLBOARD1","CELLBOARD2","CELLBOARD3","CELLBOARD4","CELLBOARD5"
             ],
+            "description": "Set discharging status for cells",
             "contents": {
                 "board_index": "uint8",
                 "cells": "balancing_cells"
-            }
-        },
-
-        {
-            "name": "MASTER_SYNC",
-            "topic": "INTRA_NET_BMS_SYNC",
-            "priority": 0,
-            "sending": [
-                "MAINBOARD"
-            ],
-            "receiving": [
-                "CELLBOARD0","CELLBOARD1","CELLBOARD2","CELLBOARD3","CELLBOARD4","CELLBOARD5"
-            ],
-            "contents":{
-                "time":"uint32"
-            }
-        },
-
-        {
-            "name": "VOLTAGES_0",
-            "topic": "VOLTAGE_INFO",
-            "priority": 5,
-            "sending": [
-                "CELLBOARD0"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "voltage0": "uint16",
-                "voltage1": "uint16",
-                "voltage2": "uint16"
-            }
-        },
-
-        {
-            "name": "VOLTAGES_1",
-            "topic": "VOLTAGE_INFO",
-            "priority": 5,
-            "sending": [
-                "CELLBOARD1"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "voltage0": "uint16",
-                "voltage1": "uint16",
-                "voltage2": "uint16"
-            }
-        },
-
-        {
-            "name": "VOLTAGES_2",
-            "topic": "VOLTAGE_INFO",
-            "priority": 5,
-            "sending": [
-                "CELLBOARD2"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "voltage0": "uint16",
-                "voltage1": "uint16",
-                "voltage2": "uint16"
-            }
-        },
-
-        {
-            "name": "VOLTAGES_3",
-            "topic": "VOLTAGE_INFO",
-            "priority": 5,
-            "sending": [
-                "CELLBOARD3"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "voltage0": "uint16",
-                "voltage1": "uint16",
-                "voltage2": "uint16"
-            }
-        },
-
-        {
-            "name": "VOLTAGES_4",
-            "topic": "VOLTAGE_INFO",
-            "priority": 5,
-            "sending": [
-                "CELLBOARD4"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "voltage0": "uint16",
-                "voltage1": "uint16",
-                "voltage2": "uint16"
-            }
-        },
-
-        {
-            "name": "VOLTAGES_5",
-            "topic": "VOLTAGE_INFO",
-            "priority": 5,
-            "sending": [
-                "CELLBOARD5"
-            ],
-            "receiving": [
-                "MAINBOARD"
-            ],
-            "contents": {
-                "start_index": "uint8",
-                "voltage0": "uint16",
-                "voltage1": "uint16",
-                "voltage2": "uint16"
             }
         }
     ]
