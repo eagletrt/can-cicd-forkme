@@ -1,5 +1,5 @@
 {
-    "network_version": 1.2,
+    "network_version": 1.3,
     "max_payload_size": 8,
     "types": {
         "Hv_Errors": {
@@ -11,7 +11,10 @@
                 "CELL_OVER_TEMPERATURE",
                 "OVER_CURRENT",
                 "ADC_INIT",
-                "ADC_TIMEOUT"
+                "ADC_TIMEOUT",
+                "INT_VOLTAGE_MISMATCH",
+                "FEEDBACK_HARD",
+                "FEEDBACK_SOFT"
             ]
         }
     },
@@ -27,7 +30,8 @@
                 "DAS",
                 "STEER"
             ],
-            "description": "periodic message containing current can definitions version; one every 1000 ms",
+            "description": "periodic message containing current can definitions version",
+            "frequency": 1000,
             "contents": {
                 "component_version": "uint8",
                 "cancicd_version": "uint8"
@@ -44,7 +48,8 @@
                 "DAS",
                 "STEER"
             ],
-            "description": "periodic message containing current can definitions version; one every 1000 ms",
+            "description": "periodic message containing current can definitions version",
+            "frequency": 1000,
             "contents": {
                 "component_version": "uint8",
                 "cancicd_version": "uint8"
@@ -61,7 +66,8 @@
                 "DAS",
                 "STEER"
             ],
-            "description": "periodic message containing current can definitions version; one every 1000 ms",
+            "description": "periodic message containing current can definitions version",
+            "frequency": 1000,
             "contents": {
                 "component_version": "uint8",
                 "cancicd_version": "uint8"
@@ -78,7 +84,8 @@
                 "DAS",
                 "STEER"
             ],
-            "description": "periodic message containing current can definitions version; one every 1000 ms",
+            "description": "periodic message containing current can definitions version",
+            "frequency": 1000,
             "contents": {
                 "component_version": "uint8",
                 "cancicd_version": "uint8"
@@ -95,7 +102,8 @@
                 "DAS",
                 "STEER"
             ],
-            "description": "periodic message containing current can definitions version; one every 1000 ms",
+            "description": "periodic message containing current can definitions version",
+            "frequency": 1000,
             "contents": {
                 "component_version": "uint8",
                 "cancicd_version": "uint8"
@@ -112,9 +120,10 @@
                 "STEER",
                 "DAS",
                 "BMS_HV",
-                "BMS_LV",
-                "TLM"
+                "BMS_LV"
             ],
+            "description": "every second unix encoded time and date used by logging devices to sync",
+            "frequency": 1000,
             "contents": {
                 "timestamp": "uint32"
             }
@@ -129,7 +138,7 @@
             "receiving": [
                 "TLM"
             ],
-            "description": "Ask telemetry to turn on/off and send a tuple containing the current{test, driver, map(soon implemented}; only once",
+            "description": "Ask telemetry to turn on/off and send a tuple containing the current{test, driver, map); only once",
             "contents": {
                 "tlm_status_set": [
                     "OFF",
@@ -155,7 +164,8 @@
             "receiving": [
                 "STEER"
             ],
-            "description": "The answer to the steering wheel's message that changes the status of the telemetry; one every 1000 ms",
+            "description": "The answer to the steering wheel's message that changes the status of the telemetry",
+            "frequency": 1000,
             "contents": {
                 "tlm_status": [
                     "ON",
@@ -181,7 +191,8 @@
             "receiving": [
                 "TLM"
             ],
-            "description": "System stats of the raspberry pi inside the steering wheel; one every 2000 ms",
+            "description": "System stats of the raspberry pi inside the steering wheel",
+            "frequency": 2000,
             "contents": {
                 "soc_temp": "uint8"
             }
@@ -198,7 +209,8 @@
                 "STEER",
                 "HANDCART"
             ],
-            "description": "Pack stats; one every 20 ms",
+            "description": "Pack stats",
+            "frequency": 20,
             "contents": {
                 "pack_voltage": "uint16",
                 "bus_voltage": "uint16",
@@ -218,9 +230,10 @@
                 "STEER",
                 "HANDCART"
             ],
-            "description": "Current supplied by the pack; one every 20 ms",
+            "description": "Current supplied by the pack",
+            "frequency": 20,
             "contents": {
-                "current": "int16",
+                "current": "uint16",
                 "power": "int16"
             }
         },
@@ -236,7 +249,8 @@
                 "STEER",
                 "HANDCART"
             ],
-            "description": "Cell temperatures; one every 20 ms",
+            "description": "Cell temperatures",
+            "frequency": 20,
             "contents": {
                 "average_temp": "uint16",
                 "max_temp": "uint16",
@@ -255,7 +269,8 @@
                 "STEER",
                 "HANDCART"
             ],
-            "description": "Battery-related errors; if there are, one every 20 ms",
+            "description": "Battery-related errors",
+            "frequency": 20,
             "contents": {
                 "warnings": "Hv_Errors",
                 "errors": "Hv_Errors"
@@ -273,7 +288,8 @@
                 "STEER",
                 "HANDCART"
             ],
-            "description": "BMS status; one every 20 ms",
+            "description": "BMS status",
+            "frequency": 20,
             "contents": {
                 "ts_status": [
                     "OFF",
@@ -312,7 +328,8 @@
             "receiving": [
                 "DAS"
             ],
-            "description": "Send update of the tuneable values from the steering wheel; one every 100 ms",
+            "description": "Send update of the tuneable values from the steering wheel",
+            "frequency": 100,
             "contents": {
                 "traction_control": [
                     "OFF",
@@ -380,7 +397,8 @@
             "receiving": [
                 "STEER"
             ],
-            "description": "Car status, all states managed by the DAS will be send (car status, inverters status); one every 100 ms",
+            "description": "Car status, all states managed by the DAS will be send (car status, inverters status)",
+            "frequency": 100,
             "contents": {
                 "Inverter_status: inverter_l": [
                     "OFF",
@@ -410,7 +428,8 @@
                 "DAS",
                 "STEER"
             ],
-            "description": "Current of LV battery pack: total current taken from the battery itself; one every 500 ms",
+            "description": "Current of LV battery pack: total current taken from the battery itself",
+            "frequency": 500,
             "contents": {
                 "current": "uint8"
             }
@@ -426,7 +445,8 @@
                 "DAS",
                 "STEER"
             ],
-            "description": "Voltages of LV battery pack: total voltage 16 bit [12,17.2]V (0x0000 under_voltage,0xFFFF over_voltage), 4x single cell voltage 8bit [3,4.2]V 0.005mV/bit (no additional info, 0x000 is 3V 0xFFFF is 4.2V); one every 200 ms",
+            "description": "Voltages of LV battery pack: total voltage 16 bit [12,17.2]V (0x0000 under_voltage,0xFFFF over_voltage), 4x single cell voltage 8bit [3,4.2]V 0.005mV/bit (no additional info, 0x000 is 3V 0xFFFF is 4.2V)",
+            "frequency": 200,
             "contents": {
                 "total_voltage": "uint16",
                 "voltage_1": "uint8",
@@ -446,9 +466,10 @@
                 "DAS",
                 "STEER"
             ],
-            "description": "Temperature of LV battery pack,[0,80]Celsius, uint8 0.32C/bit. battery pack and dcdc converter; one every 200 ms",
+            "description": "Temperature of LV battery pack,[0,80]Celsius, uint8 0.32C/bit. battery pack and dcdc converter",
+            "frequency": 200,
             "contents": {
-                "bp_temperature": "uint16",
+                "bp_temperature": "uint8",
                 "dcdc_temperature": "uint8"
             }
         },
@@ -463,7 +484,8 @@
                 "DAS",
                 "STEER"
             ],
-            "description": "Percentage value 0% to 100% of bms_hv_fans, bms_lv_fans, pump_speed, 8bit; one every 1000 ms",
+            "description": "Percentage value 0% to 100% of bms_hv_fans, bms_lv_fans, pump_speed, 8bit",
+            "frequency": 1000,
             "contents": {
                 "hv_fan_speed": "uint8",
                 "lv_fan_speed": "uint8",
@@ -480,7 +502,8 @@
             "receiving": [
                 "HANDCART"
             ],
-            "description": "Voltages for each cell; one every 200 ms",
+            "description": "Voltages for each cell",
+            "frequency": 200,
             "contents": {
                 "cell_index": "uint8",
                 "voltage_0": "uint16",
@@ -498,7 +521,8 @@
             "receiving": [
                 "HANDCART"
             ],
-            "description": "Cell temperatures; one every 100 ms",
+            "description": "Cell temperatures",
+            "frequency": 100,
             "contents": {
                 "cell_index": "uint8",
                 "temp_0": "uint8",
@@ -520,7 +544,8 @@
             "receiving": [
                 "HANDCART"
             ],
-            "description": "Cell balancing status; one every 500 ms",
+            "description": "Cell balancing status",
+            "frequency": 500,
             "contents": {
                 "balancing_status": [
                     "ON",
@@ -556,7 +581,8 @@
             "receiving": [
                 "BMS_HV"
             ],
-            "description": "Sends updates on the presence of the handcart; one every 500 ms",
+            "description": "Sends updates on the presence of the handcart",
+            "frequency": 500,
             "contents": {
                 "connected": "bool"
             }
@@ -571,7 +597,8 @@
             "receiving": [
                 "STEER"
             ],
-            "description": "Encoder speed and inverter RPMs; one every ? ms",
+            "description": "Encoder speed and inverter RPMs",
+            "frequency": 100,
             "contents": {
                 "encoder_r": "uint16",
                 "encoder_l": "uint16",
