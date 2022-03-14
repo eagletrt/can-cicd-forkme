@@ -1,7 +1,7 @@
 #ifndef bms_IDS_H
 #define bms_IDS_H
 
-#define bms_IDS_VERSION 1.1f
+#define bms_IDS_VERSION 1.2f
 
 /* TOPIC STATUS */
 #define TOPIC_STATUS_MASK 0b00000011111

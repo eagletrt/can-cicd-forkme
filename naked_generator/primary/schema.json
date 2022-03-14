@@ -9,7 +9,10 @@
                 "CELL_OVER_TEMPERATURE",
                 "OVER_CURRENT",
                 "ADC_INIT",
-                "ADC_TIMEOUT"
+                "ADC_TIMEOUT",
+                "INT_VOLTAGE_MISMATCH",
+                "FEEDBACK_HARD",
+                "FEEDBACK_SOFT"
             ]
         },
         "Tlm_Status_Set": {
@@ -180,7 +183,7 @@
             "min_cell_voltage": "uint16"
         },
         "HV_CURRENT": {
-            "current": "int16",
+            "current": "uint16",
             "power": "int16"
         },
         "HV_TEMP": {
@@ -226,7 +229,7 @@
             "voltage_4": "uint8"
         },
         "LV_TEMPERATURE": {
-            "bp_temperature": "uint16",
+            "bp_temperature": "uint8",
             "dcdc_temperature": "uint8"
         },
         "COOLING_STATUS": {

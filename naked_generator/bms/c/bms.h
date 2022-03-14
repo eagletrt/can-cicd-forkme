@@ -79,6 +79,7 @@ extern "C" {
 #endif
 
 
+
 typedef uint8_t bms_errors[1]; // bitset
 #define bms_errors_default { 0 } // bitset filled with zeros
 #define bms_errors_CAN_COMM 0
@@ -119,6 +120,7 @@ typedef enum __is_packed {
 } bms_balancing_status;
 
 /* bms_BOARD_STATUS */
+    
 typedef struct __is_packed {
     bms_errors errors;
     bms_balancing_status balancing_status;
@@ -129,6 +131,7 @@ size_t serialize_bms_BOARD_STATUS(uint8_t* buffer, bms_errors errors, bms_balanc
 size_t deserialize_bms_BOARD_STATUS(uint8_t* buffer, bms_BOARD_STATUS* bms_board_status);
 
 /* bms_TEMP_STATS */
+    
 typedef struct __is_packed {
     uint8_t start_index;
     uint8_t temp0;
@@ -144,6 +147,7 @@ size_t serialize_bms_TEMP_STATS(uint8_t* buffer, uint8_t start_index, uint8_t te
 size_t deserialize_bms_TEMP_STATS(uint8_t* buffer, bms_TEMP_STATS* bms_temp_stats);
 
 /* bms_VOLTAGES */
+    
 typedef struct __is_packed {
     uint8_t start_index;
     uint8_t __unused_padding_1;
@@ -157,6 +161,7 @@ size_t serialize_bms_VOLTAGES(uint8_t* buffer, uint8_t start_index, uint16_t vol
 size_t deserialize_bms_VOLTAGES(uint8_t* buffer, bms_VOLTAGES* bms_voltages);
 
 /* bms_BALANCING */
+    
 typedef struct __is_packed {
     uint8_t board_index;
     bms_balancing_cells cells;

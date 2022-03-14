@@ -149,7 +149,7 @@ size_t deserialize_primary_HV_VOLTAGE(uint8_t* buffer, primary_HV_VOLTAGE* prima
     return sizeof(primary_HV_VOLTAGE);
 }
 /* primary_HV_CURRENT */
-size_t serialize_primary_HV_CURRENT(uint8_t* buffer, int16_t current, int16_t power) {
+size_t serialize_primary_HV_CURRENT(uint8_t* buffer, uint16_t current, int16_t power) {
     primary_HV_CURRENT primary_hv_current = { current, power };
 	// assert(buf_len >= sizeof(primary_HV_CURRENT));
 	memcpy(buffer, &primary_hv_current, sizeof(primary_HV_CURRENT));
@@ -174,7 +174,7 @@ size_t deserialize_primary_HV_TEMP(uint8_t* buffer, primary_HV_TEMP* primary_hv_
 }
 /* primary_HV_ERRORS */
 size_t serialize_primary_HV_ERRORS(uint8_t* buffer, primary_Hv_Errors warnings, primary_Hv_Errors errors) {
-    primary_HV_ERRORS primary_hv_errors = { {warnings[0]}, {errors[0]} };
+    primary_HV_ERRORS primary_hv_errors = { {warnings[0], warnings[1]}, {errors[0], errors[1]} };
 	// assert(buf_len >= sizeof(primary_HV_ERRORS));
 	memcpy(buffer, &primary_hv_errors, sizeof(primary_HV_ERRORS));
     return sizeof(primary_HV_ERRORS);
@@ -293,8 +293,8 @@ size_t deserialize_primary_LV_VOLTAGE(uint8_t* buffer, primary_LV_VOLTAGE* prima
     return sizeof(primary_LV_VOLTAGE);
 }
 /* primary_LV_TEMPERATURE */
-size_t serialize_primary_LV_TEMPERATURE(uint8_t* buffer, uint8_t dcdc_temperature, uint16_t bp_temperature) {
-    primary_LV_TEMPERATURE primary_lv_temperature = { dcdc_temperature, 0x00, bp_temperature };
+size_t serialize_primary_LV_TEMPERATURE(uint8_t* buffer, uint8_t bp_temperature, uint8_t dcdc_temperature) {
+    primary_LV_TEMPERATURE primary_lv_temperature = { bp_temperature, dcdc_temperature };
 	// assert(buf_len >= sizeof(primary_LV_TEMPERATURE));
 	memcpy(buffer, &primary_lv_temperature, sizeof(primary_LV_TEMPERATURE));
     return sizeof(primary_LV_TEMPERATURE);

@@ -10,6 +10,9 @@ class Hv_Errors(IntFlag):
     OVER_CURRENT = 16
     ADC_INIT = 32
     ADC_TIMEOUT = 64
+    INT_VOLTAGE_MISMATCH = 128
+    FEEDBACK_HARD = 256
+    FEEDBACK_SOFT = 512
     
 class Tlm_Status_Set(IntEnum):
     OFF = 0
@@ -84,6 +87,7 @@ class Balancing_Status(IntEnum):
 class SteerVersion:
     struct = namedtuple("SteerVersion_struct", "component_version cancicd_version", rename=True)
     schema = "<bb"
+    frequency_ms = 1000
     
     @staticmethod
     def serialize(component_version, cancicd_version) -> bytes:
@@ -97,6 +101,7 @@ class SteerVersion:
 class DasVersion:
     struct = namedtuple("DasVersion_struct", "component_version cancicd_version", rename=True)
     schema = "<bb"
+    frequency_ms = 1000
     
     @staticmethod
     def serialize(component_version, cancicd_version) -> bytes:
@@ -110,6 +115,7 @@ class DasVersion:
 class HvVersion:
     struct = namedtuple("HvVersion_struct", "component_version cancicd_version", rename=True)
     schema = "<bb"
+    frequency_ms = 1000
     
     @staticmethod
     def serialize(component_version, cancicd_version) -> bytes:
@@ -123,6 +129,7 @@ class HvVersion:
 class LvVersion:
     struct = namedtuple("LvVersion_struct", "component_version cancicd_version", rename=True)
     schema = "<bb"
+    frequency_ms = 1000
     
     @staticmethod
     def serialize(component_version, cancicd_version) -> bytes:
@@ -136,6 +143,7 @@ class LvVersion:
 class TlmVersion:
     struct = namedtuple("TlmVersion_struct", "component_version cancicd_version", rename=True)
     schema = "<bb"
+    frequency_ms = 1000
     
     @staticmethod
     def serialize(component_version, cancicd_version) -> bytes:
@@ -149,6 +157,7 @@ class TlmVersion:
 class Timestamp:
     struct = namedtuple("Timestamp_struct", "timestamp", rename=True)
     schema = "<i"
+    frequency_ms = 1000
     
     @staticmethod
     def serialize(timestamp) -> bytes:
@@ -162,7 +171,6 @@ class Timestamp:
 class SetTlmStatus:
     struct = namedtuple("SetTlmStatus_struct", "tlm_status_set race_type driver circuit", rename=True)
     schema = "<BBbb"
-    
     @staticmethod
     def serialize(tlm_status_set, race_type, driver, circuit) -> bytes:
         return pack(SetTlmStatus.schema, tlm_status_set, race_type, driver, circuit)
@@ -175,6 +183,7 @@ class SetTlmStatus:
 class SteerSystemStatus:
     struct = namedtuple("SteerSystemStatus_struct", "soc_temp", rename=True)
     schema = "<b"
+    frequency_ms = 2000
     
     @staticmethod
     def serialize(soc_temp) -> bytes:
@@ -188,6 +197,7 @@ class SteerSystemStatus:
 class TlmStatus:
     struct = namedtuple("TlmStatus_struct", "tlm_status race_type driver circuit", rename=True)
     schema = "<BBbb"
+    frequency_ms = 1000
     
     @staticmethod
     def serialize(tlm_status, race_type, driver, circuit) -> bytes:
@@ -201,6 +211,7 @@ class TlmStatus:
 class CarStatus:
     struct = namedtuple("CarStatus_struct", "inverter_l inverter_r car_status", rename=True)
     schema = "<BBB"
+    frequency_ms = 100
     
     @staticmethod
     def serialize(inverter_l, inverter_r, car_status) -> bytes:
@@ -214,6 +225,7 @@ class CarStatus:
 class Speed:
     struct = namedtuple("Speed_struct", "encoder_r encoder_l inverter_r inverter_l", rename=True)
     schema = "<hhhh"
+    frequency_ms = 100
     
     @staticmethod
     def serialize(encoder_r, encoder_l, inverter_r, inverter_l) -> bytes:
@@ -227,6 +239,7 @@ class Speed:
 class HvVoltage:
     struct = namedtuple("HvVoltage_struct", "pack_voltage bus_voltage max_cell_voltage min_cell_voltage", rename=True)
     schema = "<hhhh"
+    frequency_ms = 20
     
     @staticmethod
     def serialize(pack_voltage, bus_voltage, max_cell_voltage, min_cell_voltage) -> bytes:
@@ -239,7 +252,8 @@ class HvVoltage:
 # HvCurrent
 class HvCurrent:
     struct = namedtuple("HvCurrent_struct", "current power", rename=True)
-    schema = "<HH"
+    schema = "<hH"
+    frequency_ms = 20
     
     @staticmethod
     def serialize(current, power) -> bytes:
@@ -253,6 +267,7 @@ class HvCurrent:
 class HvTemp:
     struct = namedtuple("HvTemp_struct", "average_temp max_temp min_temp", rename=True)
     schema = "<hhh"
+    frequency_ms = 20
     
     @staticmethod
     def serialize(average_temp, max_temp, min_temp) -> bytes:
@@ -265,7 +280,8 @@ class HvTemp:
 # HvErrors
 class HvErrors:
     struct = namedtuple("HvErrors_struct", "warnings errors", rename=True)
-    schema = "<bb"
+    schema = "<hh"
+    frequency_ms = 20
     
     @staticmethod
     def serialize(warnings, errors) -> bytes:
@@ -279,6 +295,7 @@ class HvErrors:
 class TsStatus:
     struct = namedtuple("TsStatus_struct", "ts_status", rename=True)
     schema = "<B"
+    frequency_ms = 20
     
     @staticmethod
     def serialize(ts_status) -> bytes:
@@ -292,7 +309,6 @@ class TsStatus:
 class SetTsStatus:
     struct = namedtuple("SetTsStatus_struct", "ts_status_set", rename=True)
     schema = "<B"
-    
     @staticmethod
     def serialize(ts_status_set) -> bytes:
         return pack(SetTsStatus.schema, ts_status_set)
@@ -305,7 +321,6 @@ class SetTsStatus:
 class SetCellBalancingStatus:
     struct = namedtuple("SetCellBalancingStatus_struct", "set_balancing_status", rename=True)
     schema = "<B"
-    
     @staticmethod
     def serialize(set_balancing_status) -> bytes:
         return pack(SetCellBalancingStatus.schema, set_balancing_status)
@@ -318,6 +333,7 @@ class SetCellBalancingStatus:
 class HandcartStatus:
     struct = namedtuple("HandcartStatus_struct", "connected", rename=True)
     schema = "<b"
+    frequency_ms = 500
     
     @staticmethod
     def serialize(connected) -> bytes:
@@ -331,6 +347,7 @@ class HandcartStatus:
 class SteerStatus:
     struct = namedtuple("SteerStatus_struct", "traction_control map", rename=True)
     schema = "<BB"
+    frequency_ms = 100
     
     @staticmethod
     def serialize(traction_control, map) -> bytes:
@@ -344,7 +361,6 @@ class SteerStatus:
 class SetCarStatus:
     struct = namedtuple("SetCarStatus_struct", "car_status_set", rename=True)
     schema = "<B"
-    
     @staticmethod
     def serialize(car_status_set) -> bytes:
         return pack(SetCarStatus.schema, car_status_set)
@@ -357,7 +373,6 @@ class SetCarStatus:
 class SetPedalsRange:
     struct = namedtuple("SetPedalsRange_struct", "bound pedal", rename=True)
     schema = "<BB"
-    
     @staticmethod
     def serialize(bound, pedal) -> bytes:
         return pack(SetPedalsRange.schema, bound, pedal)
@@ -370,6 +385,7 @@ class SetPedalsRange:
 class LvCurrent:
     struct = namedtuple("LvCurrent_struct", "current", rename=True)
     schema = "<b"
+    frequency_ms = 500
     
     @staticmethod
     def serialize(current) -> bytes:
@@ -383,6 +399,7 @@ class LvCurrent:
 class LvVoltage:
     struct = namedtuple("LvVoltage_struct", "voltage_1 voltage_2 voltage_3 voltage_4 total_voltage", rename=True)
     schema = "<bbbbh"
+    frequency_ms = 200
     
     @staticmethod
     def serialize(voltage_1, voltage_2, voltage_3, voltage_4, total_voltage) -> bytes:
@@ -394,12 +411,13 @@ class LvVoltage:
 
 # LvTemperature
 class LvTemperature:
-    struct = namedtuple("LvTemperature_struct", "dcdc_temperature __unused_padding_1 bp_temperature", rename=True)
-    schema = "<bXh"
+    struct = namedtuple("LvTemperature_struct", "bp_temperature dcdc_temperature", rename=True)
+    schema = "<bb"
+    frequency_ms = 200
     
     @staticmethod
-    def serialize(dcdc_temperature, bp_temperature) -> bytes:
-        return pack(LvTemperature.schema, dcdc_temperature, bp_temperature)
+    def serialize(bp_temperature, dcdc_temperature) -> bytes:
+        return pack(LvTemperature.schema, bp_temperature, dcdc_temperature)
     
     @staticmethod
     def deserialize(buffer: bytes) -> "LvTemperature.struct":
@@ -409,6 +427,7 @@ class LvTemperature:
 class CoolingStatus:
     struct = namedtuple("CoolingStatus_struct", "hv_fan_speed lv_fan_speed pump_speed", rename=True)
     schema = "<bbb"
+    frequency_ms = 1000
     
     @staticmethod
     def serialize(hv_fan_speed, lv_fan_speed, pump_speed) -> bytes:
@@ -422,6 +441,7 @@ class CoolingStatus:
 class HvCellsVoltage:
     struct = namedtuple("HvCellsVoltage_struct", "cell_index __unused_padding_1 voltage_0 voltage_1 voltage_2", rename=True)
     schema = "<bXhhh"
+    frequency_ms = 200
     
     @staticmethod
     def serialize(cell_index, voltage_0, voltage_1, voltage_2) -> bytes:
@@ -435,6 +455,7 @@ class HvCellsVoltage:
 class HvCellsTemp:
     struct = namedtuple("HvCellsTemp_struct", "cell_index temp_0 temp_1 temp_2 temp_3 temp_4 temp_5 temp_6", rename=True)
     schema = "<bbbbbbbb"
+    frequency_ms = 100
     
     @staticmethod
     def serialize(cell_index, temp_0, temp_1, temp_2, temp_3, temp_4, temp_5, temp_6) -> bytes:
@@ -448,6 +469,7 @@ class HvCellsTemp:
 class HvCellBalancingStatus:
     struct = namedtuple("HvCellBalancingStatus_struct", "balancing_status", rename=True)
     schema = "<B"
+    frequency_ms = 500
     
     @staticmethod
     def serialize(balancing_status) -> bytes:

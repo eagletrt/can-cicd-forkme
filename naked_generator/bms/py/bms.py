@@ -43,7 +43,6 @@ class balancing_status(IntEnum):
 class BoardStatus:
     struct = namedtuple("BoardStatus_struct", "errors balancing_status", rename=True)
     schema = "<bB"
-    
     @staticmethod
     def serialize(errors, balancing_status) -> bytes:
         return pack(BoardStatus.schema, errors, balancing_status)
@@ -56,7 +55,6 @@ class BoardStatus:
 class TempStats:
     struct = namedtuple("TempStats_struct", "start_index temp0 temp1 temp2 temp3 temp4 temp5", rename=True)
     schema = "<bbbbbbb"
-    
     @staticmethod
     def serialize(start_index, temp0, temp1, temp2, temp3, temp4, temp5) -> bytes:
         return pack(TempStats.schema, start_index, temp0, temp1, temp2, temp3, temp4, temp5)
@@ -69,7 +67,6 @@ class TempStats:
 class Voltages:
     struct = namedtuple("Voltages_struct", "start_index __unused_padding_1 voltage0 voltage1 voltage2", rename=True)
     schema = "<bXhhh"
-    
     @staticmethod
     def serialize(start_index, voltage0, voltage1, voltage2) -> bytes:
         return pack(Voltages.schema, start_index, voltage0, voltage1, voltage2)
@@ -82,7 +79,6 @@ class Voltages:
 class Balancing:
     struct = namedtuple("Balancing_struct", "board_index cells", rename=True)
     schema = "<bi"
-    
     @staticmethod
     def serialize(board_index, cells) -> bytes:
         return pack(Balancing.schema, board_index, cells)

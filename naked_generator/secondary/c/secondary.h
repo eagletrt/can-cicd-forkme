@@ -79,7 +79,9 @@ extern "C" {
 #endif
 
 
+
 /* secondary_IMU_ANGULAR_RATE */
+    
 typedef struct __is_packed {
     uint16_t ang_rate_x;
     uint16_t ang_rate_y;
@@ -91,6 +93,7 @@ size_t serialize_secondary_IMU_ANGULAR_RATE(uint8_t* buffer, uint16_t ang_rate_x
 size_t deserialize_secondary_IMU_ANGULAR_RATE(uint8_t* buffer, secondary_IMU_ANGULAR_RATE* secondary_imu_angular_rate);
 
 /* secondary_IMU_ACCELERATION */
+    
 typedef struct __is_packed {
     uint16_t accel_x;
     uint16_t accel_y;
@@ -102,6 +105,7 @@ size_t serialize_secondary_IMU_ACCELERATION(uint8_t* buffer, uint16_t accel_x, u
 size_t deserialize_secondary_IMU_ACCELERATION(uint8_t* buffer, secondary_IMU_ACCELERATION* secondary_imu_acceleration);
 
 /* secondary_IRTS_FL_0 */
+    
 typedef struct __is_packed {
     uint16_t channel1;
     uint16_t channel2;
@@ -114,6 +118,7 @@ size_t serialize_secondary_IRTS_FL_0(uint8_t* buffer, uint16_t channel1, uint16_
 size_t deserialize_secondary_IRTS_FL_0(uint8_t* buffer, secondary_IRTS_FL_0* secondary_irts_fl_0);
 
 /* secondary_IRTS_FL_1 */
+    
 typedef struct __is_packed {
     uint16_t channel5;
     uint16_t channel6;
@@ -126,6 +131,7 @@ size_t serialize_secondary_IRTS_FL_1(uint8_t* buffer, uint16_t channel5, uint16_
 size_t deserialize_secondary_IRTS_FL_1(uint8_t* buffer, secondary_IRTS_FL_1* secondary_irts_fl_1);
 
 /* secondary_IRTS_FL_2 */
+    
 typedef struct __is_packed {
     uint16_t channel9;
     uint16_t channel10;
@@ -138,6 +144,7 @@ size_t serialize_secondary_IRTS_FL_2(uint8_t* buffer, uint16_t channel9, uint16_
 size_t deserialize_secondary_IRTS_FL_2(uint8_t* buffer, secondary_IRTS_FL_2* secondary_irts_fl_2);
 
 /* secondary_IRTS_FL_3 */
+    
 typedef struct __is_packed {
     uint16_t channel13;
     uint16_t channel14;
@@ -150,6 +157,7 @@ size_t serialize_secondary_IRTS_FL_3(uint8_t* buffer, uint16_t channel13, uint16
 size_t deserialize_secondary_IRTS_FL_3(uint8_t* buffer, secondary_IRTS_FL_3* secondary_irts_fl_3);
 
 /* secondary_IRTS_FR_0 */
+    
 typedef struct __is_packed {
     uint16_t channel1;
     uint16_t channel2;
@@ -162,6 +170,7 @@ size_t serialize_secondary_IRTS_FR_0(uint8_t* buffer, uint16_t channel1, uint16_
 size_t deserialize_secondary_IRTS_FR_0(uint8_t* buffer, secondary_IRTS_FR_0* secondary_irts_fr_0);
 
 /* secondary_IRTS_FR_1 */
+    
 typedef struct __is_packed {
     uint16_t channel5;
     uint16_t channel6;
@@ -174,6 +183,7 @@ size_t serialize_secondary_IRTS_FR_1(uint8_t* buffer, uint16_t channel5, uint16_
 size_t deserialize_secondary_IRTS_FR_1(uint8_t* buffer, secondary_IRTS_FR_1* secondary_irts_fr_1);
 
 /* secondary_IRTS_FR_2 */
+    
 typedef struct __is_packed {
     uint16_t channel9;
     uint16_t channel10;
@@ -186,6 +196,7 @@ size_t serialize_secondary_IRTS_FR_2(uint8_t* buffer, uint16_t channel9, uint16_
 size_t deserialize_secondary_IRTS_FR_2(uint8_t* buffer, secondary_IRTS_FR_2* secondary_irts_fr_2);
 
 /* secondary_IRTS_FR_3 */
+    
 typedef struct __is_packed {
     uint16_t channel13;
     uint16_t channel14;
@@ -198,6 +209,7 @@ size_t serialize_secondary_IRTS_FR_3(uint8_t* buffer, uint16_t channel13, uint16
 size_t deserialize_secondary_IRTS_FR_3(uint8_t* buffer, secondary_IRTS_FR_3* secondary_irts_fr_3);
 
 /* secondary_IRTS_RL_0 */
+    
 typedef struct __is_packed {
     uint16_t channel1;
     uint16_t channel2;
@@ -210,6 +222,7 @@ size_t serialize_secondary_IRTS_RL_0(uint8_t* buffer, uint16_t channel1, uint16_
 size_t deserialize_secondary_IRTS_RL_0(uint8_t* buffer, secondary_IRTS_RL_0* secondary_irts_rl_0);
 
 /* secondary_IRTS_RL_1 */
+    
 typedef struct __is_packed {
     uint16_t channel5;
     uint16_t channel6;
@@ -222,6 +235,7 @@ size_t serialize_secondary_IRTS_RL_1(uint8_t* buffer, uint16_t channel5, uint16_
 size_t deserialize_secondary_IRTS_RL_1(uint8_t* buffer, secondary_IRTS_RL_1* secondary_irts_rl_1);
 
 /* secondary_IRTS_RL_2 */
+    
 typedef struct __is_packed {
     uint16_t channel9;
     uint16_t channel10;
@@ -234,6 +248,7 @@ size_t serialize_secondary_IRTS_RL_2(uint8_t* buffer, uint16_t channel9, uint16_
 size_t deserialize_secondary_IRTS_RL_2(uint8_t* buffer, secondary_IRTS_RL_2* secondary_irts_rl_2);
 
 /* secondary_IRTS_RL_3 */
+    
 typedef struct __is_packed {
     uint16_t channel13;
     uint16_t channel14;
@@ -246,6 +261,7 @@ size_t serialize_secondary_IRTS_RL_3(uint8_t* buffer, uint16_t channel13, uint16
 size_t deserialize_secondary_IRTS_RL_3(uint8_t* buffer, secondary_IRTS_RL_3* secondary_irts_rl_3);
 
 /* secondary_IRTS_RR_0 */
+    
 typedef struct __is_packed {
     uint16_t channel1;
     uint16_t channel2;
@@ -258,6 +274,7 @@ size_t serialize_secondary_IRTS_RR_0(uint8_t* buffer, uint16_t channel1, uint16_
 size_t deserialize_secondary_IRTS_RR_0(uint8_t* buffer, secondary_IRTS_RR_0* secondary_irts_rr_0);
 
 /* secondary_IRTS_RR_1 */
+    
 typedef struct __is_packed {
     uint16_t channel5;
     uint16_t channel6;
@@ -270,6 +287,7 @@ size_t serialize_secondary_IRTS_RR_1(uint8_t* buffer, uint16_t channel5, uint16_
 size_t deserialize_secondary_IRTS_RR_1(uint8_t* buffer, secondary_IRTS_RR_1* secondary_irts_rr_1);
 
 /* secondary_IRTS_RR_2 */
+    
 typedef struct __is_packed {
     uint16_t channel9;
     uint16_t channel10;
@@ -282,6 +300,7 @@ size_t serialize_secondary_IRTS_RR_2(uint8_t* buffer, uint16_t channel9, uint16_
 size_t deserialize_secondary_IRTS_RR_2(uint8_t* buffer, secondary_IRTS_RR_2* secondary_irts_rr_2);
 
 /* secondary_IRTS_RR_3 */
+    
 typedef struct __is_packed {
     uint16_t channel13;
     uint16_t channel14;
@@ -294,6 +313,7 @@ size_t serialize_secondary_IRTS_RR_3(uint8_t* buffer, uint16_t channel13, uint16
 size_t deserialize_secondary_IRTS_RR_3(uint8_t* buffer, secondary_IRTS_RR_3* secondary_irts_rr_3);
 
 /* secondary_GPS_COORDS */
+    
 typedef struct __is_packed {
     float latitude;
     float longitude;
@@ -304,6 +324,7 @@ size_t serialize_secondary_GPS_COORDS(uint8_t* buffer, float latitude, float lon
 size_t deserialize_secondary_GPS_COORDS(uint8_t* buffer, secondary_GPS_COORDS* secondary_gps_coords);
 
 /* secondary_GPS_SPEED */
+    
 typedef struct __is_packed {
     uint16_t speed;
 } secondary_GPS_SPEED;
@@ -313,6 +334,7 @@ size_t serialize_secondary_GPS_SPEED(uint8_t* buffer, uint16_t speed);
 size_t deserialize_secondary_GPS_SPEED(uint8_t* buffer, secondary_GPS_SPEED* secondary_gps_speed);
 
 /* secondary_LAP_COUNT */
+    
 typedef struct __is_packed {
     uint8_t lap_count;
     uint8_t __unused_padding_1;

@@ -1,5 +1,6 @@
 const byteify = require('byteify');
 
+const PrimarySteerVersion_ms = 1000
 function serializePrimarySteerVersion(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.component_version),
@@ -13,6 +14,7 @@ function deserializePrimarySteerVersion(bytes) {
     }
 }
 
+const PrimaryDasVersion_ms = 1000
 function serializePrimaryDasVersion(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.component_version),
@@ -26,6 +28,7 @@ function deserializePrimaryDasVersion(bytes) {
     }
 }
 
+const PrimaryHvVersion_ms = 1000
 function serializePrimaryHvVersion(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.component_version),
@@ -39,6 +42,7 @@ function deserializePrimaryHvVersion(bytes) {
     }
 }
 
+const PrimaryLvVersion_ms = 1000
 function serializePrimaryLvVersion(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.component_version),
@@ -52,6 +56,7 @@ function deserializePrimaryLvVersion(bytes) {
     }
 }
 
+const PrimaryTlmVersion_ms = 1000
 function serializePrimaryTlmVersion(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.component_version),
@@ -65,6 +70,7 @@ function deserializePrimaryTlmVersion(bytes) {
     }
 }
 
+const PrimaryTimestamp_ms = 1000
 function serializePrimaryTimestamp(data) {
     return Uint8Array.from([
         ...byteify.serializeUint32(data.timestamp),
@@ -93,6 +99,7 @@ function deserializePrimarySetTlmStatus(bytes) {
     }
 }
 
+const PrimarySteerSystemStatus_ms = 2000
 function serializePrimarySteerSystemStatus(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.soc_temp),
@@ -104,6 +111,7 @@ function deserializePrimarySteerSystemStatus(bytes) {
     }
 }
 
+const PrimaryTlmStatus_ms = 1000
 function serializePrimaryTlmStatus(data) {
     return Uint8Array.from([
         ...byteify.serializeInt8(data.tlm_status),
@@ -121,6 +129,7 @@ function deserializePrimaryTlmStatus(bytes) {
     }
 }
 
+const PrimaryCarStatus_ms = 100
 function serializePrimaryCarStatus(data) {
     return Uint8Array.from([
         ...byteify.serializeInt8(data.inverter_l),
@@ -136,6 +145,7 @@ function deserializePrimaryCarStatus(bytes) {
     }
 }
 
+const PrimarySpeed_ms = 100
 function serializePrimarySpeed(data) {
     return Uint8Array.from([
         ...byteify.serializeUint16(data.encoder_r),
@@ -153,6 +163,7 @@ function deserializePrimarySpeed(bytes) {
     }
 }
 
+const PrimaryHvVoltage_ms = 20
 function serializePrimaryHvVoltage(data) {
     return Uint8Array.from([
         ...byteify.serializeUint16(data.pack_voltage),
@@ -170,19 +181,21 @@ function deserializePrimaryHvVoltage(bytes) {
     }
 }
 
+const PrimaryHvCurrent_ms = 20
 function serializePrimaryHvCurrent(data) {
     return Uint8Array.from([
-        ...byteify.serializeInt16(data.current),
+        ...byteify.serializeUint16(data.current),
         ...byteify.serializeInt16(data.power),
     ]);
 }
 function deserializePrimaryHvCurrent(bytes) {
     return {
-        current: byteify.deserializeInt16(bytes.slice(0, 2)),
+        current: byteify.deserializeUint16(bytes.slice(0, 2)),
         power: byteify.deserializeInt16(bytes.slice(2, 4)),
     }
 }
 
+const PrimaryHvTemp_ms = 20
 function serializePrimaryHvTemp(data) {
     return Uint8Array.from([
         ...byteify.serializeUint16(data.average_temp),
@@ -198,6 +211,7 @@ function deserializePrimaryHvTemp(bytes) {
     }
 }
 
+const PrimaryHvErrors_ms = 20
 function serializePrimaryHvErrors(data) {
     return Uint8Array.from([
         ...byteify.serializeInt8(data.warnings),
@@ -206,11 +220,12 @@ function serializePrimaryHvErrors(data) {
 }
 function deserializePrimaryHvErrors(bytes) {
     return {
-        warnings: byteify.deserializeInt8(bytes.slice(0, 1)),
-        errors: byteify.deserializeInt8(bytes.slice(1, 2)),
+        warnings: byteify.deserializeInt8(bytes.slice(0, 2)),
+        errors: byteify.deserializeInt8(bytes.slice(2, 4)),
     }
 }
 
+const PrimaryTsStatus_ms = 20
 function serializePrimaryTsStatus(data) {
     return Uint8Array.from([
         ...byteify.serializeInt8(data.ts_status),
@@ -244,6 +259,7 @@ function deserializePrimarySetCellBalancingStatus(bytes) {
     }
 }
 
+const PrimaryHandcartStatus_ms = 500
 function serializePrimaryHandcartStatus(data) {
     return Uint8Array.from([
         ...byteify.serializeBool(data.connected),
@@ -255,6 +271,7 @@ function deserializePrimaryHandcartStatus(bytes) {
     }
 }
 
+const PrimarySteerStatus_ms = 100
 function serializePrimarySteerStatus(data) {
     return Uint8Array.from([
         ...byteify.serializeInt8(data.traction_control),
@@ -292,6 +309,7 @@ function deserializePrimarySetPedalsRange(bytes) {
     }
 }
 
+const PrimaryLvCurrent_ms = 500
 function serializePrimaryLvCurrent(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.current),
@@ -303,6 +321,7 @@ function deserializePrimaryLvCurrent(bytes) {
     }
 }
 
+const PrimaryLvVoltage_ms = 200
 function serializePrimaryLvVoltage(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.voltage_1),
@@ -322,21 +341,21 @@ function deserializePrimaryLvVoltage(bytes) {
     }
 }
 
+const PrimaryLvTemperature_ms = 200
 function serializePrimaryLvTemperature(data) {
     return Uint8Array.from([
+        ...byteify.serializeUint8(data.bp_temperature),
         ...byteify.serializeUint8(data.dcdc_temperature),
-        ...byteify.serializeUInt8(data.__unused_padding_1),
-        ...byteify.serializeUint16(data.bp_temperature),
     ]);
 }
 function deserializePrimaryLvTemperature(bytes) {
     return {
-        dcdc_temperature: byteify.deserializeUint8(bytes.slice(0, 1)),
-        __unused_padding_1: byteify.deserializeUInt8(bytes.slice(1, 2)),
-        bp_temperature: byteify.deserializeUint16(bytes.slice(2, 4)),
+        bp_temperature: byteify.deserializeUint8(bytes.slice(0, 1)),
+        dcdc_temperature: byteify.deserializeUint8(bytes.slice(1, 2)),
     }
 }
 
+const PrimaryCoolingStatus_ms = 1000
 function serializePrimaryCoolingStatus(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.hv_fan_speed),
@@ -352,6 +371,7 @@ function deserializePrimaryCoolingStatus(bytes) {
     }
 }
 
+const PrimaryHvCellsVoltage_ms = 200
 function serializePrimaryHvCellsVoltage(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.cell_index),
@@ -371,6 +391,7 @@ function deserializePrimaryHvCellsVoltage(bytes) {
     }
 }
 
+const PrimaryHvCellsTemp_ms = 100
 function serializePrimaryHvCellsTemp(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.cell_index),
@@ -396,6 +417,7 @@ function deserializePrimaryHvCellsTemp(bytes) {
     }
 }
 
+const PrimaryHvCellBalancingStatus_ms = 500
 function serializePrimaryHvCellBalancingStatus(data) {
     return Uint8Array.from([
         ...byteify.serializeInt8(data.balancing_status),

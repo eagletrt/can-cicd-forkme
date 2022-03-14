@@ -1,7 +1,7 @@
 #ifndef secondary_IDS_H
 #define secondary_IDS_H
 
-#define secondary_IDS_VERSION 0f
+#define secondary_IDS_VERSION 1.0f
 
 /* TOPIC FIXED_IDS */
 #define TOPIC_FIXED_IDS_MASK 0b00000011111

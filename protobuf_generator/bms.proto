@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package bms;
+
+enum balancing_status {
+  BALANCING_STATUS_OFF = 0;
+  BALANCING_STATUS_COMPUTE = 1;
+  BALANCING_STATUS_DISCHARGE = 2;
+}
+
+message BOARD_STATUS {
+    uint32 errors = 1;
+    balancing_status balancing_status = 2;
+}
+
+message TEMP_STATS {
+    uint32 start_index = 1;
+    uint32 temp0 = 2;
+    uint32 temp1 = 3;
+    uint32 temp2 = 4;
+    uint32 temp3 = 5;
+    uint32 temp4 = 6;
+    uint32 temp5 = 7;
+}
+
+message VOLTAGES {
+    uint32 start_index = 1;
+    uint32 voltage0 = 2;
+    uint32 voltage1 = 3;
+    uint32 voltage2 = 4;
+}
+
+message BALANCING {
+    uint32 board_index = 1;
+    uint32 cells = 2;
+}
