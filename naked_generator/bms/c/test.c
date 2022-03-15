@@ -23,19 +23,19 @@ int main() {
     puts("SUCCESS!\n");
         
 
-/* bms_TEMP_STATS */
-    printf("bms_TEMP_STATS:\n");
-    uint8_t* buffer_bms_temp_stats = (uint8_t*)malloc(sizeof(bms_TEMP_STATS));
+/* bms_TEMPERATURES */
+    printf("bms_TEMPERATURES:\n");
+    uint8_t* buffer_bms_temperatures = (uint8_t*)malloc(sizeof(bms_TEMPERATURES));
     
-    bms_TEMP_STATS bms_temp_stats_s = { 117.0, 233.0, 191.0, 197.0, 181.0, 254.0, 116.0 };
-    serialize_bms_TEMP_STATS(buffer_bms_temp_stats, bms_temp_stats_s.start_index, bms_temp_stats_s.temp0, bms_temp_stats_s.temp1, bms_temp_stats_s.temp2, bms_temp_stats_s.temp3, bms_temp_stats_s.temp4, bms_temp_stats_s.temp5);
-    printf("\tSerialized\n\t%llu %llu %llu %llu %llu %llu %llu\n", (long long unsigned int)bms_temp_stats_s.start_index, (long long unsigned int)bms_temp_stats_s.temp0, (long long unsigned int)bms_temp_stats_s.temp1, (long long unsigned int)bms_temp_stats_s.temp2, (long long unsigned int)bms_temp_stats_s.temp3, (long long unsigned int)bms_temp_stats_s.temp4, (long long unsigned int)bms_temp_stats_s.temp5);
+    bms_TEMPERATURES bms_temperatures_s = { 117.0, 233.0, 191.0, 197.0, 181.0, 254.0, 116.0 };
+    serialize_bms_TEMPERATURES(buffer_bms_temperatures, bms_temperatures_s.start_index, bms_temperatures_s.temp0, bms_temperatures_s.temp1, bms_temperatures_s.temp2, bms_temperatures_s.temp3, bms_temperatures_s.temp4, bms_temperatures_s.temp5);
+    printf("\tSerialized\n\t%llu %llu %llu %llu %llu %llu %llu\n", (long long unsigned int)bms_temperatures_s.start_index, (long long unsigned int)bms_temperatures_s.temp0, (long long unsigned int)bms_temperatures_s.temp1, (long long unsigned int)bms_temperatures_s.temp2, (long long unsigned int)bms_temperatures_s.temp3, (long long unsigned int)bms_temperatures_s.temp4, (long long unsigned int)bms_temperatures_s.temp5);
     
-    bms_TEMP_STATS* bms_temp_stats_d = (bms_TEMP_STATS*)malloc(sizeof(bms_TEMP_STATS));
-    deserialize_bms_TEMP_STATS(buffer_bms_temp_stats, bms_temp_stats_d);
-    printf("\tDeserialized\n\t%llu %llu %llu %llu %llu %llu %llu\n", (long long unsigned int)bms_temp_stats_d->start_index, (long long unsigned int)bms_temp_stats_d->temp0, (long long unsigned int)bms_temp_stats_d->temp1, (long long unsigned int)bms_temp_stats_d->temp2, (long long unsigned int)bms_temp_stats_d->temp3, (long long unsigned int)bms_temp_stats_d->temp4, (long long unsigned int)bms_temp_stats_d->temp5);
+    bms_TEMPERATURES* bms_temperatures_d = (bms_TEMPERATURES*)malloc(sizeof(bms_TEMPERATURES));
+    deserialize_bms_TEMPERATURES(buffer_bms_temperatures, bms_temperatures_d);
+    printf("\tDeserialized\n\t%llu %llu %llu %llu %llu %llu %llu\n", (long long unsigned int)bms_temperatures_d->start_index, (long long unsigned int)bms_temperatures_d->temp0, (long long unsigned int)bms_temperatures_d->temp1, (long long unsigned int)bms_temperatures_d->temp2, (long long unsigned int)bms_temperatures_d->temp3, (long long unsigned int)bms_temperatures_d->temp4, (long long unsigned int)bms_temperatures_d->temp5);
     
-    assert(memcmp(&bms_temp_stats_s, bms_temp_stats_d, sizeof(bms_TEMP_STATS)) == 0);
+    assert(memcmp(&bms_temperatures_s, bms_temperatures_d, sizeof(bms_TEMPERATURES)) == 0);
     puts("SUCCESS!\n");
         
 
@@ -68,6 +68,22 @@ int main() {
     printf("\tDeserialized\n\t%llu %hhx.%hhx.%hhx\n", (long long unsigned int)bms_balancing_d->board_index, (long long unsigned int)bms_balancing_d->cells[0], (long long unsigned int)bms_balancing_d->cells[1], (long long unsigned int)bms_balancing_d->cells[2]);
     
     assert(memcmp(&bms_balancing_s, bms_balancing_d, sizeof(bms_BALANCING)) == 0);
+    puts("SUCCESS!\n");
+        
+
+/* bms_FW_UPDATE */
+    printf("bms_FW_UPDATE:\n");
+    uint8_t* buffer_bms_fw_update = (uint8_t*)malloc(sizeof(bms_FW_UPDATE));
+    
+    bms_FW_UPDATE bms_fw_update_s = { 235.0 };
+    serialize_bms_FW_UPDATE(buffer_bms_fw_update, bms_fw_update_s.board_index);
+    printf("\tSerialized\n\t%llu\n", (long long unsigned int)bms_fw_update_s.board_index);
+    
+    bms_FW_UPDATE* bms_fw_update_d = (bms_FW_UPDATE*)malloc(sizeof(bms_FW_UPDATE));
+    deserialize_bms_FW_UPDATE(buffer_bms_fw_update, bms_fw_update_d);
+    printf("\tDeserialized\n\t%llu\n", (long long unsigned int)bms_fw_update_d->board_index);
+    
+    assert(memcmp(&bms_fw_update_s, bms_fw_update_d, sizeof(bms_FW_UPDATE)) == 0);
     puts("SUCCESS!\n");
         
 }

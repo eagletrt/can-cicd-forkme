@@ -16,17 +16,17 @@ size_t deserialize_bms_BOARD_STATUS(uint8_t* buffer, bms_BOARD_STATUS* bms_board
 	memcpy(bms_board_status, buffer, sizeof(bms_BOARD_STATUS));
     return sizeof(bms_BOARD_STATUS);
 }
-/* bms_TEMP_STATS */
-size_t serialize_bms_TEMP_STATS(uint8_t* buffer, uint8_t start_index, uint8_t temp0, uint8_t temp1, uint8_t temp2, uint8_t temp3, uint8_t temp4, uint8_t temp5) {
-    bms_TEMP_STATS bms_temp_stats = { start_index, temp0, temp1, temp2, temp3, temp4, temp5 };
-	// assert(buf_len >= sizeof(bms_TEMP_STATS));
-	memcpy(buffer, &bms_temp_stats, sizeof(bms_TEMP_STATS));
-    return sizeof(bms_TEMP_STATS);
+/* bms_TEMPERATURES */
+size_t serialize_bms_TEMPERATURES(uint8_t* buffer, uint8_t start_index, uint8_t temp0, uint8_t temp1, uint8_t temp2, uint8_t temp3, uint8_t temp4, uint8_t temp5) {
+    bms_TEMPERATURES bms_temperatures = { start_index, temp0, temp1, temp2, temp3, temp4, temp5 };
+	// assert(buf_len >= sizeof(bms_TEMPERATURES));
+	memcpy(buffer, &bms_temperatures, sizeof(bms_TEMPERATURES));
+    return sizeof(bms_TEMPERATURES);
 } 
-size_t deserialize_bms_TEMP_STATS(uint8_t* buffer, bms_TEMP_STATS* bms_temp_stats) {
-	// assert(buf_len >= sizeof(bms_TEMP_STATS));
-	memcpy(bms_temp_stats, buffer, sizeof(bms_TEMP_STATS));
-    return sizeof(bms_TEMP_STATS);
+size_t deserialize_bms_TEMPERATURES(uint8_t* buffer, bms_TEMPERATURES* bms_temperatures) {
+	// assert(buf_len >= sizeof(bms_TEMPERATURES));
+	memcpy(bms_temperatures, buffer, sizeof(bms_TEMPERATURES));
+    return sizeof(bms_TEMPERATURES);
 }
 /* bms_VOLTAGES */
 size_t serialize_bms_VOLTAGES(uint8_t* buffer, uint8_t start_index, uint16_t voltage0, uint16_t voltage1, uint16_t voltage2) {
@@ -51,4 +51,16 @@ size_t deserialize_bms_BALANCING(uint8_t* buffer, bms_BALANCING* bms_balancing) 
 	// assert(buf_len >= sizeof(bms_BALANCING));
 	memcpy(bms_balancing, buffer, sizeof(bms_BALANCING));
     return sizeof(bms_BALANCING);
+}
+/* bms_FW_UPDATE */
+size_t serialize_bms_FW_UPDATE(uint8_t* buffer, uint8_t board_index) {
+    bms_FW_UPDATE bms_fw_update = { board_index };
+	// assert(buf_len >= sizeof(bms_FW_UPDATE));
+	memcpy(buffer, &bms_fw_update, sizeof(bms_FW_UPDATE));
+    return sizeof(bms_FW_UPDATE);
+} 
+size_t deserialize_bms_FW_UPDATE(uint8_t* buffer, bms_FW_UPDATE* bms_fw_update) {
+	// assert(buf_len >= sizeof(bms_FW_UPDATE));
+	memcpy(bms_fw_update, buffer, sizeof(bms_FW_UPDATE));
+    return sizeof(bms_FW_UPDATE);
 }

@@ -27,22 +27,22 @@ void bms_msgname_from_id(uint32_t msg_id, char buffer[static 15]) {
             strcpy(buffer, "BOARD_STATUS_5");
             break;
         case 1281:
-            strcpy(buffer, "TEMP_STATS_0");
+            strcpy(buffer, "TEMPERATURES_0");
             break;
         case 1313:
-            strcpy(buffer, "TEMP_STATS_1");
+            strcpy(buffer, "TEMPERATURES_1");
             break;
         case 1345:
-            strcpy(buffer, "TEMP_STATS_2");
+            strcpy(buffer, "TEMPERATURES_2");
             break;
         case 1377:
-            strcpy(buffer, "TEMP_STATS_3");
+            strcpy(buffer, "TEMPERATURES_3");
             break;
         case 1409:
-            strcpy(buffer, "TEMP_STATS_4");
+            strcpy(buffer, "TEMPERATURES_4");
             break;
         case 1441:
-            strcpy(buffer, "TEMP_STATS_5");
+            strcpy(buffer, "TEMPERATURES_5");
             break;
         case 514:
             strcpy(buffer, "VOLTAGES_0");
@@ -62,8 +62,11 @@ void bms_msgname_from_id(uint32_t msg_id, char buffer[static 15]) {
         case 674:
             strcpy(buffer, "VOLTAGES_5");
             break;
-        case 1539:
+        case 515:
             strcpy(buffer, "BALANCING");
+            break;
+        case 260:
+            strcpy(buffer, "FW_UPDATE");
             break;
         default:
             strcpy(buffer, ""); // Unknown message

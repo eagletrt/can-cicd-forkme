@@ -4,8 +4,7 @@ package bms;
 
 enum balancing_status {
   BALANCING_STATUS_OFF = 0;
-  BALANCING_STATUS_COMPUTE = 1;
-  BALANCING_STATUS_DISCHARGE = 2;
+  BALANCING_STATUS_DISCHARGE = 1;
 }
 
 message BOARD_STATUS {
@@ -13,7 +12,7 @@ message BOARD_STATUS {
     balancing_status balancing_status = 2;
 }
 
-message TEMP_STATS {
+message TEMPERATURES {
     uint32 start_index = 1;
     uint32 temp0 = 2;
     uint32 temp1 = 3;
@@ -33,4 +32,8 @@ message VOLTAGES {
 message BALANCING {
     uint32 board_index = 1;
     uint32 cells = 2;
+}
+
+message FW_UPDATE {
+    uint32 board_index = 1;
 }

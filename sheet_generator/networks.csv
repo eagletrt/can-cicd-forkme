@@ -55,16 +55,17 @@ BOARD_STATUS_2,1600,bms,STATUS,1,CELLBOARD2,MAINBOARD,,"errors: errors, balancin
 BOARD_STATUS_3,1632,bms,STATUS,1,CELLBOARD3,MAINBOARD,,"errors: errors, balancing_status: balancing_status",Cellboards status
 BOARD_STATUS_4,1664,bms,STATUS,1,CELLBOARD4,MAINBOARD,,"errors: errors, balancing_status: balancing_status",Cellboards status
 BOARD_STATUS_5,1696,bms,STATUS,1,CELLBOARD5,MAINBOARD,,"errors: errors, balancing_status: balancing_status",Cellboards status
-TEMP_STATS_0,1281,bms,TEMPERATURE_INFO,2,CELLBOARD0,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
-TEMP_STATS_1,1313,bms,TEMPERATURE_INFO,2,CELLBOARD1,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
-TEMP_STATS_2,1345,bms,TEMPERATURE_INFO,2,CELLBOARD2,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
-TEMP_STATS_3,1377,bms,TEMPERATURE_INFO,2,CELLBOARD3,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
-TEMP_STATS_4,1409,bms,TEMPERATURE_INFO,2,CELLBOARD4,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
-TEMP_STATS_5,1441,bms,TEMPERATURE_INFO,2,CELLBOARD5,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
+TEMPERATURES_0,1281,bms,TEMPERATURE_INFO,2,CELLBOARD0,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
+TEMPERATURES_1,1313,bms,TEMPERATURE_INFO,2,CELLBOARD1,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
+TEMPERATURES_2,1345,bms,TEMPERATURE_INFO,2,CELLBOARD2,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
+TEMPERATURES_3,1377,bms,TEMPERATURE_INFO,2,CELLBOARD3,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
+TEMPERATURES_4,1409,bms,TEMPERATURE_INFO,2,CELLBOARD4,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
+TEMPERATURES_5,1441,bms,TEMPERATURE_INFO,2,CELLBOARD5,MAINBOARD,,"start_index: uint8, temp0: uint8, temp1: uint8, temp2: uint8, temp3: uint8, temp4: uint8, temp5: uint8",Cells temperatures
 VOLTAGES_0,514,bms,VOLTAGE_INFO,5,CELLBOARD0,MAINBOARD,,"start_index: uint8, voltage0: uint16, voltage1: uint16, voltage2: uint16",Cells voltages
 VOLTAGES_1,546,bms,VOLTAGE_INFO,5,CELLBOARD1,MAINBOARD,,"start_index: uint8, voltage0: uint16, voltage1: uint16, voltage2: uint16",Cells voltages
 VOLTAGES_2,578,bms,VOLTAGE_INFO,5,CELLBOARD2,MAINBOARD,,"start_index: uint8, voltage0: uint16, voltage1: uint16, voltage2: uint16",Cells voltages
 VOLTAGES_3,610,bms,VOLTAGE_INFO,5,CELLBOARD3,MAINBOARD,,"start_index: uint8, voltage0: uint16, voltage1: uint16, voltage2: uint16",Cells voltages
 VOLTAGES_4,642,bms,VOLTAGE_INFO,5,CELLBOARD4,MAINBOARD,,"start_index: uint8, voltage0: uint16, voltage1: uint16, voltage2: uint16",Cells voltages
 VOLTAGES_5,674,bms,VOLTAGE_INFO,5,CELLBOARD5,MAINBOARD,,"start_index: uint8, voltage0: uint16, voltage1: uint16, voltage2: uint16",Cells voltages
-BALANCING,1539,bms,BALANCING,1,MAINBOARD,"CELLBOARD0, CELLBOARD1, CELLBOARD2, CELLBOARD3, CELLBOARD4, CELLBOARD5",,"board_index: uint8, cells: balancing_cells",Set discharging status for cells
+BALANCING,515,bms,BALANCING,5,MAINBOARD,"CELLBOARD0, CELLBOARD1, CELLBOARD2, CELLBOARD3, CELLBOARD4, CELLBOARD5",,"board_index: uint8, cells: balancing_cells",Set discharging status for cells
+FW_UPDATE,260,bms,FW_UPDATE,6,MAINBOARD,"CELLBOARD0, CELLBOARD1, CELLBOARD2, CELLBOARD3, CELLBOARD4, CELLBOARD5",,board_index: uint8,Starts firmware update

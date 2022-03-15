@@ -13,7 +13,7 @@ function deserializeBmsBoardStatus(bytes) {
     }
 }
 
-function serializeBmsTempStats(data) {
+function serializeBmsTemperatures(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.start_index),
         ...byteify.serializeUint8(data.temp0),
@@ -24,7 +24,7 @@ function serializeBmsTempStats(data) {
         ...byteify.serializeUint8(data.temp5),
     ]);
 }
-function deserializeBmsTempStats(bytes) {
+function deserializeBmsTemperatures(bytes) {
     return {
         start_index: byteify.deserializeUint8(bytes.slice(0, 1)),
         temp0: byteify.deserializeUint8(bytes.slice(1, 2)),
@@ -65,5 +65,16 @@ function deserializeBmsBalancing(bytes) {
     return {
         board_index: byteify.deserializeUint8(bytes.slice(0, 1)),
         cells: byteify.deserializeInt8(bytes.slice(1, 4)),
+    }
+}
+
+function serializeBmsFwUpdate(data) {
+    return Uint8Array.from([
+        ...byteify.serializeUint8(data.board_index),
+    ]);
+}
+function deserializeBmsFwUpdate(bytes) {
+    return {
+        board_index: byteify.deserializeUint8(bytes.slice(0, 1)),
     }
 }

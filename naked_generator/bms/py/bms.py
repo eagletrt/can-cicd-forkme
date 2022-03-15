@@ -31,12 +31,10 @@ class balancing_cells(IntFlag):
     CELL15 = 32768
     CELL16 = 65536
     CELL17 = 131072
-    CELL18 = 262144
     
 class balancing_status(IntEnum):
     OFF = 0
-    COMPUTE = 1
-    DISCHARGE = 2
+    DISCHARGE = 1
 
 
 # BoardStatus
@@ -51,17 +49,17 @@ class BoardStatus:
     def deserialize(buffer: bytes) -> "BoardStatus.struct":
         return BoardStatus.struct._make(unpack(BoardStatus.schema, buffer))
 
-# TempStats
-class TempStats:
-    struct = namedtuple("TempStats_struct", "start_index temp0 temp1 temp2 temp3 temp4 temp5", rename=True)
+# Temperatures
+class Temperatures:
+    struct = namedtuple("Temperatures_struct", "start_index temp0 temp1 temp2 temp3 temp4 temp5", rename=True)
     schema = "<bbbbbbb"
     @staticmethod
     def serialize(start_index, temp0, temp1, temp2, temp3, temp4, temp5) -> bytes:
-        return pack(TempStats.schema, start_index, temp0, temp1, temp2, temp3, temp4, temp5)
+        return pack(Temperatures.schema, start_index, temp0, temp1, temp2, temp3, temp4, temp5)
     
     @staticmethod
-    def deserialize(buffer: bytes) -> "TempStats.struct":
-        return TempStats.struct._make(unpack(TempStats.schema, buffer))
+    def deserialize(buffer: bytes) -> "Temperatures.struct":
+        return Temperatures.struct._make(unpack(Temperatures.schema, buffer))
 
 # Voltages
 class Voltages:
@@ -86,3 +84,15 @@ class Balancing:
     @staticmethod
     def deserialize(buffer: bytes) -> "Balancing.struct":
         return Balancing.struct._make(unpack(Balancing.schema, buffer))
+
+# FwUpdate
+class FwUpdate:
+    struct = namedtuple("FwUpdate_struct", "board_index", rename=True)
+    schema = "<b"
+    @staticmethod
+    def serialize(board_index) -> bytes:
+        return pack(FwUpdate.schema, board_index)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "FwUpdate.struct":
+        return FwUpdate.struct._make(unpack(FwUpdate.schema, buffer))

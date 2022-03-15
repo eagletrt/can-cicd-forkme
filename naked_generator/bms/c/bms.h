@@ -111,12 +111,10 @@ typedef uint8_t bms_balancing_cells[3]; // bitset
 #define bms_balancing_cells_CELL15 15
 #define bms_balancing_cells_CELL16 16
 #define bms_balancing_cells_CELL17 17
-#define bms_balancing_cells_CELL18 18
 
 typedef enum __is_packed {
     bms_balancing_status_OFF = 0,
-    bms_balancing_status_COMPUTE = 1,
-    bms_balancing_status_DISCHARGE = 2,
+    bms_balancing_status_DISCHARGE = 1,
 } bms_balancing_status;
 
 /* bms_BOARD_STATUS */
@@ -130,7 +128,7 @@ static_assert(sizeof(bms_BOARD_STATUS) == 2, "struct size mismatch");
 size_t serialize_bms_BOARD_STATUS(uint8_t* buffer, bms_errors errors, bms_balancing_status balancing_status);
 size_t deserialize_bms_BOARD_STATUS(uint8_t* buffer, bms_BOARD_STATUS* bms_board_status);
 
-/* bms_TEMP_STATS */
+/* bms_TEMPERATURES */
     
 typedef struct __is_packed {
     uint8_t start_index;
@@ -140,11 +138,11 @@ typedef struct __is_packed {
     uint8_t temp3;
     uint8_t temp4;
     uint8_t temp5;
-} bms_TEMP_STATS;
-static_assert(sizeof(bms_TEMP_STATS) == 7, "struct size mismatch");
+} bms_TEMPERATURES;
+static_assert(sizeof(bms_TEMPERATURES) == 7, "struct size mismatch");
     
-size_t serialize_bms_TEMP_STATS(uint8_t* buffer, uint8_t start_index, uint8_t temp0, uint8_t temp1, uint8_t temp2, uint8_t temp3, uint8_t temp4, uint8_t temp5);
-size_t deserialize_bms_TEMP_STATS(uint8_t* buffer, bms_TEMP_STATS* bms_temp_stats);
+size_t serialize_bms_TEMPERATURES(uint8_t* buffer, uint8_t start_index, uint8_t temp0, uint8_t temp1, uint8_t temp2, uint8_t temp3, uint8_t temp4, uint8_t temp5);
+size_t deserialize_bms_TEMPERATURES(uint8_t* buffer, bms_TEMPERATURES* bms_temperatures);
 
 /* bms_VOLTAGES */
     
@@ -170,6 +168,16 @@ static_assert(sizeof(bms_BALANCING) == 4, "struct size mismatch");
     
 size_t serialize_bms_BALANCING(uint8_t* buffer, uint8_t board_index, bms_balancing_cells cells);
 size_t deserialize_bms_BALANCING(uint8_t* buffer, bms_BALANCING* bms_balancing);
+
+/* bms_FW_UPDATE */
+    
+typedef struct __is_packed {
+    uint8_t board_index;
+} bms_FW_UPDATE;
+static_assert(sizeof(bms_FW_UPDATE) == 1, "struct size mismatch");
+    
+size_t serialize_bms_FW_UPDATE(uint8_t* buffer, uint8_t board_index);
+size_t deserialize_bms_FW_UPDATE(uint8_t* buffer, bms_FW_UPDATE* bms_fw_update);
 #endif
 
 #ifdef __cplusplus
