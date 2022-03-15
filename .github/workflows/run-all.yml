@@ -20,6 +20,10 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: 'true'
+    - name: Setup protoc
+      uses: arduino/setup-protoc@v1.1.2
+      with:
+        version: '3.x'
     - name: Run ID generator
       run: |
         pip install -r can-cicd/id_generator/requirements.txt
