@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rprimary.proto\x12\x07primary\"C\n\rSTEER_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"A\n\x0b\x44\x41S_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"@\n\nHV_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"@\n\nLV_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"A\n\x0bTLM_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"\x1e\n\tTIMESTAMP\x12\x11\n\ttimestamp\x18\x01 \x01(\r\"\x89\x01\n\x0eSET_TLM_STATUS\x12/\n\x0etlm_status_set\x18\x01 \x01(\x0e\x32\x17.primary.Tlm_Status_Set\x12%\n\trace_type\x18\x02 \x01(\x0e\x32\x12.primary.Race_Type\x12\x0e\n\x06\x64river\x18\x03 \x01(\r\x12\x0f\n\x07\x63ircuit\x18\x04 \x01(\r\"\'\n\x13STEER_SYSTEM_STATUS\x12\x10\n\x08soc_temp\x18\x01 \x01(\r\"}\n\nTLM_STATUS\x12\'\n\ntlm_status\x18\x01 \x01(\x0e\x32\x13.primary.Tlm_Status\x12%\n\trace_type\x18\x02 \x01(\x0e\x32\x12.primary.Race_Type\x12\x0e\n\x06\x64river\x18\x03 \x01(\r\x12\x0f\n\x07\x63ircuit\x18\x04 \x01(\r\"\x91\x01\n\nCAR_STATUS\x12,\n\ninverter_l\x18\x01 \x01(\x0e\x32\x18.primary.Inverter_Status\x12,\n\ninverter_r\x18\x02 \x01(\x0e\x32\x18.primary.Inverter_Status\x12\'\n\ncar_status\x18\x03 \x01(\x0e\x32\x13.primary.Car_Status\"U\n\x05SPEED\x12\x11\n\tencoder_r\x18\x01 \x01(\r\x12\x11\n\tencoder_l\x18\x02 \x01(\r\x12\x12\n\ninverter_r\x18\x03 \x01(\r\x12\x12\n\ninverter_l\x18\x04 \x01(\r\"k\n\nHV_VOLTAGE\x12\x14\n\x0cpack_voltage\x18\x01 \x01(\r\x12\x13\n\x0b\x62us_voltage\x18\x02 \x01(\r\x12\x18\n\x10max_cell_voltage\x18\x03 \x01(\r\x12\x18\n\x10min_cell_voltage\x18\x04 \x01(\r\",\n\nHV_CURRENT\x12\x0f\n\x07\x63urrent\x18\x01 \x01(\r\x12\r\n\x05power\x18\x02 \x01(\x05\"C\n\x07HV_TEMP\x12\x14\n\x0c\x61verage_temp\x18\x01 \x01(\r\x12\x10\n\x08max_temp\x18\x02 \x01(\r\x12\x10\n\x08min_temp\x18\x03 \x01(\r\"-\n\tHV_ERRORS\x12\x10\n\x08warnings\x18\x01 \x01(\r\x12\x0e\n\x06\x65rrors\x18\x02 \x01(\r\"2\n\tTS_STATUS\x12%\n\tts_status\x18\x01 \x01(\x0e\x32\x12.primary.Ts_Status\">\n\rSET_TS_STATUS\x12-\n\rts_status_set\x18\x01 \x01(\x0e\x32\x16.primary.Ts_Status_Set\"X\n\x19SET_CELL_BALANCING_STATUS\x12;\n\x14set_balancing_status\x18\x01 \x01(\x0e\x32\x1d.primary.Set_Balancing_Status\"$\n\x0fHANDCART_STATUS\x12\x11\n\tconnected\x18\x01 \x01(\x08\"^\n\x0cSTEER_STATUS\x12\x33\n\x10traction_control\x18\x01 \x01(\x0e\x32\x19.primary.Traction_Control\x12\x19\n\x03map\x18\x02 \x01(\x0e\x32\x0c.primary.Map\"A\n\x0eSET_CAR_STATUS\x12/\n\x0e\x63\x61r_status_set\x18\x01 \x01(\x0e\x32\x17.primary.Car_Status_Set\"P\n\x10SET_PEDALS_RANGE\x12\x1d\n\x05\x62ound\x18\x01 \x01(\x0e\x32\x0e.primary.Bound\x12\x1d\n\x05pedal\x18\x02 \x01(\x0e\x32\x0e.primary.Pedal\"\x1d\n\nLV_CURRENT\x12\x0f\n\x07\x63urrent\x18\x01 \x01(\r\"o\n\nLV_VOLTAGE\x12\x15\n\rtotal_voltage\x18\x01 \x01(\r\x12\x11\n\tvoltage_1\x18\x02 \x01(\r\x12\x11\n\tvoltage_2\x18\x03 \x01(\r\x12\x11\n\tvoltage_3\x18\x04 \x01(\r\x12\x11\n\tvoltage_4\x18\x05 \x01(\r\"B\n\x0eLV_TEMPERATURE\x12\x16\n\x0e\x62p_temperature\x18\x01 \x01(\r\x12\x18\n\x10\x64\x63\x64\x63_temperature\x18\x02 \x01(\r\"P\n\x0e\x43OOLING_STATUS\x12\x14\n\x0chv_fan_speed\x18\x01 \x01(\r\x12\x14\n\x0clv_fan_speed\x18\x02 \x01(\r\x12\x12\n\npump_speed\x18\x03 \x01(\r\"_\n\x10HV_CELLS_VOLTAGE\x12\x12\n\ncell_index\x18\x01 \x01(\r\x12\x11\n\tvoltage_0\x18\x02 \x01(\r\x12\x11\n\tvoltage_1\x18\x03 \x01(\r\x12\x11\n\tvoltage_2\x18\x04 \x01(\r\"\x93\x01\n\rHV_CELLS_TEMP\x12\x12\n\ncell_index\x18\x01 \x01(\r\x12\x0e\n\x06temp_0\x18\x02 \x01(\r\x12\x0e\n\x06temp_1\x18\x03 \x01(\r\x12\x0e\n\x06temp_2\x18\x04 \x01(\r\x12\x0e\n\x06temp_3\x18\x05 \x01(\r\x12\x0e\n\x06temp_4\x18\x06 \x01(\r\x12\x0e\n\x06temp_5\x18\x07 \x01(\r\x12\x0e\n\x06temp_6\x18\x08 \x01(\r\"O\n\x18HV_CELL_BALANCING_STATUS\x12\x33\n\x10\x62\x61lancing_status\x18\x01 \x01(\x0e\x32\x19.primary.Balancing_Status*?\n\x0eTlm_Status_Set\x12\x16\n\x12TLM_STATUS_SET_OFF\x10\x00\x12\x15\n\x11TLM_STATUS_SET_ON\x10\x01*p\n\tRace_Type\x12\x1a\n\x16RACE_TYPE_ACCELERATION\x10\x00\x12\x15\n\x11RACE_TYPE_SKIDPAD\x10\x01\x12\x17\n\x13RACE_TYPE_AUTOCROSS\x10\x02\x12\x17\n\x13RACE_TYPE_ENDURANCE\x10\x03*3\n\nTlm_Status\x12\x11\n\rTLM_STATUS_ON\x10\x00\x12\x12\n\x0eTLM_STATUS_OFF\x10\x01*\\\n\x0fInverter_Status\x12\x17\n\x13INVERTER_STATUS_OFF\x10\x00\x12\x18\n\x14INVERTER_STATUS_IDLE\x10\x01\x12\x16\n\x12INVERTER_STATUS_ON\x10\x02*K\n\nCar_Status\x12\x13\n\x0f\x43\x41R_STATUS_IDLE\x10\x00\x12\x14\n\x10\x43\x41R_STATUS_SETUP\x10\x01\x12\x12\n\x0e\x43\x41R_STATUS_RUN\x10\x02*^\n\tTs_Status\x12\x11\n\rTS_STATUS_OFF\x10\x00\x12\x17\n\x13TS_STATUS_PRECHARGE\x10\x01\x12\x10\n\x0cTS_STATUS_ON\x10\x02\x12\x13\n\x0fTS_STATUS_FATAL\x10\x03*<\n\rTs_Status_Set\x12\x15\n\x11TS_STATUS_SET_OFF\x10\x00\x12\x14\n\x10TS_STATUS_SET_ON\x10\x01*Q\n\x14Set_Balancing_Status\x12\x1c\n\x18SET_BALANCING_STATUS_OFF\x10\x00\x12\x1b\n\x17SET_BALANCING_STATUS_ON\x10\x01*\x95\x01\n\x10Traction_Control\x12\x18\n\x14TRACTION_CONTROL_OFF\x10\x00\x12!\n\x1dTRACTION_CONTROL_SLIP_CONTROL\x10\x01\x12%\n!TRACTION_CONTROL_TORQUE_VECTORING\x10\x02\x12\x1d\n\x19TRACTION_CONTROL_COMPLETE\x10\x03*R\n\x03Map\x12\t\n\x05MAP_R\x10\x00\x12\x0b\n\x07MAP_D20\x10\x01\x12\x0b\n\x07MAP_D40\x10\x02\x12\x0b\n\x07MAP_D60\x10\x03\x12\x0b\n\x07MAP_D80\x10\x04\x12\x0c\n\x08MAP_D100\x10\x05*A\n\x0e\x43\x61r_Status_Set\x12\x17\n\x13\x43\x41R_STATUS_SET_IDLE\x10\x00\x12\x16\n\x12\x43\x41R_STATUS_SET_RUN\x10\x01*-\n\x05\x42ound\x12\x11\n\rBOUND_SET_MAX\x10\x00\x12\x11\n\rBOUND_SET_MIN\x10\x01*/\n\x05Pedal\x12\x15\n\x11PEDAL_ACCELERATOR\x10\x00\x12\x0f\n\x0bPEDAL_BRAKE\x10\x01*E\n\x10\x42\x61lancing_Status\x12\x17\n\x13\x42\x41LANCING_STATUS_ON\x10\x00\x12\x18\n\x14\x42\x41LANCING_STATUS_OFF\x10\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rprimary.proto\x12\x07primary\"C\n\rSTEER_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"A\n\x0b\x44\x41S_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"@\n\nHV_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"@\n\nLV_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"A\n\x0bTLM_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"\x1e\n\tTIMESTAMP\x12\x11\n\ttimestamp\x18\x01 \x01(\r\"\x89\x01\n\x0eSET_TLM_STATUS\x12/\n\x0etlm_status_set\x18\x01 \x01(\x0e\x32\x17.primary.Tlm_Status_Set\x12%\n\trace_type\x18\x02 \x01(\x0e\x32\x12.primary.Race_Type\x12\x0e\n\x06\x64river\x18\x03 \x01(\r\x12\x0f\n\x07\x63ircuit\x18\x04 \x01(\r\"\'\n\x13STEER_SYSTEM_STATUS\x12\x10\n\x08soc_temp\x18\x01 \x01(\r\"}\n\nTLM_STATUS\x12\'\n\ntlm_status\x18\x01 \x01(\x0e\x32\x13.primary.Tlm_Status\x12%\n\trace_type\x18\x02 \x01(\x0e\x32\x12.primary.Race_Type\x12\x0e\n\x06\x64river\x18\x03 \x01(\r\x12\x0f\n\x07\x63ircuit\x18\x04 \x01(\r\"\x91\x01\n\nCAR_STATUS\x12,\n\ninverter_l\x18\x01 \x01(\x0e\x32\x18.primary.Inverter_Status\x12,\n\ninverter_r\x18\x02 \x01(\x0e\x32\x18.primary.Inverter_Status\x12\'\n\ncar_status\x18\x03 \x01(\x0e\x32\x13.primary.Car_Status\"\x1f\n\nDAS_ERRORS\x12\x11\n\tdas_error\x18\x01 \x01(\r\"U\n\x05SPEED\x12\x11\n\tencoder_r\x18\x01 \x01(\r\x12\x11\n\tencoder_l\x18\x02 \x01(\r\x12\x12\n\ninverter_r\x18\x03 \x01(\r\x12\x12\n\ninverter_l\x18\x04 \x01(\r\"k\n\nHV_VOLTAGE\x12\x14\n\x0cpack_voltage\x18\x01 \x01(\r\x12\x13\n\x0b\x62us_voltage\x18\x02 \x01(\r\x12\x18\n\x10max_cell_voltage\x18\x03 \x01(\r\x12\x18\n\x10min_cell_voltage\x18\x04 \x01(\r\",\n\nHV_CURRENT\x12\x0f\n\x07\x63urrent\x18\x01 \x01(\r\x12\r\n\x05power\x18\x02 \x01(\x05\"C\n\x07HV_TEMP\x12\x14\n\x0c\x61verage_temp\x18\x01 \x01(\r\x12\x10\n\x08max_temp\x18\x02 \x01(\r\x12\x10\n\x08min_temp\x18\x03 \x01(\r\"-\n\tHV_ERRORS\x12\x10\n\x08warnings\x18\x01 \x01(\r\x12\x0e\n\x06\x65rrors\x18\x02 \x01(\r\"2\n\tTS_STATUS\x12%\n\tts_status\x18\x01 \x01(\x0e\x32\x12.primary.Ts_Status\">\n\rSET_TS_STATUS\x12-\n\rts_status_set\x18\x01 \x01(\x0e\x32\x16.primary.Ts_Status_Set\"X\n\x19SET_CELL_BALANCING_STATUS\x12;\n\x14set_balancing_status\x18\x01 \x01(\x0e\x32\x1d.primary.Set_Balancing_Status\"$\n\x0fHANDCART_STATUS\x12\x11\n\tconnected\x18\x01 \x01(\x08\"^\n\x0cSTEER_STATUS\x12\x33\n\x10traction_control\x18\x01 \x01(\x0e\x32\x19.primary.Traction_Control\x12\x19\n\x03map\x18\x02 \x01(\x0e\x32\x0c.primary.Map\"A\n\x0eSET_CAR_STATUS\x12/\n\x0e\x63\x61r_status_set\x18\x01 \x01(\x0e\x32\x17.primary.Car_Status_Set\"P\n\x10SET_PEDALS_RANGE\x12\x1d\n\x05\x62ound\x18\x01 \x01(\x0e\x32\x0e.primary.Bound\x12\x1d\n\x05pedal\x18\x02 \x01(\x0e\x32\x0e.primary.Pedal\"\x1d\n\nLV_CURRENT\x12\x0f\n\x07\x63urrent\x18\x01 \x01(\r\"o\n\nLV_VOLTAGE\x12\x15\n\rtotal_voltage\x18\x01 \x01(\r\x12\x11\n\tvoltage_1\x18\x02 \x01(\r\x12\x11\n\tvoltage_2\x18\x03 \x01(\r\x12\x11\n\tvoltage_3\x18\x04 \x01(\r\x12\x11\n\tvoltage_4\x18\x05 \x01(\r\"B\n\x0eLV_TEMPERATURE\x12\x16\n\x0e\x62p_temperature\x18\x01 \x01(\r\x12\x18\n\x10\x64\x63\x64\x63_temperature\x18\x02 \x01(\r\"P\n\x0e\x43OOLING_STATUS\x12\x14\n\x0chv_fan_speed\x18\x01 \x01(\r\x12\x14\n\x0clv_fan_speed\x18\x02 \x01(\r\x12\x12\n\npump_speed\x18\x03 \x01(\r\"_\n\x10HV_CELLS_VOLTAGE\x12\x12\n\ncell_index\x18\x01 \x01(\r\x12\x11\n\tvoltage_0\x18\x02 \x01(\r\x12\x11\n\tvoltage_1\x18\x03 \x01(\r\x12\x11\n\tvoltage_2\x18\x04 \x01(\r\"\x93\x01\n\rHV_CELLS_TEMP\x12\x12\n\ncell_index\x18\x01 \x01(\r\x12\x0e\n\x06temp_0\x18\x02 \x01(\r\x12\x0e\n\x06temp_1\x18\x03 \x01(\r\x12\x0e\n\x06temp_2\x18\x04 \x01(\r\x12\x0e\n\x06temp_3\x18\x05 \x01(\r\x12\x0e\n\x06temp_4\x18\x06 \x01(\r\x12\x0e\n\x06temp_5\x18\x07 \x01(\r\x12\x0e\n\x06temp_6\x18\x08 \x01(\r\"O\n\x18HV_CELL_BALANCING_STATUS\x12\x33\n\x10\x62\x61lancing_status\x18\x01 \x01(\x0e\x32\x19.primary.Balancing_Status\"?\n\x0eINV_L_SEND_CMD\x12\r\n\x05regid\x18\x01 \x01(\r\x12\x0e\n\x06\x62yte_1\x18\x02 \x01(\r\x12\x0e\n\x06\x62yte_2\x18\x03 \x01(\r\"-\n\x0cINV_L_STATUS\x12\r\n\x05regid\x18\x01 \x01(\r\x12\x0e\n\x06status\x18\x02 \x01(\r*?\n\x0eTlm_Status_Set\x12\x16\n\x12TLM_STATUS_SET_OFF\x10\x00\x12\x15\n\x11TLM_STATUS_SET_ON\x10\x01*p\n\tRace_Type\x12\x1a\n\x16RACE_TYPE_ACCELERATION\x10\x00\x12\x15\n\x11RACE_TYPE_SKIDPAD\x10\x01\x12\x17\n\x13RACE_TYPE_AUTOCROSS\x10\x02\x12\x17\n\x13RACE_TYPE_ENDURANCE\x10\x03*3\n\nTlm_Status\x12\x11\n\rTLM_STATUS_ON\x10\x00\x12\x12\n\x0eTLM_STATUS_OFF\x10\x01*\\\n\x0fInverter_Status\x12\x17\n\x13INVERTER_STATUS_OFF\x10\x00\x12\x18\n\x14INVERTER_STATUS_IDLE\x10\x01\x12\x16\n\x12INVERTER_STATUS_ON\x10\x02*K\n\nCar_Status\x12\x13\n\x0f\x43\x41R_STATUS_IDLE\x10\x00\x12\x14\n\x10\x43\x41R_STATUS_SETUP\x10\x01\x12\x12\n\x0e\x43\x41R_STATUS_RUN\x10\x02*^\n\tTs_Status\x12\x11\n\rTS_STATUS_OFF\x10\x00\x12\x17\n\x13TS_STATUS_PRECHARGE\x10\x01\x12\x10\n\x0cTS_STATUS_ON\x10\x02\x12\x13\n\x0fTS_STATUS_FATAL\x10\x03*<\n\rTs_Status_Set\x12\x15\n\x11TS_STATUS_SET_OFF\x10\x00\x12\x14\n\x10TS_STATUS_SET_ON\x10\x01*Q\n\x14Set_Balancing_Status\x12\x1c\n\x18SET_BALANCING_STATUS_OFF\x10\x00\x12\x1b\n\x17SET_BALANCING_STATUS_ON\x10\x01*\x95\x01\n\x10Traction_Control\x12\x18\n\x14TRACTION_CONTROL_OFF\x10\x00\x12!\n\x1dTRACTION_CONTROL_SLIP_CONTROL\x10\x01\x12%\n!TRACTION_CONTROL_TORQUE_VECTORING\x10\x02\x12\x1d\n\x19TRACTION_CONTROL_COMPLETE\x10\x03*R\n\x03Map\x12\t\n\x05MAP_R\x10\x00\x12\x0b\n\x07MAP_D20\x10\x01\x12\x0b\n\x07MAP_D40\x10\x02\x12\x0b\n\x07MAP_D60\x10\x03\x12\x0b\n\x07MAP_D80\x10\x04\x12\x0c\n\x08MAP_D100\x10\x05*A\n\x0e\x43\x61r_Status_Set\x12\x17\n\x13\x43\x41R_STATUS_SET_IDLE\x10\x00\x12\x16\n\x12\x43\x41R_STATUS_SET_RUN\x10\x01*-\n\x05\x42ound\x12\x11\n\rBOUND_SET_MAX\x10\x00\x12\x11\n\rBOUND_SET_MIN\x10\x01*/\n\x05Pedal\x12\x15\n\x11PEDAL_ACCELERATOR\x10\x00\x12\x0f\n\x0bPEDAL_BRAKE\x10\x01*E\n\x10\x42\x61lancing_Status\x12\x18\n\x14\x42\x41LANCING_STATUS_OFF\x10\x00\x12\x17\n\x13\x42\x41LANCING_STATUS_ON\x10\x01\x62\x06proto3')
 
 _TLM_STATUS_SET = DESCRIPTOR.enum_types_by_name['Tlm_Status_Set']
 Tlm_Status_Set = enum_type_wrapper.EnumTypeWrapper(_TLM_STATUS_SET)
@@ -83,8 +83,8 @@ BOUND_SET_MAX = 0
 BOUND_SET_MIN = 1
 PEDAL_ACCELERATOR = 0
 PEDAL_BRAKE = 1
-BALANCING_STATUS_ON = 0
-BALANCING_STATUS_OFF = 1
+BALANCING_STATUS_OFF = 0
+BALANCING_STATUS_ON = 1
 
 
 _STEER_VERSION = DESCRIPTOR.message_types_by_name['STEER_VERSION']
@@ -97,6 +97,7 @@ _SET_TLM_STATUS = DESCRIPTOR.message_types_by_name['SET_TLM_STATUS']
 _STEER_SYSTEM_STATUS = DESCRIPTOR.message_types_by_name['STEER_SYSTEM_STATUS']
 _TLM_STATUS = DESCRIPTOR.message_types_by_name['TLM_STATUS']
 _CAR_STATUS = DESCRIPTOR.message_types_by_name['CAR_STATUS']
+_DAS_ERRORS = DESCRIPTOR.message_types_by_name['DAS_ERRORS']
 _SPEED = DESCRIPTOR.message_types_by_name['SPEED']
 _HV_VOLTAGE = DESCRIPTOR.message_types_by_name['HV_VOLTAGE']
 _HV_CURRENT = DESCRIPTOR.message_types_by_name['HV_CURRENT']
@@ -116,6 +117,8 @@ _COOLING_STATUS = DESCRIPTOR.message_types_by_name['COOLING_STATUS']
 _HV_CELLS_VOLTAGE = DESCRIPTOR.message_types_by_name['HV_CELLS_VOLTAGE']
 _HV_CELLS_TEMP = DESCRIPTOR.message_types_by_name['HV_CELLS_TEMP']
 _HV_CELL_BALANCING_STATUS = DESCRIPTOR.message_types_by_name['HV_CELL_BALANCING_STATUS']
+_INV_L_SEND_CMD = DESCRIPTOR.message_types_by_name['INV_L_SEND_CMD']
+_INV_L_STATUS = DESCRIPTOR.message_types_by_name['INV_L_STATUS']
 STEER_VERSION = _reflection.GeneratedProtocolMessageType('STEER_VERSION', (_message.Message,), {
   'DESCRIPTOR' : _STEER_VERSION,
   '__module__' : 'primary_pb2'
@@ -185,6 +188,13 @@ CAR_STATUS = _reflection.GeneratedProtocolMessageType('CAR_STATUS', (_message.Me
   # @@protoc_insertion_point(class_scope:primary.CAR_STATUS)
   })
 _sym_db.RegisterMessage(CAR_STATUS)
+
+DAS_ERRORS = _reflection.GeneratedProtocolMessageType('DAS_ERRORS', (_message.Message,), {
+  'DESCRIPTOR' : _DAS_ERRORS,
+  '__module__' : 'primary_pb2'
+  # @@protoc_insertion_point(class_scope:primary.DAS_ERRORS)
+  })
+_sym_db.RegisterMessage(DAS_ERRORS)
 
 SPEED = _reflection.GeneratedProtocolMessageType('SPEED', (_message.Message,), {
   'DESCRIPTOR' : _SPEED,
@@ -319,37 +329,51 @@ HV_CELL_BALANCING_STATUS = _reflection.GeneratedProtocolMessageType('HV_CELL_BAL
   })
 _sym_db.RegisterMessage(HV_CELL_BALANCING_STATUS)
 
+INV_L_SEND_CMD = _reflection.GeneratedProtocolMessageType('INV_L_SEND_CMD', (_message.Message,), {
+  'DESCRIPTOR' : _INV_L_SEND_CMD,
+  '__module__' : 'primary_pb2'
+  # @@protoc_insertion_point(class_scope:primary.INV_L_SEND_CMD)
+  })
+_sym_db.RegisterMessage(INV_L_SEND_CMD)
+
+INV_L_STATUS = _reflection.GeneratedProtocolMessageType('INV_L_STATUS', (_message.Message,), {
+  'DESCRIPTOR' : _INV_L_STATUS,
+  '__module__' : 'primary_pb2'
+  # @@protoc_insertion_point(class_scope:primary.INV_L_STATUS)
+  })
+_sym_db.RegisterMessage(INV_L_STATUS)
+
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _TLM_STATUS_SET._serialized_start=2318
-  _TLM_STATUS_SET._serialized_end=2381
-  _RACE_TYPE._serialized_start=2383
-  _RACE_TYPE._serialized_end=2495
-  _TLM_STATUS._serialized_start=2497
-  _TLM_STATUS._serialized_end=2548
-  _INVERTER_STATUS._serialized_start=2550
-  _INVERTER_STATUS._serialized_end=2642
-  _CAR_STATUS._serialized_start=2644
-  _CAR_STATUS._serialized_end=2719
-  _TS_STATUS._serialized_start=2721
-  _TS_STATUS._serialized_end=2815
-  _TS_STATUS_SET._serialized_start=2817
-  _TS_STATUS_SET._serialized_end=2877
-  _SET_BALANCING_STATUS._serialized_start=2879
-  _SET_BALANCING_STATUS._serialized_end=2960
-  _TRACTION_CONTROL._serialized_start=2963
-  _TRACTION_CONTROL._serialized_end=3112
-  _MAP._serialized_start=3114
-  _MAP._serialized_end=3196
-  _CAR_STATUS_SET._serialized_start=3198
-  _CAR_STATUS_SET._serialized_end=3263
-  _BOUND._serialized_start=3265
-  _BOUND._serialized_end=3310
-  _PEDAL._serialized_start=3312
-  _PEDAL._serialized_end=3359
-  _BALANCING_STATUS._serialized_start=3361
-  _BALANCING_STATUS._serialized_end=3430
+  _TLM_STATUS_SET._serialized_start=2463
+  _TLM_STATUS_SET._serialized_end=2526
+  _RACE_TYPE._serialized_start=2528
+  _RACE_TYPE._serialized_end=2640
+  _TLM_STATUS._serialized_start=2642
+  _TLM_STATUS._serialized_end=2693
+  _INVERTER_STATUS._serialized_start=2695
+  _INVERTER_STATUS._serialized_end=2787
+  _CAR_STATUS._serialized_start=2789
+  _CAR_STATUS._serialized_end=2864
+  _TS_STATUS._serialized_start=2866
+  _TS_STATUS._serialized_end=2960
+  _TS_STATUS_SET._serialized_start=2962
+  _TS_STATUS_SET._serialized_end=3022
+  _SET_BALANCING_STATUS._serialized_start=3024
+  _SET_BALANCING_STATUS._serialized_end=3105
+  _TRACTION_CONTROL._serialized_start=3108
+  _TRACTION_CONTROL._serialized_end=3257
+  _MAP._serialized_start=3259
+  _MAP._serialized_end=3341
+  _CAR_STATUS_SET._serialized_start=3343
+  _CAR_STATUS_SET._serialized_end=3408
+  _BOUND._serialized_start=3410
+  _BOUND._serialized_end=3455
+  _PEDAL._serialized_start=3457
+  _PEDAL._serialized_end=3504
+  _BALANCING_STATUS._serialized_start=3506
+  _BALANCING_STATUS._serialized_end=3575
   _STEER_VERSION._serialized_start=26
   _STEER_VERSION._serialized_end=93
   _DAS_VERSION._serialized_start=95
@@ -370,42 +394,48 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _TLM_STATUS._serialized_end=699
   _CAR_STATUS._serialized_start=702
   _CAR_STATUS._serialized_end=847
-  _SPEED._serialized_start=849
-  _SPEED._serialized_end=934
-  _HV_VOLTAGE._serialized_start=936
-  _HV_VOLTAGE._serialized_end=1043
-  _HV_CURRENT._serialized_start=1045
-  _HV_CURRENT._serialized_end=1089
-  _HV_TEMP._serialized_start=1091
-  _HV_TEMP._serialized_end=1158
-  _HV_ERRORS._serialized_start=1160
-  _HV_ERRORS._serialized_end=1205
-  _TS_STATUS._serialized_start=1207
-  _TS_STATUS._serialized_end=1257
-  _SET_TS_STATUS._serialized_start=1259
-  _SET_TS_STATUS._serialized_end=1321
-  _SET_CELL_BALANCING_STATUS._serialized_start=1323
-  _SET_CELL_BALANCING_STATUS._serialized_end=1411
-  _HANDCART_STATUS._serialized_start=1413
-  _HANDCART_STATUS._serialized_end=1449
-  _STEER_STATUS._serialized_start=1451
-  _STEER_STATUS._serialized_end=1545
-  _SET_CAR_STATUS._serialized_start=1547
-  _SET_CAR_STATUS._serialized_end=1612
-  _SET_PEDALS_RANGE._serialized_start=1614
-  _SET_PEDALS_RANGE._serialized_end=1694
-  _LV_CURRENT._serialized_start=1696
-  _LV_CURRENT._serialized_end=1725
-  _LV_VOLTAGE._serialized_start=1727
-  _LV_VOLTAGE._serialized_end=1838
-  _LV_TEMPERATURE._serialized_start=1840
-  _LV_TEMPERATURE._serialized_end=1906
-  _COOLING_STATUS._serialized_start=1908
-  _COOLING_STATUS._serialized_end=1988
-  _HV_CELLS_VOLTAGE._serialized_start=1990
-  _HV_CELLS_VOLTAGE._serialized_end=2085
-  _HV_CELLS_TEMP._serialized_start=2088
-  _HV_CELLS_TEMP._serialized_end=2235
-  _HV_CELL_BALANCING_STATUS._serialized_start=2237
-  _HV_CELL_BALANCING_STATUS._serialized_end=2316
+  _DAS_ERRORS._serialized_start=849
+  _DAS_ERRORS._serialized_end=880
+  _SPEED._serialized_start=882
+  _SPEED._serialized_end=967
+  _HV_VOLTAGE._serialized_start=969
+  _HV_VOLTAGE._serialized_end=1076
+  _HV_CURRENT._serialized_start=1078
+  _HV_CURRENT._serialized_end=1122
+  _HV_TEMP._serialized_start=1124
+  _HV_TEMP._serialized_end=1191
+  _HV_ERRORS._serialized_start=1193
+  _HV_ERRORS._serialized_end=1238
+  _TS_STATUS._serialized_start=1240
+  _TS_STATUS._serialized_end=1290
+  _SET_TS_STATUS._serialized_start=1292
+  _SET_TS_STATUS._serialized_end=1354
+  _SET_CELL_BALANCING_STATUS._serialized_start=1356
+  _SET_CELL_BALANCING_STATUS._serialized_end=1444
+  _HANDCART_STATUS._serialized_start=1446
+  _HANDCART_STATUS._serialized_end=1482
+  _STEER_STATUS._serialized_start=1484
+  _STEER_STATUS._serialized_end=1578
+  _SET_CAR_STATUS._serialized_start=1580
+  _SET_CAR_STATUS._serialized_end=1645
+  _SET_PEDALS_RANGE._serialized_start=1647
+  _SET_PEDALS_RANGE._serialized_end=1727
+  _LV_CURRENT._serialized_start=1729
+  _LV_CURRENT._serialized_end=1758
+  _LV_VOLTAGE._serialized_start=1760
+  _LV_VOLTAGE._serialized_end=1871
+  _LV_TEMPERATURE._serialized_start=1873
+  _LV_TEMPERATURE._serialized_end=1939
+  _COOLING_STATUS._serialized_start=1941
+  _COOLING_STATUS._serialized_end=2021
+  _HV_CELLS_VOLTAGE._serialized_start=2023
+  _HV_CELLS_VOLTAGE._serialized_end=2118
+  _HV_CELLS_TEMP._serialized_start=2121
+  _HV_CELLS_TEMP._serialized_end=2268
+  _HV_CELL_BALANCING_STATUS._serialized_start=2270
+  _HV_CELL_BALANCING_STATUS._serialized_end=2349
+  _INV_L_SEND_CMD._serialized_start=2351
+  _INV_L_SEND_CMD._serialized_end=2414
+  _INV_L_STATUS._serialized_start=2416
+  _INV_L_STATUS._serialized_end=2461
 # @@protoc_insertion_point(module_scope)

@@ -157,6 +157,18 @@ struct CAR_STATUSDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CAR_STATUSDefaultTypeInternal _CAR_STATUS_default_instance_;
+constexpr DAS_ERRORS::DAS_ERRORS(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : das_error_(0u){}
+struct DAS_ERRORSDefaultTypeInternal {
+  constexpr DAS_ERRORSDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DAS_ERRORSDefaultTypeInternal() {}
+  union {
+    DAS_ERRORS _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DAS_ERRORSDefaultTypeInternal _DAS_ERRORS_default_instance_;
 constexpr SPEED::SPEED(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : encoder_r_(0u)
@@ -423,8 +435,35 @@ struct HV_CELL_BALANCING_STATUSDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT HV_CELL_BALANCING_STATUSDefaultTypeInternal _HV_CELL_BALANCING_STATUS_default_instance_;
+constexpr INV_L_SEND_CMD::INV_L_SEND_CMD(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : regid_(0u)
+  , byte_1_(0u)
+  , byte_2_(0u){}
+struct INV_L_SEND_CMDDefaultTypeInternal {
+  constexpr INV_L_SEND_CMDDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~INV_L_SEND_CMDDefaultTypeInternal() {}
+  union {
+    INV_L_SEND_CMD _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT INV_L_SEND_CMDDefaultTypeInternal _INV_L_SEND_CMD_default_instance_;
+constexpr INV_L_STATUS::INV_L_STATUS(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : regid_(0u)
+  , status_(0u){}
+struct INV_L_STATUSDefaultTypeInternal {
+  constexpr INV_L_STATUSDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~INV_L_STATUSDefaultTypeInternal() {}
+  union {
+    INV_L_STATUS _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT INV_L_STATUSDefaultTypeInternal _INV_L_STATUS_default_instance_;
 }  // namespace primary
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_primary_2eproto[29];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_primary_2eproto[32];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_primary_2eproto[14];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_primary_2eproto = nullptr;
 
@@ -512,6 +551,13 @@ const uint32_t TableStruct_primary_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   PROTOBUF_FIELD_OFFSET(::primary::CAR_STATUS, inverter_l_),
   PROTOBUF_FIELD_OFFSET(::primary::CAR_STATUS, inverter_r_),
   PROTOBUF_FIELD_OFFSET(::primary::CAR_STATUS, car_status_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::primary::DAS_ERRORS, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::primary::DAS_ERRORS, das_error_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::primary::SPEED, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -674,6 +720,23 @@ const uint32_t TableStruct_primary_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::primary::HV_CELL_BALANCING_STATUS, balancing_status_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::primary::INV_L_SEND_CMD, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::primary::INV_L_SEND_CMD, regid_),
+  PROTOBUF_FIELD_OFFSET(::primary::INV_L_SEND_CMD, byte_1_),
+  PROTOBUF_FIELD_OFFSET(::primary::INV_L_SEND_CMD, byte_2_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::primary::INV_L_STATUS, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::primary::INV_L_STATUS, regid_),
+  PROTOBUF_FIELD_OFFSET(::primary::INV_L_STATUS, status_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::primary::STEER_VERSION)},
@@ -686,25 +749,28 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 57, -1, -1, sizeof(::primary::STEER_SYSTEM_STATUS)},
   { 64, -1, -1, sizeof(::primary::TLM_STATUS)},
   { 74, -1, -1, sizeof(::primary::CAR_STATUS)},
-  { 83, -1, -1, sizeof(::primary::SPEED)},
-  { 93, -1, -1, sizeof(::primary::HV_VOLTAGE)},
-  { 103, -1, -1, sizeof(::primary::HV_CURRENT)},
-  { 111, -1, -1, sizeof(::primary::HV_TEMP)},
-  { 120, -1, -1, sizeof(::primary::HV_ERRORS)},
-  { 128, -1, -1, sizeof(::primary::TS_STATUS)},
-  { 135, -1, -1, sizeof(::primary::SET_TS_STATUS)},
-  { 142, -1, -1, sizeof(::primary::SET_CELL_BALANCING_STATUS)},
-  { 149, -1, -1, sizeof(::primary::HANDCART_STATUS)},
-  { 156, -1, -1, sizeof(::primary::STEER_STATUS)},
-  { 164, -1, -1, sizeof(::primary::SET_CAR_STATUS)},
-  { 171, -1, -1, sizeof(::primary::SET_PEDALS_RANGE)},
-  { 179, -1, -1, sizeof(::primary::LV_CURRENT)},
-  { 186, -1, -1, sizeof(::primary::LV_VOLTAGE)},
-  { 197, -1, -1, sizeof(::primary::LV_TEMPERATURE)},
-  { 205, -1, -1, sizeof(::primary::COOLING_STATUS)},
-  { 214, -1, -1, sizeof(::primary::HV_CELLS_VOLTAGE)},
-  { 224, -1, -1, sizeof(::primary::HV_CELLS_TEMP)},
-  { 238, -1, -1, sizeof(::primary::HV_CELL_BALANCING_STATUS)},
+  { 83, -1, -1, sizeof(::primary::DAS_ERRORS)},
+  { 90, -1, -1, sizeof(::primary::SPEED)},
+  { 100, -1, -1, sizeof(::primary::HV_VOLTAGE)},
+  { 110, -1, -1, sizeof(::primary::HV_CURRENT)},
+  { 118, -1, -1, sizeof(::primary::HV_TEMP)},
+  { 127, -1, -1, sizeof(::primary::HV_ERRORS)},
+  { 135, -1, -1, sizeof(::primary::TS_STATUS)},
+  { 142, -1, -1, sizeof(::primary::SET_TS_STATUS)},
+  { 149, -1, -1, sizeof(::primary::SET_CELL_BALANCING_STATUS)},
+  { 156, -1, -1, sizeof(::primary::HANDCART_STATUS)},
+  { 163, -1, -1, sizeof(::primary::STEER_STATUS)},
+  { 171, -1, -1, sizeof(::primary::SET_CAR_STATUS)},
+  { 178, -1, -1, sizeof(::primary::SET_PEDALS_RANGE)},
+  { 186, -1, -1, sizeof(::primary::LV_CURRENT)},
+  { 193, -1, -1, sizeof(::primary::LV_VOLTAGE)},
+  { 204, -1, -1, sizeof(::primary::LV_TEMPERATURE)},
+  { 212, -1, -1, sizeof(::primary::COOLING_STATUS)},
+  { 221, -1, -1, sizeof(::primary::HV_CELLS_VOLTAGE)},
+  { 231, -1, -1, sizeof(::primary::HV_CELLS_TEMP)},
+  { 245, -1, -1, sizeof(::primary::HV_CELL_BALANCING_STATUS)},
+  { 252, -1, -1, sizeof(::primary::INV_L_SEND_CMD)},
+  { 261, -1, -1, sizeof(::primary::INV_L_STATUS)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -718,6 +784,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_STEER_SYSTEM_STATUS_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_TLM_STATUS_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_CAR_STATUS_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_DAS_ERRORS_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_SPEED_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_HV_VOLTAGE_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_HV_CURRENT_default_instance_),
@@ -737,6 +804,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_HV_CELLS_VOLTAGE_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_HV_CELLS_TEMP_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_HV_CELL_BALANCING_STATUS_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_INV_L_SEND_CMD_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::primary::_INV_L_STATUS_default_instance_),
 };
 
 const char descriptor_table_protodef_primary_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -761,76 +830,80 @@ const char descriptor_table_protodef_primary_2eproto[] PROTOBUF_SECTION_VARIABLE
   "verter_l\030\001 \001(\0162\030.primary.Inverter_Status"
   "\022,\n\ninverter_r\030\002 \001(\0162\030.primary.Inverter_"
   "Status\022\'\n\ncar_status\030\003 \001(\0162\023.primary.Car"
-  "_Status\"U\n\005SPEED\022\021\n\tencoder_r\030\001 \001(\r\022\021\n\te"
-  "ncoder_l\030\002 \001(\r\022\022\n\ninverter_r\030\003 \001(\r\022\022\n\nin"
-  "verter_l\030\004 \001(\r\"k\n\nHV_VOLTAGE\022\024\n\014pack_vol"
-  "tage\030\001 \001(\r\022\023\n\013bus_voltage\030\002 \001(\r\022\030\n\020max_c"
-  "ell_voltage\030\003 \001(\r\022\030\n\020min_cell_voltage\030\004 "
-  "\001(\r\",\n\nHV_CURRENT\022\017\n\007current\030\001 \001(\r\022\r\n\005po"
-  "wer\030\002 \001(\005\"C\n\007HV_TEMP\022\024\n\014average_temp\030\001 \001"
-  "(\r\022\020\n\010max_temp\030\002 \001(\r\022\020\n\010min_temp\030\003 \001(\r\"-"
-  "\n\tHV_ERRORS\022\020\n\010warnings\030\001 \001(\r\022\016\n\006errors\030"
-  "\002 \001(\r\"2\n\tTS_STATUS\022%\n\tts_status\030\001 \001(\0162\022."
-  "primary.Ts_Status\">\n\rSET_TS_STATUS\022-\n\rts"
-  "_status_set\030\001 \001(\0162\026.primary.Ts_Status_Se"
-  "t\"X\n\031SET_CELL_BALANCING_STATUS\022;\n\024set_ba"
-  "lancing_status\030\001 \001(\0162\035.primary.Set_Balan"
-  "cing_Status\"$\n\017HANDCART_STATUS\022\021\n\tconnec"
-  "ted\030\001 \001(\010\"^\n\014STEER_STATUS\0223\n\020traction_co"
-  "ntrol\030\001 \001(\0162\031.primary.Traction_Control\022\031"
-  "\n\003map\030\002 \001(\0162\014.primary.Map\"A\n\016SET_CAR_STA"
-  "TUS\022/\n\016car_status_set\030\001 \001(\0162\027.primary.Ca"
-  "r_Status_Set\"P\n\020SET_PEDALS_RANGE\022\035\n\005boun"
-  "d\030\001 \001(\0162\016.primary.Bound\022\035\n\005pedal\030\002 \001(\0162\016"
-  ".primary.Pedal\"\035\n\nLV_CURRENT\022\017\n\007current\030"
-  "\001 \001(\r\"o\n\nLV_VOLTAGE\022\025\n\rtotal_voltage\030\001 \001"
-  "(\r\022\021\n\tvoltage_1\030\002 \001(\r\022\021\n\tvoltage_2\030\003 \001(\r"
-  "\022\021\n\tvoltage_3\030\004 \001(\r\022\021\n\tvoltage_4\030\005 \001(\r\"B"
-  "\n\016LV_TEMPERATURE\022\026\n\016bp_temperature\030\001 \001(\r"
-  "\022\030\n\020dcdc_temperature\030\002 \001(\r\"P\n\016COOLING_ST"
-  "ATUS\022\024\n\014hv_fan_speed\030\001 \001(\r\022\024\n\014lv_fan_spe"
-  "ed\030\002 \001(\r\022\022\n\npump_speed\030\003 \001(\r\"_\n\020HV_CELLS"
-  "_VOLTAGE\022\022\n\ncell_index\030\001 \001(\r\022\021\n\tvoltage_"
-  "0\030\002 \001(\r\022\021\n\tvoltage_1\030\003 \001(\r\022\021\n\tvoltage_2\030"
-  "\004 \001(\r\"\223\001\n\rHV_CELLS_TEMP\022\022\n\ncell_index\030\001 "
-  "\001(\r\022\016\n\006temp_0\030\002 \001(\r\022\016\n\006temp_1\030\003 \001(\r\022\016\n\006t"
-  "emp_2\030\004 \001(\r\022\016\n\006temp_3\030\005 \001(\r\022\016\n\006temp_4\030\006 "
-  "\001(\r\022\016\n\006temp_5\030\007 \001(\r\022\016\n\006temp_6\030\010 \001(\r\"O\n\030H"
-  "V_CELL_BALANCING_STATUS\0223\n\020balancing_sta"
-  "tus\030\001 \001(\0162\031.primary.Balancing_Status*\?\n\016"
-  "Tlm_Status_Set\022\026\n\022TLM_STATUS_SET_OFF\020\000\022\025"
-  "\n\021TLM_STATUS_SET_ON\020\001*p\n\tRace_Type\022\032\n\026RA"
-  "CE_TYPE_ACCELERATION\020\000\022\025\n\021RACE_TYPE_SKID"
-  "PAD\020\001\022\027\n\023RACE_TYPE_AUTOCROSS\020\002\022\027\n\023RACE_T"
-  "YPE_ENDURANCE\020\003*3\n\nTlm_Status\022\021\n\rTLM_STA"
-  "TUS_ON\020\000\022\022\n\016TLM_STATUS_OFF\020\001*\\\n\017Inverter"
-  "_Status\022\027\n\023INVERTER_STATUS_OFF\020\000\022\030\n\024INVE"
-  "RTER_STATUS_IDLE\020\001\022\026\n\022INVERTER_STATUS_ON"
-  "\020\002*K\n\nCar_Status\022\023\n\017CAR_STATUS_IDLE\020\000\022\024\n"
-  "\020CAR_STATUS_SETUP\020\001\022\022\n\016CAR_STATUS_RUN\020\002*"
-  "^\n\tTs_Status\022\021\n\rTS_STATUS_OFF\020\000\022\027\n\023TS_ST"
-  "ATUS_PRECHARGE\020\001\022\020\n\014TS_STATUS_ON\020\002\022\023\n\017TS"
-  "_STATUS_FATAL\020\003*<\n\rTs_Status_Set\022\025\n\021TS_S"
-  "TATUS_SET_OFF\020\000\022\024\n\020TS_STATUS_SET_ON\020\001*Q\n"
-  "\024Set_Balancing_Status\022\034\n\030SET_BALANCING_S"
-  "TATUS_OFF\020\000\022\033\n\027SET_BALANCING_STATUS_ON\020\001"
-  "*\225\001\n\020Traction_Control\022\030\n\024TRACTION_CONTRO"
-  "L_OFF\020\000\022!\n\035TRACTION_CONTROL_SLIP_CONTROL"
-  "\020\001\022%\n!TRACTION_CONTROL_TORQUE_VECTORING\020"
-  "\002\022\035\n\031TRACTION_CONTROL_COMPLETE\020\003*R\n\003Map\022"
-  "\t\n\005MAP_R\020\000\022\013\n\007MAP_D20\020\001\022\013\n\007MAP_D40\020\002\022\013\n\007"
-  "MAP_D60\020\003\022\013\n\007MAP_D80\020\004\022\014\n\010MAP_D100\020\005*A\n\016"
-  "Car_Status_Set\022\027\n\023CAR_STATUS_SET_IDLE\020\000\022"
-  "\026\n\022CAR_STATUS_SET_RUN\020\001*-\n\005Bound\022\021\n\rBOUN"
-  "D_SET_MAX\020\000\022\021\n\rBOUND_SET_MIN\020\001*/\n\005Pedal\022"
-  "\025\n\021PEDAL_ACCELERATOR\020\000\022\017\n\013PEDAL_BRAKE\020\001*"
-  "E\n\020Balancing_Status\022\027\n\023BALANCING_STATUS_"
-  "ON\020\000\022\030\n\024BALANCING_STATUS_OFF\020\001b\006proto3"
+  "_Status\"\037\n\nDAS_ERRORS\022\021\n\tdas_error\030\001 \001(\r"
+  "\"U\n\005SPEED\022\021\n\tencoder_r\030\001 \001(\r\022\021\n\tencoder_"
+  "l\030\002 \001(\r\022\022\n\ninverter_r\030\003 \001(\r\022\022\n\ninverter_"
+  "l\030\004 \001(\r\"k\n\nHV_VOLTAGE\022\024\n\014pack_voltage\030\001 "
+  "\001(\r\022\023\n\013bus_voltage\030\002 \001(\r\022\030\n\020max_cell_vol"
+  "tage\030\003 \001(\r\022\030\n\020min_cell_voltage\030\004 \001(\r\",\n\n"
+  "HV_CURRENT\022\017\n\007current\030\001 \001(\r\022\r\n\005power\030\002 \001"
+  "(\005\"C\n\007HV_TEMP\022\024\n\014average_temp\030\001 \001(\r\022\020\n\010m"
+  "ax_temp\030\002 \001(\r\022\020\n\010min_temp\030\003 \001(\r\"-\n\tHV_ER"
+  "RORS\022\020\n\010warnings\030\001 \001(\r\022\016\n\006errors\030\002 \001(\r\"2"
+  "\n\tTS_STATUS\022%\n\tts_status\030\001 \001(\0162\022.primary"
+  ".Ts_Status\">\n\rSET_TS_STATUS\022-\n\rts_status"
+  "_set\030\001 \001(\0162\026.primary.Ts_Status_Set\"X\n\031SE"
+  "T_CELL_BALANCING_STATUS\022;\n\024set_balancing"
+  "_status\030\001 \001(\0162\035.primary.Set_Balancing_St"
+  "atus\"$\n\017HANDCART_STATUS\022\021\n\tconnected\030\001 \001"
+  "(\010\"^\n\014STEER_STATUS\0223\n\020traction_control\030\001"
+  " \001(\0162\031.primary.Traction_Control\022\031\n\003map\030\002"
+  " \001(\0162\014.primary.Map\"A\n\016SET_CAR_STATUS\022/\n\016"
+  "car_status_set\030\001 \001(\0162\027.primary.Car_Statu"
+  "s_Set\"P\n\020SET_PEDALS_RANGE\022\035\n\005bound\030\001 \001(\016"
+  "2\016.primary.Bound\022\035\n\005pedal\030\002 \001(\0162\016.primar"
+  "y.Pedal\"\035\n\nLV_CURRENT\022\017\n\007current\030\001 \001(\r\"o"
+  "\n\nLV_VOLTAGE\022\025\n\rtotal_voltage\030\001 \001(\r\022\021\n\tv"
+  "oltage_1\030\002 \001(\r\022\021\n\tvoltage_2\030\003 \001(\r\022\021\n\tvol"
+  "tage_3\030\004 \001(\r\022\021\n\tvoltage_4\030\005 \001(\r\"B\n\016LV_TE"
+  "MPERATURE\022\026\n\016bp_temperature\030\001 \001(\r\022\030\n\020dcd"
+  "c_temperature\030\002 \001(\r\"P\n\016COOLING_STATUS\022\024\n"
+  "\014hv_fan_speed\030\001 \001(\r\022\024\n\014lv_fan_speed\030\002 \001("
+  "\r\022\022\n\npump_speed\030\003 \001(\r\"_\n\020HV_CELLS_VOLTAG"
+  "E\022\022\n\ncell_index\030\001 \001(\r\022\021\n\tvoltage_0\030\002 \001(\r"
+  "\022\021\n\tvoltage_1\030\003 \001(\r\022\021\n\tvoltage_2\030\004 \001(\r\"\223"
+  "\001\n\rHV_CELLS_TEMP\022\022\n\ncell_index\030\001 \001(\r\022\016\n\006"
+  "temp_0\030\002 \001(\r\022\016\n\006temp_1\030\003 \001(\r\022\016\n\006temp_2\030\004"
+  " \001(\r\022\016\n\006temp_3\030\005 \001(\r\022\016\n\006temp_4\030\006 \001(\r\022\016\n\006"
+  "temp_5\030\007 \001(\r\022\016\n\006temp_6\030\010 \001(\r\"O\n\030HV_CELL_"
+  "BALANCING_STATUS\0223\n\020balancing_status\030\001 \001"
+  "(\0162\031.primary.Balancing_Status\"\?\n\016INV_L_S"
+  "END_CMD\022\r\n\005regid\030\001 \001(\r\022\016\n\006byte_1\030\002 \001(\r\022\016"
+  "\n\006byte_2\030\003 \001(\r\"-\n\014INV_L_STATUS\022\r\n\005regid\030"
+  "\001 \001(\r\022\016\n\006status\030\002 \001(\r*\?\n\016Tlm_Status_Set\022"
+  "\026\n\022TLM_STATUS_SET_OFF\020\000\022\025\n\021TLM_STATUS_SE"
+  "T_ON\020\001*p\n\tRace_Type\022\032\n\026RACE_TYPE_ACCELER"
+  "ATION\020\000\022\025\n\021RACE_TYPE_SKIDPAD\020\001\022\027\n\023RACE_T"
+  "YPE_AUTOCROSS\020\002\022\027\n\023RACE_TYPE_ENDURANCE\020\003"
+  "*3\n\nTlm_Status\022\021\n\rTLM_STATUS_ON\020\000\022\022\n\016TLM"
+  "_STATUS_OFF\020\001*\\\n\017Inverter_Status\022\027\n\023INVE"
+  "RTER_STATUS_OFF\020\000\022\030\n\024INVERTER_STATUS_IDL"
+  "E\020\001\022\026\n\022INVERTER_STATUS_ON\020\002*K\n\nCar_Statu"
+  "s\022\023\n\017CAR_STATUS_IDLE\020\000\022\024\n\020CAR_STATUS_SET"
+  "UP\020\001\022\022\n\016CAR_STATUS_RUN\020\002*^\n\tTs_Status\022\021\n"
+  "\rTS_STATUS_OFF\020\000\022\027\n\023TS_STATUS_PRECHARGE\020"
+  "\001\022\020\n\014TS_STATUS_ON\020\002\022\023\n\017TS_STATUS_FATAL\020\003"
+  "*<\n\rTs_Status_Set\022\025\n\021TS_STATUS_SET_OFF\020\000"
+  "\022\024\n\020TS_STATUS_SET_ON\020\001*Q\n\024Set_Balancing_"
+  "Status\022\034\n\030SET_BALANCING_STATUS_OFF\020\000\022\033\n\027"
+  "SET_BALANCING_STATUS_ON\020\001*\225\001\n\020Traction_C"
+  "ontrol\022\030\n\024TRACTION_CONTROL_OFF\020\000\022!\n\035TRAC"
+  "TION_CONTROL_SLIP_CONTROL\020\001\022%\n!TRACTION_"
+  "CONTROL_TORQUE_VECTORING\020\002\022\035\n\031TRACTION_C"
+  "ONTROL_COMPLETE\020\003*R\n\003Map\022\t\n\005MAP_R\020\000\022\013\n\007M"
+  "AP_D20\020\001\022\013\n\007MAP_D40\020\002\022\013\n\007MAP_D60\020\003\022\013\n\007MA"
+  "P_D80\020\004\022\014\n\010MAP_D100\020\005*A\n\016Car_Status_Set\022"
+  "\027\n\023CAR_STATUS_SET_IDLE\020\000\022\026\n\022CAR_STATUS_S"
+  "ET_RUN\020\001*-\n\005Bound\022\021\n\rBOUND_SET_MAX\020\000\022\021\n\r"
+  "BOUND_SET_MIN\020\001*/\n\005Pedal\022\025\n\021PEDAL_ACCELE"
+  "RATOR\020\000\022\017\n\013PEDAL_BRAKE\020\001*E\n\020Balancing_St"
+  "atus\022\030\n\024BALANCING_STATUS_OFF\020\000\022\027\n\023BALANC"
+  "ING_STATUS_ON\020\001b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_primary_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_primary_2eproto = {
-  false, false, 3438, descriptor_table_protodef_primary_2eproto, "primary.proto", 
-  &descriptor_table_primary_2eproto_once, nullptr, 0, 29,
+  false, false, 3583, descriptor_table_protodef_primary_2eproto, "primary.proto", 
+  &descriptor_table_primary_2eproto_once, nullptr, 0, 32,
   schemas, file_default_instances, TableStruct_primary_2eproto::offsets,
   file_level_metadata_primary_2eproto, file_level_enum_descriptors_primary_2eproto, file_level_service_descriptors_primary_2eproto,
 };
@@ -3235,6 +3308,184 @@ void CAR_STATUS::InternalSwap(CAR_STATUS* other) {
 
 // ===================================================================
 
+class DAS_ERRORS::_Internal {
+ public:
+};
+
+DAS_ERRORS::DAS_ERRORS(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:primary.DAS_ERRORS)
+}
+DAS_ERRORS::DAS_ERRORS(const DAS_ERRORS& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  das_error_ = from.das_error_;
+  // @@protoc_insertion_point(copy_constructor:primary.DAS_ERRORS)
+}
+
+inline void DAS_ERRORS::SharedCtor() {
+das_error_ = 0u;
+}
+
+DAS_ERRORS::~DAS_ERRORS() {
+  // @@protoc_insertion_point(destructor:primary.DAS_ERRORS)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void DAS_ERRORS::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void DAS_ERRORS::ArenaDtor(void* object) {
+  DAS_ERRORS* _this = reinterpret_cast< DAS_ERRORS* >(object);
+  (void)_this;
+}
+void DAS_ERRORS::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DAS_ERRORS::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DAS_ERRORS::Clear() {
+// @@protoc_insertion_point(message_clear_start:primary.DAS_ERRORS)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  das_error_ = 0u;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DAS_ERRORS::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 das_error = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          das_error_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DAS_ERRORS::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:primary.DAS_ERRORS)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 das_error = 1;
+  if (this->_internal_das_error() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_das_error(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:primary.DAS_ERRORS)
+  return target;
+}
+
+size_t DAS_ERRORS::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:primary.DAS_ERRORS)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 das_error = 1;
+  if (this->_internal_das_error() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_das_error());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DAS_ERRORS::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    DAS_ERRORS::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DAS_ERRORS::GetClassData() const { return &_class_data_; }
+
+void DAS_ERRORS::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<DAS_ERRORS *>(to)->MergeFrom(
+      static_cast<const DAS_ERRORS &>(from));
+}
+
+
+void DAS_ERRORS::MergeFrom(const DAS_ERRORS& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:primary.DAS_ERRORS)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_das_error() != 0) {
+    _internal_set_das_error(from._internal_das_error());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DAS_ERRORS::CopyFrom(const DAS_ERRORS& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:primary.DAS_ERRORS)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DAS_ERRORS::IsInitialized() const {
+  return true;
+}
+
+void DAS_ERRORS::InternalSwap(DAS_ERRORS* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(das_error_, other->das_error_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DAS_ERRORS::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
+      file_level_metadata_primary_2eproto[10]);
+}
+
+// ===================================================================
+
 class SPEED::_Internal {
  public:
 };
@@ -3486,7 +3737,7 @@ void SPEED::InternalSwap(SPEED* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SPEED::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[10]);
+      file_level_metadata_primary_2eproto[11]);
 }
 
 // ===================================================================
@@ -3742,7 +3993,7 @@ void HV_VOLTAGE::InternalSwap(HV_VOLTAGE* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata HV_VOLTAGE::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[11]);
+      file_level_metadata_primary_2eproto[12]);
 }
 
 // ===================================================================
@@ -3954,7 +4205,7 @@ void HV_CURRENT::InternalSwap(HV_CURRENT* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata HV_CURRENT::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[12]);
+      file_level_metadata_primary_2eproto[13]);
 }
 
 // ===================================================================
@@ -4188,7 +4439,7 @@ void HV_TEMP::InternalSwap(HV_TEMP* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata HV_TEMP::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[13]);
+      file_level_metadata_primary_2eproto[14]);
 }
 
 // ===================================================================
@@ -4400,7 +4651,7 @@ void HV_ERRORS::InternalSwap(HV_ERRORS* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata HV_ERRORS::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[14]);
+      file_level_metadata_primary_2eproto[15]);
 }
 
 // ===================================================================
@@ -4581,7 +4832,7 @@ void TS_STATUS::InternalSwap(TS_STATUS* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata TS_STATUS::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[15]);
+      file_level_metadata_primary_2eproto[16]);
 }
 
 // ===================================================================
@@ -4762,7 +5013,7 @@ void SET_TS_STATUS::InternalSwap(SET_TS_STATUS* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SET_TS_STATUS::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[16]);
+      file_level_metadata_primary_2eproto[17]);
 }
 
 // ===================================================================
@@ -4943,7 +5194,7 @@ void SET_CELL_BALANCING_STATUS::InternalSwap(SET_CELL_BALANCING_STATUS* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SET_CELL_BALANCING_STATUS::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[17]);
+      file_level_metadata_primary_2eproto[18]);
 }
 
 // ===================================================================
@@ -5121,7 +5372,7 @@ void HANDCART_STATUS::InternalSwap(HANDCART_STATUS* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata HANDCART_STATUS::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[18]);
+      file_level_metadata_primary_2eproto[19]);
 }
 
 // ===================================================================
@@ -5339,7 +5590,7 @@ void STEER_STATUS::InternalSwap(STEER_STATUS* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata STEER_STATUS::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[19]);
+      file_level_metadata_primary_2eproto[20]);
 }
 
 // ===================================================================
@@ -5520,7 +5771,7 @@ void SET_CAR_STATUS::InternalSwap(SET_CAR_STATUS* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SET_CAR_STATUS::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[20]);
+      file_level_metadata_primary_2eproto[21]);
 }
 
 // ===================================================================
@@ -5738,7 +5989,7 @@ void SET_PEDALS_RANGE::InternalSwap(SET_PEDALS_RANGE* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SET_PEDALS_RANGE::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[21]);
+      file_level_metadata_primary_2eproto[22]);
 }
 
 // ===================================================================
@@ -5916,7 +6167,7 @@ void LV_CURRENT::InternalSwap(LV_CURRENT* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata LV_CURRENT::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[22]);
+      file_level_metadata_primary_2eproto[23]);
 }
 
 // ===================================================================
@@ -6194,7 +6445,7 @@ void LV_VOLTAGE::InternalSwap(LV_VOLTAGE* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata LV_VOLTAGE::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[23]);
+      file_level_metadata_primary_2eproto[24]);
 }
 
 // ===================================================================
@@ -6406,7 +6657,7 @@ void LV_TEMPERATURE::InternalSwap(LV_TEMPERATURE* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata LV_TEMPERATURE::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[24]);
+      file_level_metadata_primary_2eproto[25]);
 }
 
 // ===================================================================
@@ -6640,7 +6891,7 @@ void COOLING_STATUS::InternalSwap(COOLING_STATUS* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata COOLING_STATUS::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[25]);
+      file_level_metadata_primary_2eproto[26]);
 }
 
 // ===================================================================
@@ -6896,7 +7147,7 @@ void HV_CELLS_VOLTAGE::InternalSwap(HV_CELLS_VOLTAGE* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata HV_CELLS_VOLTAGE::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[26]);
+      file_level_metadata_primary_2eproto[27]);
 }
 
 // ===================================================================
@@ -7240,7 +7491,7 @@ void HV_CELLS_TEMP::InternalSwap(HV_CELLS_TEMP* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata HV_CELLS_TEMP::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[27]);
+      file_level_metadata_primary_2eproto[28]);
 }
 
 // ===================================================================
@@ -7421,7 +7672,453 @@ void HV_CELL_BALANCING_STATUS::InternalSwap(HV_CELL_BALANCING_STATUS* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata HV_CELL_BALANCING_STATUS::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
-      file_level_metadata_primary_2eproto[28]);
+      file_level_metadata_primary_2eproto[29]);
+}
+
+// ===================================================================
+
+class INV_L_SEND_CMD::_Internal {
+ public:
+};
+
+INV_L_SEND_CMD::INV_L_SEND_CMD(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:primary.INV_L_SEND_CMD)
+}
+INV_L_SEND_CMD::INV_L_SEND_CMD(const INV_L_SEND_CMD& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&regid_, &from.regid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&byte_2_) -
+    reinterpret_cast<char*>(&regid_)) + sizeof(byte_2_));
+  // @@protoc_insertion_point(copy_constructor:primary.INV_L_SEND_CMD)
+}
+
+inline void INV_L_SEND_CMD::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&regid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&byte_2_) -
+    reinterpret_cast<char*>(&regid_)) + sizeof(byte_2_));
+}
+
+INV_L_SEND_CMD::~INV_L_SEND_CMD() {
+  // @@protoc_insertion_point(destructor:primary.INV_L_SEND_CMD)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void INV_L_SEND_CMD::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void INV_L_SEND_CMD::ArenaDtor(void* object) {
+  INV_L_SEND_CMD* _this = reinterpret_cast< INV_L_SEND_CMD* >(object);
+  (void)_this;
+}
+void INV_L_SEND_CMD::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void INV_L_SEND_CMD::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void INV_L_SEND_CMD::Clear() {
+// @@protoc_insertion_point(message_clear_start:primary.INV_L_SEND_CMD)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&regid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&byte_2_) -
+      reinterpret_cast<char*>(&regid_)) + sizeof(byte_2_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* INV_L_SEND_CMD::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 regid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          regid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 byte_1 = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          byte_1_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 byte_2 = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          byte_2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* INV_L_SEND_CMD::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:primary.INV_L_SEND_CMD)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 regid = 1;
+  if (this->_internal_regid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_regid(), target);
+  }
+
+  // uint32 byte_1 = 2;
+  if (this->_internal_byte_1() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_byte_1(), target);
+  }
+
+  // uint32 byte_2 = 3;
+  if (this->_internal_byte_2() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_byte_2(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:primary.INV_L_SEND_CMD)
+  return target;
+}
+
+size_t INV_L_SEND_CMD::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:primary.INV_L_SEND_CMD)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 regid = 1;
+  if (this->_internal_regid() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_regid());
+  }
+
+  // uint32 byte_1 = 2;
+  if (this->_internal_byte_1() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_byte_1());
+  }
+
+  // uint32 byte_2 = 3;
+  if (this->_internal_byte_2() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_byte_2());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData INV_L_SEND_CMD::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    INV_L_SEND_CMD::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*INV_L_SEND_CMD::GetClassData() const { return &_class_data_; }
+
+void INV_L_SEND_CMD::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<INV_L_SEND_CMD *>(to)->MergeFrom(
+      static_cast<const INV_L_SEND_CMD &>(from));
+}
+
+
+void INV_L_SEND_CMD::MergeFrom(const INV_L_SEND_CMD& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:primary.INV_L_SEND_CMD)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_regid() != 0) {
+    _internal_set_regid(from._internal_regid());
+  }
+  if (from._internal_byte_1() != 0) {
+    _internal_set_byte_1(from._internal_byte_1());
+  }
+  if (from._internal_byte_2() != 0) {
+    _internal_set_byte_2(from._internal_byte_2());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void INV_L_SEND_CMD::CopyFrom(const INV_L_SEND_CMD& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:primary.INV_L_SEND_CMD)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool INV_L_SEND_CMD::IsInitialized() const {
+  return true;
+}
+
+void INV_L_SEND_CMD::InternalSwap(INV_L_SEND_CMD* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(INV_L_SEND_CMD, byte_2_)
+      + sizeof(INV_L_SEND_CMD::byte_2_)
+      - PROTOBUF_FIELD_OFFSET(INV_L_SEND_CMD, regid_)>(
+          reinterpret_cast<char*>(&regid_),
+          reinterpret_cast<char*>(&other->regid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata INV_L_SEND_CMD::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
+      file_level_metadata_primary_2eproto[30]);
+}
+
+// ===================================================================
+
+class INV_L_STATUS::_Internal {
+ public:
+};
+
+INV_L_STATUS::INV_L_STATUS(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:primary.INV_L_STATUS)
+}
+INV_L_STATUS::INV_L_STATUS(const INV_L_STATUS& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&regid_, &from.regid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&status_) -
+    reinterpret_cast<char*>(&regid_)) + sizeof(status_));
+  // @@protoc_insertion_point(copy_constructor:primary.INV_L_STATUS)
+}
+
+inline void INV_L_STATUS::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&regid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&status_) -
+    reinterpret_cast<char*>(&regid_)) + sizeof(status_));
+}
+
+INV_L_STATUS::~INV_L_STATUS() {
+  // @@protoc_insertion_point(destructor:primary.INV_L_STATUS)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void INV_L_STATUS::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void INV_L_STATUS::ArenaDtor(void* object) {
+  INV_L_STATUS* _this = reinterpret_cast< INV_L_STATUS* >(object);
+  (void)_this;
+}
+void INV_L_STATUS::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void INV_L_STATUS::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void INV_L_STATUS::Clear() {
+// @@protoc_insertion_point(message_clear_start:primary.INV_L_STATUS)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&regid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&status_) -
+      reinterpret_cast<char*>(&regid_)) + sizeof(status_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* INV_L_STATUS::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 regid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          regid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 status = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          status_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* INV_L_STATUS::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:primary.INV_L_STATUS)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 regid = 1;
+  if (this->_internal_regid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_regid(), target);
+  }
+
+  // uint32 status = 2;
+  if (this->_internal_status() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_status(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:primary.INV_L_STATUS)
+  return target;
+}
+
+size_t INV_L_STATUS::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:primary.INV_L_STATUS)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 regid = 1;
+  if (this->_internal_regid() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_regid());
+  }
+
+  // uint32 status = 2;
+  if (this->_internal_status() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_status());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData INV_L_STATUS::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    INV_L_STATUS::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*INV_L_STATUS::GetClassData() const { return &_class_data_; }
+
+void INV_L_STATUS::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<INV_L_STATUS *>(to)->MergeFrom(
+      static_cast<const INV_L_STATUS &>(from));
+}
+
+
+void INV_L_STATUS::MergeFrom(const INV_L_STATUS& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:primary.INV_L_STATUS)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_regid() != 0) {
+    _internal_set_regid(from._internal_regid());
+  }
+  if (from._internal_status() != 0) {
+    _internal_set_status(from._internal_status());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void INV_L_STATUS::CopyFrom(const INV_L_STATUS& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:primary.INV_L_STATUS)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool INV_L_STATUS::IsInitialized() const {
+  return true;
+}
+
+void INV_L_STATUS::InternalSwap(INV_L_STATUS* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(INV_L_STATUS, status_)
+      + sizeof(INV_L_STATUS::status_)
+      - PROTOBUF_FIELD_OFFSET(INV_L_STATUS, regid_)>(
+          reinterpret_cast<char*>(&regid_),
+          reinterpret_cast<char*>(&other->regid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata INV_L_STATUS::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_primary_2eproto_getter, &descriptor_table_primary_2eproto_once,
+      file_level_metadata_primary_2eproto[31]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -7456,6 +8153,9 @@ template<> PROTOBUF_NOINLINE ::primary::TLM_STATUS* Arena::CreateMaybeMessage< :
 }
 template<> PROTOBUF_NOINLINE ::primary::CAR_STATUS* Arena::CreateMaybeMessage< ::primary::CAR_STATUS >(Arena* arena) {
   return Arena::CreateMessageInternal< ::primary::CAR_STATUS >(arena);
+}
+template<> PROTOBUF_NOINLINE ::primary::DAS_ERRORS* Arena::CreateMaybeMessage< ::primary::DAS_ERRORS >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::primary::DAS_ERRORS >(arena);
 }
 template<> PROTOBUF_NOINLINE ::primary::SPEED* Arena::CreateMaybeMessage< ::primary::SPEED >(Arena* arena) {
   return Arena::CreateMessageInternal< ::primary::SPEED >(arena);
@@ -7513,6 +8213,12 @@ template<> PROTOBUF_NOINLINE ::primary::HV_CELLS_TEMP* Arena::CreateMaybeMessage
 }
 template<> PROTOBUF_NOINLINE ::primary::HV_CELL_BALANCING_STATUS* Arena::CreateMaybeMessage< ::primary::HV_CELL_BALANCING_STATUS >(Arena* arena) {
   return Arena::CreateMessageInternal< ::primary::HV_CELL_BALANCING_STATUS >(arena);
+}
+template<> PROTOBUF_NOINLINE ::primary::INV_L_SEND_CMD* Arena::CreateMaybeMessage< ::primary::INV_L_SEND_CMD >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::primary::INV_L_SEND_CMD >(arena);
+}
+template<> PROTOBUF_NOINLINE ::primary::INV_L_STATUS* Arena::CreateMaybeMessage< ::primary::INV_L_STATUS >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::primary::INV_L_STATUS >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

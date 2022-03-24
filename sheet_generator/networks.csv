@@ -31,7 +31,7 @@ TLM_STATUS,258,primary,STEER,6,TLM,STEER,1000,"tlm_status: ON, OFF, race_type: A
 STEER_SYSTEM_STATUS,1793,primary,TLM,0,STEER,TLM,2000,soc_temp: uint8,System stats of the raspberry pi inside the steering wheel
 HV_VOLTAGE,771,primary,DASnSTEERnCART,4,BMS_HV,"DAS, STEER, HANDCART",20,"pack_voltage: uint16, bus_voltage: uint16, max_cell_voltage: uint16, min_cell_voltage: uint16",Pack stats
 HV_CURRENT,803,primary,DASnSTEERnCART,4,BMS_HV,"DAS, STEER, HANDCART",20,"current: uint16, power: int16",Current supplied by the pack
-HV_TEMP,835,primary,DASnSTEERnCART,4,BMS_HV,"DAS, STEER, HANDCART",20,"average_temp: uint16, max_temp: uint16, min_temp: uint16",Cell temperatures
+HV_TEMP,835,primary,DASnSTEERnCART,4,BMS_HV,"DAS, STEER, HANDCART",200,"average_temp: uint16, max_temp: uint16, min_temp: uint16",Cell temperatures
 HV_ERRORS,3,primary,DASnSTEERnCART,7,BMS_HV,"DAS, STEER, HANDCART",20,"warnings: Hv_Errors, errors: Hv_Errors",Battery-related errors
 TS_STATUS,35,primary,DASnSTEERnCART,7,BMS_HV,"DAS, STEER, HANDCART",20,"ts_status: OFF, PRECHARGE, ON, FATAL",BMS status
 SET_TS_STATUS,4,primary,BMS_HV,7,"DAS, HANDCART",BMS_HV,,"ts_status_set: OFF, ON",Requests a TS status; only once
@@ -39,16 +39,20 @@ STEER_STATUS,261,primary,DAS,6,STEER,DAS,100,"traction_control: OFF, SLIP_CONTRO
 SET_CAR_STATUS,773,primary,DAS,4,STEER,DAS,,"car_status_set: IDLE, RUN",Ask to DAS to change car status; only once
 SET_PEDALS_RANGE,1029,primary,DAS,3,STEER,DAS,,"bound: SET_MAX, SET_MIN, pedal: ACCELERATOR, BRAKE","Ask to calibrate pedals and steer in x_START, x_END steps; only once"
 CAR_STATUS,514,primary,STEER,5,DAS,STEER,100,"Inverter_status: inverter_l: OFF, IDLE, ON, Inverter_status: inverter_r: OFF, IDLE, ON, car_status: IDLE, SETUP, RUN","Car status, all states managed by the DAS will be send (car status, inverters status)"
+DAS_ERRORS,2,primary,STEER,7,DAS,STEER,20,das_error: Das_Errors,DAS errors messages
 LV_CURRENT,774,primary,DASnSTEER,4,BMS_LV,"DAS, STEER",500,current: uint8,Current of LV battery pack: total current taken from the battery itself
 LV_VOLTAGE,806,primary,DASnSTEER,4,BMS_LV,"DAS, STEER",200,"total_voltage: uint16, voltage_1: uint8, voltage_2: uint8, voltage_3: uint8, voltage_4: uint8","Voltages of LV battery pack: total voltage 16 bit 12,17.2V (0x0000 under_voltage,0xFFFF over_voltage), 4x single cell voltage 8bit 3,4.2V 0.005mV/bit (no additional info, 0x000 is 3V 0xFFFF is 4.2V)"
 LV_TEMPERATURE,838,primary,DASnSTEER,4,BMS_LV,"DAS, STEER",200,"bp_temperature: uint8, dcdc_temperature: uint8","Temperature of LV battery pack,0,80Celsius, uint8 0.32C/bit. battery pack and dcdc converter"
 COOLING_STATUS,870,primary,DASnSTEER,4,BMS_LV,"DAS, STEER",1000,"hv_fan_speed: uint8, lv_fan_speed: uint8, pump_speed: uint8","Percentage value 0% to 100% of bms_hv_fans, bms_lv_fans, pump_speed, 8bit"
+MARKER,1,primary,TLM,7,STEER,TLM,,,Send a marker to telemetry
 HV_CELLS_VOLTAGE,519,primary,HANDCART,5,BMS_HV,HANDCART,200,"cell_index: uint8, voltage_0: uint16, voltage_1: uint16, voltage_2: uint16",Voltages for each cell
 HV_CELLS_TEMP,551,primary,HANDCART,5,BMS_HV,HANDCART,100,"cell_index: uint8, temp_0: uint8, temp_1: uint8, temp_2: uint8, temp_3: uint8, temp_4: uint8, temp_5: uint8, temp_6: uint8",Cell temperatures
-HV_CELL_BALANCING_STATUS,583,primary,HANDCART,5,BMS_HV,HANDCART,500,"balancing_status: ON, OFF",Cell balancing status
+HV_CELL_BALANCING_STATUS,583,primary,HANDCART,5,BMS_HV,HANDCART,500,"balancing_status: OFF, ON",Cell balancing status
 SET_CELL_BALANCING_STATUS,516,primary,BMS_HV,5,HANDCART,BMS_HV,,"set_balancing_status: OFF, ON",Set cell balancing status; only once
 HANDCART_STATUS,772,primary,BMS_HV,4,HANDCART,BMS_HV,500,connected: bool,Sends updates on the presence of the handcart
 SPEED,546,primary,STEER,5,DAS,STEER,100,"encoder_r: uint16, encoder_l: uint16, inverter_r: uint16, inverter_l: uint16",Encoder speed and inverter RPMs
+INV_L_SEND_CMD,513,primary,FIXED_IDS,,DAS,INVERTER_L,"SET_TORQUE: 20, SET_DRIVE: 100, GET_STATUS: 100","regid: uint8, byte_1: uint8, byte_2: uint8",
+INV_L_STATUS,385,primary,FIXED_IDS,,INVERTER_L,DAS,100,"regid: uint8, status: Inv_Status",
 BOARD_STATUS_0,1536,bms,STATUS,1,CELLBOARD0,MAINBOARD,,"errors: errors, balancing_status: balancing_status",Cellboards status
 BOARD_STATUS_1,1568,bms,STATUS,1,CELLBOARD1,MAINBOARD,,"errors: errors, balancing_status: balancing_status",Cellboards status
 BOARD_STATUS_2,1600,bms,STATUS,1,CELLBOARD2,MAINBOARD,,"errors: errors, balancing_status: balancing_status",Cellboards status

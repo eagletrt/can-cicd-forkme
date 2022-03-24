@@ -15,6 +15,56 @@
                 "FEEDBACK_SOFT"
             ]
         },
+        "Das_Errors": {
+            "type": "bitset",
+            "items": [
+                "PEDAL_ADC",
+                "PEDAL_IMPLAUSIBILITY",
+                "IMU_TOUT",
+                "IRTS_TOUT",
+                "TS_TOUT",
+                "INVL_TOUT",
+                "INVR_TOUT",
+                "FSM"
+            ]
+        },
+        "Inv_Status": {
+            "type": "bitset",
+            "items": [
+                "DRIVE_ENABLE",
+                "NCR0",
+                "LIMP",
+                "LIMM",
+                "DRIVE_OK",
+                "ICNS",
+                "T_NLIM",
+                "P_N",
+                "N_I",
+                "N0",
+                "RSW",
+                "CAL0",
+                "CAL",
+                "TOL",
+                "DRIVE_READY",
+                "BRK",
+                "SIGN_MAG",
+                "NCLIP",
+                "NCLIPP",
+                "NCLIPM",
+                "IRD_DIG",
+                "IUSE_RCHD",
+                "IRD_N",
+                "IRD_TI",
+                "IRD_TIR",
+                "HZ10",
+                "IRD_TM",
+                "IRD_ANA",
+                "IWCNS",
+                "RFE_PULSE",
+                "MD",
+                "HND_WHL"
+            ]
+        },
         "Tlm_Status_Set": {
             "type": "enum",
             "items": [
@@ -121,8 +171,8 @@
         "Balancing_Status": {
             "type": "enum",
             "items": [
-                "ON",
-                "OFF"
+                "OFF",
+                "ON"
             ]
         }
     },
@@ -169,6 +219,9 @@
             "inverter_l": "Inverter_Status",
             "inverter_r": "Inverter_Status",
             "car_status": "Car_Status"
+        },
+        "DAS_ERRORS": {
+            "das_error": "Das_Errors"
         },
         "SPEED": {
             "encoder_r": "uint16",
@@ -255,6 +308,15 @@
         },
         "HV_CELL_BALANCING_STATUS": {
             "balancing_status": "Balancing_Status"
+        },
+        "INV_L_SEND_CMD": {
+            "regid": "uint8",
+            "byte_1": "uint8",
+            "byte_2": "uint8"
+        },
+        "INV_L_STATUS": {
+            "regid": "uint8",
+            "status": "Inv_Status"
         }
     }
 }

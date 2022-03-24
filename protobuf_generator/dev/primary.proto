@@ -80,8 +80,8 @@ enum Pedal {
 }
 
 enum Balancing_Status {
-  BALANCING_STATUS_ON = 0;
-  BALANCING_STATUS_OFF = 1;
+  BALANCING_STATUS_OFF = 0;
+  BALANCING_STATUS_ON = 1;
 }
 
 message STEER_VERSION {
@@ -135,6 +135,10 @@ message CAR_STATUS {
     Inverter_Status inverter_l = 1;
     Inverter_Status inverter_r = 2;
     Car_Status car_status = 3;
+}
+
+message DAS_ERRORS {
+    uint32 das_error = 1;
 }
 
 message SPEED {
@@ -240,4 +244,15 @@ message HV_CELLS_TEMP {
 
 message HV_CELL_BALANCING_STATUS {
     Balancing_Status balancing_status = 1;
+}
+
+message INV_L_SEND_CMD {
+    uint32 regid = 1;
+    uint32 byte_1 = 2;
+    uint32 byte_2 = 3;
+}
+
+message INV_L_STATUS {
+    uint32 regid = 1;
+    uint32 status = 2;
 }

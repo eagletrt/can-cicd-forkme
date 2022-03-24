@@ -167,11 +167,27 @@ int main() {
     puts("SUCCESS!\n");
         
 
+/* primary_DAS_ERRORS */
+    printf("primary_DAS_ERRORS:\n");
+    uint8_t* buffer_primary_das_errors = (uint8_t*)malloc(sizeof(primary_DAS_ERRORS));
+    
+    primary_DAS_ERRORS primary_das_errors_s = { {42} };
+    serialize_primary_DAS_ERRORS(buffer_primary_das_errors, primary_das_errors_s.das_error);
+    printf("\tSerialized\n\t%hhx\n", (long long unsigned int)primary_das_errors_s.das_error[0]);
+    
+    primary_DAS_ERRORS* primary_das_errors_d = (primary_DAS_ERRORS*)malloc(sizeof(primary_DAS_ERRORS));
+    deserialize_primary_DAS_ERRORS(buffer_primary_das_errors, primary_das_errors_d);
+    printf("\tDeserialized\n\t%hhx\n", (long long unsigned int)primary_das_errors_d->das_error[0]);
+    
+    assert(memcmp(&primary_das_errors_s, primary_das_errors_d, sizeof(primary_DAS_ERRORS)) == 0);
+    puts("SUCCESS!\n");
+        
+
 /* primary_SPEED */
     printf("primary_SPEED:\n");
     uint8_t* buffer_primary_speed = (uint8_t*)malloc(sizeof(primary_SPEED));
     
-    primary_SPEED primary_speed_s = { 5453.0, 36230.0, 54485.0, 23378.0 };
+    primary_SPEED primary_speed_s = { 36230.0, 54485.0, 23378.0, 35508.0 };
     serialize_primary_SPEED(buffer_primary_speed, primary_speed_s.encoder_r, primary_speed_s.encoder_l, primary_speed_s.inverter_r, primary_speed_s.inverter_l);
     printf("\tSerialized\n\t%llu %llu %llu %llu\n", (long long unsigned int)primary_speed_s.encoder_r, (long long unsigned int)primary_speed_s.encoder_l, (long long unsigned int)primary_speed_s.inverter_r, (long long unsigned int)primary_speed_s.inverter_l);
     
@@ -187,7 +203,7 @@ int main() {
     printf("primary_HV_VOLTAGE:\n");
     uint8_t* buffer_primary_hv_voltage = (uint8_t*)malloc(sizeof(primary_HV_VOLTAGE));
     
-    primary_HV_VOLTAGE primary_hv_voltage_s = { 35508.0, 19503.0, 4846.0, 10468.0 };
+    primary_HV_VOLTAGE primary_hv_voltage_s = { 19503.0, 4846.0, 10468.0, 18557.0 };
     serialize_primary_HV_VOLTAGE(buffer_primary_hv_voltage, primary_hv_voltage_s.pack_voltage, primary_hv_voltage_s.bus_voltage, primary_hv_voltage_s.max_cell_voltage, primary_hv_voltage_s.min_cell_voltage);
     printf("\tSerialized\n\t%llu %llu %llu %llu\n", (long long unsigned int)primary_hv_voltage_s.pack_voltage, (long long unsigned int)primary_hv_voltage_s.bus_voltage, (long long unsigned int)primary_hv_voltage_s.max_cell_voltage, (long long unsigned int)primary_hv_voltage_s.min_cell_voltage);
     
@@ -203,7 +219,7 @@ int main() {
     printf("primary_HV_CURRENT:\n");
     uint8_t* buffer_primary_hv_current = (uint8_t*)malloc(sizeof(primary_HV_CURRENT));
     
-    primary_HV_CURRENT primary_hv_current_s = { 18557.0, 115.0 };
+    primary_HV_CURRENT primary_hv_current_s = { 47516.0, 59.0 };
     serialize_primary_HV_CURRENT(buffer_primary_hv_current, primary_hv_current_s.current, primary_hv_current_s.power);
     printf("\tSerialized\n\t%llu %lld\n", (long long unsigned int)primary_hv_current_s.current, (long long int)primary_hv_current_s.power);
     
@@ -219,7 +235,7 @@ int main() {
     printf("primary_HV_TEMP:\n");
     uint8_t* buffer_primary_hv_temp = (uint8_t*)malloc(sizeof(primary_HV_TEMP));
     
-    primary_HV_TEMP primary_hv_temp_s = { 40440.0, 40639.0, 33920.0 };
+    primary_HV_TEMP primary_hv_temp_s = { 40639.0, 33920.0, 46858.0 };
     serialize_primary_HV_TEMP(buffer_primary_hv_temp, primary_hv_temp_s.average_temp, primary_hv_temp_s.max_temp, primary_hv_temp_s.min_temp);
     printf("\tSerialized\n\t%llu %llu %llu\n", (long long unsigned int)primary_hv_temp_s.average_temp, (long long unsigned int)primary_hv_temp_s.max_temp, (long long unsigned int)primary_hv_temp_s.min_temp);
     
@@ -468,6 +484,38 @@ int main() {
     printf("\tDeserialized\n\t%lld\n", (long long int)primary_hv_cell_balancing_status_d->balancing_status);
     
     assert(memcmp(&primary_hv_cell_balancing_status_s, primary_hv_cell_balancing_status_d, sizeof(primary_HV_CELL_BALANCING_STATUS)) == 0);
+    puts("SUCCESS!\n");
+        
+
+/* primary_INV_L_SEND_CMD */
+    printf("primary_INV_L_SEND_CMD:\n");
+    uint8_t* buffer_primary_inv_l_send_cmd = (uint8_t*)malloc(sizeof(primary_INV_L_SEND_CMD));
+    
+    primary_INV_L_SEND_CMD primary_inv_l_send_cmd_s = { 165.0, 175.0, 126.0 };
+    serialize_primary_INV_L_SEND_CMD(buffer_primary_inv_l_send_cmd, primary_inv_l_send_cmd_s.regid, primary_inv_l_send_cmd_s.byte_1, primary_inv_l_send_cmd_s.byte_2);
+    printf("\tSerialized\n\t%llu %llu %llu\n", (long long unsigned int)primary_inv_l_send_cmd_s.regid, (long long unsigned int)primary_inv_l_send_cmd_s.byte_1, (long long unsigned int)primary_inv_l_send_cmd_s.byte_2);
+    
+    primary_INV_L_SEND_CMD* primary_inv_l_send_cmd_d = (primary_INV_L_SEND_CMD*)malloc(sizeof(primary_INV_L_SEND_CMD));
+    deserialize_primary_INV_L_SEND_CMD(buffer_primary_inv_l_send_cmd, primary_inv_l_send_cmd_d);
+    printf("\tDeserialized\n\t%llu %llu %llu\n", (long long unsigned int)primary_inv_l_send_cmd_d->regid, (long long unsigned int)primary_inv_l_send_cmd_d->byte_1, (long long unsigned int)primary_inv_l_send_cmd_d->byte_2);
+    
+    assert(memcmp(&primary_inv_l_send_cmd_s, primary_inv_l_send_cmd_d, sizeof(primary_INV_L_SEND_CMD)) == 0);
+    puts("SUCCESS!\n");
+        
+
+/* primary_INV_L_STATUS */
+    printf("primary_INV_L_STATUS:\n");
+    uint8_t* buffer_primary_inv_l_status = (uint8_t*)malloc(sizeof(primary_INV_L_STATUS));
+    
+    primary_INV_L_STATUS primary_inv_l_status_s = { 247.0, {234, 232, 140, 17} };
+    serialize_primary_INV_L_STATUS(buffer_primary_inv_l_status, primary_inv_l_status_s.regid, primary_inv_l_status_s.status);
+    printf("\tSerialized\n\t%llu %hhx.%hhx.%hhx.%hhx\n", (long long unsigned int)primary_inv_l_status_s.regid, (long long unsigned int)primary_inv_l_status_s.status[0], (long long unsigned int)primary_inv_l_status_s.status[1], (long long unsigned int)primary_inv_l_status_s.status[2], (long long unsigned int)primary_inv_l_status_s.status[3]);
+    
+    primary_INV_L_STATUS* primary_inv_l_status_d = (primary_INV_L_STATUS*)malloc(sizeof(primary_INV_L_STATUS));
+    deserialize_primary_INV_L_STATUS(buffer_primary_inv_l_status, primary_inv_l_status_d);
+    printf("\tDeserialized\n\t%llu %hhx.%hhx.%hhx.%hhx\n", (long long unsigned int)primary_inv_l_status_d->regid, (long long unsigned int)primary_inv_l_status_d->status[0], (long long unsigned int)primary_inv_l_status_d->status[1], (long long unsigned int)primary_inv_l_status_d->status[2], (long long unsigned int)primary_inv_l_status_d->status[3]);
+    
+    assert(memcmp(&primary_inv_l_status_s, primary_inv_l_status_d, sizeof(primary_INV_L_STATUS)) == 0);
     puts("SUCCESS!\n");
         
 }

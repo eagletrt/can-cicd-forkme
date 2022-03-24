@@ -13,6 +13,50 @@ class Hv_Errors(IntFlag):
     INT_VOLTAGE_MISMATCH = 128
     FEEDBACK_HARD = 256
     FEEDBACK_SOFT = 512
+
+class Das_Errors(IntFlag):
+    PEDAL_ADC = 1
+    PEDAL_IMPLAUSIBILITY = 2
+    IMU_TOUT = 4
+    IRTS_TOUT = 8
+    TS_TOUT = 16
+    INVL_TOUT = 32
+    INVR_TOUT = 64
+    FSM = 128
+
+class Inv_Status(IntFlag):
+    DRIVE_ENABLE = 1
+    NCR0 = 2
+    LIMP = 4
+    LIMM = 8
+    DRIVE_OK = 16
+    ICNS = 32
+    T_NLIM = 64
+    P_N = 128
+    N_I = 256
+    N0 = 512
+    RSW = 1024
+    CAL0 = 2048
+    CAL = 4096
+    TOL = 8192
+    DRIVE_READY = 16384
+    BRK = 32768
+    SIGN_MAG = 65536
+    NCLIP = 131072
+    NCLIPP = 262144
+    NCLIPM = 524288
+    IRD_DIG = 1048576
+    IUSE_RCHD = 2097152
+    IRD_N = 4194304
+    IRD_TI = 8388608
+    IRD_TIR = 16777216
+    HZ10 = 33554432
+    IRD_TM = 67108864
+    IRD_ANA = 134217728
+    IWCNS = 268435456
+    RFE_PULSE = 536870912
+    MD = 1073741824
+    HND_WHL = 2147483648
     
 class Tlm_Status_Set(IntEnum):
     OFF = 0
@@ -79,8 +123,8 @@ class Pedal(IntEnum):
     BRAKE = 1
     
 class Balancing_Status(IntEnum):
-    ON = 0
-    OFF = 1
+    OFF = 0
+    ON = 1
 
 
 # SteerVersion
@@ -221,6 +265,20 @@ class CarStatus:
     def deserialize(buffer: bytes) -> "CarStatus.struct":
         return CarStatus.struct._make(unpack(CarStatus.schema, buffer))
 
+# DasErrors
+class DasErrors:
+    struct = namedtuple("DasErrors_struct", "das_error", rename=True)
+    schema = "<b"
+    frequency_ms = 20
+    
+    @staticmethod
+    def serialize(das_error) -> bytes:
+        return pack(DasErrors.schema, das_error)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "DasErrors.struct":
+        return DasErrors.struct._make(unpack(DasErrors.schema, buffer))
+
 # Speed
 class Speed:
     struct = namedtuple("Speed_struct", "encoder_r encoder_l inverter_r inverter_l", rename=True)
@@ -267,7 +325,7 @@ class HvCurrent:
 class HvTemp:
     struct = namedtuple("HvTemp_struct", "average_temp max_temp min_temp", rename=True)
     schema = "<hhh"
-    frequency_ms = 20
+    frequency_ms = 200
     
     @staticmethod
     def serialize(average_temp, max_temp, min_temp) -> bytes:
@@ -478,3 +536,33 @@ class HvCellBalancingStatus:
     @staticmethod
     def deserialize(buffer: bytes) -> "HvCellBalancingStatus.struct":
         return HvCellBalancingStatus.struct._make(unpack(HvCellBalancingStatus.schema, buffer))
+
+# InvLSendCmd
+class InvLSendCmd:
+    struct = namedtuple("InvLSendCmd_struct", "regid byte_1 byte_2", rename=True)
+    schema = "<bbb"
+    frequency_set_torque_ms = 20
+    frequency_set_drive_ms = 100
+    frequency_get_status_ms = 100
+    
+    @staticmethod
+    def serialize(regid, byte_1, byte_2) -> bytes:
+        return pack(InvLSendCmd.schema, regid, byte_1, byte_2)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "InvLSendCmd.struct":
+        return InvLSendCmd.struct._make(unpack(InvLSendCmd.schema, buffer))
+
+# InvLStatus
+class InvLStatus:
+    struct = namedtuple("InvLStatus_struct", "regid status", rename=True)
+    schema = "<bi"
+    frequency_ms = 100
+    
+    @staticmethod
+    def serialize(regid, status) -> bytes:
+        return pack(InvLStatus.schema, regid, status)
+    
+    @staticmethod
+    def deserialize(buffer: bytes) -> "InvLStatus.struct":
+        return InvLStatus.struct._make(unpack(InvLStatus.schema, buffer))

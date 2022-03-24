@@ -47,7 +47,7 @@ struct TableStruct_primary_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[29]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[32]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -61,6 +61,9 @@ extern CAR_STATUSDefaultTypeInternal _CAR_STATUS_default_instance_;
 class COOLING_STATUS;
 struct COOLING_STATUSDefaultTypeInternal;
 extern COOLING_STATUSDefaultTypeInternal _COOLING_STATUS_default_instance_;
+class DAS_ERRORS;
+struct DAS_ERRORSDefaultTypeInternal;
+extern DAS_ERRORSDefaultTypeInternal _DAS_ERRORS_default_instance_;
 class DAS_VERSION;
 struct DAS_VERSIONDefaultTypeInternal;
 extern DAS_VERSIONDefaultTypeInternal _DAS_VERSION_default_instance_;
@@ -91,6 +94,12 @@ extern HV_VERSIONDefaultTypeInternal _HV_VERSION_default_instance_;
 class HV_VOLTAGE;
 struct HV_VOLTAGEDefaultTypeInternal;
 extern HV_VOLTAGEDefaultTypeInternal _HV_VOLTAGE_default_instance_;
+class INV_L_SEND_CMD;
+struct INV_L_SEND_CMDDefaultTypeInternal;
+extern INV_L_SEND_CMDDefaultTypeInternal _INV_L_SEND_CMD_default_instance_;
+class INV_L_STATUS;
+struct INV_L_STATUSDefaultTypeInternal;
+extern INV_L_STATUSDefaultTypeInternal _INV_L_STATUS_default_instance_;
 class LV_CURRENT;
 struct LV_CURRENTDefaultTypeInternal;
 extern LV_CURRENTDefaultTypeInternal _LV_CURRENT_default_instance_;
@@ -146,6 +155,7 @@ extern TS_STATUSDefaultTypeInternal _TS_STATUS_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::primary::CAR_STATUS* Arena::CreateMaybeMessage<::primary::CAR_STATUS>(Arena*);
 template<> ::primary::COOLING_STATUS* Arena::CreateMaybeMessage<::primary::COOLING_STATUS>(Arena*);
+template<> ::primary::DAS_ERRORS* Arena::CreateMaybeMessage<::primary::DAS_ERRORS>(Arena*);
 template<> ::primary::DAS_VERSION* Arena::CreateMaybeMessage<::primary::DAS_VERSION>(Arena*);
 template<> ::primary::HANDCART_STATUS* Arena::CreateMaybeMessage<::primary::HANDCART_STATUS>(Arena*);
 template<> ::primary::HV_CELLS_TEMP* Arena::CreateMaybeMessage<::primary::HV_CELLS_TEMP>(Arena*);
@@ -156,6 +166,8 @@ template<> ::primary::HV_ERRORS* Arena::CreateMaybeMessage<::primary::HV_ERRORS>
 template<> ::primary::HV_TEMP* Arena::CreateMaybeMessage<::primary::HV_TEMP>(Arena*);
 template<> ::primary::HV_VERSION* Arena::CreateMaybeMessage<::primary::HV_VERSION>(Arena*);
 template<> ::primary::HV_VOLTAGE* Arena::CreateMaybeMessage<::primary::HV_VOLTAGE>(Arena*);
+template<> ::primary::INV_L_SEND_CMD* Arena::CreateMaybeMessage<::primary::INV_L_SEND_CMD>(Arena*);
+template<> ::primary::INV_L_STATUS* Arena::CreateMaybeMessage<::primary::INV_L_STATUS>(Arena*);
 template<> ::primary::LV_CURRENT* Arena::CreateMaybeMessage<::primary::LV_CURRENT>(Arena*);
 template<> ::primary::LV_TEMPERATURE* Arena::CreateMaybeMessage<::primary::LV_TEMPERATURE>(Arena*);
 template<> ::primary::LV_VERSION* Arena::CreateMaybeMessage<::primary::LV_VERSION>(Arena*);
@@ -514,14 +526,14 @@ inline bool Pedal_Parse(
     Pedal_descriptor(), name, value);
 }
 enum Balancing_Status : int {
-  BALANCING_STATUS_ON = 0,
-  BALANCING_STATUS_OFF = 1,
+  BALANCING_STATUS_OFF = 0,
+  BALANCING_STATUS_ON = 1,
   Balancing_Status_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   Balancing_Status_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool Balancing_Status_IsValid(int value);
-constexpr Balancing_Status Balancing_Status_MIN = BALANCING_STATUS_ON;
-constexpr Balancing_Status Balancing_Status_MAX = BALANCING_STATUS_OFF;
+constexpr Balancing_Status Balancing_Status_MIN = BALANCING_STATUS_OFF;
+constexpr Balancing_Status Balancing_Status_MAX = BALANCING_STATUS_ON;
 constexpr int Balancing_Status_ARRAYSIZE = Balancing_Status_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Balancing_Status_descriptor();
@@ -2143,6 +2155,152 @@ class CAR_STATUS final :
 };
 // -------------------------------------------------------------------
 
+class DAS_ERRORS final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:primary.DAS_ERRORS) */ {
+ public:
+  inline DAS_ERRORS() : DAS_ERRORS(nullptr) {}
+  ~DAS_ERRORS() override;
+  explicit constexpr DAS_ERRORS(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DAS_ERRORS(const DAS_ERRORS& from);
+  DAS_ERRORS(DAS_ERRORS&& from) noexcept
+    : DAS_ERRORS() {
+    *this = ::std::move(from);
+  }
+
+  inline DAS_ERRORS& operator=(const DAS_ERRORS& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DAS_ERRORS& operator=(DAS_ERRORS&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DAS_ERRORS& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DAS_ERRORS* internal_default_instance() {
+    return reinterpret_cast<const DAS_ERRORS*>(
+               &_DAS_ERRORS_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(DAS_ERRORS& a, DAS_ERRORS& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DAS_ERRORS* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DAS_ERRORS* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DAS_ERRORS* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DAS_ERRORS>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DAS_ERRORS& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const DAS_ERRORS& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DAS_ERRORS* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "primary.DAS_ERRORS";
+  }
+  protected:
+  explicit DAS_ERRORS(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDasErrorFieldNumber = 1,
+  };
+  // uint32 das_error = 1;
+  void clear_das_error();
+  uint32_t das_error() const;
+  void set_das_error(uint32_t value);
+  private:
+  uint32_t _internal_das_error() const;
+  void _internal_set_das_error(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:primary.DAS_ERRORS)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  uint32_t das_error_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_primary_2eproto;
+};
+// -------------------------------------------------------------------
+
 class SPEED final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:primary.SPEED) */ {
  public:
@@ -2191,7 +2349,7 @@ class SPEED final :
                &_SPEED_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(SPEED& a, SPEED& b) {
     a.Swap(&b);
@@ -2370,7 +2528,7 @@ class HV_VOLTAGE final :
                &_HV_VOLTAGE_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(HV_VOLTAGE& a, HV_VOLTAGE& b) {
     a.Swap(&b);
@@ -2549,7 +2707,7 @@ class HV_CURRENT final :
                &_HV_CURRENT_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(HV_CURRENT& a, HV_CURRENT& b) {
     a.Swap(&b);
@@ -2706,7 +2864,7 @@ class HV_TEMP final :
                &_HV_TEMP_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(HV_TEMP& a, HV_TEMP& b) {
     a.Swap(&b);
@@ -2874,7 +3032,7 @@ class HV_ERRORS final :
                &_HV_ERRORS_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(HV_ERRORS& a, HV_ERRORS& b) {
     a.Swap(&b);
@@ -3031,7 +3189,7 @@ class TS_STATUS final :
                &_TS_STATUS_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(TS_STATUS& a, TS_STATUS& b) {
     a.Swap(&b);
@@ -3177,7 +3335,7 @@ class SET_TS_STATUS final :
                &_SET_TS_STATUS_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(SET_TS_STATUS& a, SET_TS_STATUS& b) {
     a.Swap(&b);
@@ -3323,7 +3481,7 @@ class SET_CELL_BALANCING_STATUS final :
                &_SET_CELL_BALANCING_STATUS_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(SET_CELL_BALANCING_STATUS& a, SET_CELL_BALANCING_STATUS& b) {
     a.Swap(&b);
@@ -3469,7 +3627,7 @@ class HANDCART_STATUS final :
                &_HANDCART_STATUS_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(HANDCART_STATUS& a, HANDCART_STATUS& b) {
     a.Swap(&b);
@@ -3615,7 +3773,7 @@ class STEER_STATUS final :
                &_STEER_STATUS_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(STEER_STATUS& a, STEER_STATUS& b) {
     a.Swap(&b);
@@ -3772,7 +3930,7 @@ class SET_CAR_STATUS final :
                &_SET_CAR_STATUS_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(SET_CAR_STATUS& a, SET_CAR_STATUS& b) {
     a.Swap(&b);
@@ -3918,7 +4076,7 @@ class SET_PEDALS_RANGE final :
                &_SET_PEDALS_RANGE_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(SET_PEDALS_RANGE& a, SET_PEDALS_RANGE& b) {
     a.Swap(&b);
@@ -4075,7 +4233,7 @@ class LV_CURRENT final :
                &_LV_CURRENT_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(LV_CURRENT& a, LV_CURRENT& b) {
     a.Swap(&b);
@@ -4221,7 +4379,7 @@ class LV_VOLTAGE final :
                &_LV_VOLTAGE_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(LV_VOLTAGE& a, LV_VOLTAGE& b) {
     a.Swap(&b);
@@ -4411,7 +4569,7 @@ class LV_TEMPERATURE final :
                &_LV_TEMPERATURE_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(LV_TEMPERATURE& a, LV_TEMPERATURE& b) {
     a.Swap(&b);
@@ -4568,7 +4726,7 @@ class COOLING_STATUS final :
                &_COOLING_STATUS_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(COOLING_STATUS& a, COOLING_STATUS& b) {
     a.Swap(&b);
@@ -4736,7 +4894,7 @@ class HV_CELLS_VOLTAGE final :
                &_HV_CELLS_VOLTAGE_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(HV_CELLS_VOLTAGE& a, HV_CELLS_VOLTAGE& b) {
     a.Swap(&b);
@@ -4915,7 +5073,7 @@ class HV_CELLS_TEMP final :
                &_HV_CELLS_TEMP_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(HV_CELLS_TEMP& a, HV_CELLS_TEMP& b) {
     a.Swap(&b);
@@ -5138,7 +5296,7 @@ class HV_CELL_BALANCING_STATUS final :
                &_HV_CELL_BALANCING_STATUS_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(HV_CELL_BALANCING_STATUS& a, HV_CELL_BALANCING_STATUS& b) {
     a.Swap(&b);
@@ -5231,6 +5389,331 @@ class HV_CELL_BALANCING_STATUS final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   int balancing_status_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_primary_2eproto;
+};
+// -------------------------------------------------------------------
+
+class INV_L_SEND_CMD final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:primary.INV_L_SEND_CMD) */ {
+ public:
+  inline INV_L_SEND_CMD() : INV_L_SEND_CMD(nullptr) {}
+  ~INV_L_SEND_CMD() override;
+  explicit constexpr INV_L_SEND_CMD(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  INV_L_SEND_CMD(const INV_L_SEND_CMD& from);
+  INV_L_SEND_CMD(INV_L_SEND_CMD&& from) noexcept
+    : INV_L_SEND_CMD() {
+    *this = ::std::move(from);
+  }
+
+  inline INV_L_SEND_CMD& operator=(const INV_L_SEND_CMD& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline INV_L_SEND_CMD& operator=(INV_L_SEND_CMD&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const INV_L_SEND_CMD& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const INV_L_SEND_CMD* internal_default_instance() {
+    return reinterpret_cast<const INV_L_SEND_CMD*>(
+               &_INV_L_SEND_CMD_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    30;
+
+  friend void swap(INV_L_SEND_CMD& a, INV_L_SEND_CMD& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(INV_L_SEND_CMD* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(INV_L_SEND_CMD* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  INV_L_SEND_CMD* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<INV_L_SEND_CMD>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const INV_L_SEND_CMD& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const INV_L_SEND_CMD& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(INV_L_SEND_CMD* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "primary.INV_L_SEND_CMD";
+  }
+  protected:
+  explicit INV_L_SEND_CMD(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegidFieldNumber = 1,
+    kByte1FieldNumber = 2,
+    kByte2FieldNumber = 3,
+  };
+  // uint32 regid = 1;
+  void clear_regid();
+  uint32_t regid() const;
+  void set_regid(uint32_t value);
+  private:
+  uint32_t _internal_regid() const;
+  void _internal_set_regid(uint32_t value);
+  public:
+
+  // uint32 byte_1 = 2;
+  void clear_byte_1();
+  uint32_t byte_1() const;
+  void set_byte_1(uint32_t value);
+  private:
+  uint32_t _internal_byte_1() const;
+  void _internal_set_byte_1(uint32_t value);
+  public:
+
+  // uint32 byte_2 = 3;
+  void clear_byte_2();
+  uint32_t byte_2() const;
+  void set_byte_2(uint32_t value);
+  private:
+  uint32_t _internal_byte_2() const;
+  void _internal_set_byte_2(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:primary.INV_L_SEND_CMD)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  uint32_t regid_;
+  uint32_t byte_1_;
+  uint32_t byte_2_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_primary_2eproto;
+};
+// -------------------------------------------------------------------
+
+class INV_L_STATUS final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:primary.INV_L_STATUS) */ {
+ public:
+  inline INV_L_STATUS() : INV_L_STATUS(nullptr) {}
+  ~INV_L_STATUS() override;
+  explicit constexpr INV_L_STATUS(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  INV_L_STATUS(const INV_L_STATUS& from);
+  INV_L_STATUS(INV_L_STATUS&& from) noexcept
+    : INV_L_STATUS() {
+    *this = ::std::move(from);
+  }
+
+  inline INV_L_STATUS& operator=(const INV_L_STATUS& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline INV_L_STATUS& operator=(INV_L_STATUS&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const INV_L_STATUS& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const INV_L_STATUS* internal_default_instance() {
+    return reinterpret_cast<const INV_L_STATUS*>(
+               &_INV_L_STATUS_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    31;
+
+  friend void swap(INV_L_STATUS& a, INV_L_STATUS& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(INV_L_STATUS* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(INV_L_STATUS* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  INV_L_STATUS* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<INV_L_STATUS>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const INV_L_STATUS& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const INV_L_STATUS& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(INV_L_STATUS* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "primary.INV_L_STATUS";
+  }
+  protected:
+  explicit INV_L_STATUS(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegidFieldNumber = 1,
+    kStatusFieldNumber = 2,
+  };
+  // uint32 regid = 1;
+  void clear_regid();
+  uint32_t regid() const;
+  void set_regid(uint32_t value);
+  private:
+  uint32_t _internal_regid() const;
+  void _internal_set_regid(uint32_t value);
+  public:
+
+  // uint32 status = 2;
+  void clear_status();
+  uint32_t status() const;
+  void set_status(uint32_t value);
+  private:
+  uint32_t _internal_status() const;
+  void _internal_set_status(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:primary.INV_L_STATUS)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  uint32_t regid_;
+  uint32_t status_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_primary_2eproto;
 };
@@ -5739,6 +6222,30 @@ inline void CAR_STATUS::_internal_set_car_status(::primary::Car_Status value) {
 inline void CAR_STATUS::set_car_status(::primary::Car_Status value) {
   _internal_set_car_status(value);
   // @@protoc_insertion_point(field_set:primary.CAR_STATUS.car_status)
+}
+
+// -------------------------------------------------------------------
+
+// DAS_ERRORS
+
+// uint32 das_error = 1;
+inline void DAS_ERRORS::clear_das_error() {
+  das_error_ = 0u;
+}
+inline uint32_t DAS_ERRORS::_internal_das_error() const {
+  return das_error_;
+}
+inline uint32_t DAS_ERRORS::das_error() const {
+  // @@protoc_insertion_point(field_get:primary.DAS_ERRORS.das_error)
+  return _internal_das_error();
+}
+inline void DAS_ERRORS::_internal_set_das_error(uint32_t value) {
+  
+  das_error_ = value;
+}
+inline void DAS_ERRORS::set_das_error(uint32_t value) {
+  _internal_set_das_error(value);
+  // @@protoc_insertion_point(field_set:primary.DAS_ERRORS.das_error)
 }
 
 // -------------------------------------------------------------------
@@ -6777,9 +7284,123 @@ inline void HV_CELL_BALANCING_STATUS::set_balancing_status(::primary::Balancing_
   // @@protoc_insertion_point(field_set:primary.HV_CELL_BALANCING_STATUS.balancing_status)
 }
 
+// -------------------------------------------------------------------
+
+// INV_L_SEND_CMD
+
+// uint32 regid = 1;
+inline void INV_L_SEND_CMD::clear_regid() {
+  regid_ = 0u;
+}
+inline uint32_t INV_L_SEND_CMD::_internal_regid() const {
+  return regid_;
+}
+inline uint32_t INV_L_SEND_CMD::regid() const {
+  // @@protoc_insertion_point(field_get:primary.INV_L_SEND_CMD.regid)
+  return _internal_regid();
+}
+inline void INV_L_SEND_CMD::_internal_set_regid(uint32_t value) {
+  
+  regid_ = value;
+}
+inline void INV_L_SEND_CMD::set_regid(uint32_t value) {
+  _internal_set_regid(value);
+  // @@protoc_insertion_point(field_set:primary.INV_L_SEND_CMD.regid)
+}
+
+// uint32 byte_1 = 2;
+inline void INV_L_SEND_CMD::clear_byte_1() {
+  byte_1_ = 0u;
+}
+inline uint32_t INV_L_SEND_CMD::_internal_byte_1() const {
+  return byte_1_;
+}
+inline uint32_t INV_L_SEND_CMD::byte_1() const {
+  // @@protoc_insertion_point(field_get:primary.INV_L_SEND_CMD.byte_1)
+  return _internal_byte_1();
+}
+inline void INV_L_SEND_CMD::_internal_set_byte_1(uint32_t value) {
+  
+  byte_1_ = value;
+}
+inline void INV_L_SEND_CMD::set_byte_1(uint32_t value) {
+  _internal_set_byte_1(value);
+  // @@protoc_insertion_point(field_set:primary.INV_L_SEND_CMD.byte_1)
+}
+
+// uint32 byte_2 = 3;
+inline void INV_L_SEND_CMD::clear_byte_2() {
+  byte_2_ = 0u;
+}
+inline uint32_t INV_L_SEND_CMD::_internal_byte_2() const {
+  return byte_2_;
+}
+inline uint32_t INV_L_SEND_CMD::byte_2() const {
+  // @@protoc_insertion_point(field_get:primary.INV_L_SEND_CMD.byte_2)
+  return _internal_byte_2();
+}
+inline void INV_L_SEND_CMD::_internal_set_byte_2(uint32_t value) {
+  
+  byte_2_ = value;
+}
+inline void INV_L_SEND_CMD::set_byte_2(uint32_t value) {
+  _internal_set_byte_2(value);
+  // @@protoc_insertion_point(field_set:primary.INV_L_SEND_CMD.byte_2)
+}
+
+// -------------------------------------------------------------------
+
+// INV_L_STATUS
+
+// uint32 regid = 1;
+inline void INV_L_STATUS::clear_regid() {
+  regid_ = 0u;
+}
+inline uint32_t INV_L_STATUS::_internal_regid() const {
+  return regid_;
+}
+inline uint32_t INV_L_STATUS::regid() const {
+  // @@protoc_insertion_point(field_get:primary.INV_L_STATUS.regid)
+  return _internal_regid();
+}
+inline void INV_L_STATUS::_internal_set_regid(uint32_t value) {
+  
+  regid_ = value;
+}
+inline void INV_L_STATUS::set_regid(uint32_t value) {
+  _internal_set_regid(value);
+  // @@protoc_insertion_point(field_set:primary.INV_L_STATUS.regid)
+}
+
+// uint32 status = 2;
+inline void INV_L_STATUS::clear_status() {
+  status_ = 0u;
+}
+inline uint32_t INV_L_STATUS::_internal_status() const {
+  return status_;
+}
+inline uint32_t INV_L_STATUS::status() const {
+  // @@protoc_insertion_point(field_get:primary.INV_L_STATUS.status)
+  return _internal_status();
+}
+inline void INV_L_STATUS::_internal_set_status(uint32_t value) {
+  
+  status_ = value;
+}
+inline void INV_L_STATUS::set_status(uint32_t value) {
+  _internal_set_status(value);
+  // @@protoc_insertion_point(field_set:primary.INV_L_STATUS.status)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
