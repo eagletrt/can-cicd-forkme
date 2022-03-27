@@ -771,7 +771,7 @@
             }
         },
         {
-            "name": "INV_L_SEND_CMD",
+            "name": "INV_L_SET_TORQUE",
             "fixed_id": 513,
             "sending": [
                 "DAS"
@@ -780,14 +780,12 @@
                 "INVERTER_L"
             ],
             "frequency": [
-                {"SET_TORQUE": 20},
-                {"SET_DRIVE": 100},
-                {"GET_STATUS": 100}
+                20
             ],
             "contents": {
-                "regid": "uint8",
-                "byte_1": "uint8",
-                "byte_2": "uint8"
+                "regid": "uint8", // Fixed (?)
+                "LSB": "uint8",
+                "MSB": "uint8"
             }
         },
         {
