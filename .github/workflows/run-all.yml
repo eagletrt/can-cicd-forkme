@@ -44,7 +44,7 @@ jobs:
     - name: Run protobuf generator
       run: |
         pip install -r can-cicd/protobuf_generator/requirements.txt
-        python -m can-cicd.protobuf_generator.main networks naked_generator protobuf_generator
+        python -m can-cicd.protobuf_generator.main networks id_generator naked_generator protobuf_generator
         mkdir -p /tmp/workspace/protobuf_generator/ && cp -R protobuf_generator/* /tmp/workspace/protobuf_generator/
     - name: Run sheet generator
       run: |
