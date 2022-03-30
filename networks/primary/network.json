@@ -608,7 +608,8 @@
             "receiving": [
                 "TLM"
             ],
-            "description": "Send a marker to telemetry"
+            "description": "Send a marker to telemetry",
+            "contents": {}
         },
         {
             "name": "HV_CELLS_VOLTAGE",
