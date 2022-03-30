@@ -14,221 +14,221 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fsecondary.proto\x12\tsecondary\"N\n\x10IMU_ANGULAR_RATE\x12\x12\n\nang_rate_x\x18\x01 \x01(\r\x12\x12\n\nang_rate_y\x18\x02 \x01(\r\x12\x12\n\nang_rate_z\x18\x03 \x01(\r\"E\n\x10IMU_ACCELERATION\x12\x0f\n\x07\x61\x63\x63\x65l_x\x18\x01 \x01(\r\x12\x0f\n\x07\x61\x63\x63\x65l_y\x18\x02 \x01(\r\x12\x0f\n\x07\x61\x63\x63\x65l_z\x18\x03 \x01(\r\"S\n\tIRTS_FL_0\x12\x10\n\x08\x63hannel1\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel2\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel3\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel4\x18\x04 \x01(\r\"S\n\tIRTS_FL_1\x12\x10\n\x08\x63hannel5\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel6\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel7\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel8\x18\x04 \x01(\r\"V\n\tIRTS_FL_2\x12\x10\n\x08\x63hannel9\x18\x01 \x01(\r\x12\x11\n\tchannel10\x18\x02 \x01(\r\x12\x11\n\tchannel11\x18\x03 \x01(\r\x12\x11\n\tchannel12\x18\x04 \x01(\r\"W\n\tIRTS_FL_3\x12\x11\n\tchannel13\x18\x01 \x01(\r\x12\x11\n\tchannel14\x18\x02 \x01(\r\x12\x11\n\tchannel15\x18\x03 \x01(\r\x12\x11\n\tchannel16\x18\x04 \x01(\r\"S\n\tIRTS_FR_0\x12\x10\n\x08\x63hannel1\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel2\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel3\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel4\x18\x04 \x01(\r\"S\n\tIRTS_FR_1\x12\x10\n\x08\x63hannel5\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel6\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel7\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel8\x18\x04 \x01(\r\"V\n\tIRTS_FR_2\x12\x10\n\x08\x63hannel9\x18\x01 \x01(\r\x12\x11\n\tchannel10\x18\x02 \x01(\r\x12\x11\n\tchannel11\x18\x03 \x01(\r\x12\x11\n\tchannel12\x18\x04 \x01(\r\"W\n\tIRTS_FR_3\x12\x11\n\tchannel13\x18\x01 \x01(\r\x12\x11\n\tchannel14\x18\x02 \x01(\r\x12\x11\n\tchannel15\x18\x03 \x01(\r\x12\x11\n\tchannel16\x18\x04 \x01(\r\"S\n\tIRTS_RL_0\x12\x10\n\x08\x63hannel1\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel2\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel3\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel4\x18\x04 \x01(\r\"S\n\tIRTS_RL_1\x12\x10\n\x08\x63hannel5\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel6\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel7\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel8\x18\x04 \x01(\r\"V\n\tIRTS_RL_2\x12\x10\n\x08\x63hannel9\x18\x01 \x01(\r\x12\x11\n\tchannel10\x18\x02 \x01(\r\x12\x11\n\tchannel11\x18\x03 \x01(\r\x12\x11\n\tchannel12\x18\x04 \x01(\r\"W\n\tIRTS_RL_3\x12\x11\n\tchannel13\x18\x01 \x01(\r\x12\x11\n\tchannel14\x18\x02 \x01(\r\x12\x11\n\tchannel15\x18\x03 \x01(\r\x12\x11\n\tchannel16\x18\x04 \x01(\r\"S\n\tIRTS_RR_0\x12\x10\n\x08\x63hannel1\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel2\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel3\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel4\x18\x04 \x01(\r\"S\n\tIRTS_RR_1\x12\x10\n\x08\x63hannel5\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel6\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel7\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel8\x18\x04 \x01(\r\"V\n\tIRTS_RR_2\x12\x10\n\x08\x63hannel9\x18\x01 \x01(\r\x12\x11\n\tchannel10\x18\x02 \x01(\r\x12\x11\n\tchannel11\x18\x03 \x01(\r\x12\x11\n\tchannel12\x18\x04 \x01(\r\"W\n\tIRTS_RR_3\x12\x11\n\tchannel13\x18\x01 \x01(\r\x12\x11\n\tchannel14\x18\x02 \x01(\r\x12\x11\n\tchannel15\x18\x03 \x01(\r\x12\x11\n\tchannel16\x18\x04 \x01(\r\"1\n\nGPS_COORDS\x12\x10\n\x08latitude\x18\x01 \x01(\x02\x12\x11\n\tlongitude\x18\x02 \x01(\x02\"\x1a\n\tGPS_SPEED\x12\r\n\x05speed\x18\x01 \x01(\r\"1\n\tLAP_COUNT\x12\x11\n\tlap_count\x18\x01 \x01(\r\x12\x11\n\ttimestamp\x18\x02 \x01(\rb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fsecondary.proto\x12\tsecondary\"L\n\x0eImuAngularRate\x12\x12\n\nang_rate_x\x18\x01 \x01(\r\x12\x12\n\nang_rate_y\x18\x02 \x01(\r\x12\x12\n\nang_rate_z\x18\x03 \x01(\r\"D\n\x0fImuAcceleration\x12\x0f\n\x07\x61\x63\x63\x65l_x\x18\x01 \x01(\r\x12\x0f\n\x07\x61\x63\x63\x65l_y\x18\x02 \x01(\r\x12\x0f\n\x07\x61\x63\x63\x65l_z\x18\x03 \x01(\r\"Q\n\x07IrtsFl0\x12\x10\n\x08\x63hannel1\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel2\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel3\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel4\x18\x04 \x01(\r\"Q\n\x07IrtsFl1\x12\x10\n\x08\x63hannel5\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel6\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel7\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel8\x18\x04 \x01(\r\"T\n\x07IrtsFl2\x12\x10\n\x08\x63hannel9\x18\x01 \x01(\r\x12\x11\n\tchannel10\x18\x02 \x01(\r\x12\x11\n\tchannel11\x18\x03 \x01(\r\x12\x11\n\tchannel12\x18\x04 \x01(\r\"U\n\x07IrtsFl3\x12\x11\n\tchannel13\x18\x01 \x01(\r\x12\x11\n\tchannel14\x18\x02 \x01(\r\x12\x11\n\tchannel15\x18\x03 \x01(\r\x12\x11\n\tchannel16\x18\x04 \x01(\r\"Q\n\x07IrtsFr0\x12\x10\n\x08\x63hannel1\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel2\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel3\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel4\x18\x04 \x01(\r\"Q\n\x07IrtsFr1\x12\x10\n\x08\x63hannel5\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel6\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel7\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel8\x18\x04 \x01(\r\"T\n\x07IrtsFr2\x12\x10\n\x08\x63hannel9\x18\x01 \x01(\r\x12\x11\n\tchannel10\x18\x02 \x01(\r\x12\x11\n\tchannel11\x18\x03 \x01(\r\x12\x11\n\tchannel12\x18\x04 \x01(\r\"U\n\x07IrtsFr3\x12\x11\n\tchannel13\x18\x01 \x01(\r\x12\x11\n\tchannel14\x18\x02 \x01(\r\x12\x11\n\tchannel15\x18\x03 \x01(\r\x12\x11\n\tchannel16\x18\x04 \x01(\r\"Q\n\x07IrtsRl0\x12\x10\n\x08\x63hannel1\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel2\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel3\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel4\x18\x04 \x01(\r\"Q\n\x07IrtsRl1\x12\x10\n\x08\x63hannel5\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel6\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel7\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel8\x18\x04 \x01(\r\"T\n\x07IrtsRl2\x12\x10\n\x08\x63hannel9\x18\x01 \x01(\r\x12\x11\n\tchannel10\x18\x02 \x01(\r\x12\x11\n\tchannel11\x18\x03 \x01(\r\x12\x11\n\tchannel12\x18\x04 \x01(\r\"U\n\x07IrtsRl3\x12\x11\n\tchannel13\x18\x01 \x01(\r\x12\x11\n\tchannel14\x18\x02 \x01(\r\x12\x11\n\tchannel15\x18\x03 \x01(\r\x12\x11\n\tchannel16\x18\x04 \x01(\r\"Q\n\x07IrtsRr0\x12\x10\n\x08\x63hannel1\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel2\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel3\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel4\x18\x04 \x01(\r\"Q\n\x07IrtsRr1\x12\x10\n\x08\x63hannel5\x18\x01 \x01(\r\x12\x10\n\x08\x63hannel6\x18\x02 \x01(\r\x12\x10\n\x08\x63hannel7\x18\x03 \x01(\r\x12\x10\n\x08\x63hannel8\x18\x04 \x01(\r\"T\n\x07IrtsRr2\x12\x10\n\x08\x63hannel9\x18\x01 \x01(\r\x12\x11\n\tchannel10\x18\x02 \x01(\r\x12\x11\n\tchannel11\x18\x03 \x01(\r\x12\x11\n\tchannel12\x18\x04 \x01(\r\"U\n\x07IrtsRr3\x12\x11\n\tchannel13\x18\x01 \x01(\r\x12\x11\n\tchannel14\x18\x02 \x01(\r\x12\x11\n\tchannel15\x18\x03 \x01(\r\x12\x11\n\tchannel16\x18\x04 \x01(\r\"0\n\tGpsCoords\x12\x10\n\x08latitude\x18\x01 \x01(\x02\x12\x11\n\tlongitude\x18\x02 \x01(\x02\"\x19\n\x08GpsSpeed\x12\r\n\x05speed\x18\x01 \x01(\r\"0\n\x08LapCount\x12\x11\n\tlap_count\x18\x01 \x01(\r\x12\x11\n\ttimestamp\x18\x02 \x01(\rb\x06proto3')
 
 
 
-_IMU_ANGULAR_RATE = DESCRIPTOR.message_types_by_name['IMU_ANGULAR_RATE']
-_IMU_ACCELERATION = DESCRIPTOR.message_types_by_name['IMU_ACCELERATION']
-_IRTS_FL_0 = DESCRIPTOR.message_types_by_name['IRTS_FL_0']
-_IRTS_FL_1 = DESCRIPTOR.message_types_by_name['IRTS_FL_1']
-_IRTS_FL_2 = DESCRIPTOR.message_types_by_name['IRTS_FL_2']
-_IRTS_FL_3 = DESCRIPTOR.message_types_by_name['IRTS_FL_3']
-_IRTS_FR_0 = DESCRIPTOR.message_types_by_name['IRTS_FR_0']
-_IRTS_FR_1 = DESCRIPTOR.message_types_by_name['IRTS_FR_1']
-_IRTS_FR_2 = DESCRIPTOR.message_types_by_name['IRTS_FR_2']
-_IRTS_FR_3 = DESCRIPTOR.message_types_by_name['IRTS_FR_3']
-_IRTS_RL_0 = DESCRIPTOR.message_types_by_name['IRTS_RL_0']
-_IRTS_RL_1 = DESCRIPTOR.message_types_by_name['IRTS_RL_1']
-_IRTS_RL_2 = DESCRIPTOR.message_types_by_name['IRTS_RL_2']
-_IRTS_RL_3 = DESCRIPTOR.message_types_by_name['IRTS_RL_3']
-_IRTS_RR_0 = DESCRIPTOR.message_types_by_name['IRTS_RR_0']
-_IRTS_RR_1 = DESCRIPTOR.message_types_by_name['IRTS_RR_1']
-_IRTS_RR_2 = DESCRIPTOR.message_types_by_name['IRTS_RR_2']
-_IRTS_RR_3 = DESCRIPTOR.message_types_by_name['IRTS_RR_3']
-_GPS_COORDS = DESCRIPTOR.message_types_by_name['GPS_COORDS']
-_GPS_SPEED = DESCRIPTOR.message_types_by_name['GPS_SPEED']
-_LAP_COUNT = DESCRIPTOR.message_types_by_name['LAP_COUNT']
-IMU_ANGULAR_RATE = _reflection.GeneratedProtocolMessageType('IMU_ANGULAR_RATE', (_message.Message,), {
-  'DESCRIPTOR' : _IMU_ANGULAR_RATE,
+_IMUANGULARRATE = DESCRIPTOR.message_types_by_name['ImuAngularRate']
+_IMUACCELERATION = DESCRIPTOR.message_types_by_name['ImuAcceleration']
+_IRTSFL0 = DESCRIPTOR.message_types_by_name['IrtsFl0']
+_IRTSFL1 = DESCRIPTOR.message_types_by_name['IrtsFl1']
+_IRTSFL2 = DESCRIPTOR.message_types_by_name['IrtsFl2']
+_IRTSFL3 = DESCRIPTOR.message_types_by_name['IrtsFl3']
+_IRTSFR0 = DESCRIPTOR.message_types_by_name['IrtsFr0']
+_IRTSFR1 = DESCRIPTOR.message_types_by_name['IrtsFr1']
+_IRTSFR2 = DESCRIPTOR.message_types_by_name['IrtsFr2']
+_IRTSFR3 = DESCRIPTOR.message_types_by_name['IrtsFr3']
+_IRTSRL0 = DESCRIPTOR.message_types_by_name['IrtsRl0']
+_IRTSRL1 = DESCRIPTOR.message_types_by_name['IrtsRl1']
+_IRTSRL2 = DESCRIPTOR.message_types_by_name['IrtsRl2']
+_IRTSRL3 = DESCRIPTOR.message_types_by_name['IrtsRl3']
+_IRTSRR0 = DESCRIPTOR.message_types_by_name['IrtsRr0']
+_IRTSRR1 = DESCRIPTOR.message_types_by_name['IrtsRr1']
+_IRTSRR2 = DESCRIPTOR.message_types_by_name['IrtsRr2']
+_IRTSRR3 = DESCRIPTOR.message_types_by_name['IrtsRr3']
+_GPSCOORDS = DESCRIPTOR.message_types_by_name['GpsCoords']
+_GPSSPEED = DESCRIPTOR.message_types_by_name['GpsSpeed']
+_LAPCOUNT = DESCRIPTOR.message_types_by_name['LapCount']
+ImuAngularRate = _reflection.GeneratedProtocolMessageType('ImuAngularRate', (_message.Message,), {
+  'DESCRIPTOR' : _IMUANGULARRATE,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IMU_ANGULAR_RATE)
+  # @@protoc_insertion_point(class_scope:secondary.ImuAngularRate)
   })
-_sym_db.RegisterMessage(IMU_ANGULAR_RATE)
+_sym_db.RegisterMessage(ImuAngularRate)
 
-IMU_ACCELERATION = _reflection.GeneratedProtocolMessageType('IMU_ACCELERATION', (_message.Message,), {
-  'DESCRIPTOR' : _IMU_ACCELERATION,
+ImuAcceleration = _reflection.GeneratedProtocolMessageType('ImuAcceleration', (_message.Message,), {
+  'DESCRIPTOR' : _IMUACCELERATION,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IMU_ACCELERATION)
+  # @@protoc_insertion_point(class_scope:secondary.ImuAcceleration)
   })
-_sym_db.RegisterMessage(IMU_ACCELERATION)
+_sym_db.RegisterMessage(ImuAcceleration)
 
-IRTS_FL_0 = _reflection.GeneratedProtocolMessageType('IRTS_FL_0', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_FL_0,
+IrtsFl0 = _reflection.GeneratedProtocolMessageType('IrtsFl0', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSFL0,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_FL_0)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsFl0)
   })
-_sym_db.RegisterMessage(IRTS_FL_0)
+_sym_db.RegisterMessage(IrtsFl0)
 
-IRTS_FL_1 = _reflection.GeneratedProtocolMessageType('IRTS_FL_1', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_FL_1,
+IrtsFl1 = _reflection.GeneratedProtocolMessageType('IrtsFl1', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSFL1,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_FL_1)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsFl1)
   })
-_sym_db.RegisterMessage(IRTS_FL_1)
+_sym_db.RegisterMessage(IrtsFl1)
 
-IRTS_FL_2 = _reflection.GeneratedProtocolMessageType('IRTS_FL_2', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_FL_2,
+IrtsFl2 = _reflection.GeneratedProtocolMessageType('IrtsFl2', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSFL2,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_FL_2)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsFl2)
   })
-_sym_db.RegisterMessage(IRTS_FL_2)
+_sym_db.RegisterMessage(IrtsFl2)
 
-IRTS_FL_3 = _reflection.GeneratedProtocolMessageType('IRTS_FL_3', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_FL_3,
+IrtsFl3 = _reflection.GeneratedProtocolMessageType('IrtsFl3', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSFL3,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_FL_3)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsFl3)
   })
-_sym_db.RegisterMessage(IRTS_FL_3)
+_sym_db.RegisterMessage(IrtsFl3)
 
-IRTS_FR_0 = _reflection.GeneratedProtocolMessageType('IRTS_FR_0', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_FR_0,
+IrtsFr0 = _reflection.GeneratedProtocolMessageType('IrtsFr0', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSFR0,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_FR_0)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsFr0)
   })
-_sym_db.RegisterMessage(IRTS_FR_0)
+_sym_db.RegisterMessage(IrtsFr0)
 
-IRTS_FR_1 = _reflection.GeneratedProtocolMessageType('IRTS_FR_1', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_FR_1,
+IrtsFr1 = _reflection.GeneratedProtocolMessageType('IrtsFr1', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSFR1,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_FR_1)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsFr1)
   })
-_sym_db.RegisterMessage(IRTS_FR_1)
+_sym_db.RegisterMessage(IrtsFr1)
 
-IRTS_FR_2 = _reflection.GeneratedProtocolMessageType('IRTS_FR_2', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_FR_2,
+IrtsFr2 = _reflection.GeneratedProtocolMessageType('IrtsFr2', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSFR2,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_FR_2)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsFr2)
   })
-_sym_db.RegisterMessage(IRTS_FR_2)
+_sym_db.RegisterMessage(IrtsFr2)
 
-IRTS_FR_3 = _reflection.GeneratedProtocolMessageType('IRTS_FR_3', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_FR_3,
+IrtsFr3 = _reflection.GeneratedProtocolMessageType('IrtsFr3', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSFR3,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_FR_3)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsFr3)
   })
-_sym_db.RegisterMessage(IRTS_FR_3)
+_sym_db.RegisterMessage(IrtsFr3)
 
-IRTS_RL_0 = _reflection.GeneratedProtocolMessageType('IRTS_RL_0', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_RL_0,
+IrtsRl0 = _reflection.GeneratedProtocolMessageType('IrtsRl0', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSRL0,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_RL_0)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsRl0)
   })
-_sym_db.RegisterMessage(IRTS_RL_0)
+_sym_db.RegisterMessage(IrtsRl0)
 
-IRTS_RL_1 = _reflection.GeneratedProtocolMessageType('IRTS_RL_1', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_RL_1,
+IrtsRl1 = _reflection.GeneratedProtocolMessageType('IrtsRl1', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSRL1,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_RL_1)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsRl1)
   })
-_sym_db.RegisterMessage(IRTS_RL_1)
+_sym_db.RegisterMessage(IrtsRl1)
 
-IRTS_RL_2 = _reflection.GeneratedProtocolMessageType('IRTS_RL_2', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_RL_2,
+IrtsRl2 = _reflection.GeneratedProtocolMessageType('IrtsRl2', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSRL2,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_RL_2)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsRl2)
   })
-_sym_db.RegisterMessage(IRTS_RL_2)
+_sym_db.RegisterMessage(IrtsRl2)
 
-IRTS_RL_3 = _reflection.GeneratedProtocolMessageType('IRTS_RL_3', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_RL_3,
+IrtsRl3 = _reflection.GeneratedProtocolMessageType('IrtsRl3', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSRL3,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_RL_3)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsRl3)
   })
-_sym_db.RegisterMessage(IRTS_RL_3)
+_sym_db.RegisterMessage(IrtsRl3)
 
-IRTS_RR_0 = _reflection.GeneratedProtocolMessageType('IRTS_RR_0', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_RR_0,
+IrtsRr0 = _reflection.GeneratedProtocolMessageType('IrtsRr0', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSRR0,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_RR_0)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsRr0)
   })
-_sym_db.RegisterMessage(IRTS_RR_0)
+_sym_db.RegisterMessage(IrtsRr0)
 
-IRTS_RR_1 = _reflection.GeneratedProtocolMessageType('IRTS_RR_1', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_RR_1,
+IrtsRr1 = _reflection.GeneratedProtocolMessageType('IrtsRr1', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSRR1,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_RR_1)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsRr1)
   })
-_sym_db.RegisterMessage(IRTS_RR_1)
+_sym_db.RegisterMessage(IrtsRr1)
 
-IRTS_RR_2 = _reflection.GeneratedProtocolMessageType('IRTS_RR_2', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_RR_2,
+IrtsRr2 = _reflection.GeneratedProtocolMessageType('IrtsRr2', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSRR2,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_RR_2)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsRr2)
   })
-_sym_db.RegisterMessage(IRTS_RR_2)
+_sym_db.RegisterMessage(IrtsRr2)
 
-IRTS_RR_3 = _reflection.GeneratedProtocolMessageType('IRTS_RR_3', (_message.Message,), {
-  'DESCRIPTOR' : _IRTS_RR_3,
+IrtsRr3 = _reflection.GeneratedProtocolMessageType('IrtsRr3', (_message.Message,), {
+  'DESCRIPTOR' : _IRTSRR3,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.IRTS_RR_3)
+  # @@protoc_insertion_point(class_scope:secondary.IrtsRr3)
   })
-_sym_db.RegisterMessage(IRTS_RR_3)
+_sym_db.RegisterMessage(IrtsRr3)
 
-GPS_COORDS = _reflection.GeneratedProtocolMessageType('GPS_COORDS', (_message.Message,), {
-  'DESCRIPTOR' : _GPS_COORDS,
+GpsCoords = _reflection.GeneratedProtocolMessageType('GpsCoords', (_message.Message,), {
+  'DESCRIPTOR' : _GPSCOORDS,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.GPS_COORDS)
+  # @@protoc_insertion_point(class_scope:secondary.GpsCoords)
   })
-_sym_db.RegisterMessage(GPS_COORDS)
+_sym_db.RegisterMessage(GpsCoords)
 
-GPS_SPEED = _reflection.GeneratedProtocolMessageType('GPS_SPEED', (_message.Message,), {
-  'DESCRIPTOR' : _GPS_SPEED,
+GpsSpeed = _reflection.GeneratedProtocolMessageType('GpsSpeed', (_message.Message,), {
+  'DESCRIPTOR' : _GPSSPEED,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.GPS_SPEED)
+  # @@protoc_insertion_point(class_scope:secondary.GpsSpeed)
   })
-_sym_db.RegisterMessage(GPS_SPEED)
+_sym_db.RegisterMessage(GpsSpeed)
 
-LAP_COUNT = _reflection.GeneratedProtocolMessageType('LAP_COUNT', (_message.Message,), {
-  'DESCRIPTOR' : _LAP_COUNT,
+LapCount = _reflection.GeneratedProtocolMessageType('LapCount', (_message.Message,), {
+  'DESCRIPTOR' : _LAPCOUNT,
   '__module__' : 'secondary_pb2'
-  # @@protoc_insertion_point(class_scope:secondary.LAP_COUNT)
+  # @@protoc_insertion_point(class_scope:secondary.LapCount)
   })
-_sym_db.RegisterMessage(LAP_COUNT)
+_sym_db.RegisterMessage(LapCount)
 
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _IMU_ANGULAR_RATE._serialized_start=30
-  _IMU_ANGULAR_RATE._serialized_end=108
-  _IMU_ACCELERATION._serialized_start=110
-  _IMU_ACCELERATION._serialized_end=179
-  _IRTS_FL_0._serialized_start=181
-  _IRTS_FL_0._serialized_end=264
-  _IRTS_FL_1._serialized_start=266
-  _IRTS_FL_1._serialized_end=349
-  _IRTS_FL_2._serialized_start=351
-  _IRTS_FL_2._serialized_end=437
-  _IRTS_FL_3._serialized_start=439
-  _IRTS_FL_3._serialized_end=526
-  _IRTS_FR_0._serialized_start=528
-  _IRTS_FR_0._serialized_end=611
-  _IRTS_FR_1._serialized_start=613
-  _IRTS_FR_1._serialized_end=696
-  _IRTS_FR_2._serialized_start=698
-  _IRTS_FR_2._serialized_end=784
-  _IRTS_FR_3._serialized_start=786
-  _IRTS_FR_3._serialized_end=873
-  _IRTS_RL_0._serialized_start=875
-  _IRTS_RL_0._serialized_end=958
-  _IRTS_RL_1._serialized_start=960
-  _IRTS_RL_1._serialized_end=1043
-  _IRTS_RL_2._serialized_start=1045
-  _IRTS_RL_2._serialized_end=1131
-  _IRTS_RL_3._serialized_start=1133
-  _IRTS_RL_3._serialized_end=1220
-  _IRTS_RR_0._serialized_start=1222
-  _IRTS_RR_0._serialized_end=1305
-  _IRTS_RR_1._serialized_start=1307
-  _IRTS_RR_1._serialized_end=1390
-  _IRTS_RR_2._serialized_start=1392
-  _IRTS_RR_2._serialized_end=1478
-  _IRTS_RR_3._serialized_start=1480
-  _IRTS_RR_3._serialized_end=1567
-  _GPS_COORDS._serialized_start=1569
-  _GPS_COORDS._serialized_end=1618
-  _GPS_SPEED._serialized_start=1620
-  _GPS_SPEED._serialized_end=1646
-  _LAP_COUNT._serialized_start=1648
-  _LAP_COUNT._serialized_end=1697
+  _IMUANGULARRATE._serialized_start=30
+  _IMUANGULARRATE._serialized_end=106
+  _IMUACCELERATION._serialized_start=108
+  _IMUACCELERATION._serialized_end=176
+  _IRTSFL0._serialized_start=178
+  _IRTSFL0._serialized_end=259
+  _IRTSFL1._serialized_start=261
+  _IRTSFL1._serialized_end=342
+  _IRTSFL2._serialized_start=344
+  _IRTSFL2._serialized_end=428
+  _IRTSFL3._serialized_start=430
+  _IRTSFL3._serialized_end=515
+  _IRTSFR0._serialized_start=517
+  _IRTSFR0._serialized_end=598
+  _IRTSFR1._serialized_start=600
+  _IRTSFR1._serialized_end=681
+  _IRTSFR2._serialized_start=683
+  _IRTSFR2._serialized_end=767
+  _IRTSFR3._serialized_start=769
+  _IRTSFR3._serialized_end=854
+  _IRTSRL0._serialized_start=856
+  _IRTSRL0._serialized_end=937
+  _IRTSRL1._serialized_start=939
+  _IRTSRL1._serialized_end=1020
+  _IRTSRL2._serialized_start=1022
+  _IRTSRL2._serialized_end=1106
+  _IRTSRL3._serialized_start=1108
+  _IRTSRL3._serialized_end=1193
+  _IRTSRR0._serialized_start=1195
+  _IRTSRR0._serialized_end=1276
+  _IRTSRR1._serialized_start=1278
+  _IRTSRR1._serialized_end=1359
+  _IRTSRR2._serialized_start=1361
+  _IRTSRR2._serialized_end=1445
+  _IRTSRR3._serialized_start=1447
+  _IRTSRR3._serialized_end=1532
+  _GPSCOORDS._serialized_start=1534
+  _GPSCOORDS._serialized_end=1582
+  _GPSSPEED._serialized_start=1584
+  _GPSSPEED._serialized_end=1609
+  _LAPCOUNT._serialized_start=1611
+  _LAPCOUNT._serialized_end=1659
 # @@protoc_insertion_point(module_scope)

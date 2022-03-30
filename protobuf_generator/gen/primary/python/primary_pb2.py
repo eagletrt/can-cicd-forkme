@@ -15,36 +15,36 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rprimary.proto\x12\x07primary\"C\n\rSTEER_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"A\n\x0b\x44\x41S_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"@\n\nHV_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"@\n\nLV_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"A\n\x0bTLM_VERSION\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"\x1e\n\tTIMESTAMP\x12\x11\n\ttimestamp\x18\x01 \x01(\r\"\x89\x01\n\x0eSET_TLM_STATUS\x12/\n\x0etlm_status_set\x18\x01 \x01(\x0e\x32\x17.primary.Tlm_Status_Set\x12%\n\trace_type\x18\x02 \x01(\x0e\x32\x12.primary.Race_Type\x12\x0e\n\x06\x64river\x18\x03 \x01(\r\x12\x0f\n\x07\x63ircuit\x18\x04 \x01(\r\"\'\n\x13STEER_SYSTEM_STATUS\x12\x10\n\x08soc_temp\x18\x01 \x01(\r\"}\n\nTLM_STATUS\x12\'\n\ntlm_status\x18\x01 \x01(\x0e\x32\x13.primary.Tlm_Status\x12%\n\trace_type\x18\x02 \x01(\x0e\x32\x12.primary.Race_Type\x12\x0e\n\x06\x64river\x18\x03 \x01(\r\x12\x0f\n\x07\x63ircuit\x18\x04 \x01(\r\"\x91\x01\n\nCAR_STATUS\x12,\n\ninverter_l\x18\x01 \x01(\x0e\x32\x18.primary.Inverter_Status\x12,\n\ninverter_r\x18\x02 \x01(\x0e\x32\x18.primary.Inverter_Status\x12\'\n\ncar_status\x18\x03 \x01(\x0e\x32\x13.primary.Car_Status\"\x1f\n\nDAS_ERRORS\x12\x11\n\tdas_error\x18\x01 \x01(\r\"U\n\x05SPEED\x12\x11\n\tencoder_r\x18\x01 \x01(\r\x12\x11\n\tencoder_l\x18\x02 \x01(\r\x12\x12\n\ninverter_r\x18\x03 \x01(\r\x12\x12\n\ninverter_l\x18\x04 \x01(\r\"k\n\nHV_VOLTAGE\x12\x14\n\x0cpack_voltage\x18\x01 \x01(\r\x12\x13\n\x0b\x62us_voltage\x18\x02 \x01(\r\x12\x18\n\x10max_cell_voltage\x18\x03 \x01(\r\x12\x18\n\x10min_cell_voltage\x18\x04 \x01(\r\",\n\nHV_CURRENT\x12\x0f\n\x07\x63urrent\x18\x01 \x01(\r\x12\r\n\x05power\x18\x02 \x01(\x05\"C\n\x07HV_TEMP\x12\x14\n\x0c\x61verage_temp\x18\x01 \x01(\r\x12\x10\n\x08max_temp\x18\x02 \x01(\r\x12\x10\n\x08min_temp\x18\x03 \x01(\r\"-\n\tHV_ERRORS\x12\x10\n\x08warnings\x18\x01 \x01(\r\x12\x0e\n\x06\x65rrors\x18\x02 \x01(\r\"2\n\tTS_STATUS\x12%\n\tts_status\x18\x01 \x01(\x0e\x32\x12.primary.Ts_Status\">\n\rSET_TS_STATUS\x12-\n\rts_status_set\x18\x01 \x01(\x0e\x32\x16.primary.Ts_Status_Set\"X\n\x19SET_CELL_BALANCING_STATUS\x12;\n\x14set_balancing_status\x18\x01 \x01(\x0e\x32\x1d.primary.Set_Balancing_Status\"$\n\x0fHANDCART_STATUS\x12\x11\n\tconnected\x18\x01 \x01(\x08\"^\n\x0cSTEER_STATUS\x12\x33\n\x10traction_control\x18\x01 \x01(\x0e\x32\x19.primary.Traction_Control\x12\x19\n\x03map\x18\x02 \x01(\x0e\x32\x0c.primary.Map\"A\n\x0eSET_CAR_STATUS\x12/\n\x0e\x63\x61r_status_set\x18\x01 \x01(\x0e\x32\x17.primary.Car_Status_Set\"P\n\x10SET_PEDALS_RANGE\x12\x1d\n\x05\x62ound\x18\x01 \x01(\x0e\x32\x0e.primary.Bound\x12\x1d\n\x05pedal\x18\x02 \x01(\x0e\x32\x0e.primary.Pedal\"\x1d\n\nLV_CURRENT\x12\x0f\n\x07\x63urrent\x18\x01 \x01(\r\"o\n\nLV_VOLTAGE\x12\x15\n\rtotal_voltage\x18\x01 \x01(\r\x12\x11\n\tvoltage_1\x18\x02 \x01(\r\x12\x11\n\tvoltage_2\x18\x03 \x01(\r\x12\x11\n\tvoltage_3\x18\x04 \x01(\r\x12\x11\n\tvoltage_4\x18\x05 \x01(\r\"B\n\x0eLV_TEMPERATURE\x12\x16\n\x0e\x62p_temperature\x18\x01 \x01(\r\x12\x18\n\x10\x64\x63\x64\x63_temperature\x18\x02 \x01(\r\"P\n\x0e\x43OOLING_STATUS\x12\x14\n\x0chv_fan_speed\x18\x01 \x01(\r\x12\x14\n\x0clv_fan_speed\x18\x02 \x01(\r\x12\x12\n\npump_speed\x18\x03 \x01(\r\"_\n\x10HV_CELLS_VOLTAGE\x12\x12\n\ncell_index\x18\x01 \x01(\r\x12\x11\n\tvoltage_0\x18\x02 \x01(\r\x12\x11\n\tvoltage_1\x18\x03 \x01(\r\x12\x11\n\tvoltage_2\x18\x04 \x01(\r\"\x93\x01\n\rHV_CELLS_TEMP\x12\x12\n\ncell_index\x18\x01 \x01(\r\x12\x0e\n\x06temp_0\x18\x02 \x01(\r\x12\x0e\n\x06temp_1\x18\x03 \x01(\r\x12\x0e\n\x06temp_2\x18\x04 \x01(\r\x12\x0e\n\x06temp_3\x18\x05 \x01(\r\x12\x0e\n\x06temp_4\x18\x06 \x01(\r\x12\x0e\n\x06temp_5\x18\x07 \x01(\r\x12\x0e\n\x06temp_6\x18\x08 \x01(\r\"O\n\x18HV_CELL_BALANCING_STATUS\x12\x33\n\x10\x62\x61lancing_status\x18\x01 \x01(\x0e\x32\x19.primary.Balancing_Status\"?\n\x0eINV_L_SEND_CMD\x12\r\n\x05regid\x18\x01 \x01(\r\x12\x0e\n\x06\x62yte_1\x18\x02 \x01(\r\x12\x0e\n\x06\x62yte_2\x18\x03 \x01(\r\"-\n\x0cINV_L_STATUS\x12\r\n\x05regid\x18\x01 \x01(\r\x12\x0e\n\x06status\x18\x02 \x01(\r*?\n\x0eTlm_Status_Set\x12\x16\n\x12TLM_STATUS_SET_OFF\x10\x00\x12\x15\n\x11TLM_STATUS_SET_ON\x10\x01*p\n\tRace_Type\x12\x1a\n\x16RACE_TYPE_ACCELERATION\x10\x00\x12\x15\n\x11RACE_TYPE_SKIDPAD\x10\x01\x12\x17\n\x13RACE_TYPE_AUTOCROSS\x10\x02\x12\x17\n\x13RACE_TYPE_ENDURANCE\x10\x03*3\n\nTlm_Status\x12\x11\n\rTLM_STATUS_ON\x10\x00\x12\x12\n\x0eTLM_STATUS_OFF\x10\x01*\\\n\x0fInverter_Status\x12\x17\n\x13INVERTER_STATUS_OFF\x10\x00\x12\x18\n\x14INVERTER_STATUS_IDLE\x10\x01\x12\x16\n\x12INVERTER_STATUS_ON\x10\x02*K\n\nCar_Status\x12\x13\n\x0f\x43\x41R_STATUS_IDLE\x10\x00\x12\x14\n\x10\x43\x41R_STATUS_SETUP\x10\x01\x12\x12\n\x0e\x43\x41R_STATUS_RUN\x10\x02*^\n\tTs_Status\x12\x11\n\rTS_STATUS_OFF\x10\x00\x12\x17\n\x13TS_STATUS_PRECHARGE\x10\x01\x12\x10\n\x0cTS_STATUS_ON\x10\x02\x12\x13\n\x0fTS_STATUS_FATAL\x10\x03*<\n\rTs_Status_Set\x12\x15\n\x11TS_STATUS_SET_OFF\x10\x00\x12\x14\n\x10TS_STATUS_SET_ON\x10\x01*Q\n\x14Set_Balancing_Status\x12\x1c\n\x18SET_BALANCING_STATUS_OFF\x10\x00\x12\x1b\n\x17SET_BALANCING_STATUS_ON\x10\x01*\x95\x01\n\x10Traction_Control\x12\x18\n\x14TRACTION_CONTROL_OFF\x10\x00\x12!\n\x1dTRACTION_CONTROL_SLIP_CONTROL\x10\x01\x12%\n!TRACTION_CONTROL_TORQUE_VECTORING\x10\x02\x12\x1d\n\x19TRACTION_CONTROL_COMPLETE\x10\x03*R\n\x03Map\x12\t\n\x05MAP_R\x10\x00\x12\x0b\n\x07MAP_D20\x10\x01\x12\x0b\n\x07MAP_D40\x10\x02\x12\x0b\n\x07MAP_D60\x10\x03\x12\x0b\n\x07MAP_D80\x10\x04\x12\x0c\n\x08MAP_D100\x10\x05*A\n\x0e\x43\x61r_Status_Set\x12\x17\n\x13\x43\x41R_STATUS_SET_IDLE\x10\x00\x12\x16\n\x12\x43\x41R_STATUS_SET_RUN\x10\x01*-\n\x05\x42ound\x12\x11\n\rBOUND_SET_MAX\x10\x00\x12\x11\n\rBOUND_SET_MIN\x10\x01*/\n\x05Pedal\x12\x15\n\x11PEDAL_ACCELERATOR\x10\x00\x12\x0f\n\x0bPEDAL_BRAKE\x10\x01*E\n\x10\x42\x61lancing_Status\x12\x18\n\x14\x42\x41LANCING_STATUS_OFF\x10\x00\x12\x17\n\x13\x42\x41LANCING_STATUS_ON\x10\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rprimary.proto\x12\x07primary\"B\n\x0cSteerVersion\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"@\n\nDasVersion\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"?\n\tHvVersion\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"?\n\tLvVersion\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"@\n\nTlmVersion\x12\x19\n\x11\x63omponent_version\x18\x01 \x01(\r\x12\x17\n\x0f\x63\x61ncicd_version\x18\x02 \x01(\r\"\x1e\n\tTimestamp\x12\x11\n\ttimestamp\x18\x01 \x01(\r\"\x8c\x01\n\x0cSetTlmStatus\x12\x31\n\x0etlm_status_set\x18\x01 \x01(\x0e\x32\x19.primary.TlmStatusSetType\x12(\n\trace_type\x18\x02 \x01(\x0e\x32\x15.primary.RaceTypeType\x12\x0e\n\x06\x64river\x18\x03 \x01(\r\x12\x0f\n\x07\x63ircuit\x18\x04 \x01(\r\"%\n\x11SteerSystemStatus\x12\x10\n\x08soc_temp\x18\x01 \x01(\r\"\x08\n\x06Marker\"\x82\x01\n\tTlmStatus\x12*\n\ntlm_status\x18\x01 \x01(\x0e\x32\x16.primary.TlmStatusType\x12(\n\trace_type\x18\x02 \x01(\x0e\x32\x15.primary.RaceTypeType\x12\x0e\n\x06\x64river\x18\x03 \x01(\r\x12\x0f\n\x07\x63ircuit\x18\x04 \x01(\r\"\x99\x01\n\tCarStatus\x12/\n\ninverter_l\x18\x01 \x01(\x0e\x32\x1b.primary.InverterStatusType\x12/\n\ninverter_r\x18\x02 \x01(\x0e\x32\x1b.primary.InverterStatusType\x12*\n\ncar_status\x18\x03 \x01(\x0e\x32\x16.primary.CarStatusType\"\x1e\n\tDasErrors\x12\x11\n\tdas_error\x18\x01 \x01(\r\"U\n\x05Speed\x12\x11\n\tencoder_r\x18\x01 \x01(\r\x12\x11\n\tencoder_l\x18\x02 \x01(\r\x12\x12\n\ninverter_r\x18\x03 \x01(\r\x12\x12\n\ninverter_l\x18\x04 \x01(\r\"j\n\tHvVoltage\x12\x14\n\x0cpack_voltage\x18\x01 \x01(\r\x12\x13\n\x0b\x62us_voltage\x18\x02 \x01(\r\x12\x18\n\x10max_cell_voltage\x18\x03 \x01(\r\x12\x18\n\x10min_cell_voltage\x18\x04 \x01(\r\"+\n\tHvCurrent\x12\x0f\n\x07\x63urrent\x18\x01 \x01(\r\x12\r\n\x05power\x18\x02 \x01(\x05\"B\n\x06HvTemp\x12\x14\n\x0c\x61verage_temp\x18\x01 \x01(\r\x12\x10\n\x08max_temp\x18\x02 \x01(\r\x12\x10\n\x08min_temp\x18\x03 \x01(\r\",\n\x08HvErrors\x12\x10\n\x08warnings\x18\x01 \x01(\r\x12\x0e\n\x06\x65rrors\x18\x02 \x01(\r\"4\n\x08TsStatus\x12(\n\tts_status\x18\x01 \x01(\x0e\x32\x15.primary.TsStatusType\">\n\x0bSetTsStatus\x12/\n\rts_status_set\x18\x01 \x01(\x0e\x32\x18.primary.TsStatusSetType\"W\n\x16SetCellBalancingStatus\x12=\n\x14set_balancing_status\x18\x01 \x01(\x0e\x32\x1f.primary.SetBalancingStatusType\"#\n\x0eHandcartStatus\x12\x11\n\tconnected\x18\x01 \x01(\x08\"d\n\x0bSteerStatus\x12\x36\n\x10traction_control\x18\x01 \x01(\x0e\x32\x1c.primary.TractionControlType\x12\x1d\n\x03map\x18\x02 \x01(\x0e\x32\x10.primary.MapType\"A\n\x0cSetCarStatus\x12\x31\n\x0e\x63\x61r_status_set\x18\x01 \x01(\x0e\x32\x19.primary.CarStatusSetType\"V\n\x0eSetPedalsRange\x12!\n\x05\x62ound\x18\x01 \x01(\x0e\x32\x12.primary.BoundType\x12!\n\x05pedal\x18\x02 \x01(\x0e\x32\x12.primary.PedalType\"\x1c\n\tLvCurrent\x12\x0f\n\x07\x63urrent\x18\x01 \x01(\r\"n\n\tLvVoltage\x12\x15\n\rtotal_voltage\x18\x01 \x01(\r\x12\x11\n\tvoltage_1\x18\x02 \x01(\r\x12\x11\n\tvoltage_2\x18\x03 \x01(\r\x12\x11\n\tvoltage_3\x18\x04 \x01(\r\x12\x11\n\tvoltage_4\x18\x05 \x01(\r\"A\n\rLvTemperature\x12\x16\n\x0e\x62p_temperature\x18\x01 \x01(\r\x12\x18\n\x10\x64\x63\x64\x63_temperature\x18\x02 \x01(\r\"O\n\rCoolingStatus\x12\x14\n\x0chv_fan_speed\x18\x01 \x01(\r\x12\x14\n\x0clv_fan_speed\x18\x02 \x01(\r\x12\x12\n\npump_speed\x18\x03 \x01(\r\"]\n\x0eHvCellsVoltage\x12\x12\n\ncell_index\x18\x01 \x01(\r\x12\x11\n\tvoltage_0\x18\x02 \x01(\r\x12\x11\n\tvoltage_1\x18\x03 \x01(\r\x12\x11\n\tvoltage_2\x18\x04 \x01(\r\"\x91\x01\n\x0bHvCellsTemp\x12\x12\n\ncell_index\x18\x01 \x01(\r\x12\x0e\n\x06temp_0\x18\x02 \x01(\r\x12\x0e\n\x06temp_1\x18\x03 \x01(\r\x12\x0e\n\x06temp_2\x18\x04 \x01(\r\x12\x0e\n\x06temp_3\x18\x05 \x01(\r\x12\x0e\n\x06temp_4\x18\x06 \x01(\r\x12\x0e\n\x06temp_5\x18\x07 \x01(\r\x12\x0e\n\x06temp_6\x18\x08 \x01(\r\"O\n\x15HvCellBalancingStatus\x12\x36\n\x10\x62\x61lancing_status\x18\x01 \x01(\x0e\x32\x1c.primary.BalancingStatusType\"<\n\x0bInvLSendCmd\x12\r\n\x05regid\x18\x01 \x01(\r\x12\x0e\n\x06\x62yte_1\x18\x02 \x01(\r\x12\x0e\n\x06\x62yte_2\x18\x03 \x01(\r\"+\n\nInvLStatus\x12\r\n\x05regid\x18\x01 \x01(\r\x12\x0e\n\x06status\x18\x02 \x01(\r*A\n\x10TlmStatusSetType\x12\x16\n\x12TLM_STATUS_SET_OFF\x10\x00\x12\x15\n\x11TLM_STATUS_SET_ON\x10\x01*s\n\x0cRaceTypeType\x12\x1a\n\x16RACE_TYPE_ACCELERATION\x10\x00\x12\x15\n\x11RACE_TYPE_SKIDPAD\x10\x01\x12\x17\n\x13RACE_TYPE_AUTOCROSS\x10\x02\x12\x17\n\x13RACE_TYPE_ENDURANCE\x10\x03*6\n\rTlmStatusType\x12\x11\n\rTLM_STATUS_ON\x10\x00\x12\x12\n\x0eTLM_STATUS_OFF\x10\x01*_\n\x12InverterStatusType\x12\x17\n\x13INVERTER_STATUS_OFF\x10\x00\x12\x18\n\x14INVERTER_STATUS_IDLE\x10\x01\x12\x16\n\x12INVERTER_STATUS_ON\x10\x02*N\n\rCarStatusType\x12\x13\n\x0f\x43\x41R_STATUS_IDLE\x10\x00\x12\x14\n\x10\x43\x41R_STATUS_SETUP\x10\x01\x12\x12\n\x0e\x43\x41R_STATUS_RUN\x10\x02*a\n\x0cTsStatusType\x12\x11\n\rTS_STATUS_OFF\x10\x00\x12\x17\n\x13TS_STATUS_PRECHARGE\x10\x01\x12\x10\n\x0cTS_STATUS_ON\x10\x02\x12\x13\n\x0fTS_STATUS_FATAL\x10\x03*>\n\x0fTsStatusSetType\x12\x15\n\x11TS_STATUS_SET_OFF\x10\x00\x12\x14\n\x10TS_STATUS_SET_ON\x10\x01*S\n\x16SetBalancingStatusType\x12\x1c\n\x18SET_BALANCING_STATUS_OFF\x10\x00\x12\x1b\n\x17SET_BALANCING_STATUS_ON\x10\x01*\x98\x01\n\x13TractionControlType\x12\x18\n\x14TRACTION_CONTROL_OFF\x10\x00\x12!\n\x1dTRACTION_CONTROL_SLIP_CONTROL\x10\x01\x12%\n!TRACTION_CONTROL_TORQUE_VECTORING\x10\x02\x12\x1d\n\x19TRACTION_CONTROL_COMPLETE\x10\x03*V\n\x07MapType\x12\t\n\x05MAP_R\x10\x00\x12\x0b\n\x07MAP_D20\x10\x01\x12\x0b\n\x07MAP_D40\x10\x02\x12\x0b\n\x07MAP_D60\x10\x03\x12\x0b\n\x07MAP_D80\x10\x04\x12\x0c\n\x08MAP_D100\x10\x05*C\n\x10\x43\x61rStatusSetType\x12\x17\n\x13\x43\x41R_STATUS_SET_IDLE\x10\x00\x12\x16\n\x12\x43\x41R_STATUS_SET_RUN\x10\x01*1\n\tBoundType\x12\x11\n\rBOUND_SET_MAX\x10\x00\x12\x11\n\rBOUND_SET_MIN\x10\x01*3\n\tPedalType\x12\x15\n\x11PEDAL_ACCELERATOR\x10\x00\x12\x0f\n\x0bPEDAL_BRAKE\x10\x01*H\n\x13\x42\x61lancingStatusType\x12\x18\n\x14\x42\x41LANCING_STATUS_OFF\x10\x00\x12\x17\n\x13\x42\x41LANCING_STATUS_ON\x10\x01\x62\x06proto3')
 
-_TLM_STATUS_SET = DESCRIPTOR.enum_types_by_name['Tlm_Status_Set']
-Tlm_Status_Set = enum_type_wrapper.EnumTypeWrapper(_TLM_STATUS_SET)
-_RACE_TYPE = DESCRIPTOR.enum_types_by_name['Race_Type']
-Race_Type = enum_type_wrapper.EnumTypeWrapper(_RACE_TYPE)
-_TLM_STATUS = DESCRIPTOR.enum_types_by_name['Tlm_Status']
-Tlm_Status = enum_type_wrapper.EnumTypeWrapper(_TLM_STATUS)
-_INVERTER_STATUS = DESCRIPTOR.enum_types_by_name['Inverter_Status']
-Inverter_Status = enum_type_wrapper.EnumTypeWrapper(_INVERTER_STATUS)
-_CAR_STATUS = DESCRIPTOR.enum_types_by_name['Car_Status']
-Car_Status = enum_type_wrapper.EnumTypeWrapper(_CAR_STATUS)
-_TS_STATUS = DESCRIPTOR.enum_types_by_name['Ts_Status']
-Ts_Status = enum_type_wrapper.EnumTypeWrapper(_TS_STATUS)
-_TS_STATUS_SET = DESCRIPTOR.enum_types_by_name['Ts_Status_Set']
-Ts_Status_Set = enum_type_wrapper.EnumTypeWrapper(_TS_STATUS_SET)
-_SET_BALANCING_STATUS = DESCRIPTOR.enum_types_by_name['Set_Balancing_Status']
-Set_Balancing_Status = enum_type_wrapper.EnumTypeWrapper(_SET_BALANCING_STATUS)
-_TRACTION_CONTROL = DESCRIPTOR.enum_types_by_name['Traction_Control']
-Traction_Control = enum_type_wrapper.EnumTypeWrapper(_TRACTION_CONTROL)
-_MAP = DESCRIPTOR.enum_types_by_name['Map']
-Map = enum_type_wrapper.EnumTypeWrapper(_MAP)
-_CAR_STATUS_SET = DESCRIPTOR.enum_types_by_name['Car_Status_Set']
-Car_Status_Set = enum_type_wrapper.EnumTypeWrapper(_CAR_STATUS_SET)
-_BOUND = DESCRIPTOR.enum_types_by_name['Bound']
-Bound = enum_type_wrapper.EnumTypeWrapper(_BOUND)
-_PEDAL = DESCRIPTOR.enum_types_by_name['Pedal']
-Pedal = enum_type_wrapper.EnumTypeWrapper(_PEDAL)
-_BALANCING_STATUS = DESCRIPTOR.enum_types_by_name['Balancing_Status']
-Balancing_Status = enum_type_wrapper.EnumTypeWrapper(_BALANCING_STATUS)
+_TLMSTATUSSETTYPE = DESCRIPTOR.enum_types_by_name['TlmStatusSetType']
+TlmStatusSetType = enum_type_wrapper.EnumTypeWrapper(_TLMSTATUSSETTYPE)
+_RACETYPETYPE = DESCRIPTOR.enum_types_by_name['RaceTypeType']
+RaceTypeType = enum_type_wrapper.EnumTypeWrapper(_RACETYPETYPE)
+_TLMSTATUSTYPE = DESCRIPTOR.enum_types_by_name['TlmStatusType']
+TlmStatusType = enum_type_wrapper.EnumTypeWrapper(_TLMSTATUSTYPE)
+_INVERTERSTATUSTYPE = DESCRIPTOR.enum_types_by_name['InverterStatusType']
+InverterStatusType = enum_type_wrapper.EnumTypeWrapper(_INVERTERSTATUSTYPE)
+_CARSTATUSTYPE = DESCRIPTOR.enum_types_by_name['CarStatusType']
+CarStatusType = enum_type_wrapper.EnumTypeWrapper(_CARSTATUSTYPE)
+_TSSTATUSTYPE = DESCRIPTOR.enum_types_by_name['TsStatusType']
+TsStatusType = enum_type_wrapper.EnumTypeWrapper(_TSSTATUSTYPE)
+_TSSTATUSSETTYPE = DESCRIPTOR.enum_types_by_name['TsStatusSetType']
+TsStatusSetType = enum_type_wrapper.EnumTypeWrapper(_TSSTATUSSETTYPE)
+_SETBALANCINGSTATUSTYPE = DESCRIPTOR.enum_types_by_name['SetBalancingStatusType']
+SetBalancingStatusType = enum_type_wrapper.EnumTypeWrapper(_SETBALANCINGSTATUSTYPE)
+_TRACTIONCONTROLTYPE = DESCRIPTOR.enum_types_by_name['TractionControlType']
+TractionControlType = enum_type_wrapper.EnumTypeWrapper(_TRACTIONCONTROLTYPE)
+_MAPTYPE = DESCRIPTOR.enum_types_by_name['MapType']
+MapType = enum_type_wrapper.EnumTypeWrapper(_MAPTYPE)
+_CARSTATUSSETTYPE = DESCRIPTOR.enum_types_by_name['CarStatusSetType']
+CarStatusSetType = enum_type_wrapper.EnumTypeWrapper(_CARSTATUSSETTYPE)
+_BOUNDTYPE = DESCRIPTOR.enum_types_by_name['BoundType']
+BoundType = enum_type_wrapper.EnumTypeWrapper(_BOUNDTYPE)
+_PEDALTYPE = DESCRIPTOR.enum_types_by_name['PedalType']
+PedalType = enum_type_wrapper.EnumTypeWrapper(_PEDALTYPE)
+_BALANCINGSTATUSTYPE = DESCRIPTOR.enum_types_by_name['BalancingStatusType']
+BalancingStatusType = enum_type_wrapper.EnumTypeWrapper(_BALANCINGSTATUSTYPE)
 TLM_STATUS_SET_OFF = 0
 TLM_STATUS_SET_ON = 1
 RACE_TYPE_ACCELERATION = 0
@@ -87,355 +87,365 @@ BALANCING_STATUS_OFF = 0
 BALANCING_STATUS_ON = 1
 
 
-_STEER_VERSION = DESCRIPTOR.message_types_by_name['STEER_VERSION']
-_DAS_VERSION = DESCRIPTOR.message_types_by_name['DAS_VERSION']
-_HV_VERSION = DESCRIPTOR.message_types_by_name['HV_VERSION']
-_LV_VERSION = DESCRIPTOR.message_types_by_name['LV_VERSION']
-_TLM_VERSION = DESCRIPTOR.message_types_by_name['TLM_VERSION']
-_TIMESTAMP = DESCRIPTOR.message_types_by_name['TIMESTAMP']
-_SET_TLM_STATUS = DESCRIPTOR.message_types_by_name['SET_TLM_STATUS']
-_STEER_SYSTEM_STATUS = DESCRIPTOR.message_types_by_name['STEER_SYSTEM_STATUS']
-_TLM_STATUS = DESCRIPTOR.message_types_by_name['TLM_STATUS']
-_CAR_STATUS = DESCRIPTOR.message_types_by_name['CAR_STATUS']
-_DAS_ERRORS = DESCRIPTOR.message_types_by_name['DAS_ERRORS']
-_SPEED = DESCRIPTOR.message_types_by_name['SPEED']
-_HV_VOLTAGE = DESCRIPTOR.message_types_by_name['HV_VOLTAGE']
-_HV_CURRENT = DESCRIPTOR.message_types_by_name['HV_CURRENT']
-_HV_TEMP = DESCRIPTOR.message_types_by_name['HV_TEMP']
-_HV_ERRORS = DESCRIPTOR.message_types_by_name['HV_ERRORS']
-_TS_STATUS = DESCRIPTOR.message_types_by_name['TS_STATUS']
-_SET_TS_STATUS = DESCRIPTOR.message_types_by_name['SET_TS_STATUS']
-_SET_CELL_BALANCING_STATUS = DESCRIPTOR.message_types_by_name['SET_CELL_BALANCING_STATUS']
-_HANDCART_STATUS = DESCRIPTOR.message_types_by_name['HANDCART_STATUS']
-_STEER_STATUS = DESCRIPTOR.message_types_by_name['STEER_STATUS']
-_SET_CAR_STATUS = DESCRIPTOR.message_types_by_name['SET_CAR_STATUS']
-_SET_PEDALS_RANGE = DESCRIPTOR.message_types_by_name['SET_PEDALS_RANGE']
-_LV_CURRENT = DESCRIPTOR.message_types_by_name['LV_CURRENT']
-_LV_VOLTAGE = DESCRIPTOR.message_types_by_name['LV_VOLTAGE']
-_LV_TEMPERATURE = DESCRIPTOR.message_types_by_name['LV_TEMPERATURE']
-_COOLING_STATUS = DESCRIPTOR.message_types_by_name['COOLING_STATUS']
-_HV_CELLS_VOLTAGE = DESCRIPTOR.message_types_by_name['HV_CELLS_VOLTAGE']
-_HV_CELLS_TEMP = DESCRIPTOR.message_types_by_name['HV_CELLS_TEMP']
-_HV_CELL_BALANCING_STATUS = DESCRIPTOR.message_types_by_name['HV_CELL_BALANCING_STATUS']
-_INV_L_SEND_CMD = DESCRIPTOR.message_types_by_name['INV_L_SEND_CMD']
-_INV_L_STATUS = DESCRIPTOR.message_types_by_name['INV_L_STATUS']
-STEER_VERSION = _reflection.GeneratedProtocolMessageType('STEER_VERSION', (_message.Message,), {
-  'DESCRIPTOR' : _STEER_VERSION,
+_STEERVERSION = DESCRIPTOR.message_types_by_name['SteerVersion']
+_DASVERSION = DESCRIPTOR.message_types_by_name['DasVersion']
+_HVVERSION = DESCRIPTOR.message_types_by_name['HvVersion']
+_LVVERSION = DESCRIPTOR.message_types_by_name['LvVersion']
+_TLMVERSION = DESCRIPTOR.message_types_by_name['TlmVersion']
+_TIMESTAMP = DESCRIPTOR.message_types_by_name['Timestamp']
+_SETTLMSTATUS = DESCRIPTOR.message_types_by_name['SetTlmStatus']
+_STEERSYSTEMSTATUS = DESCRIPTOR.message_types_by_name['SteerSystemStatus']
+_MARKER = DESCRIPTOR.message_types_by_name['Marker']
+_TLMSTATUS = DESCRIPTOR.message_types_by_name['TlmStatus']
+_CARSTATUS = DESCRIPTOR.message_types_by_name['CarStatus']
+_DASERRORS = DESCRIPTOR.message_types_by_name['DasErrors']
+_SPEED = DESCRIPTOR.message_types_by_name['Speed']
+_HVVOLTAGE = DESCRIPTOR.message_types_by_name['HvVoltage']
+_HVCURRENT = DESCRIPTOR.message_types_by_name['HvCurrent']
+_HVTEMP = DESCRIPTOR.message_types_by_name['HvTemp']
+_HVERRORS = DESCRIPTOR.message_types_by_name['HvErrors']
+_TSSTATUS = DESCRIPTOR.message_types_by_name['TsStatus']
+_SETTSSTATUS = DESCRIPTOR.message_types_by_name['SetTsStatus']
+_SETCELLBALANCINGSTATUS = DESCRIPTOR.message_types_by_name['SetCellBalancingStatus']
+_HANDCARTSTATUS = DESCRIPTOR.message_types_by_name['HandcartStatus']
+_STEERSTATUS = DESCRIPTOR.message_types_by_name['SteerStatus']
+_SETCARSTATUS = DESCRIPTOR.message_types_by_name['SetCarStatus']
+_SETPEDALSRANGE = DESCRIPTOR.message_types_by_name['SetPedalsRange']
+_LVCURRENT = DESCRIPTOR.message_types_by_name['LvCurrent']
+_LVVOLTAGE = DESCRIPTOR.message_types_by_name['LvVoltage']
+_LVTEMPERATURE = DESCRIPTOR.message_types_by_name['LvTemperature']
+_COOLINGSTATUS = DESCRIPTOR.message_types_by_name['CoolingStatus']
+_HVCELLSVOLTAGE = DESCRIPTOR.message_types_by_name['HvCellsVoltage']
+_HVCELLSTEMP = DESCRIPTOR.message_types_by_name['HvCellsTemp']
+_HVCELLBALANCINGSTATUS = DESCRIPTOR.message_types_by_name['HvCellBalancingStatus']
+_INVLSENDCMD = DESCRIPTOR.message_types_by_name['InvLSendCmd']
+_INVLSTATUS = DESCRIPTOR.message_types_by_name['InvLStatus']
+SteerVersion = _reflection.GeneratedProtocolMessageType('SteerVersion', (_message.Message,), {
+  'DESCRIPTOR' : _STEERVERSION,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.STEER_VERSION)
+  # @@protoc_insertion_point(class_scope:primary.SteerVersion)
   })
-_sym_db.RegisterMessage(STEER_VERSION)
+_sym_db.RegisterMessage(SteerVersion)
 
-DAS_VERSION = _reflection.GeneratedProtocolMessageType('DAS_VERSION', (_message.Message,), {
-  'DESCRIPTOR' : _DAS_VERSION,
+DasVersion = _reflection.GeneratedProtocolMessageType('DasVersion', (_message.Message,), {
+  'DESCRIPTOR' : _DASVERSION,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.DAS_VERSION)
+  # @@protoc_insertion_point(class_scope:primary.DasVersion)
   })
-_sym_db.RegisterMessage(DAS_VERSION)
+_sym_db.RegisterMessage(DasVersion)
 
-HV_VERSION = _reflection.GeneratedProtocolMessageType('HV_VERSION', (_message.Message,), {
-  'DESCRIPTOR' : _HV_VERSION,
+HvVersion = _reflection.GeneratedProtocolMessageType('HvVersion', (_message.Message,), {
+  'DESCRIPTOR' : _HVVERSION,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.HV_VERSION)
+  # @@protoc_insertion_point(class_scope:primary.HvVersion)
   })
-_sym_db.RegisterMessage(HV_VERSION)
+_sym_db.RegisterMessage(HvVersion)
 
-LV_VERSION = _reflection.GeneratedProtocolMessageType('LV_VERSION', (_message.Message,), {
-  'DESCRIPTOR' : _LV_VERSION,
+LvVersion = _reflection.GeneratedProtocolMessageType('LvVersion', (_message.Message,), {
+  'DESCRIPTOR' : _LVVERSION,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.LV_VERSION)
+  # @@protoc_insertion_point(class_scope:primary.LvVersion)
   })
-_sym_db.RegisterMessage(LV_VERSION)
+_sym_db.RegisterMessage(LvVersion)
 
-TLM_VERSION = _reflection.GeneratedProtocolMessageType('TLM_VERSION', (_message.Message,), {
-  'DESCRIPTOR' : _TLM_VERSION,
+TlmVersion = _reflection.GeneratedProtocolMessageType('TlmVersion', (_message.Message,), {
+  'DESCRIPTOR' : _TLMVERSION,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.TLM_VERSION)
+  # @@protoc_insertion_point(class_scope:primary.TlmVersion)
   })
-_sym_db.RegisterMessage(TLM_VERSION)
+_sym_db.RegisterMessage(TlmVersion)
 
-TIMESTAMP = _reflection.GeneratedProtocolMessageType('TIMESTAMP', (_message.Message,), {
+Timestamp = _reflection.GeneratedProtocolMessageType('Timestamp', (_message.Message,), {
   'DESCRIPTOR' : _TIMESTAMP,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.TIMESTAMP)
+  # @@protoc_insertion_point(class_scope:primary.Timestamp)
   })
-_sym_db.RegisterMessage(TIMESTAMP)
+_sym_db.RegisterMessage(Timestamp)
 
-SET_TLM_STATUS = _reflection.GeneratedProtocolMessageType('SET_TLM_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _SET_TLM_STATUS,
+SetTlmStatus = _reflection.GeneratedProtocolMessageType('SetTlmStatus', (_message.Message,), {
+  'DESCRIPTOR' : _SETTLMSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.SET_TLM_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.SetTlmStatus)
   })
-_sym_db.RegisterMessage(SET_TLM_STATUS)
+_sym_db.RegisterMessage(SetTlmStatus)
 
-STEER_SYSTEM_STATUS = _reflection.GeneratedProtocolMessageType('STEER_SYSTEM_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _STEER_SYSTEM_STATUS,
+SteerSystemStatus = _reflection.GeneratedProtocolMessageType('SteerSystemStatus', (_message.Message,), {
+  'DESCRIPTOR' : _STEERSYSTEMSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.STEER_SYSTEM_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.SteerSystemStatus)
   })
-_sym_db.RegisterMessage(STEER_SYSTEM_STATUS)
+_sym_db.RegisterMessage(SteerSystemStatus)
 
-TLM_STATUS = _reflection.GeneratedProtocolMessageType('TLM_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _TLM_STATUS,
+Marker = _reflection.GeneratedProtocolMessageType('Marker', (_message.Message,), {
+  'DESCRIPTOR' : _MARKER,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.TLM_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.Marker)
   })
-_sym_db.RegisterMessage(TLM_STATUS)
+_sym_db.RegisterMessage(Marker)
 
-CAR_STATUS = _reflection.GeneratedProtocolMessageType('CAR_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _CAR_STATUS,
+TlmStatus = _reflection.GeneratedProtocolMessageType('TlmStatus', (_message.Message,), {
+  'DESCRIPTOR' : _TLMSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.CAR_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.TlmStatus)
   })
-_sym_db.RegisterMessage(CAR_STATUS)
+_sym_db.RegisterMessage(TlmStatus)
 
-DAS_ERRORS = _reflection.GeneratedProtocolMessageType('DAS_ERRORS', (_message.Message,), {
-  'DESCRIPTOR' : _DAS_ERRORS,
+CarStatus = _reflection.GeneratedProtocolMessageType('CarStatus', (_message.Message,), {
+  'DESCRIPTOR' : _CARSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.DAS_ERRORS)
+  # @@protoc_insertion_point(class_scope:primary.CarStatus)
   })
-_sym_db.RegisterMessage(DAS_ERRORS)
+_sym_db.RegisterMessage(CarStatus)
 
-SPEED = _reflection.GeneratedProtocolMessageType('SPEED', (_message.Message,), {
+DasErrors = _reflection.GeneratedProtocolMessageType('DasErrors', (_message.Message,), {
+  'DESCRIPTOR' : _DASERRORS,
+  '__module__' : 'primary_pb2'
+  # @@protoc_insertion_point(class_scope:primary.DasErrors)
+  })
+_sym_db.RegisterMessage(DasErrors)
+
+Speed = _reflection.GeneratedProtocolMessageType('Speed', (_message.Message,), {
   'DESCRIPTOR' : _SPEED,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.SPEED)
+  # @@protoc_insertion_point(class_scope:primary.Speed)
   })
-_sym_db.RegisterMessage(SPEED)
+_sym_db.RegisterMessage(Speed)
 
-HV_VOLTAGE = _reflection.GeneratedProtocolMessageType('HV_VOLTAGE', (_message.Message,), {
-  'DESCRIPTOR' : _HV_VOLTAGE,
+HvVoltage = _reflection.GeneratedProtocolMessageType('HvVoltage', (_message.Message,), {
+  'DESCRIPTOR' : _HVVOLTAGE,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.HV_VOLTAGE)
+  # @@protoc_insertion_point(class_scope:primary.HvVoltage)
   })
-_sym_db.RegisterMessage(HV_VOLTAGE)
+_sym_db.RegisterMessage(HvVoltage)
 
-HV_CURRENT = _reflection.GeneratedProtocolMessageType('HV_CURRENT', (_message.Message,), {
-  'DESCRIPTOR' : _HV_CURRENT,
+HvCurrent = _reflection.GeneratedProtocolMessageType('HvCurrent', (_message.Message,), {
+  'DESCRIPTOR' : _HVCURRENT,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.HV_CURRENT)
+  # @@protoc_insertion_point(class_scope:primary.HvCurrent)
   })
-_sym_db.RegisterMessage(HV_CURRENT)
+_sym_db.RegisterMessage(HvCurrent)
 
-HV_TEMP = _reflection.GeneratedProtocolMessageType('HV_TEMP', (_message.Message,), {
-  'DESCRIPTOR' : _HV_TEMP,
+HvTemp = _reflection.GeneratedProtocolMessageType('HvTemp', (_message.Message,), {
+  'DESCRIPTOR' : _HVTEMP,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.HV_TEMP)
+  # @@protoc_insertion_point(class_scope:primary.HvTemp)
   })
-_sym_db.RegisterMessage(HV_TEMP)
+_sym_db.RegisterMessage(HvTemp)
 
-HV_ERRORS = _reflection.GeneratedProtocolMessageType('HV_ERRORS', (_message.Message,), {
-  'DESCRIPTOR' : _HV_ERRORS,
+HvErrors = _reflection.GeneratedProtocolMessageType('HvErrors', (_message.Message,), {
+  'DESCRIPTOR' : _HVERRORS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.HV_ERRORS)
+  # @@protoc_insertion_point(class_scope:primary.HvErrors)
   })
-_sym_db.RegisterMessage(HV_ERRORS)
+_sym_db.RegisterMessage(HvErrors)
 
-TS_STATUS = _reflection.GeneratedProtocolMessageType('TS_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _TS_STATUS,
+TsStatus = _reflection.GeneratedProtocolMessageType('TsStatus', (_message.Message,), {
+  'DESCRIPTOR' : _TSSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.TS_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.TsStatus)
   })
-_sym_db.RegisterMessage(TS_STATUS)
+_sym_db.RegisterMessage(TsStatus)
 
-SET_TS_STATUS = _reflection.GeneratedProtocolMessageType('SET_TS_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _SET_TS_STATUS,
+SetTsStatus = _reflection.GeneratedProtocolMessageType('SetTsStatus', (_message.Message,), {
+  'DESCRIPTOR' : _SETTSSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.SET_TS_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.SetTsStatus)
   })
-_sym_db.RegisterMessage(SET_TS_STATUS)
+_sym_db.RegisterMessage(SetTsStatus)
 
-SET_CELL_BALANCING_STATUS = _reflection.GeneratedProtocolMessageType('SET_CELL_BALANCING_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _SET_CELL_BALANCING_STATUS,
+SetCellBalancingStatus = _reflection.GeneratedProtocolMessageType('SetCellBalancingStatus', (_message.Message,), {
+  'DESCRIPTOR' : _SETCELLBALANCINGSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.SET_CELL_BALANCING_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.SetCellBalancingStatus)
   })
-_sym_db.RegisterMessage(SET_CELL_BALANCING_STATUS)
+_sym_db.RegisterMessage(SetCellBalancingStatus)
 
-HANDCART_STATUS = _reflection.GeneratedProtocolMessageType('HANDCART_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _HANDCART_STATUS,
+HandcartStatus = _reflection.GeneratedProtocolMessageType('HandcartStatus', (_message.Message,), {
+  'DESCRIPTOR' : _HANDCARTSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.HANDCART_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.HandcartStatus)
   })
-_sym_db.RegisterMessage(HANDCART_STATUS)
+_sym_db.RegisterMessage(HandcartStatus)
 
-STEER_STATUS = _reflection.GeneratedProtocolMessageType('STEER_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _STEER_STATUS,
+SteerStatus = _reflection.GeneratedProtocolMessageType('SteerStatus', (_message.Message,), {
+  'DESCRIPTOR' : _STEERSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.STEER_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.SteerStatus)
   })
-_sym_db.RegisterMessage(STEER_STATUS)
+_sym_db.RegisterMessage(SteerStatus)
 
-SET_CAR_STATUS = _reflection.GeneratedProtocolMessageType('SET_CAR_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _SET_CAR_STATUS,
+SetCarStatus = _reflection.GeneratedProtocolMessageType('SetCarStatus', (_message.Message,), {
+  'DESCRIPTOR' : _SETCARSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.SET_CAR_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.SetCarStatus)
   })
-_sym_db.RegisterMessage(SET_CAR_STATUS)
+_sym_db.RegisterMessage(SetCarStatus)
 
-SET_PEDALS_RANGE = _reflection.GeneratedProtocolMessageType('SET_PEDALS_RANGE', (_message.Message,), {
-  'DESCRIPTOR' : _SET_PEDALS_RANGE,
+SetPedalsRange = _reflection.GeneratedProtocolMessageType('SetPedalsRange', (_message.Message,), {
+  'DESCRIPTOR' : _SETPEDALSRANGE,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.SET_PEDALS_RANGE)
+  # @@protoc_insertion_point(class_scope:primary.SetPedalsRange)
   })
-_sym_db.RegisterMessage(SET_PEDALS_RANGE)
+_sym_db.RegisterMessage(SetPedalsRange)
 
-LV_CURRENT = _reflection.GeneratedProtocolMessageType('LV_CURRENT', (_message.Message,), {
-  'DESCRIPTOR' : _LV_CURRENT,
+LvCurrent = _reflection.GeneratedProtocolMessageType('LvCurrent', (_message.Message,), {
+  'DESCRIPTOR' : _LVCURRENT,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.LV_CURRENT)
+  # @@protoc_insertion_point(class_scope:primary.LvCurrent)
   })
-_sym_db.RegisterMessage(LV_CURRENT)
+_sym_db.RegisterMessage(LvCurrent)
 
-LV_VOLTAGE = _reflection.GeneratedProtocolMessageType('LV_VOLTAGE', (_message.Message,), {
-  'DESCRIPTOR' : _LV_VOLTAGE,
+LvVoltage = _reflection.GeneratedProtocolMessageType('LvVoltage', (_message.Message,), {
+  'DESCRIPTOR' : _LVVOLTAGE,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.LV_VOLTAGE)
+  # @@protoc_insertion_point(class_scope:primary.LvVoltage)
   })
-_sym_db.RegisterMessage(LV_VOLTAGE)
+_sym_db.RegisterMessage(LvVoltage)
 
-LV_TEMPERATURE = _reflection.GeneratedProtocolMessageType('LV_TEMPERATURE', (_message.Message,), {
-  'DESCRIPTOR' : _LV_TEMPERATURE,
+LvTemperature = _reflection.GeneratedProtocolMessageType('LvTemperature', (_message.Message,), {
+  'DESCRIPTOR' : _LVTEMPERATURE,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.LV_TEMPERATURE)
+  # @@protoc_insertion_point(class_scope:primary.LvTemperature)
   })
-_sym_db.RegisterMessage(LV_TEMPERATURE)
+_sym_db.RegisterMessage(LvTemperature)
 
-COOLING_STATUS = _reflection.GeneratedProtocolMessageType('COOLING_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _COOLING_STATUS,
+CoolingStatus = _reflection.GeneratedProtocolMessageType('CoolingStatus', (_message.Message,), {
+  'DESCRIPTOR' : _COOLINGSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.COOLING_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.CoolingStatus)
   })
-_sym_db.RegisterMessage(COOLING_STATUS)
+_sym_db.RegisterMessage(CoolingStatus)
 
-HV_CELLS_VOLTAGE = _reflection.GeneratedProtocolMessageType('HV_CELLS_VOLTAGE', (_message.Message,), {
-  'DESCRIPTOR' : _HV_CELLS_VOLTAGE,
+HvCellsVoltage = _reflection.GeneratedProtocolMessageType('HvCellsVoltage', (_message.Message,), {
+  'DESCRIPTOR' : _HVCELLSVOLTAGE,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.HV_CELLS_VOLTAGE)
+  # @@protoc_insertion_point(class_scope:primary.HvCellsVoltage)
   })
-_sym_db.RegisterMessage(HV_CELLS_VOLTAGE)
+_sym_db.RegisterMessage(HvCellsVoltage)
 
-HV_CELLS_TEMP = _reflection.GeneratedProtocolMessageType('HV_CELLS_TEMP', (_message.Message,), {
-  'DESCRIPTOR' : _HV_CELLS_TEMP,
+HvCellsTemp = _reflection.GeneratedProtocolMessageType('HvCellsTemp', (_message.Message,), {
+  'DESCRIPTOR' : _HVCELLSTEMP,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.HV_CELLS_TEMP)
+  # @@protoc_insertion_point(class_scope:primary.HvCellsTemp)
   })
-_sym_db.RegisterMessage(HV_CELLS_TEMP)
+_sym_db.RegisterMessage(HvCellsTemp)
 
-HV_CELL_BALANCING_STATUS = _reflection.GeneratedProtocolMessageType('HV_CELL_BALANCING_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _HV_CELL_BALANCING_STATUS,
+HvCellBalancingStatus = _reflection.GeneratedProtocolMessageType('HvCellBalancingStatus', (_message.Message,), {
+  'DESCRIPTOR' : _HVCELLBALANCINGSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.HV_CELL_BALANCING_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.HvCellBalancingStatus)
   })
-_sym_db.RegisterMessage(HV_CELL_BALANCING_STATUS)
+_sym_db.RegisterMessage(HvCellBalancingStatus)
 
-INV_L_SEND_CMD = _reflection.GeneratedProtocolMessageType('INV_L_SEND_CMD', (_message.Message,), {
-  'DESCRIPTOR' : _INV_L_SEND_CMD,
+InvLSendCmd = _reflection.GeneratedProtocolMessageType('InvLSendCmd', (_message.Message,), {
+  'DESCRIPTOR' : _INVLSENDCMD,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.INV_L_SEND_CMD)
+  # @@protoc_insertion_point(class_scope:primary.InvLSendCmd)
   })
-_sym_db.RegisterMessage(INV_L_SEND_CMD)
+_sym_db.RegisterMessage(InvLSendCmd)
 
-INV_L_STATUS = _reflection.GeneratedProtocolMessageType('INV_L_STATUS', (_message.Message,), {
-  'DESCRIPTOR' : _INV_L_STATUS,
+InvLStatus = _reflection.GeneratedProtocolMessageType('InvLStatus', (_message.Message,), {
+  'DESCRIPTOR' : _INVLSTATUS,
   '__module__' : 'primary_pb2'
-  # @@protoc_insertion_point(class_scope:primary.INV_L_STATUS)
+  # @@protoc_insertion_point(class_scope:primary.InvLStatus)
   })
-_sym_db.RegisterMessage(INV_L_STATUS)
+_sym_db.RegisterMessage(InvLStatus)
 
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _TLM_STATUS_SET._serialized_start=2463
-  _TLM_STATUS_SET._serialized_end=2526
-  _RACE_TYPE._serialized_start=2528
-  _RACE_TYPE._serialized_end=2640
-  _TLM_STATUS._serialized_start=2642
-  _TLM_STATUS._serialized_end=2693
-  _INVERTER_STATUS._serialized_start=2695
-  _INVERTER_STATUS._serialized_end=2787
-  _CAR_STATUS._serialized_start=2789
-  _CAR_STATUS._serialized_end=2864
-  _TS_STATUS._serialized_start=2866
-  _TS_STATUS._serialized_end=2960
-  _TS_STATUS_SET._serialized_start=2962
-  _TS_STATUS_SET._serialized_end=3022
-  _SET_BALANCING_STATUS._serialized_start=3024
-  _SET_BALANCING_STATUS._serialized_end=3105
-  _TRACTION_CONTROL._serialized_start=3108
-  _TRACTION_CONTROL._serialized_end=3257
-  _MAP._serialized_start=3259
-  _MAP._serialized_end=3341
-  _CAR_STATUS_SET._serialized_start=3343
-  _CAR_STATUS_SET._serialized_end=3408
-  _BOUND._serialized_start=3410
-  _BOUND._serialized_end=3455
-  _PEDAL._serialized_start=3457
-  _PEDAL._serialized_end=3504
-  _BALANCING_STATUS._serialized_start=3506
-  _BALANCING_STATUS._serialized_end=3575
-  _STEER_VERSION._serialized_start=26
-  _STEER_VERSION._serialized_end=93
-  _DAS_VERSION._serialized_start=95
-  _DAS_VERSION._serialized_end=160
-  _HV_VERSION._serialized_start=162
-  _HV_VERSION._serialized_end=226
-  _LV_VERSION._serialized_start=228
-  _LV_VERSION._serialized_end=292
-  _TLM_VERSION._serialized_start=294
-  _TLM_VERSION._serialized_end=359
-  _TIMESTAMP._serialized_start=361
-  _TIMESTAMP._serialized_end=391
-  _SET_TLM_STATUS._serialized_start=394
-  _SET_TLM_STATUS._serialized_end=531
-  _STEER_SYSTEM_STATUS._serialized_start=533
-  _STEER_SYSTEM_STATUS._serialized_end=572
-  _TLM_STATUS._serialized_start=574
-  _TLM_STATUS._serialized_end=699
-  _CAR_STATUS._serialized_start=702
-  _CAR_STATUS._serialized_end=847
-  _DAS_ERRORS._serialized_start=849
-  _DAS_ERRORS._serialized_end=880
-  _SPEED._serialized_start=882
-  _SPEED._serialized_end=967
-  _HV_VOLTAGE._serialized_start=969
-  _HV_VOLTAGE._serialized_end=1076
-  _HV_CURRENT._serialized_start=1078
-  _HV_CURRENT._serialized_end=1122
-  _HV_TEMP._serialized_start=1124
-  _HV_TEMP._serialized_end=1191
-  _HV_ERRORS._serialized_start=1193
-  _HV_ERRORS._serialized_end=1238
-  _TS_STATUS._serialized_start=1240
-  _TS_STATUS._serialized_end=1290
-  _SET_TS_STATUS._serialized_start=1292
-  _SET_TS_STATUS._serialized_end=1354
-  _SET_CELL_BALANCING_STATUS._serialized_start=1356
-  _SET_CELL_BALANCING_STATUS._serialized_end=1444
-  _HANDCART_STATUS._serialized_start=1446
-  _HANDCART_STATUS._serialized_end=1482
-  _STEER_STATUS._serialized_start=1484
-  _STEER_STATUS._serialized_end=1578
-  _SET_CAR_STATUS._serialized_start=1580
-  _SET_CAR_STATUS._serialized_end=1645
-  _SET_PEDALS_RANGE._serialized_start=1647
-  _SET_PEDALS_RANGE._serialized_end=1727
-  _LV_CURRENT._serialized_start=1729
-  _LV_CURRENT._serialized_end=1758
-  _LV_VOLTAGE._serialized_start=1760
-  _LV_VOLTAGE._serialized_end=1871
-  _LV_TEMPERATURE._serialized_start=1873
-  _LV_TEMPERATURE._serialized_end=1939
-  _COOLING_STATUS._serialized_start=1941
-  _COOLING_STATUS._serialized_end=2021
-  _HV_CELLS_VOLTAGE._serialized_start=2023
-  _HV_CELLS_VOLTAGE._serialized_end=2118
-  _HV_CELLS_TEMP._serialized_start=2121
-  _HV_CELLS_TEMP._serialized_end=2268
-  _HV_CELL_BALANCING_STATUS._serialized_start=2270
-  _HV_CELL_BALANCING_STATUS._serialized_end=2349
-  _INV_L_SEND_CMD._serialized_start=2351
-  _INV_L_SEND_CMD._serialized_end=2414
-  _INV_L_STATUS._serialized_start=2416
-  _INV_L_STATUS._serialized_end=2461
+  _TLMSTATUSSETTYPE._serialized_start=2477
+  _TLMSTATUSSETTYPE._serialized_end=2542
+  _RACETYPETYPE._serialized_start=2544
+  _RACETYPETYPE._serialized_end=2659
+  _TLMSTATUSTYPE._serialized_start=2661
+  _TLMSTATUSTYPE._serialized_end=2715
+  _INVERTERSTATUSTYPE._serialized_start=2717
+  _INVERTERSTATUSTYPE._serialized_end=2812
+  _CARSTATUSTYPE._serialized_start=2814
+  _CARSTATUSTYPE._serialized_end=2892
+  _TSSTATUSTYPE._serialized_start=2894
+  _TSSTATUSTYPE._serialized_end=2991
+  _TSSTATUSSETTYPE._serialized_start=2993
+  _TSSTATUSSETTYPE._serialized_end=3055
+  _SETBALANCINGSTATUSTYPE._serialized_start=3057
+  _SETBALANCINGSTATUSTYPE._serialized_end=3140
+  _TRACTIONCONTROLTYPE._serialized_start=3143
+  _TRACTIONCONTROLTYPE._serialized_end=3295
+  _MAPTYPE._serialized_start=3297
+  _MAPTYPE._serialized_end=3383
+  _CARSTATUSSETTYPE._serialized_start=3385
+  _CARSTATUSSETTYPE._serialized_end=3452
+  _BOUNDTYPE._serialized_start=3454
+  _BOUNDTYPE._serialized_end=3503
+  _PEDALTYPE._serialized_start=3505
+  _PEDALTYPE._serialized_end=3556
+  _BALANCINGSTATUSTYPE._serialized_start=3558
+  _BALANCINGSTATUSTYPE._serialized_end=3630
+  _STEERVERSION._serialized_start=26
+  _STEERVERSION._serialized_end=92
+  _DASVERSION._serialized_start=94
+  _DASVERSION._serialized_end=158
+  _HVVERSION._serialized_start=160
+  _HVVERSION._serialized_end=223
+  _LVVERSION._serialized_start=225
+  _LVVERSION._serialized_end=288
+  _TLMVERSION._serialized_start=290
+  _TLMVERSION._serialized_end=354
+  _TIMESTAMP._serialized_start=356
+  _TIMESTAMP._serialized_end=386
+  _SETTLMSTATUS._serialized_start=389
+  _SETTLMSTATUS._serialized_end=529
+  _STEERSYSTEMSTATUS._serialized_start=531
+  _STEERSYSTEMSTATUS._serialized_end=568
+  _MARKER._serialized_start=570
+  _MARKER._serialized_end=578
+  _TLMSTATUS._serialized_start=581
+  _TLMSTATUS._serialized_end=711
+  _CARSTATUS._serialized_start=714
+  _CARSTATUS._serialized_end=867
+  _DASERRORS._serialized_start=869
+  _DASERRORS._serialized_end=899
+  _SPEED._serialized_start=901
+  _SPEED._serialized_end=986
+  _HVVOLTAGE._serialized_start=988
+  _HVVOLTAGE._serialized_end=1094
+  _HVCURRENT._serialized_start=1096
+  _HVCURRENT._serialized_end=1139
+  _HVTEMP._serialized_start=1141
+  _HVTEMP._serialized_end=1207
+  _HVERRORS._serialized_start=1209
+  _HVERRORS._serialized_end=1253
+  _TSSTATUS._serialized_start=1255
+  _TSSTATUS._serialized_end=1307
+  _SETTSSTATUS._serialized_start=1309
+  _SETTSSTATUS._serialized_end=1371
+  _SETCELLBALANCINGSTATUS._serialized_start=1373
+  _SETCELLBALANCINGSTATUS._serialized_end=1460
+  _HANDCARTSTATUS._serialized_start=1462
+  _HANDCARTSTATUS._serialized_end=1497
+  _STEERSTATUS._serialized_start=1499
+  _STEERSTATUS._serialized_end=1599
+  _SETCARSTATUS._serialized_start=1601
+  _SETCARSTATUS._serialized_end=1666
+  _SETPEDALSRANGE._serialized_start=1668
+  _SETPEDALSRANGE._serialized_end=1754
+  _LVCURRENT._serialized_start=1756
+  _LVCURRENT._serialized_end=1784
+  _LVVOLTAGE._serialized_start=1786
+  _LVVOLTAGE._serialized_end=1896
+  _LVTEMPERATURE._serialized_start=1898
+  _LVTEMPERATURE._serialized_end=1963
+  _COOLINGSTATUS._serialized_start=1965
+  _COOLINGSTATUS._serialized_end=2044
+  _HVCELLSVOLTAGE._serialized_start=2046
+  _HVCELLSVOLTAGE._serialized_end=2139
+  _HVCELLSTEMP._serialized_start=2142
+  _HVCELLSTEMP._serialized_end=2287
+  _HVCELLBALANCINGSTATUS._serialized_start=2289
+  _HVCELLBALANCINGSTATUS._serialized_end=2368
+  _INVLSENDCMD._serialized_start=2370
+  _INVLSENDCMD._serialized_end=2430
+  _INVLSTATUS._serialized_start=2432
+  _INVLSTATUS._serialized_end=2475
 # @@protoc_insertion_point(module_scope)

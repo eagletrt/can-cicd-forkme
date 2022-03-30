@@ -209,6 +209,7 @@
         "STEER_SYSTEM_STATUS": {
             "soc_temp": "uint8"
         },
+        "MARKER": {},
         "TLM_STATUS": {
             "tlm_status": "Tlm_Status",
             "race_type": "Race_Type",

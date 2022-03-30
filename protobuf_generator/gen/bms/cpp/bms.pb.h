@@ -55,76 +55,76 @@ struct TableStruct_bms_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_bms_2eproto;
 namespace bms {
-class BALANCING;
-struct BALANCINGDefaultTypeInternal;
-extern BALANCINGDefaultTypeInternal _BALANCING_default_instance_;
-class BOARD_STATUS;
-struct BOARD_STATUSDefaultTypeInternal;
-extern BOARD_STATUSDefaultTypeInternal _BOARD_STATUS_default_instance_;
-class FW_UPDATE;
-struct FW_UPDATEDefaultTypeInternal;
-extern FW_UPDATEDefaultTypeInternal _FW_UPDATE_default_instance_;
-class TEMPERATURES;
-struct TEMPERATURESDefaultTypeInternal;
-extern TEMPERATURESDefaultTypeInternal _TEMPERATURES_default_instance_;
-class VOLTAGES;
-struct VOLTAGESDefaultTypeInternal;
-extern VOLTAGESDefaultTypeInternal _VOLTAGES_default_instance_;
+class Balancing;
+struct BalancingDefaultTypeInternal;
+extern BalancingDefaultTypeInternal _Balancing_default_instance_;
+class BoardStatus;
+struct BoardStatusDefaultTypeInternal;
+extern BoardStatusDefaultTypeInternal _BoardStatus_default_instance_;
+class FwUpdate;
+struct FwUpdateDefaultTypeInternal;
+extern FwUpdateDefaultTypeInternal _FwUpdate_default_instance_;
+class Temperatures;
+struct TemperaturesDefaultTypeInternal;
+extern TemperaturesDefaultTypeInternal _Temperatures_default_instance_;
+class Voltages;
+struct VoltagesDefaultTypeInternal;
+extern VoltagesDefaultTypeInternal _Voltages_default_instance_;
 }  // namespace bms
 PROTOBUF_NAMESPACE_OPEN
-template<> ::bms::BALANCING* Arena::CreateMaybeMessage<::bms::BALANCING>(Arena*);
-template<> ::bms::BOARD_STATUS* Arena::CreateMaybeMessage<::bms::BOARD_STATUS>(Arena*);
-template<> ::bms::FW_UPDATE* Arena::CreateMaybeMessage<::bms::FW_UPDATE>(Arena*);
-template<> ::bms::TEMPERATURES* Arena::CreateMaybeMessage<::bms::TEMPERATURES>(Arena*);
-template<> ::bms::VOLTAGES* Arena::CreateMaybeMessage<::bms::VOLTAGES>(Arena*);
+template<> ::bms::Balancing* Arena::CreateMaybeMessage<::bms::Balancing>(Arena*);
+template<> ::bms::BoardStatus* Arena::CreateMaybeMessage<::bms::BoardStatus>(Arena*);
+template<> ::bms::FwUpdate* Arena::CreateMaybeMessage<::bms::FwUpdate>(Arena*);
+template<> ::bms::Temperatures* Arena::CreateMaybeMessage<::bms::Temperatures>(Arena*);
+template<> ::bms::Voltages* Arena::CreateMaybeMessage<::bms::Voltages>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace bms {
 
-enum balancing_status : int {
+enum BalancingStatusType : int {
   BALANCING_STATUS_OFF = 0,
   BALANCING_STATUS_DISCHARGE = 1,
-  balancing_status_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  balancing_status_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+  BalancingStatusType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  BalancingStatusType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
-bool balancing_status_IsValid(int value);
-constexpr balancing_status balancing_status_MIN = BALANCING_STATUS_OFF;
-constexpr balancing_status balancing_status_MAX = BALANCING_STATUS_DISCHARGE;
-constexpr int balancing_status_ARRAYSIZE = balancing_status_MAX + 1;
+bool BalancingStatusType_IsValid(int value);
+constexpr BalancingStatusType BalancingStatusType_MIN = BALANCING_STATUS_OFF;
+constexpr BalancingStatusType BalancingStatusType_MAX = BALANCING_STATUS_DISCHARGE;
+constexpr int BalancingStatusType_ARRAYSIZE = BalancingStatusType_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* balancing_status_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BalancingStatusType_descriptor();
 template<typename T>
-inline const std::string& balancing_status_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, balancing_status>::value ||
+inline const std::string& BalancingStatusType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, BalancingStatusType>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function balancing_status_Name.");
+    "Incorrect type passed to function BalancingStatusType_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    balancing_status_descriptor(), enum_t_value);
+    BalancingStatusType_descriptor(), enum_t_value);
 }
-inline bool balancing_status_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, balancing_status* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<balancing_status>(
-    balancing_status_descriptor(), name, value);
+inline bool BalancingStatusType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, BalancingStatusType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<BalancingStatusType>(
+    BalancingStatusType_descriptor(), name, value);
 }
 // ===================================================================
 
-class BOARD_STATUS final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bms.BOARD_STATUS) */ {
+class BoardStatus final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bms.BoardStatus) */ {
  public:
-  inline BOARD_STATUS() : BOARD_STATUS(nullptr) {}
-  ~BOARD_STATUS() override;
-  explicit constexpr BOARD_STATUS(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline BoardStatus() : BoardStatus(nullptr) {}
+  ~BoardStatus() override;
+  explicit constexpr BoardStatus(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  BOARD_STATUS(const BOARD_STATUS& from);
-  BOARD_STATUS(BOARD_STATUS&& from) noexcept
-    : BOARD_STATUS() {
+  BoardStatus(const BoardStatus& from);
+  BoardStatus(BoardStatus&& from) noexcept
+    : BoardStatus() {
     *this = ::std::move(from);
   }
 
-  inline BOARD_STATUS& operator=(const BOARD_STATUS& from) {
+  inline BoardStatus& operator=(const BoardStatus& from) {
     CopyFrom(from);
     return *this;
   }
-  inline BOARD_STATUS& operator=(BOARD_STATUS&& from) noexcept {
+  inline BoardStatus& operator=(BoardStatus&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -147,20 +147,20 @@ class BOARD_STATUS final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const BOARD_STATUS& default_instance() {
+  static const BoardStatus& default_instance() {
     return *internal_default_instance();
   }
-  static inline const BOARD_STATUS* internal_default_instance() {
-    return reinterpret_cast<const BOARD_STATUS*>(
-               &_BOARD_STATUS_default_instance_);
+  static inline const BoardStatus* internal_default_instance() {
+    return reinterpret_cast<const BoardStatus*>(
+               &_BoardStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(BOARD_STATUS& a, BOARD_STATUS& b) {
+  friend void swap(BoardStatus& a, BoardStatus& b) {
     a.Swap(&b);
   }
-  inline void Swap(BOARD_STATUS* other) {
+  inline void Swap(BoardStatus* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -173,7 +173,7 @@ class BOARD_STATUS final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(BOARD_STATUS* other) {
+  void UnsafeArenaSwap(BoardStatus* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -181,13 +181,13 @@ class BOARD_STATUS final :
 
   // implements Message ----------------------------------------------
 
-  BOARD_STATUS* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<BOARD_STATUS>(arena);
+  BoardStatus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BoardStatus>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const BOARD_STATUS& from);
+  void CopyFrom(const BoardStatus& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const BOARD_STATUS& from);
+  void MergeFrom(const BoardStatus& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -204,15 +204,15 @@ class BOARD_STATUS final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(BOARD_STATUS* other);
+  void InternalSwap(BoardStatus* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "bms.BOARD_STATUS";
+    return "bms.BoardStatus";
   }
   protected:
-  explicit BOARD_STATUS(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit BoardStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -241,16 +241,16 @@ class BOARD_STATUS final :
   void _internal_set_errors(uint32_t value);
   public:
 
-  // .bms.balancing_status balancing_status = 2;
+  // .bms.BalancingStatusType balancing_status = 2;
   void clear_balancing_status();
-  ::bms::balancing_status balancing_status() const;
-  void set_balancing_status(::bms::balancing_status value);
+  ::bms::BalancingStatusType balancing_status() const;
+  void set_balancing_status(::bms::BalancingStatusType value);
   private:
-  ::bms::balancing_status _internal_balancing_status() const;
-  void _internal_set_balancing_status(::bms::balancing_status value);
+  ::bms::BalancingStatusType _internal_balancing_status() const;
+  void _internal_set_balancing_status(::bms::BalancingStatusType value);
   public:
 
-  // @@protoc_insertion_point(class_scope:bms.BOARD_STATUS)
+  // @@protoc_insertion_point(class_scope:bms.BoardStatus)
  private:
   class _Internal;
 
@@ -264,24 +264,24 @@ class BOARD_STATUS final :
 };
 // -------------------------------------------------------------------
 
-class TEMPERATURES final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bms.TEMPERATURES) */ {
+class Temperatures final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bms.Temperatures) */ {
  public:
-  inline TEMPERATURES() : TEMPERATURES(nullptr) {}
-  ~TEMPERATURES() override;
-  explicit constexpr TEMPERATURES(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline Temperatures() : Temperatures(nullptr) {}
+  ~Temperatures() override;
+  explicit constexpr Temperatures(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  TEMPERATURES(const TEMPERATURES& from);
-  TEMPERATURES(TEMPERATURES&& from) noexcept
-    : TEMPERATURES() {
+  Temperatures(const Temperatures& from);
+  Temperatures(Temperatures&& from) noexcept
+    : Temperatures() {
     *this = ::std::move(from);
   }
 
-  inline TEMPERATURES& operator=(const TEMPERATURES& from) {
+  inline Temperatures& operator=(const Temperatures& from) {
     CopyFrom(from);
     return *this;
   }
-  inline TEMPERATURES& operator=(TEMPERATURES&& from) noexcept {
+  inline Temperatures& operator=(Temperatures&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -304,20 +304,20 @@ class TEMPERATURES final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const TEMPERATURES& default_instance() {
+  static const Temperatures& default_instance() {
     return *internal_default_instance();
   }
-  static inline const TEMPERATURES* internal_default_instance() {
-    return reinterpret_cast<const TEMPERATURES*>(
-               &_TEMPERATURES_default_instance_);
+  static inline const Temperatures* internal_default_instance() {
+    return reinterpret_cast<const Temperatures*>(
+               &_Temperatures_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(TEMPERATURES& a, TEMPERATURES& b) {
+  friend void swap(Temperatures& a, Temperatures& b) {
     a.Swap(&b);
   }
-  inline void Swap(TEMPERATURES* other) {
+  inline void Swap(Temperatures* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -330,7 +330,7 @@ class TEMPERATURES final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(TEMPERATURES* other) {
+  void UnsafeArenaSwap(Temperatures* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -338,13 +338,13 @@ class TEMPERATURES final :
 
   // implements Message ----------------------------------------------
 
-  TEMPERATURES* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<TEMPERATURES>(arena);
+  Temperatures* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Temperatures>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const TEMPERATURES& from);
+  void CopyFrom(const Temperatures& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const TEMPERATURES& from);
+  void MergeFrom(const Temperatures& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -361,15 +361,15 @@ class TEMPERATURES final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(TEMPERATURES* other);
+  void InternalSwap(Temperatures* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "bms.TEMPERATURES";
+    return "bms.Temperatures";
   }
   protected:
-  explicit TEMPERATURES(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit Temperatures(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -457,7 +457,7 @@ class TEMPERATURES final :
   void _internal_set_temp5(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:bms.TEMPERATURES)
+  // @@protoc_insertion_point(class_scope:bms.Temperatures)
  private:
   class _Internal;
 
@@ -476,24 +476,24 @@ class TEMPERATURES final :
 };
 // -------------------------------------------------------------------
 
-class VOLTAGES final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bms.VOLTAGES) */ {
+class Voltages final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bms.Voltages) */ {
  public:
-  inline VOLTAGES() : VOLTAGES(nullptr) {}
-  ~VOLTAGES() override;
-  explicit constexpr VOLTAGES(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline Voltages() : Voltages(nullptr) {}
+  ~Voltages() override;
+  explicit constexpr Voltages(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  VOLTAGES(const VOLTAGES& from);
-  VOLTAGES(VOLTAGES&& from) noexcept
-    : VOLTAGES() {
+  Voltages(const Voltages& from);
+  Voltages(Voltages&& from) noexcept
+    : Voltages() {
     *this = ::std::move(from);
   }
 
-  inline VOLTAGES& operator=(const VOLTAGES& from) {
+  inline Voltages& operator=(const Voltages& from) {
     CopyFrom(from);
     return *this;
   }
-  inline VOLTAGES& operator=(VOLTAGES&& from) noexcept {
+  inline Voltages& operator=(Voltages&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -516,20 +516,20 @@ class VOLTAGES final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const VOLTAGES& default_instance() {
+  static const Voltages& default_instance() {
     return *internal_default_instance();
   }
-  static inline const VOLTAGES* internal_default_instance() {
-    return reinterpret_cast<const VOLTAGES*>(
-               &_VOLTAGES_default_instance_);
+  static inline const Voltages* internal_default_instance() {
+    return reinterpret_cast<const Voltages*>(
+               &_Voltages_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  friend void swap(VOLTAGES& a, VOLTAGES& b) {
+  friend void swap(Voltages& a, Voltages& b) {
     a.Swap(&b);
   }
-  inline void Swap(VOLTAGES* other) {
+  inline void Swap(Voltages* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -542,7 +542,7 @@ class VOLTAGES final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(VOLTAGES* other) {
+  void UnsafeArenaSwap(Voltages* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -550,13 +550,13 @@ class VOLTAGES final :
 
   // implements Message ----------------------------------------------
 
-  VOLTAGES* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<VOLTAGES>(arena);
+  Voltages* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Voltages>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const VOLTAGES& from);
+  void CopyFrom(const Voltages& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const VOLTAGES& from);
+  void MergeFrom(const Voltages& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -573,15 +573,15 @@ class VOLTAGES final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(VOLTAGES* other);
+  void InternalSwap(Voltages* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "bms.VOLTAGES";
+    return "bms.Voltages";
   }
   protected:
-  explicit VOLTAGES(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit Voltages(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -639,7 +639,7 @@ class VOLTAGES final :
   void _internal_set_voltage2(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:bms.VOLTAGES)
+  // @@protoc_insertion_point(class_scope:bms.Voltages)
  private:
   class _Internal;
 
@@ -655,24 +655,24 @@ class VOLTAGES final :
 };
 // -------------------------------------------------------------------
 
-class BALANCING final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bms.BALANCING) */ {
+class Balancing final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bms.Balancing) */ {
  public:
-  inline BALANCING() : BALANCING(nullptr) {}
-  ~BALANCING() override;
-  explicit constexpr BALANCING(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline Balancing() : Balancing(nullptr) {}
+  ~Balancing() override;
+  explicit constexpr Balancing(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  BALANCING(const BALANCING& from);
-  BALANCING(BALANCING&& from) noexcept
-    : BALANCING() {
+  Balancing(const Balancing& from);
+  Balancing(Balancing&& from) noexcept
+    : Balancing() {
     *this = ::std::move(from);
   }
 
-  inline BALANCING& operator=(const BALANCING& from) {
+  inline Balancing& operator=(const Balancing& from) {
     CopyFrom(from);
     return *this;
   }
-  inline BALANCING& operator=(BALANCING&& from) noexcept {
+  inline Balancing& operator=(Balancing&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -695,20 +695,20 @@ class BALANCING final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const BALANCING& default_instance() {
+  static const Balancing& default_instance() {
     return *internal_default_instance();
   }
-  static inline const BALANCING* internal_default_instance() {
-    return reinterpret_cast<const BALANCING*>(
-               &_BALANCING_default_instance_);
+  static inline const Balancing* internal_default_instance() {
+    return reinterpret_cast<const Balancing*>(
+               &_Balancing_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     3;
 
-  friend void swap(BALANCING& a, BALANCING& b) {
+  friend void swap(Balancing& a, Balancing& b) {
     a.Swap(&b);
   }
-  inline void Swap(BALANCING* other) {
+  inline void Swap(Balancing* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -721,7 +721,7 @@ class BALANCING final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(BALANCING* other) {
+  void UnsafeArenaSwap(Balancing* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -729,13 +729,13 @@ class BALANCING final :
 
   // implements Message ----------------------------------------------
 
-  BALANCING* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<BALANCING>(arena);
+  Balancing* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Balancing>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const BALANCING& from);
+  void CopyFrom(const Balancing& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const BALANCING& from);
+  void MergeFrom(const Balancing& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -752,15 +752,15 @@ class BALANCING final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(BALANCING* other);
+  void InternalSwap(Balancing* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "bms.BALANCING";
+    return "bms.Balancing";
   }
   protected:
-  explicit BALANCING(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit Balancing(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -798,7 +798,7 @@ class BALANCING final :
   void _internal_set_cells(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:bms.BALANCING)
+  // @@protoc_insertion_point(class_scope:bms.Balancing)
  private:
   class _Internal;
 
@@ -812,24 +812,24 @@ class BALANCING final :
 };
 // -------------------------------------------------------------------
 
-class FW_UPDATE final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bms.FW_UPDATE) */ {
+class FwUpdate final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:bms.FwUpdate) */ {
  public:
-  inline FW_UPDATE() : FW_UPDATE(nullptr) {}
-  ~FW_UPDATE() override;
-  explicit constexpr FW_UPDATE(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline FwUpdate() : FwUpdate(nullptr) {}
+  ~FwUpdate() override;
+  explicit constexpr FwUpdate(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  FW_UPDATE(const FW_UPDATE& from);
-  FW_UPDATE(FW_UPDATE&& from) noexcept
-    : FW_UPDATE() {
+  FwUpdate(const FwUpdate& from);
+  FwUpdate(FwUpdate&& from) noexcept
+    : FwUpdate() {
     *this = ::std::move(from);
   }
 
-  inline FW_UPDATE& operator=(const FW_UPDATE& from) {
+  inline FwUpdate& operator=(const FwUpdate& from) {
     CopyFrom(from);
     return *this;
   }
-  inline FW_UPDATE& operator=(FW_UPDATE&& from) noexcept {
+  inline FwUpdate& operator=(FwUpdate&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -852,20 +852,20 @@ class FW_UPDATE final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const FW_UPDATE& default_instance() {
+  static const FwUpdate& default_instance() {
     return *internal_default_instance();
   }
-  static inline const FW_UPDATE* internal_default_instance() {
-    return reinterpret_cast<const FW_UPDATE*>(
-               &_FW_UPDATE_default_instance_);
+  static inline const FwUpdate* internal_default_instance() {
+    return reinterpret_cast<const FwUpdate*>(
+               &_FwUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     4;
 
-  friend void swap(FW_UPDATE& a, FW_UPDATE& b) {
+  friend void swap(FwUpdate& a, FwUpdate& b) {
     a.Swap(&b);
   }
-  inline void Swap(FW_UPDATE* other) {
+  inline void Swap(FwUpdate* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -878,7 +878,7 @@ class FW_UPDATE final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(FW_UPDATE* other) {
+  void UnsafeArenaSwap(FwUpdate* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -886,13 +886,13 @@ class FW_UPDATE final :
 
   // implements Message ----------------------------------------------
 
-  FW_UPDATE* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<FW_UPDATE>(arena);
+  FwUpdate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<FwUpdate>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const FW_UPDATE& from);
+  void CopyFrom(const FwUpdate& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const FW_UPDATE& from);
+  void MergeFrom(const FwUpdate& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -909,15 +909,15 @@ class FW_UPDATE final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(FW_UPDATE* other);
+  void InternalSwap(FwUpdate* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "bms.FW_UPDATE";
+    return "bms.FwUpdate";
   }
   protected:
-  explicit FW_UPDATE(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit FwUpdate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -945,7 +945,7 @@ class FW_UPDATE final :
   void _internal_set_board_index(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:bms.FW_UPDATE)
+  // @@protoc_insertion_point(class_scope:bms.FwUpdate)
  private:
   class _Internal;
 
@@ -965,342 +965,342 @@ class FW_UPDATE final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// BOARD_STATUS
+// BoardStatus
 
 // uint32 errors = 1;
-inline void BOARD_STATUS::clear_errors() {
+inline void BoardStatus::clear_errors() {
   errors_ = 0u;
 }
-inline uint32_t BOARD_STATUS::_internal_errors() const {
+inline uint32_t BoardStatus::_internal_errors() const {
   return errors_;
 }
-inline uint32_t BOARD_STATUS::errors() const {
-  // @@protoc_insertion_point(field_get:bms.BOARD_STATUS.errors)
+inline uint32_t BoardStatus::errors() const {
+  // @@protoc_insertion_point(field_get:bms.BoardStatus.errors)
   return _internal_errors();
 }
-inline void BOARD_STATUS::_internal_set_errors(uint32_t value) {
+inline void BoardStatus::_internal_set_errors(uint32_t value) {
   
   errors_ = value;
 }
-inline void BOARD_STATUS::set_errors(uint32_t value) {
+inline void BoardStatus::set_errors(uint32_t value) {
   _internal_set_errors(value);
-  // @@protoc_insertion_point(field_set:bms.BOARD_STATUS.errors)
+  // @@protoc_insertion_point(field_set:bms.BoardStatus.errors)
 }
 
-// .bms.balancing_status balancing_status = 2;
-inline void BOARD_STATUS::clear_balancing_status() {
+// .bms.BalancingStatusType balancing_status = 2;
+inline void BoardStatus::clear_balancing_status() {
   balancing_status_ = 0;
 }
-inline ::bms::balancing_status BOARD_STATUS::_internal_balancing_status() const {
-  return static_cast< ::bms::balancing_status >(balancing_status_);
+inline ::bms::BalancingStatusType BoardStatus::_internal_balancing_status() const {
+  return static_cast< ::bms::BalancingStatusType >(balancing_status_);
 }
-inline ::bms::balancing_status BOARD_STATUS::balancing_status() const {
-  // @@protoc_insertion_point(field_get:bms.BOARD_STATUS.balancing_status)
+inline ::bms::BalancingStatusType BoardStatus::balancing_status() const {
+  // @@protoc_insertion_point(field_get:bms.BoardStatus.balancing_status)
   return _internal_balancing_status();
 }
-inline void BOARD_STATUS::_internal_set_balancing_status(::bms::balancing_status value) {
+inline void BoardStatus::_internal_set_balancing_status(::bms::BalancingStatusType value) {
   
   balancing_status_ = value;
 }
-inline void BOARD_STATUS::set_balancing_status(::bms::balancing_status value) {
+inline void BoardStatus::set_balancing_status(::bms::BalancingStatusType value) {
   _internal_set_balancing_status(value);
-  // @@protoc_insertion_point(field_set:bms.BOARD_STATUS.balancing_status)
+  // @@protoc_insertion_point(field_set:bms.BoardStatus.balancing_status)
 }
 
 // -------------------------------------------------------------------
 
-// TEMPERATURES
+// Temperatures
 
 // uint32 start_index = 1;
-inline void TEMPERATURES::clear_start_index() {
+inline void Temperatures::clear_start_index() {
   start_index_ = 0u;
 }
-inline uint32_t TEMPERATURES::_internal_start_index() const {
+inline uint32_t Temperatures::_internal_start_index() const {
   return start_index_;
 }
-inline uint32_t TEMPERATURES::start_index() const {
-  // @@protoc_insertion_point(field_get:bms.TEMPERATURES.start_index)
+inline uint32_t Temperatures::start_index() const {
+  // @@protoc_insertion_point(field_get:bms.Temperatures.start_index)
   return _internal_start_index();
 }
-inline void TEMPERATURES::_internal_set_start_index(uint32_t value) {
+inline void Temperatures::_internal_set_start_index(uint32_t value) {
   
   start_index_ = value;
 }
-inline void TEMPERATURES::set_start_index(uint32_t value) {
+inline void Temperatures::set_start_index(uint32_t value) {
   _internal_set_start_index(value);
-  // @@protoc_insertion_point(field_set:bms.TEMPERATURES.start_index)
+  // @@protoc_insertion_point(field_set:bms.Temperatures.start_index)
 }
 
 // uint32 temp0 = 2;
-inline void TEMPERATURES::clear_temp0() {
+inline void Temperatures::clear_temp0() {
   temp0_ = 0u;
 }
-inline uint32_t TEMPERATURES::_internal_temp0() const {
+inline uint32_t Temperatures::_internal_temp0() const {
   return temp0_;
 }
-inline uint32_t TEMPERATURES::temp0() const {
-  // @@protoc_insertion_point(field_get:bms.TEMPERATURES.temp0)
+inline uint32_t Temperatures::temp0() const {
+  // @@protoc_insertion_point(field_get:bms.Temperatures.temp0)
   return _internal_temp0();
 }
-inline void TEMPERATURES::_internal_set_temp0(uint32_t value) {
+inline void Temperatures::_internal_set_temp0(uint32_t value) {
   
   temp0_ = value;
 }
-inline void TEMPERATURES::set_temp0(uint32_t value) {
+inline void Temperatures::set_temp0(uint32_t value) {
   _internal_set_temp0(value);
-  // @@protoc_insertion_point(field_set:bms.TEMPERATURES.temp0)
+  // @@protoc_insertion_point(field_set:bms.Temperatures.temp0)
 }
 
 // uint32 temp1 = 3;
-inline void TEMPERATURES::clear_temp1() {
+inline void Temperatures::clear_temp1() {
   temp1_ = 0u;
 }
-inline uint32_t TEMPERATURES::_internal_temp1() const {
+inline uint32_t Temperatures::_internal_temp1() const {
   return temp1_;
 }
-inline uint32_t TEMPERATURES::temp1() const {
-  // @@protoc_insertion_point(field_get:bms.TEMPERATURES.temp1)
+inline uint32_t Temperatures::temp1() const {
+  // @@protoc_insertion_point(field_get:bms.Temperatures.temp1)
   return _internal_temp1();
 }
-inline void TEMPERATURES::_internal_set_temp1(uint32_t value) {
+inline void Temperatures::_internal_set_temp1(uint32_t value) {
   
   temp1_ = value;
 }
-inline void TEMPERATURES::set_temp1(uint32_t value) {
+inline void Temperatures::set_temp1(uint32_t value) {
   _internal_set_temp1(value);
-  // @@protoc_insertion_point(field_set:bms.TEMPERATURES.temp1)
+  // @@protoc_insertion_point(field_set:bms.Temperatures.temp1)
 }
 
 // uint32 temp2 = 4;
-inline void TEMPERATURES::clear_temp2() {
+inline void Temperatures::clear_temp2() {
   temp2_ = 0u;
 }
-inline uint32_t TEMPERATURES::_internal_temp2() const {
+inline uint32_t Temperatures::_internal_temp2() const {
   return temp2_;
 }
-inline uint32_t TEMPERATURES::temp2() const {
-  // @@protoc_insertion_point(field_get:bms.TEMPERATURES.temp2)
+inline uint32_t Temperatures::temp2() const {
+  // @@protoc_insertion_point(field_get:bms.Temperatures.temp2)
   return _internal_temp2();
 }
-inline void TEMPERATURES::_internal_set_temp2(uint32_t value) {
+inline void Temperatures::_internal_set_temp2(uint32_t value) {
   
   temp2_ = value;
 }
-inline void TEMPERATURES::set_temp2(uint32_t value) {
+inline void Temperatures::set_temp2(uint32_t value) {
   _internal_set_temp2(value);
-  // @@protoc_insertion_point(field_set:bms.TEMPERATURES.temp2)
+  // @@protoc_insertion_point(field_set:bms.Temperatures.temp2)
 }
 
 // uint32 temp3 = 5;
-inline void TEMPERATURES::clear_temp3() {
+inline void Temperatures::clear_temp3() {
   temp3_ = 0u;
 }
-inline uint32_t TEMPERATURES::_internal_temp3() const {
+inline uint32_t Temperatures::_internal_temp3() const {
   return temp3_;
 }
-inline uint32_t TEMPERATURES::temp3() const {
-  // @@protoc_insertion_point(field_get:bms.TEMPERATURES.temp3)
+inline uint32_t Temperatures::temp3() const {
+  // @@protoc_insertion_point(field_get:bms.Temperatures.temp3)
   return _internal_temp3();
 }
-inline void TEMPERATURES::_internal_set_temp3(uint32_t value) {
+inline void Temperatures::_internal_set_temp3(uint32_t value) {
   
   temp3_ = value;
 }
-inline void TEMPERATURES::set_temp3(uint32_t value) {
+inline void Temperatures::set_temp3(uint32_t value) {
   _internal_set_temp3(value);
-  // @@protoc_insertion_point(field_set:bms.TEMPERATURES.temp3)
+  // @@protoc_insertion_point(field_set:bms.Temperatures.temp3)
 }
 
 // uint32 temp4 = 6;
-inline void TEMPERATURES::clear_temp4() {
+inline void Temperatures::clear_temp4() {
   temp4_ = 0u;
 }
-inline uint32_t TEMPERATURES::_internal_temp4() const {
+inline uint32_t Temperatures::_internal_temp4() const {
   return temp4_;
 }
-inline uint32_t TEMPERATURES::temp4() const {
-  // @@protoc_insertion_point(field_get:bms.TEMPERATURES.temp4)
+inline uint32_t Temperatures::temp4() const {
+  // @@protoc_insertion_point(field_get:bms.Temperatures.temp4)
   return _internal_temp4();
 }
-inline void TEMPERATURES::_internal_set_temp4(uint32_t value) {
+inline void Temperatures::_internal_set_temp4(uint32_t value) {
   
   temp4_ = value;
 }
-inline void TEMPERATURES::set_temp4(uint32_t value) {
+inline void Temperatures::set_temp4(uint32_t value) {
   _internal_set_temp4(value);
-  // @@protoc_insertion_point(field_set:bms.TEMPERATURES.temp4)
+  // @@protoc_insertion_point(field_set:bms.Temperatures.temp4)
 }
 
 // uint32 temp5 = 7;
-inline void TEMPERATURES::clear_temp5() {
+inline void Temperatures::clear_temp5() {
   temp5_ = 0u;
 }
-inline uint32_t TEMPERATURES::_internal_temp5() const {
+inline uint32_t Temperatures::_internal_temp5() const {
   return temp5_;
 }
-inline uint32_t TEMPERATURES::temp5() const {
-  // @@protoc_insertion_point(field_get:bms.TEMPERATURES.temp5)
+inline uint32_t Temperatures::temp5() const {
+  // @@protoc_insertion_point(field_get:bms.Temperatures.temp5)
   return _internal_temp5();
 }
-inline void TEMPERATURES::_internal_set_temp5(uint32_t value) {
+inline void Temperatures::_internal_set_temp5(uint32_t value) {
   
   temp5_ = value;
 }
-inline void TEMPERATURES::set_temp5(uint32_t value) {
+inline void Temperatures::set_temp5(uint32_t value) {
   _internal_set_temp5(value);
-  // @@protoc_insertion_point(field_set:bms.TEMPERATURES.temp5)
+  // @@protoc_insertion_point(field_set:bms.Temperatures.temp5)
 }
 
 // -------------------------------------------------------------------
 
-// VOLTAGES
+// Voltages
 
 // uint32 start_index = 1;
-inline void VOLTAGES::clear_start_index() {
+inline void Voltages::clear_start_index() {
   start_index_ = 0u;
 }
-inline uint32_t VOLTAGES::_internal_start_index() const {
+inline uint32_t Voltages::_internal_start_index() const {
   return start_index_;
 }
-inline uint32_t VOLTAGES::start_index() const {
-  // @@protoc_insertion_point(field_get:bms.VOLTAGES.start_index)
+inline uint32_t Voltages::start_index() const {
+  // @@protoc_insertion_point(field_get:bms.Voltages.start_index)
   return _internal_start_index();
 }
-inline void VOLTAGES::_internal_set_start_index(uint32_t value) {
+inline void Voltages::_internal_set_start_index(uint32_t value) {
   
   start_index_ = value;
 }
-inline void VOLTAGES::set_start_index(uint32_t value) {
+inline void Voltages::set_start_index(uint32_t value) {
   _internal_set_start_index(value);
-  // @@protoc_insertion_point(field_set:bms.VOLTAGES.start_index)
+  // @@protoc_insertion_point(field_set:bms.Voltages.start_index)
 }
 
 // uint32 voltage0 = 2;
-inline void VOLTAGES::clear_voltage0() {
+inline void Voltages::clear_voltage0() {
   voltage0_ = 0u;
 }
-inline uint32_t VOLTAGES::_internal_voltage0() const {
+inline uint32_t Voltages::_internal_voltage0() const {
   return voltage0_;
 }
-inline uint32_t VOLTAGES::voltage0() const {
-  // @@protoc_insertion_point(field_get:bms.VOLTAGES.voltage0)
+inline uint32_t Voltages::voltage0() const {
+  // @@protoc_insertion_point(field_get:bms.Voltages.voltage0)
   return _internal_voltage0();
 }
-inline void VOLTAGES::_internal_set_voltage0(uint32_t value) {
+inline void Voltages::_internal_set_voltage0(uint32_t value) {
   
   voltage0_ = value;
 }
-inline void VOLTAGES::set_voltage0(uint32_t value) {
+inline void Voltages::set_voltage0(uint32_t value) {
   _internal_set_voltage0(value);
-  // @@protoc_insertion_point(field_set:bms.VOLTAGES.voltage0)
+  // @@protoc_insertion_point(field_set:bms.Voltages.voltage0)
 }
 
 // uint32 voltage1 = 3;
-inline void VOLTAGES::clear_voltage1() {
+inline void Voltages::clear_voltage1() {
   voltage1_ = 0u;
 }
-inline uint32_t VOLTAGES::_internal_voltage1() const {
+inline uint32_t Voltages::_internal_voltage1() const {
   return voltage1_;
 }
-inline uint32_t VOLTAGES::voltage1() const {
-  // @@protoc_insertion_point(field_get:bms.VOLTAGES.voltage1)
+inline uint32_t Voltages::voltage1() const {
+  // @@protoc_insertion_point(field_get:bms.Voltages.voltage1)
   return _internal_voltage1();
 }
-inline void VOLTAGES::_internal_set_voltage1(uint32_t value) {
+inline void Voltages::_internal_set_voltage1(uint32_t value) {
   
   voltage1_ = value;
 }
-inline void VOLTAGES::set_voltage1(uint32_t value) {
+inline void Voltages::set_voltage1(uint32_t value) {
   _internal_set_voltage1(value);
-  // @@protoc_insertion_point(field_set:bms.VOLTAGES.voltage1)
+  // @@protoc_insertion_point(field_set:bms.Voltages.voltage1)
 }
 
 // uint32 voltage2 = 4;
-inline void VOLTAGES::clear_voltage2() {
+inline void Voltages::clear_voltage2() {
   voltage2_ = 0u;
 }
-inline uint32_t VOLTAGES::_internal_voltage2() const {
+inline uint32_t Voltages::_internal_voltage2() const {
   return voltage2_;
 }
-inline uint32_t VOLTAGES::voltage2() const {
-  // @@protoc_insertion_point(field_get:bms.VOLTAGES.voltage2)
+inline uint32_t Voltages::voltage2() const {
+  // @@protoc_insertion_point(field_get:bms.Voltages.voltage2)
   return _internal_voltage2();
 }
-inline void VOLTAGES::_internal_set_voltage2(uint32_t value) {
+inline void Voltages::_internal_set_voltage2(uint32_t value) {
   
   voltage2_ = value;
 }
-inline void VOLTAGES::set_voltage2(uint32_t value) {
+inline void Voltages::set_voltage2(uint32_t value) {
   _internal_set_voltage2(value);
-  // @@protoc_insertion_point(field_set:bms.VOLTAGES.voltage2)
+  // @@protoc_insertion_point(field_set:bms.Voltages.voltage2)
 }
 
 // -------------------------------------------------------------------
 
-// BALANCING
+// Balancing
 
 // uint32 board_index = 1;
-inline void BALANCING::clear_board_index() {
+inline void Balancing::clear_board_index() {
   board_index_ = 0u;
 }
-inline uint32_t BALANCING::_internal_board_index() const {
+inline uint32_t Balancing::_internal_board_index() const {
   return board_index_;
 }
-inline uint32_t BALANCING::board_index() const {
-  // @@protoc_insertion_point(field_get:bms.BALANCING.board_index)
+inline uint32_t Balancing::board_index() const {
+  // @@protoc_insertion_point(field_get:bms.Balancing.board_index)
   return _internal_board_index();
 }
-inline void BALANCING::_internal_set_board_index(uint32_t value) {
+inline void Balancing::_internal_set_board_index(uint32_t value) {
   
   board_index_ = value;
 }
-inline void BALANCING::set_board_index(uint32_t value) {
+inline void Balancing::set_board_index(uint32_t value) {
   _internal_set_board_index(value);
-  // @@protoc_insertion_point(field_set:bms.BALANCING.board_index)
+  // @@protoc_insertion_point(field_set:bms.Balancing.board_index)
 }
 
 // uint32 cells = 2;
-inline void BALANCING::clear_cells() {
+inline void Balancing::clear_cells() {
   cells_ = 0u;
 }
-inline uint32_t BALANCING::_internal_cells() const {
+inline uint32_t Balancing::_internal_cells() const {
   return cells_;
 }
-inline uint32_t BALANCING::cells() const {
-  // @@protoc_insertion_point(field_get:bms.BALANCING.cells)
+inline uint32_t Balancing::cells() const {
+  // @@protoc_insertion_point(field_get:bms.Balancing.cells)
   return _internal_cells();
 }
-inline void BALANCING::_internal_set_cells(uint32_t value) {
+inline void Balancing::_internal_set_cells(uint32_t value) {
   
   cells_ = value;
 }
-inline void BALANCING::set_cells(uint32_t value) {
+inline void Balancing::set_cells(uint32_t value) {
   _internal_set_cells(value);
-  // @@protoc_insertion_point(field_set:bms.BALANCING.cells)
+  // @@protoc_insertion_point(field_set:bms.Balancing.cells)
 }
 
 // -------------------------------------------------------------------
 
-// FW_UPDATE
+// FwUpdate
 
 // uint32 board_index = 1;
-inline void FW_UPDATE::clear_board_index() {
+inline void FwUpdate::clear_board_index() {
   board_index_ = 0u;
 }
-inline uint32_t FW_UPDATE::_internal_board_index() const {
+inline uint32_t FwUpdate::_internal_board_index() const {
   return board_index_;
 }
-inline uint32_t FW_UPDATE::board_index() const {
-  // @@protoc_insertion_point(field_get:bms.FW_UPDATE.board_index)
+inline uint32_t FwUpdate::board_index() const {
+  // @@protoc_insertion_point(field_get:bms.FwUpdate.board_index)
   return _internal_board_index();
 }
-inline void FW_UPDATE::_internal_set_board_index(uint32_t value) {
+inline void FwUpdate::_internal_set_board_index(uint32_t value) {
   
   board_index_ = value;
 }
-inline void FW_UPDATE::set_board_index(uint32_t value) {
+inline void FwUpdate::set_board_index(uint32_t value) {
   _internal_set_board_index(value);
-  // @@protoc_insertion_point(field_set:bms.FW_UPDATE.board_index)
+  // @@protoc_insertion_point(field_set:bms.FwUpdate.board_index)
 }
 
 #ifdef __GNUC__
@@ -1321,10 +1321,10 @@ inline void FW_UPDATE::set_board_index(uint32_t value) {
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::bms::balancing_status> : ::std::true_type {};
+template <> struct is_proto_enum< ::bms::BalancingStatusType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::bms::balancing_status>() {
-  return ::bms::balancing_status_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::bms::BalancingStatusType>() {
+  return ::bms::BalancingStatusType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
