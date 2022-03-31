@@ -21,7 +21,8 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
     uint64_t bitset_value;
     switch(id) {
 
-        case 1024: {
+        case 1024:
+        {
             primary_STEER_VERSION* primary_steer_version_d = (primary_STEER_VERSION*)malloc(sizeof(primary_STEER_VERSION));
             deserialize_primary_STEER_VERSION(payload, primary_steer_version_d);
 
@@ -33,8 +34,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_steer_version_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1056: {
+    
+        case 1056:
+        {
             primary_DAS_VERSION* primary_das_version_d = (primary_DAS_VERSION*)malloc(sizeof(primary_DAS_VERSION));
             deserialize_primary_DAS_VERSION(payload, primary_das_version_d);
 
@@ -46,8 +48,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_das_version_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1088: {
+    
+        case 1088:
+        {
             primary_HV_VERSION* primary_hv_version_d = (primary_HV_VERSION*)malloc(sizeof(primary_HV_VERSION));
             deserialize_primary_HV_VERSION(payload, primary_hv_version_d);
 
@@ -59,8 +62,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_hv_version_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1120: {
+    
+        case 1120:
+        {
             primary_LV_VERSION* primary_lv_version_d = (primary_LV_VERSION*)malloc(sizeof(primary_LV_VERSION));
             deserialize_primary_LV_VERSION(payload, primary_lv_version_d);
 
@@ -72,8 +76,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_lv_version_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1152: {
+    
+        case 1152:
+        {
             primary_TLM_VERSION* primary_tlm_version_d = (primary_TLM_VERSION*)malloc(sizeof(primary_TLM_VERSION));
             deserialize_primary_TLM_VERSION(payload, primary_tlm_version_d);
 
@@ -85,8 +90,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_tlm_version_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 256: {
+    
+        case 256:
+        {
             primary_TIMESTAMP* primary_timestamp_d = (primary_TIMESTAMP*)malloc(sizeof(primary_TIMESTAMP));
             deserialize_primary_TIMESTAMP(payload, primary_timestamp_d);
 
@@ -97,8 +103,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_timestamp_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 257: {
+    
+        case 257:
+        {
             primary_SET_TLM_STATUS* primary_set_tlm_status_d = (primary_SET_TLM_STATUS*)malloc(sizeof(primary_SET_TLM_STATUS));
             deserialize_primary_SET_TLM_STATUS(payload, primary_set_tlm_status_d);
 
@@ -112,8 +119,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_set_tlm_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 258: {
+    
+        case 258:
+        {
             primary_TLM_STATUS* primary_tlm_status_d = (primary_TLM_STATUS*)malloc(sizeof(primary_TLM_STATUS));
             deserialize_primary_TLM_STATUS(payload, primary_tlm_status_d);
 
@@ -127,8 +135,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_tlm_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1793: {
+    
+        case 1793:
+        {
             primary_STEER_SYSTEM_STATUS* primary_steer_system_status_d = (primary_STEER_SYSTEM_STATUS*)malloc(sizeof(primary_STEER_SYSTEM_STATUS));
             deserialize_primary_STEER_SYSTEM_STATUS(payload, primary_steer_system_status_d);
 
@@ -139,8 +148,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_steer_system_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 771: {
+    
+        case 771:
+        {
             primary_HV_VOLTAGE* primary_hv_voltage_d = (primary_HV_VOLTAGE*)malloc(sizeof(primary_HV_VOLTAGE));
             deserialize_primary_HV_VOLTAGE(payload, primary_hv_voltage_d);
 
@@ -154,8 +164,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_hv_voltage_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 803: {
+    
+        case 803:
+        {
             primary_HV_CURRENT* primary_hv_current_d = (primary_HV_CURRENT*)malloc(sizeof(primary_HV_CURRENT));
             deserialize_primary_HV_CURRENT(payload, primary_hv_current_d);
 
@@ -167,8 +178,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_hv_current_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 835: {
+    
+        case 835:
+        {
             primary_HV_TEMP* primary_hv_temp_d = (primary_HV_TEMP*)malloc(sizeof(primary_HV_TEMP));
             deserialize_primary_HV_TEMP(payload, primary_hv_temp_d);
 
@@ -181,8 +193,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_hv_temp_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 3: {
+    
+        case 3:
+        {
             primary_HV_ERRORS* primary_hv_errors_d = (primary_HV_ERRORS*)malloc(sizeof(primary_HV_ERRORS));
             deserialize_primary_HV_ERRORS(payload, primary_hv_errors_d);
 
@@ -196,8 +209,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_hv_errors_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 35: {
+    
+        case 35:
+        {
             primary_TS_STATUS* primary_ts_status_d = (primary_TS_STATUS*)malloc(sizeof(primary_TS_STATUS));
             deserialize_primary_TS_STATUS(payload, primary_ts_status_d);
 
@@ -208,8 +222,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_ts_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 4: {
+    
+        case 4:
+        {
             primary_SET_TS_STATUS* primary_set_ts_status_d = (primary_SET_TS_STATUS*)malloc(sizeof(primary_SET_TS_STATUS));
             deserialize_primary_SET_TS_STATUS(payload, primary_set_ts_status_d);
 
@@ -220,8 +235,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_set_ts_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 261: {
+    
+        case 261:
+        {
             primary_STEER_STATUS* primary_steer_status_d = (primary_STEER_STATUS*)malloc(sizeof(primary_STEER_STATUS));
             deserialize_primary_STEER_STATUS(payload, primary_steer_status_d);
 
@@ -233,8 +249,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_steer_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 773: {
+    
+        case 773:
+        {
             primary_SET_CAR_STATUS* primary_set_car_status_d = (primary_SET_CAR_STATUS*)malloc(sizeof(primary_SET_CAR_STATUS));
             deserialize_primary_SET_CAR_STATUS(payload, primary_set_car_status_d);
 
@@ -245,8 +262,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_set_car_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1029: {
+    
+        case 1029:
+        {
             primary_SET_PEDALS_RANGE* primary_set_pedals_range_d = (primary_SET_PEDALS_RANGE*)malloc(sizeof(primary_SET_PEDALS_RANGE));
             deserialize_primary_SET_PEDALS_RANGE(payload, primary_set_pedals_range_d);
 
@@ -258,8 +276,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_set_pedals_range_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 514: {
+    
+        case 514:
+        {
             primary_CAR_STATUS* primary_car_status_d = (primary_CAR_STATUS*)malloc(sizeof(primary_CAR_STATUS));
             deserialize_primary_CAR_STATUS(payload, primary_car_status_d);
 
@@ -272,8 +291,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_car_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 2: {
+    
+        case 2:
+        {
             primary_DAS_ERRORS* primary_das_errors_d = (primary_DAS_ERRORS*)malloc(sizeof(primary_DAS_ERRORS));
             deserialize_primary_DAS_ERRORS(payload, primary_das_errors_d);
 
@@ -285,8 +305,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_das_errors_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 774: {
+    
+        case 774:
+        {
             primary_LV_CURRENT* primary_lv_current_d = (primary_LV_CURRENT*)malloc(sizeof(primary_LV_CURRENT));
             deserialize_primary_LV_CURRENT(payload, primary_lv_current_d);
 
@@ -297,8 +318,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_lv_current_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 806: {
+    
+        case 806:
+        {
             primary_LV_VOLTAGE* primary_lv_voltage_d = (primary_LV_VOLTAGE*)malloc(sizeof(primary_LV_VOLTAGE));
             deserialize_primary_LV_VOLTAGE(payload, primary_lv_voltage_d);
 
@@ -313,8 +335,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_lv_voltage_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 838: {
+    
+        case 838:
+        {
             primary_LV_TEMPERATURE* primary_lv_temperature_d = (primary_LV_TEMPERATURE*)malloc(sizeof(primary_LV_TEMPERATURE));
             deserialize_primary_LV_TEMPERATURE(payload, primary_lv_temperature_d);
 
@@ -326,8 +349,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_lv_temperature_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 870: {
+    
+        case 870:
+        {
             primary_COOLING_STATUS* primary_cooling_status_d = (primary_COOLING_STATUS*)malloc(sizeof(primary_COOLING_STATUS));
             deserialize_primary_COOLING_STATUS(payload, primary_cooling_status_d);
 
@@ -340,8 +364,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_cooling_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1: {
+    
+        case 1:
+        {
 
             primary::Marker primary_marker_p;
 
@@ -349,8 +374,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_marker_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 519: {
+    
+        case 519:
+        {
             primary_HV_CELLS_VOLTAGE* primary_hv_cells_voltage_d = (primary_HV_CELLS_VOLTAGE*)malloc(sizeof(primary_HV_CELLS_VOLTAGE));
             deserialize_primary_HV_CELLS_VOLTAGE(payload, primary_hv_cells_voltage_d);
 
@@ -364,8 +390,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_hv_cells_voltage_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 551: {
+    
+        case 551:
+        {
             primary_HV_CELLS_TEMP* primary_hv_cells_temp_d = (primary_HV_CELLS_TEMP*)malloc(sizeof(primary_HV_CELLS_TEMP));
             deserialize_primary_HV_CELLS_TEMP(payload, primary_hv_cells_temp_d);
 
@@ -383,8 +410,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_hv_cells_temp_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 583: {
+    
+        case 583:
+        {
             primary_HV_CELL_BALANCING_STATUS* primary_hv_cell_balancing_status_d = (primary_HV_CELL_BALANCING_STATUS*)malloc(sizeof(primary_HV_CELL_BALANCING_STATUS));
             deserialize_primary_HV_CELL_BALANCING_STATUS(payload, primary_hv_cell_balancing_status_d);
 
@@ -395,8 +423,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_hv_cell_balancing_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 516: {
+    
+        case 516:
+        {
             primary_SET_CELL_BALANCING_STATUS* primary_set_cell_balancing_status_d = (primary_SET_CELL_BALANCING_STATUS*)malloc(sizeof(primary_SET_CELL_BALANCING_STATUS));
             deserialize_primary_SET_CELL_BALANCING_STATUS(payload, primary_set_cell_balancing_status_d);
 
@@ -407,8 +436,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_set_cell_balancing_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 772: {
+    
+        case 772:
+        {
             primary_HANDCART_STATUS* primary_handcart_status_d = (primary_HANDCART_STATUS*)malloc(sizeof(primary_HANDCART_STATUS));
             deserialize_primary_HANDCART_STATUS(payload, primary_handcart_status_d);
 
@@ -419,8 +449,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_handcart_status_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 546: {
+    
+        case 546:
+        {
             primary_SPEED* primary_speed_d = (primary_SPEED*)malloc(sizeof(primary_SPEED));
             deserialize_primary_SPEED(payload, primary_speed_d);
 
@@ -434,8 +465,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_speed_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 513: {
+    
+        case 513:
+        {
             primary_INV_L_SET_TORQUE* primary_inv_l_set_torque_d = (primary_INV_L_SET_TORQUE*)malloc(sizeof(primary_INV_L_SET_TORQUE));
             deserialize_primary_INV_L_SET_TORQUE(payload, primary_inv_l_set_torque_d);
 
@@ -448,8 +480,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_inv_l_set_torque_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 385: {
+    
+        case 385:
+        {
             primary_INV_L_RESPONSE* primary_inv_l_response_d = (primary_INV_L_RESPONSE*)malloc(sizeof(primary_INV_L_RESPONSE));
             deserialize_primary_INV_L_RESPONSE(payload, primary_inv_l_response_d);
 
@@ -462,7 +495,7 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary_inv_l_response_p.SerializeToString(&serialized);
             return serialized;
         }
-
+    
     }
     throw std::runtime_error("Unknown message id");
 }

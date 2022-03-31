@@ -21,7 +21,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
     uint64_t bitset_value;
     switch(id) {
 
-        case 1260: {
+        case 1260:
+        {
             secondary_IMU_ANGULAR_RATE* secondary_imu_angular_rate_d = (secondary_IMU_ANGULAR_RATE*)malloc(sizeof(secondary_IMU_ANGULAR_RATE));
             deserialize_secondary_IMU_ANGULAR_RATE(payload, secondary_imu_angular_rate_d);
 
@@ -34,8 +35,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_imu_angular_rate_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1261: {
+    
+        case 1261:
+        {
             secondary_IMU_ACCELERATION* secondary_imu_acceleration_d = (secondary_IMU_ACCELERATION*)malloc(sizeof(secondary_IMU_ACCELERATION));
             deserialize_secondary_IMU_ACCELERATION(payload, secondary_imu_acceleration_d);
 
@@ -48,8 +50,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_imu_acceleration_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1460: {
+    
+        case 1460:
+        {
             secondary_IRTS_FL_0* secondary_irts_fl_0_d = (secondary_IRTS_FL_0*)malloc(sizeof(secondary_IRTS_FL_0));
             deserialize_secondary_IRTS_FL_0(payload, secondary_irts_fl_0_d);
 
@@ -63,8 +66,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_fl_0_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1461: {
+    
+        case 1461:
+        {
             secondary_IRTS_FL_1* secondary_irts_fl_1_d = (secondary_IRTS_FL_1*)malloc(sizeof(secondary_IRTS_FL_1));
             deserialize_secondary_IRTS_FL_1(payload, secondary_irts_fl_1_d);
 
@@ -78,8 +82,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_fl_1_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1462: {
+    
+        case 1462:
+        {
             secondary_IRTS_FL_2* secondary_irts_fl_2_d = (secondary_IRTS_FL_2*)malloc(sizeof(secondary_IRTS_FL_2));
             deserialize_secondary_IRTS_FL_2(payload, secondary_irts_fl_2_d);
 
@@ -93,8 +98,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_fl_2_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1463: {
+    
+        case 1463:
+        {
             secondary_IRTS_FL_3* secondary_irts_fl_3_d = (secondary_IRTS_FL_3*)malloc(sizeof(secondary_IRTS_FL_3));
             deserialize_secondary_IRTS_FL_3(payload, secondary_irts_fl_3_d);
 
@@ -108,8 +114,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_fl_3_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1464: {
+    
+        case 1464:
+        {
             secondary_IRTS_FR_0* secondary_irts_fr_0_d = (secondary_IRTS_FR_0*)malloc(sizeof(secondary_IRTS_FR_0));
             deserialize_secondary_IRTS_FR_0(payload, secondary_irts_fr_0_d);
 
@@ -123,8 +130,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_fr_0_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1465: {
+    
+        case 1465:
+        {
             secondary_IRTS_FR_1* secondary_irts_fr_1_d = (secondary_IRTS_FR_1*)malloc(sizeof(secondary_IRTS_FR_1));
             deserialize_secondary_IRTS_FR_1(payload, secondary_irts_fr_1_d);
 
@@ -138,8 +146,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_fr_1_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1466: {
+    
+        case 1466:
+        {
             secondary_IRTS_FR_2* secondary_irts_fr_2_d = (secondary_IRTS_FR_2*)malloc(sizeof(secondary_IRTS_FR_2));
             deserialize_secondary_IRTS_FR_2(payload, secondary_irts_fr_2_d);
 
@@ -153,8 +162,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_fr_2_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1467: {
+    
+        case 1467:
+        {
             secondary_IRTS_FR_3* secondary_irts_fr_3_d = (secondary_IRTS_FR_3*)malloc(sizeof(secondary_IRTS_FR_3));
             deserialize_secondary_IRTS_FR_3(payload, secondary_irts_fr_3_d);
 
@@ -168,8 +178,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_fr_3_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1468: {
+    
+        case 1468:
+        {
             secondary_IRTS_RL_0* secondary_irts_rl_0_d = (secondary_IRTS_RL_0*)malloc(sizeof(secondary_IRTS_RL_0));
             deserialize_secondary_IRTS_RL_0(payload, secondary_irts_rl_0_d);
 
@@ -183,8 +194,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_rl_0_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1469: {
+    
+        case 1469:
+        {
             secondary_IRTS_RL_1* secondary_irts_rl_1_d = (secondary_IRTS_RL_1*)malloc(sizeof(secondary_IRTS_RL_1));
             deserialize_secondary_IRTS_RL_1(payload, secondary_irts_rl_1_d);
 
@@ -198,8 +210,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_rl_1_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1470: {
+    
+        case 1470:
+        {
             secondary_IRTS_RL_2* secondary_irts_rl_2_d = (secondary_IRTS_RL_2*)malloc(sizeof(secondary_IRTS_RL_2));
             deserialize_secondary_IRTS_RL_2(payload, secondary_irts_rl_2_d);
 
@@ -213,8 +226,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_rl_2_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1471: {
+    
+        case 1471:
+        {
             secondary_IRTS_RL_3* secondary_irts_rl_3_d = (secondary_IRTS_RL_3*)malloc(sizeof(secondary_IRTS_RL_3));
             deserialize_secondary_IRTS_RL_3(payload, secondary_irts_rl_3_d);
 
@@ -228,8 +242,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_rl_3_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1472: {
+    
+        case 1472:
+        {
             secondary_IRTS_RR_0* secondary_irts_rr_0_d = (secondary_IRTS_RR_0*)malloc(sizeof(secondary_IRTS_RR_0));
             deserialize_secondary_IRTS_RR_0(payload, secondary_irts_rr_0_d);
 
@@ -243,8 +258,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_rr_0_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1473: {
+    
+        case 1473:
+        {
             secondary_IRTS_RR_1* secondary_irts_rr_1_d = (secondary_IRTS_RR_1*)malloc(sizeof(secondary_IRTS_RR_1));
             deserialize_secondary_IRTS_RR_1(payload, secondary_irts_rr_1_d);
 
@@ -258,8 +274,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_rr_1_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1474: {
+    
+        case 1474:
+        {
             secondary_IRTS_RR_2* secondary_irts_rr_2_d = (secondary_IRTS_RR_2*)malloc(sizeof(secondary_IRTS_RR_2));
             deserialize_secondary_IRTS_RR_2(payload, secondary_irts_rr_2_d);
 
@@ -273,8 +290,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_rr_2_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1475: {
+    
+        case 1475:
+        {
             secondary_IRTS_RR_3* secondary_irts_rr_3_d = (secondary_IRTS_RR_3*)malloc(sizeof(secondary_IRTS_RR_3));
             deserialize_secondary_IRTS_RR_3(payload, secondary_irts_rr_3_d);
 
@@ -288,8 +306,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_irts_rr_3_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1025: {
+    
+        case 1025:
+        {
             secondary_GPS_COORDS* secondary_gps_coords_d = (secondary_GPS_COORDS*)malloc(sizeof(secondary_GPS_COORDS));
             deserialize_secondary_GPS_COORDS(payload, secondary_gps_coords_d);
 
@@ -301,8 +320,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_gps_coords_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1057: {
+    
+        case 1057:
+        {
             secondary_GPS_SPEED* secondary_gps_speed_d = (secondary_GPS_SPEED*)malloc(sizeof(secondary_GPS_SPEED));
             deserialize_secondary_GPS_SPEED(payload, secondary_gps_speed_d);
 
@@ -313,8 +333,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_gps_speed_p.SerializeToString(&serialized);
             return serialized;
         }
-
-        case 1089: {
+    
+        case 1089:
+        {
             secondary_LAP_COUNT* secondary_lap_count_d = (secondary_LAP_COUNT*)malloc(sizeof(secondary_LAP_COUNT));
             deserialize_secondary_LAP_COUNT(payload, secondary_lap_count_d);
 
@@ -326,7 +347,7 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             secondary_lap_count_p.SerializeToString(&serialized);
             return serialized;
         }
-
+    
     }
     throw std::runtime_error("Unknown message id");
 }
