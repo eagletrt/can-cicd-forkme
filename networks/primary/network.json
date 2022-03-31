@@ -102,6 +102,10 @@
                 "UNKNOWN_ERR_30",
                 "BALLAST_OVERLOAD_WARN"
             ]
+        },
+        "Reg_Val": {
+            "type": "bitset",
+            "size": 32
         }
     },
     "messages": [
@@ -644,7 +648,8 @@
             "receiving": [
                 "TLM"
             ],
-            "description": "Send a marker to telemetry"
+            "description": "Send a marker to telemetry",
+            "contents": {}
         },
         {
             "name": "HV_CELLS_VOLTAGE",
@@ -783,9 +788,9 @@
                 20
             ],
             "contents": {
-                "regid": "uint8", // Fixed (?)
-                "LSB": "uint8",
-                "MSB": "uint8"
+                "regid": "uint8",
+                "lsb": "uint8",
+                "msb": "uint8"
             }
         },
         {
@@ -802,7 +807,7 @@
             ],
             "contents": {
                 "reg_id": "uint8",
-                "reg_val": "uint32"
+                "reg_val": "Reg_Val"
             }
         }
     ]
