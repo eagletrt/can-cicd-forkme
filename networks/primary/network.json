@@ -66,6 +66,46 @@
                 "MD",
                 "HND_WHL"
             ]
+        },
+        "Inv_Errors": {
+            "type": "bitset",
+            "items": [
+                "BAD_PARAM",
+                "HW_FAULT",
+                "SAFETY_FAULT",
+                "CAN_TIMEOUT",
+                "ENCODER_ERR",
+                "NO_POWER_VOLTAGE",
+                "HI_MOTOR_TEMP",
+                "HI_DEVICE_TEMP",
+                "OVERVOLTAGE",
+                "OVERCURRENT",
+                "RACEAWAY",
+                "USER_ERR",
+                "UNKNOWN_ERR_12",
+                "UNKNOWN_ERR_13",
+                "CURRENT_ERR",
+                "BALLAST_OVERLOAD",
+                "DEVICE_ID_ERR",
+                "RUN_SIG_FAULT",
+                "UNKNOWN_ERR_19",
+                "UNKNOWN_ERR_20",
+                "POWERVOLTAGE_WARN",
+                "HI_MOTOR_TEMP_WARN",
+                "HI_DEVICE_TEMP_WARN",
+                "VOUT_LIMIT_WARN",
+                "OVERCURRENT_WARN",
+                "RACEAWAY_WARN",
+                "UNKNOWN_ERR_27",
+                "UNKNOWN_ERR_28",
+                "UNKNOWN_ERR_29",
+                "UNKNOWN_ERR_30",
+                "BALLAST_OVERLOAD_WARN"
+            ]
+        },
+        "Reg_Val": {
+            "type": "bitset",
+            "size": 32
         }
     },
     "messages": [
@@ -736,7 +776,7 @@
             }
         },
         {
-            "name": "INV_L_SEND_CMD",
+            "name": "INV_L_SET_TORQUE",
             "fixed_id": 513,
             "sending": [
                 "DAS"
@@ -745,18 +785,16 @@
                 "INVERTER_L"
             ],
             "frequency": [
-                {"SET_TORQUE": 20},
-                {"SET_DRIVE": 100},
-                {"GET_STATUS": 100}
+                20
             ],
             "contents": {
                 "regid": "uint8",
-                "byte_1": "uint8",
-                "byte_2": "uint8"
+                "lsb": "uint8",
+                "msb": "uint8"
             }
         },
         {
-            "name": "INV_L_STATUS",
+            "name": "INV_L_RESPONSE",
             "fixed_id": 385,
             "sending": [
                 "INVERTER_L"
@@ -768,8 +806,8 @@
                 100
             ],
             "contents": {
-                "regid": "uint8",
-                "status": "Inv_Status"
+                "reg_id": "uint8",
+                "reg_val": "Reg_Val"
             }
         }
     ]
