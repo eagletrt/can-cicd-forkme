@@ -373,27 +373,27 @@ size_t deserialize_primary_HV_CELL_BALANCING_STATUS(uint8_t* buffer, primary_HV_
 	memcpy(primary_hv_cell_balancing_status, buffer, sizeof(primary_HV_CELL_BALANCING_STATUS));
     return sizeof(primary_HV_CELL_BALANCING_STATUS);
 }
-/* primary_INV_L_SEND_CMD */
-size_t serialize_primary_INV_L_SEND_CMD(uint8_t* buffer, uint8_t regid, uint8_t byte_1, uint8_t byte_2) {
-    primary_INV_L_SEND_CMD primary_inv_l_send_cmd = { regid, byte_1, byte_2 };
-	// assert(buf_len >= sizeof(primary_INV_L_SEND_CMD));
-	memcpy(buffer, &primary_inv_l_send_cmd, sizeof(primary_INV_L_SEND_CMD));
-    return sizeof(primary_INV_L_SEND_CMD);
+/* primary_INV_L_SET_TORQUE */
+size_t serialize_primary_INV_L_SET_TORQUE(uint8_t* buffer, uint8_t regid, uint8_t lsb, uint8_t msb) {
+    primary_INV_L_SET_TORQUE primary_inv_l_set_torque = { regid, lsb, msb };
+	// assert(buf_len >= sizeof(primary_INV_L_SET_TORQUE));
+	memcpy(buffer, &primary_inv_l_set_torque, sizeof(primary_INV_L_SET_TORQUE));
+    return sizeof(primary_INV_L_SET_TORQUE);
 } 
-size_t deserialize_primary_INV_L_SEND_CMD(uint8_t* buffer, primary_INV_L_SEND_CMD* primary_inv_l_send_cmd) {
-	// assert(buf_len >= sizeof(primary_INV_L_SEND_CMD));
-	memcpy(primary_inv_l_send_cmd, buffer, sizeof(primary_INV_L_SEND_CMD));
-    return sizeof(primary_INV_L_SEND_CMD);
+size_t deserialize_primary_INV_L_SET_TORQUE(uint8_t* buffer, primary_INV_L_SET_TORQUE* primary_inv_l_set_torque) {
+	// assert(buf_len >= sizeof(primary_INV_L_SET_TORQUE));
+	memcpy(primary_inv_l_set_torque, buffer, sizeof(primary_INV_L_SET_TORQUE));
+    return sizeof(primary_INV_L_SET_TORQUE);
 }
-/* primary_INV_L_STATUS */
-size_t serialize_primary_INV_L_STATUS(uint8_t* buffer, uint8_t regid, primary_Inv_Status status) {
-    primary_INV_L_STATUS primary_inv_l_status = { regid, {status[0], status[1], status[2], status[3]} };
-	// assert(buf_len >= sizeof(primary_INV_L_STATUS));
-	memcpy(buffer, &primary_inv_l_status, sizeof(primary_INV_L_STATUS));
-    return sizeof(primary_INV_L_STATUS);
+/* primary_INV_L_RESPONSE */
+size_t serialize_primary_INV_L_RESPONSE(uint8_t* buffer, uint8_t reg_id, primary_Reg_Val reg_val) {
+    primary_INV_L_RESPONSE primary_inv_l_response = { reg_id, {reg_val[0], reg_val[1], reg_val[2], reg_val[3]} };
+	// assert(buf_len >= sizeof(primary_INV_L_RESPONSE));
+	memcpy(buffer, &primary_inv_l_response, sizeof(primary_INV_L_RESPONSE));
+    return sizeof(primary_INV_L_RESPONSE);
 } 
-size_t deserialize_primary_INV_L_STATUS(uint8_t* buffer, primary_INV_L_STATUS* primary_inv_l_status) {
-	// assert(buf_len >= sizeof(primary_INV_L_STATUS));
-	memcpy(primary_inv_l_status, buffer, sizeof(primary_INV_L_STATUS));
-    return sizeof(primary_INV_L_STATUS);
+size_t deserialize_primary_INV_L_RESPONSE(uint8_t* buffer, primary_INV_L_RESPONSE* primary_inv_l_response) {
+	// assert(buf_len >= sizeof(primary_INV_L_RESPONSE));
+	memcpy(primary_inv_l_response, buffer, sizeof(primary_INV_L_RESPONSE));
+    return sizeof(primary_INV_L_RESPONSE);
 }

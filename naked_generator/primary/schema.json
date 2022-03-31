@@ -65,6 +65,46 @@
                 "HND_WHL"
             ]
         },
+        "Inv_Errors": {
+            "type": "bitset",
+            "items": [
+                "BAD_PARAM",
+                "HW_FAULT",
+                "SAFETY_FAULT",
+                "CAN_TIMEOUT",
+                "ENCODER_ERR",
+                "NO_POWER_VOLTAGE",
+                "HI_MOTOR_TEMP",
+                "HI_DEVICE_TEMP",
+                "OVERVOLTAGE",
+                "OVERCURRENT",
+                "RACEAWAY",
+                "USER_ERR",
+                "UNKNOWN_ERR_12",
+                "UNKNOWN_ERR_13",
+                "CURRENT_ERR",
+                "BALLAST_OVERLOAD",
+                "DEVICE_ID_ERR",
+                "RUN_SIG_FAULT",
+                "UNKNOWN_ERR_19",
+                "UNKNOWN_ERR_20",
+                "POWERVOLTAGE_WARN",
+                "HI_MOTOR_TEMP_WARN",
+                "HI_DEVICE_TEMP_WARN",
+                "VOUT_LIMIT_WARN",
+                "OVERCURRENT_WARN",
+                "RACEAWAY_WARN",
+                "UNKNOWN_ERR_27",
+                "UNKNOWN_ERR_28",
+                "UNKNOWN_ERR_29",
+                "UNKNOWN_ERR_30",
+                "BALLAST_OVERLOAD_WARN"
+            ]
+        },
+        "Reg_Val": {
+            "type": "bitset",
+            "size": 32
+        },
         "Tlm_Status_Set": {
             "type": "enum",
             "items": [
@@ -310,14 +350,14 @@
         "HV_CELL_BALANCING_STATUS": {
             "balancing_status": "Balancing_Status"
         },
-        "INV_L_SEND_CMD": {
+        "INV_L_SET_TORQUE": {
             "regid": "uint8",
-            "byte_1": "uint8",
-            "byte_2": "uint8"
+            "lsb": "uint8",
+            "msb": "uint8"
         },
-        "INV_L_STATUS": {
-            "regid": "uint8",
-            "status": "Inv_Status"
+        "INV_L_RESPONSE": {
+            "reg_id": "uint8",
+            "reg_val": "Reg_Val"
         }
     }
 }

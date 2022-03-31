@@ -1,16 +1,20 @@
 #include <string>
-#include <iostream>
 #include "primary.pb.h"
-#ifdef __cplusplus
 extern "C" {
 #include "../../../../naked_generator/primary/c/primary.h"
 }
-#endif
 
 #define BITSET_VALUE(bitset, size) \
     bitset_value=0; \
-    for(size_t i = 0; i < size*8; i++){ \
-        bitset_value += getBit(bitset, i); \
+    short current_value=0; \
+    for(short i = 0; i < size*8; i++){ \
+        current_value += getBit(bitset, i); \
+        if(i%8 == 7){ \
+            short shift_amount = i/8; \
+            current_value <<= 8*shift_amount; \
+            bitset_value += current_value; \
+            current_value = 0; \
+        } \
     }
 
 std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
@@ -464,31 +468,31 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
     
         case 513:
         {
-            primary_INV_L_SEND_CMD* primary_inv_l_send_cmd_d = (primary_INV_L_SEND_CMD*)malloc(sizeof(primary_INV_L_SEND_CMD));
-            deserialize_primary_INV_L_SEND_CMD(payload, primary_inv_l_send_cmd_d);
+            primary_INV_L_SET_TORQUE* primary_inv_l_set_torque_d = (primary_INV_L_SET_TORQUE*)malloc(sizeof(primary_INV_L_SET_TORQUE));
+            deserialize_primary_INV_L_SET_TORQUE(payload, primary_inv_l_set_torque_d);
 
-            primary::InvLSendCmd primary_inv_l_send_cmd_p;
-            primary_inv_l_send_cmd_p.set_regid(static_cast<uint8_t>(primary_inv_l_send_cmd_d->regid));
-            primary_inv_l_send_cmd_p.set_byte_1(static_cast<uint8_t>(primary_inv_l_send_cmd_d->byte_1));
-            primary_inv_l_send_cmd_p.set_byte_2(static_cast<uint8_t>(primary_inv_l_send_cmd_d->byte_2));
+            primary::InvLSetTorque primary_inv_l_set_torque_p;
+            primary_inv_l_set_torque_p.set_regid(static_cast<uint8_t>(primary_inv_l_set_torque_d->regid));
+            primary_inv_l_set_torque_p.set_lsb(static_cast<uint8_t>(primary_inv_l_set_torque_d->lsb));
+            primary_inv_l_set_torque_p.set_msb(static_cast<uint8_t>(primary_inv_l_set_torque_d->msb));
 
             std::string serialized;
-            primary_inv_l_send_cmd_p.SerializeToString(&serialized);
+            primary_inv_l_set_torque_p.SerializeToString(&serialized);
             return serialized;
         }
     
         case 385:
         {
-            primary_INV_L_STATUS* primary_inv_l_status_d = (primary_INV_L_STATUS*)malloc(sizeof(primary_INV_L_STATUS));
-            deserialize_primary_INV_L_STATUS(payload, primary_inv_l_status_d);
+            primary_INV_L_RESPONSE* primary_inv_l_response_d = (primary_INV_L_RESPONSE*)malloc(sizeof(primary_INV_L_RESPONSE));
+            deserialize_primary_INV_L_RESPONSE(payload, primary_inv_l_response_d);
 
-            primary::InvLStatus primary_inv_l_status_p;
-            primary_inv_l_status_p.set_regid(static_cast<uint8_t>(primary_inv_l_status_d->regid));
-            BITSET_VALUE(primary_inv_l_status_d->status, sizeof(primary_inv_l_status_d->status))
-            primary_inv_l_status_p.set_status(bitset_value);
+            primary::InvLResponse primary_inv_l_response_p;
+            primary_inv_l_response_p.set_reg_id(static_cast<uint8_t>(primary_inv_l_response_d->reg_id));
+            BITSET_VALUE(primary_inv_l_response_d->reg_val, sizeof(primary_inv_l_response_d->reg_val))
+            primary_inv_l_response_p.set_reg_val(bitset_value);
 
             std::string serialized;
-            primary_inv_l_status_p.SerializeToString(&serialized);
+            primary_inv_l_response_p.SerializeToString(&serialized);
             return serialized;
         }
     

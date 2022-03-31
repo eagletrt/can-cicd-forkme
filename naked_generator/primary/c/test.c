@@ -487,35 +487,35 @@ int main() {
     puts("SUCCESS!\n");
         
 
-/* primary_INV_L_SEND_CMD */
-    printf("primary_INV_L_SEND_CMD:\n");
-    uint8_t* buffer_primary_inv_l_send_cmd = (uint8_t*)malloc(sizeof(primary_INV_L_SEND_CMD));
+/* primary_INV_L_SET_TORQUE */
+    printf("primary_INV_L_SET_TORQUE:\n");
+    uint8_t* buffer_primary_inv_l_set_torque = (uint8_t*)malloc(sizeof(primary_INV_L_SET_TORQUE));
     
-    primary_INV_L_SEND_CMD primary_inv_l_send_cmd_s = { 165.0, 175.0, 126.0 };
-    serialize_primary_INV_L_SEND_CMD(buffer_primary_inv_l_send_cmd, primary_inv_l_send_cmd_s.regid, primary_inv_l_send_cmd_s.byte_1, primary_inv_l_send_cmd_s.byte_2);
-    printf("\tSerialized\n\t%llu %llu %llu\n", (long long unsigned int)primary_inv_l_send_cmd_s.regid, (long long unsigned int)primary_inv_l_send_cmd_s.byte_1, (long long unsigned int)primary_inv_l_send_cmd_s.byte_2);
+    primary_INV_L_SET_TORQUE primary_inv_l_set_torque_s = { 165.0, 175.0, 126.0 };
+    serialize_primary_INV_L_SET_TORQUE(buffer_primary_inv_l_set_torque, primary_inv_l_set_torque_s.regid, primary_inv_l_set_torque_s.lsb, primary_inv_l_set_torque_s.msb);
+    printf("\tSerialized\n\t%llu %llu %llu\n", (long long unsigned int)primary_inv_l_set_torque_s.regid, (long long unsigned int)primary_inv_l_set_torque_s.lsb, (long long unsigned int)primary_inv_l_set_torque_s.msb);
     
-    primary_INV_L_SEND_CMD* primary_inv_l_send_cmd_d = (primary_INV_L_SEND_CMD*)malloc(sizeof(primary_INV_L_SEND_CMD));
-    deserialize_primary_INV_L_SEND_CMD(buffer_primary_inv_l_send_cmd, primary_inv_l_send_cmd_d);
-    printf("\tDeserialized\n\t%llu %llu %llu\n", (long long unsigned int)primary_inv_l_send_cmd_d->regid, (long long unsigned int)primary_inv_l_send_cmd_d->byte_1, (long long unsigned int)primary_inv_l_send_cmd_d->byte_2);
+    primary_INV_L_SET_TORQUE* primary_inv_l_set_torque_d = (primary_INV_L_SET_TORQUE*)malloc(sizeof(primary_INV_L_SET_TORQUE));
+    deserialize_primary_INV_L_SET_TORQUE(buffer_primary_inv_l_set_torque, primary_inv_l_set_torque_d);
+    printf("\tDeserialized\n\t%llu %llu %llu\n", (long long unsigned int)primary_inv_l_set_torque_d->regid, (long long unsigned int)primary_inv_l_set_torque_d->lsb, (long long unsigned int)primary_inv_l_set_torque_d->msb);
     
-    assert(memcmp(&primary_inv_l_send_cmd_s, primary_inv_l_send_cmd_d, sizeof(primary_INV_L_SEND_CMD)) == 0);
+    assert(memcmp(&primary_inv_l_set_torque_s, primary_inv_l_set_torque_d, sizeof(primary_INV_L_SET_TORQUE)) == 0);
     puts("SUCCESS!\n");
         
 
-/* primary_INV_L_STATUS */
-    printf("primary_INV_L_STATUS:\n");
-    uint8_t* buffer_primary_inv_l_status = (uint8_t*)malloc(sizeof(primary_INV_L_STATUS));
+/* primary_INV_L_RESPONSE */
+    printf("primary_INV_L_RESPONSE:\n");
+    uint8_t* buffer_primary_inv_l_response = (uint8_t*)malloc(sizeof(primary_INV_L_RESPONSE));
     
-    primary_INV_L_STATUS primary_inv_l_status_s = { 247.0, {234, 232, 140, 17} };
-    serialize_primary_INV_L_STATUS(buffer_primary_inv_l_status, primary_inv_l_status_s.regid, primary_inv_l_status_s.status);
-    printf("\tSerialized\n\t%llu %hhx.%hhx.%hhx.%hhx\n", (long long unsigned int)primary_inv_l_status_s.regid, (long long unsigned int)primary_inv_l_status_s.status[0], (long long unsigned int)primary_inv_l_status_s.status[1], (long long unsigned int)primary_inv_l_status_s.status[2], (long long unsigned int)primary_inv_l_status_s.status[3]);
+    primary_INV_L_RESPONSE primary_inv_l_response_s = { 247.0, {234, 232, 140, 17} };
+    serialize_primary_INV_L_RESPONSE(buffer_primary_inv_l_response, primary_inv_l_response_s.reg_id, primary_inv_l_response_s.reg_val);
+    printf("\tSerialized\n\t%llu %hhx.%hhx.%hhx.%hhx\n", (long long unsigned int)primary_inv_l_response_s.reg_id, (long long unsigned int)primary_inv_l_response_s.reg_val[0], (long long unsigned int)primary_inv_l_response_s.reg_val[1], (long long unsigned int)primary_inv_l_response_s.reg_val[2], (long long unsigned int)primary_inv_l_response_s.reg_val[3]);
     
-    primary_INV_L_STATUS* primary_inv_l_status_d = (primary_INV_L_STATUS*)malloc(sizeof(primary_INV_L_STATUS));
-    deserialize_primary_INV_L_STATUS(buffer_primary_inv_l_status, primary_inv_l_status_d);
-    printf("\tDeserialized\n\t%llu %hhx.%hhx.%hhx.%hhx\n", (long long unsigned int)primary_inv_l_status_d->regid, (long long unsigned int)primary_inv_l_status_d->status[0], (long long unsigned int)primary_inv_l_status_d->status[1], (long long unsigned int)primary_inv_l_status_d->status[2], (long long unsigned int)primary_inv_l_status_d->status[3]);
+    primary_INV_L_RESPONSE* primary_inv_l_response_d = (primary_INV_L_RESPONSE*)malloc(sizeof(primary_INV_L_RESPONSE));
+    deserialize_primary_INV_L_RESPONSE(buffer_primary_inv_l_response, primary_inv_l_response_d);
+    printf("\tDeserialized\n\t%llu %hhx.%hhx.%hhx.%hhx\n", (long long unsigned int)primary_inv_l_response_d->reg_id, (long long unsigned int)primary_inv_l_response_d->reg_val[0], (long long unsigned int)primary_inv_l_response_d->reg_val[1], (long long unsigned int)primary_inv_l_response_d->reg_val[2], (long long unsigned int)primary_inv_l_response_d->reg_val[3]);
     
-    assert(memcmp(&primary_inv_l_status_s, primary_inv_l_status_d, sizeof(primary_INV_L_STATUS)) == 0);
+    assert(memcmp(&primary_inv_l_response_s, primary_inv_l_response_d, sizeof(primary_INV_L_RESPONSE)) == 0);
     puts("SUCCESS!\n");
         
 }

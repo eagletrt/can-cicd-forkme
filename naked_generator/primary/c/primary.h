@@ -130,6 +130,43 @@ typedef uint8_t primary_Inv_Status[4]; // bitset
 #define primary_Inv_Status_MD 30
 #define primary_Inv_Status_HND_WHL 31
 
+typedef uint8_t primary_Inv_Errors[4]; // bitset
+#define primary_Inv_Errors_default { 0, 0, 0, 0 } // bitset filled with zeros
+#define primary_Inv_Errors_BAD_PARAM 0
+#define primary_Inv_Errors_HW_FAULT 1
+#define primary_Inv_Errors_SAFETY_FAULT 2
+#define primary_Inv_Errors_CAN_TIMEOUT 3
+#define primary_Inv_Errors_ENCODER_ERR 4
+#define primary_Inv_Errors_NO_POWER_VOLTAGE 5
+#define primary_Inv_Errors_HI_MOTOR_TEMP 6
+#define primary_Inv_Errors_HI_DEVICE_TEMP 7
+#define primary_Inv_Errors_OVERVOLTAGE 8
+#define primary_Inv_Errors_OVERCURRENT 9
+#define primary_Inv_Errors_RACEAWAY 10
+#define primary_Inv_Errors_USER_ERR 11
+#define primary_Inv_Errors_UNKNOWN_ERR_12 12
+#define primary_Inv_Errors_UNKNOWN_ERR_13 13
+#define primary_Inv_Errors_CURRENT_ERR 14
+#define primary_Inv_Errors_BALLAST_OVERLOAD 15
+#define primary_Inv_Errors_DEVICE_ID_ERR 16
+#define primary_Inv_Errors_RUN_SIG_FAULT 17
+#define primary_Inv_Errors_UNKNOWN_ERR_19 18
+#define primary_Inv_Errors_UNKNOWN_ERR_20 19
+#define primary_Inv_Errors_POWERVOLTAGE_WARN 20
+#define primary_Inv_Errors_HI_MOTOR_TEMP_WARN 21
+#define primary_Inv_Errors_HI_DEVICE_TEMP_WARN 22
+#define primary_Inv_Errors_VOUT_LIMIT_WARN 23
+#define primary_Inv_Errors_OVERCURRENT_WARN 24
+#define primary_Inv_Errors_RACEAWAY_WARN 25
+#define primary_Inv_Errors_UNKNOWN_ERR_27 26
+#define primary_Inv_Errors_UNKNOWN_ERR_28 27
+#define primary_Inv_Errors_UNKNOWN_ERR_29 28
+#define primary_Inv_Errors_UNKNOWN_ERR_30 29
+#define primary_Inv_Errors_BALLAST_OVERLOAD_WARN 30
+
+typedef uint8_t primary_Reg_Val[4]; // bitset
+#define primary_Reg_Val_default { 0, 0, 0, 0 } // bitset filled with zeros
+
 typedef enum __is_packed {
     primary_Tlm_Status_Set_OFF = 0,
     primary_Tlm_Status_Set_ON = 1,
@@ -605,34 +642,32 @@ static_assert(sizeof(primary_HV_CELL_BALANCING_STATUS) == 1, "struct size mismat
 size_t serialize_primary_HV_CELL_BALANCING_STATUS(uint8_t* buffer, primary_Balancing_Status balancing_status);
 size_t deserialize_primary_HV_CELL_BALANCING_STATUS(uint8_t* buffer, primary_HV_CELL_BALANCING_STATUS* primary_hv_cell_balancing_status);
 
-/* primary_INV_L_SEND_CMD */
+/* primary_INV_L_SET_TORQUE */
     
-# define PRIMARY_INV_L_SEND_CMD_SET_TORQUE_MS 20
-# define PRIMARY_INV_L_SEND_CMD_SET_DRIVE_MS 100
-# define PRIMARY_INV_L_SEND_CMD_GET_STATUS_MS 100
+# define PRIMARY_INV_L_SET_TORQUE_MS 20
     
 typedef struct __is_packed {
     uint8_t regid;
-    uint8_t byte_1;
-    uint8_t byte_2;
-} primary_INV_L_SEND_CMD;
-static_assert(sizeof(primary_INV_L_SEND_CMD) == 3, "struct size mismatch");
+    uint8_t lsb;
+    uint8_t msb;
+} primary_INV_L_SET_TORQUE;
+static_assert(sizeof(primary_INV_L_SET_TORQUE) == 3, "struct size mismatch");
     
-size_t serialize_primary_INV_L_SEND_CMD(uint8_t* buffer, uint8_t regid, uint8_t byte_1, uint8_t byte_2);
-size_t deserialize_primary_INV_L_SEND_CMD(uint8_t* buffer, primary_INV_L_SEND_CMD* primary_inv_l_send_cmd);
+size_t serialize_primary_INV_L_SET_TORQUE(uint8_t* buffer, uint8_t regid, uint8_t lsb, uint8_t msb);
+size_t deserialize_primary_INV_L_SET_TORQUE(uint8_t* buffer, primary_INV_L_SET_TORQUE* primary_inv_l_set_torque);
 
-/* primary_INV_L_STATUS */
+/* primary_INV_L_RESPONSE */
     
-# define PRIMARY_INV_L_STATUS_MS 100
+# define PRIMARY_INV_L_RESPONSE_MS 100
     
 typedef struct __is_packed {
-    uint8_t regid;
-    primary_Inv_Status status;
-} primary_INV_L_STATUS;
-static_assert(sizeof(primary_INV_L_STATUS) == 5, "struct size mismatch");
+    uint8_t reg_id;
+    primary_Reg_Val reg_val;
+} primary_INV_L_RESPONSE;
+static_assert(sizeof(primary_INV_L_RESPONSE) == 5, "struct size mismatch");
     
-size_t serialize_primary_INV_L_STATUS(uint8_t* buffer, uint8_t regid, primary_Inv_Status status);
-size_t deserialize_primary_INV_L_STATUS(uint8_t* buffer, primary_INV_L_STATUS* primary_inv_l_status);
+size_t serialize_primary_INV_L_RESPONSE(uint8_t* buffer, uint8_t reg_id, primary_Reg_Val reg_val);
+size_t deserialize_primary_INV_L_RESPONSE(uint8_t* buffer, primary_INV_L_RESPONSE* primary_inv_l_response);
 #endif
 
 #ifdef __cplusplus

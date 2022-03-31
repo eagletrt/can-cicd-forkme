@@ -57,6 +57,41 @@ class Inv_Status(IntFlag):
     RFE_PULSE = 536870912
     MD = 1073741824
     HND_WHL = 2147483648
+
+class Inv_Errors(IntFlag):
+    BAD_PARAM = 1
+    HW_FAULT = 2
+    SAFETY_FAULT = 4
+    CAN_TIMEOUT = 8
+    ENCODER_ERR = 16
+    NO_POWER_VOLTAGE = 32
+    HI_MOTOR_TEMP = 64
+    HI_DEVICE_TEMP = 128
+    OVERVOLTAGE = 256
+    OVERCURRENT = 512
+    RACEAWAY = 1024
+    USER_ERR = 2048
+    UNKNOWN_ERR_12 = 4096
+    UNKNOWN_ERR_13 = 8192
+    CURRENT_ERR = 16384
+    BALLAST_OVERLOAD = 32768
+    DEVICE_ID_ERR = 65536
+    RUN_SIG_FAULT = 131072
+    UNKNOWN_ERR_19 = 262144
+    UNKNOWN_ERR_20 = 524288
+    POWERVOLTAGE_WARN = 1048576
+    HI_MOTOR_TEMP_WARN = 2097152
+    HI_DEVICE_TEMP_WARN = 4194304
+    VOUT_LIMIT_WARN = 8388608
+    OVERCURRENT_WARN = 16777216
+    RACEAWAY_WARN = 33554432
+    UNKNOWN_ERR_27 = 67108864
+    UNKNOWN_ERR_28 = 134217728
+    UNKNOWN_ERR_29 = 268435456
+    UNKNOWN_ERR_30 = 536870912
+    BALLAST_OVERLOAD_WARN = 1073741824
+
+class Reg_Val(IntFlag):
     
 class Tlm_Status_Set(IntEnum):
     OFF = 0
@@ -537,32 +572,30 @@ class HvCellBalancingStatus:
     def deserialize(buffer: bytes) -> "HvCellBalancingStatus.struct":
         return HvCellBalancingStatus.struct._make(unpack(HvCellBalancingStatus.schema, buffer))
 
-# InvLSendCmd
-class InvLSendCmd:
-    struct = namedtuple("InvLSendCmd_struct", "regid byte_1 byte_2", rename=True)
+# InvLSetTorque
+class InvLSetTorque:
+    struct = namedtuple("InvLSetTorque_struct", "regid lsb msb", rename=True)
     schema = "<bbb"
-    frequency_set_torque_ms = 20
-    frequency_set_drive_ms = 100
-    frequency_get_status_ms = 100
+    frequency_ms = 20
     
     @staticmethod
-    def serialize(regid, byte_1, byte_2) -> bytes:
-        return pack(InvLSendCmd.schema, regid, byte_1, byte_2)
+    def serialize(regid, lsb, msb) -> bytes:
+        return pack(InvLSetTorque.schema, regid, lsb, msb)
     
     @staticmethod
-    def deserialize(buffer: bytes) -> "InvLSendCmd.struct":
-        return InvLSendCmd.struct._make(unpack(InvLSendCmd.schema, buffer))
+    def deserialize(buffer: bytes) -> "InvLSetTorque.struct":
+        return InvLSetTorque.struct._make(unpack(InvLSetTorque.schema, buffer))
 
-# InvLStatus
-class InvLStatus:
-    struct = namedtuple("InvLStatus_struct", "regid status", rename=True)
+# InvLResponse
+class InvLResponse:
+    struct = namedtuple("InvLResponse_struct", "reg_id reg_val", rename=True)
     schema = "<bi"
     frequency_ms = 100
     
     @staticmethod
-    def serialize(regid, status) -> bytes:
-        return pack(InvLStatus.schema, regid, status)
+    def serialize(reg_id, reg_val) -> bytes:
+        return pack(InvLResponse.schema, reg_id, reg_val)
     
     @staticmethod
-    def deserialize(buffer: bytes) -> "InvLStatus.struct":
-        return InvLStatus.struct._make(unpack(InvLStatus.schema, buffer))
+    def deserialize(buffer: bytes) -> "InvLResponse.struct":
+        return InvLResponse.struct._make(unpack(InvLResponse.schema, buffer))

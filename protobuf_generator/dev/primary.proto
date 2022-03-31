@@ -249,13 +249,13 @@ message HvCellBalancingStatus {
   BalancingStatusType balancing_status = 1;
 }
 
-message InvLSendCmd {
+message InvLSetTorque {
   uint32 regid = 1;
-  uint32 byte_1 = 2;
-  uint32 byte_2 = 3;
+  uint32 lsb = 2;
+  uint32 msb = 3;
 }
 
-message InvLStatus {
-  uint32 regid = 1;
-  uint32 status = 2;
+message InvLResponse {
+  uint32 reg_id = 1;
+  uint32 reg_val = 2;
 }

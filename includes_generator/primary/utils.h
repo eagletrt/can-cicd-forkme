@@ -102,10 +102,10 @@ void primary_msgname_from_id(uint32_t msg_id, char buffer[static 26]) {
             strcpy(buffer, "SPEED");
             break;
         case 513:
-            strcpy(buffer, "INV_L_SEND_CMD");
+            strcpy(buffer, "INV_L_SET_TORQUE");
             break;
         case 385:
-            strcpy(buffer, "INV_L_STATUS");
+            strcpy(buffer, "INV_L_RESPONSE");
             break;
         default:
             strcpy(buffer, ""); // Unknown message

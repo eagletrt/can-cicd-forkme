@@ -441,34 +441,32 @@ function deserializePrimaryHvCellBalancingStatus(bytes) {
     }
 }
 
-const PrimaryInvLSendCmdSetTorque_ms = 20
-const PrimaryInvLSendCmdSetDrive_ms = 100
-const PrimaryInvLSendCmdGetStatus_ms = 100
-function serializePrimaryInvLSendCmd(data) {
+const PrimaryInvLSetTorque_ms = 20
+function serializePrimaryInvLSetTorque(data) {
     return Uint8Array.from([
         ...byteify.serializeUint8(data.regid),
-        ...byteify.serializeUint8(data.byte_1),
-        ...byteify.serializeUint8(data.byte_2),
+        ...byteify.serializeUint8(data.lsb),
+        ...byteify.serializeUint8(data.msb),
     ]);
 }
-function deserializePrimaryInvLSendCmd(bytes) {
+function deserializePrimaryInvLSetTorque(bytes) {
     return {
         regid: byteify.deserializeUint8(bytes.slice(0, 1)),
-        byte_1: byteify.deserializeUint8(bytes.slice(1, 2)),
-        byte_2: byteify.deserializeUint8(bytes.slice(2, 3)),
+        lsb: byteify.deserializeUint8(bytes.slice(1, 2)),
+        msb: byteify.deserializeUint8(bytes.slice(2, 3)),
     }
 }
 
-const PrimaryInvLStatus_ms = 100
-function serializePrimaryInvLStatus(data) {
+const PrimaryInvLResponse_ms = 100
+function serializePrimaryInvLResponse(data) {
     return Uint8Array.from([
-        ...byteify.serializeUint8(data.regid),
-        ...byteify.serializeInt8(data.status),
+        ...byteify.serializeUint8(data.reg_id),
+        ...byteify.serializeInt8(data.reg_val),
     ]);
 }
-function deserializePrimaryInvLStatus(bytes) {
+function deserializePrimaryInvLResponse(bytes) {
     return {
-        regid: byteify.deserializeUint8(bytes.slice(0, 1)),
-        status: byteify.deserializeInt8(bytes.slice(1, 5)),
+        reg_id: byteify.deserializeUint8(bytes.slice(0, 1)),
+        reg_val: byteify.deserializeInt8(bytes.slice(1, 5)),
     }
 }

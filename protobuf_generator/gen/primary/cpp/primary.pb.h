@@ -95,12 +95,12 @@ extern HvVersionDefaultTypeInternal _HvVersion_default_instance_;
 class HvVoltage;
 struct HvVoltageDefaultTypeInternal;
 extern HvVoltageDefaultTypeInternal _HvVoltage_default_instance_;
-class InvLSendCmd;
-struct InvLSendCmdDefaultTypeInternal;
-extern InvLSendCmdDefaultTypeInternal _InvLSendCmd_default_instance_;
-class InvLStatus;
-struct InvLStatusDefaultTypeInternal;
-extern InvLStatusDefaultTypeInternal _InvLStatus_default_instance_;
+class InvLResponse;
+struct InvLResponseDefaultTypeInternal;
+extern InvLResponseDefaultTypeInternal _InvLResponse_default_instance_;
+class InvLSetTorque;
+struct InvLSetTorqueDefaultTypeInternal;
+extern InvLSetTorqueDefaultTypeInternal _InvLSetTorque_default_instance_;
 class LvCurrent;
 struct LvCurrentDefaultTypeInternal;
 extern LvCurrentDefaultTypeInternal _LvCurrent_default_instance_;
@@ -170,8 +170,8 @@ template<> ::primary::HvErrors* Arena::CreateMaybeMessage<::primary::HvErrors>(A
 template<> ::primary::HvTemp* Arena::CreateMaybeMessage<::primary::HvTemp>(Arena*);
 template<> ::primary::HvVersion* Arena::CreateMaybeMessage<::primary::HvVersion>(Arena*);
 template<> ::primary::HvVoltage* Arena::CreateMaybeMessage<::primary::HvVoltage>(Arena*);
-template<> ::primary::InvLSendCmd* Arena::CreateMaybeMessage<::primary::InvLSendCmd>(Arena*);
-template<> ::primary::InvLStatus* Arena::CreateMaybeMessage<::primary::InvLStatus>(Arena*);
+template<> ::primary::InvLResponse* Arena::CreateMaybeMessage<::primary::InvLResponse>(Arena*);
+template<> ::primary::InvLSetTorque* Arena::CreateMaybeMessage<::primary::InvLSetTorque>(Arena*);
 template<> ::primary::LvCurrent* Arena::CreateMaybeMessage<::primary::LvCurrent>(Arena*);
 template<> ::primary::LvTemperature* Arena::CreateMaybeMessage<::primary::LvTemperature>(Arena*);
 template<> ::primary::LvVersion* Arena::CreateMaybeMessage<::primary::LvVersion>(Arena*);
@@ -5517,24 +5517,24 @@ class HvCellBalancingStatus final :
 };
 // -------------------------------------------------------------------
 
-class InvLSendCmd final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:primary.InvLSendCmd) */ {
+class InvLSetTorque final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:primary.InvLSetTorque) */ {
  public:
-  inline InvLSendCmd() : InvLSendCmd(nullptr) {}
-  ~InvLSendCmd() override;
-  explicit constexpr InvLSendCmd(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline InvLSetTorque() : InvLSetTorque(nullptr) {}
+  ~InvLSetTorque() override;
+  explicit constexpr InvLSetTorque(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  InvLSendCmd(const InvLSendCmd& from);
-  InvLSendCmd(InvLSendCmd&& from) noexcept
-    : InvLSendCmd() {
+  InvLSetTorque(const InvLSetTorque& from);
+  InvLSetTorque(InvLSetTorque&& from) noexcept
+    : InvLSetTorque() {
     *this = ::std::move(from);
   }
 
-  inline InvLSendCmd& operator=(const InvLSendCmd& from) {
+  inline InvLSetTorque& operator=(const InvLSetTorque& from) {
     CopyFrom(from);
     return *this;
   }
-  inline InvLSendCmd& operator=(InvLSendCmd&& from) noexcept {
+  inline InvLSetTorque& operator=(InvLSetTorque&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -5557,20 +5557,20 @@ class InvLSendCmd final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const InvLSendCmd& default_instance() {
+  static const InvLSetTorque& default_instance() {
     return *internal_default_instance();
   }
-  static inline const InvLSendCmd* internal_default_instance() {
-    return reinterpret_cast<const InvLSendCmd*>(
-               &_InvLSendCmd_default_instance_);
+  static inline const InvLSetTorque* internal_default_instance() {
+    return reinterpret_cast<const InvLSetTorque*>(
+               &_InvLSetTorque_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     31;
 
-  friend void swap(InvLSendCmd& a, InvLSendCmd& b) {
+  friend void swap(InvLSetTorque& a, InvLSetTorque& b) {
     a.Swap(&b);
   }
-  inline void Swap(InvLSendCmd* other) {
+  inline void Swap(InvLSetTorque* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -5583,7 +5583,7 @@ class InvLSendCmd final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(InvLSendCmd* other) {
+  void UnsafeArenaSwap(InvLSetTorque* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -5591,13 +5591,13 @@ class InvLSendCmd final :
 
   // implements Message ----------------------------------------------
 
-  InvLSendCmd* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<InvLSendCmd>(arena);
+  InvLSetTorque* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<InvLSetTorque>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const InvLSendCmd& from);
+  void CopyFrom(const InvLSetTorque& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const InvLSendCmd& from);
+  void MergeFrom(const InvLSetTorque& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -5614,15 +5614,15 @@ class InvLSendCmd final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(InvLSendCmd* other);
+  void InternalSwap(InvLSetTorque* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "primary.InvLSendCmd";
+    return "primary.InvLSetTorque";
   }
   protected:
-  explicit InvLSendCmd(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit InvLSetTorque(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -5640,8 +5640,8 @@ class InvLSendCmd final :
 
   enum : int {
     kRegidFieldNumber = 1,
-    kByte1FieldNumber = 2,
-    kByte2FieldNumber = 3,
+    kLsbFieldNumber = 2,
+    kMsbFieldNumber = 3,
   };
   // uint32 regid = 1;
   void clear_regid();
@@ -5652,25 +5652,25 @@ class InvLSendCmd final :
   void _internal_set_regid(uint32_t value);
   public:
 
-  // uint32 byte_1 = 2;
-  void clear_byte_1();
-  uint32_t byte_1() const;
-  void set_byte_1(uint32_t value);
+  // uint32 lsb = 2;
+  void clear_lsb();
+  uint32_t lsb() const;
+  void set_lsb(uint32_t value);
   private:
-  uint32_t _internal_byte_1() const;
-  void _internal_set_byte_1(uint32_t value);
+  uint32_t _internal_lsb() const;
+  void _internal_set_lsb(uint32_t value);
   public:
 
-  // uint32 byte_2 = 3;
-  void clear_byte_2();
-  uint32_t byte_2() const;
-  void set_byte_2(uint32_t value);
+  // uint32 msb = 3;
+  void clear_msb();
+  uint32_t msb() const;
+  void set_msb(uint32_t value);
   private:
-  uint32_t _internal_byte_2() const;
-  void _internal_set_byte_2(uint32_t value);
+  uint32_t _internal_msb() const;
+  void _internal_set_msb(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:primary.InvLSendCmd)
+  // @@protoc_insertion_point(class_scope:primary.InvLSetTorque)
  private:
   class _Internal;
 
@@ -5678,31 +5678,31 @@ class InvLSendCmd final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   uint32_t regid_;
-  uint32_t byte_1_;
-  uint32_t byte_2_;
+  uint32_t lsb_;
+  uint32_t msb_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_primary_2eproto;
 };
 // -------------------------------------------------------------------
 
-class InvLStatus final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:primary.InvLStatus) */ {
+class InvLResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:primary.InvLResponse) */ {
  public:
-  inline InvLStatus() : InvLStatus(nullptr) {}
-  ~InvLStatus() override;
-  explicit constexpr InvLStatus(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline InvLResponse() : InvLResponse(nullptr) {}
+  ~InvLResponse() override;
+  explicit constexpr InvLResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  InvLStatus(const InvLStatus& from);
-  InvLStatus(InvLStatus&& from) noexcept
-    : InvLStatus() {
+  InvLResponse(const InvLResponse& from);
+  InvLResponse(InvLResponse&& from) noexcept
+    : InvLResponse() {
     *this = ::std::move(from);
   }
 
-  inline InvLStatus& operator=(const InvLStatus& from) {
+  inline InvLResponse& operator=(const InvLResponse& from) {
     CopyFrom(from);
     return *this;
   }
-  inline InvLStatus& operator=(InvLStatus&& from) noexcept {
+  inline InvLResponse& operator=(InvLResponse&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -5725,20 +5725,20 @@ class InvLStatus final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const InvLStatus& default_instance() {
+  static const InvLResponse& default_instance() {
     return *internal_default_instance();
   }
-  static inline const InvLStatus* internal_default_instance() {
-    return reinterpret_cast<const InvLStatus*>(
-               &_InvLStatus_default_instance_);
+  static inline const InvLResponse* internal_default_instance() {
+    return reinterpret_cast<const InvLResponse*>(
+               &_InvLResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     32;
 
-  friend void swap(InvLStatus& a, InvLStatus& b) {
+  friend void swap(InvLResponse& a, InvLResponse& b) {
     a.Swap(&b);
   }
-  inline void Swap(InvLStatus* other) {
+  inline void Swap(InvLResponse* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -5751,7 +5751,7 @@ class InvLStatus final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(InvLStatus* other) {
+  void UnsafeArenaSwap(InvLResponse* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -5759,13 +5759,13 @@ class InvLStatus final :
 
   // implements Message ----------------------------------------------
 
-  InvLStatus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<InvLStatus>(arena);
+  InvLResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<InvLResponse>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const InvLStatus& from);
+  void CopyFrom(const InvLResponse& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const InvLStatus& from);
+  void MergeFrom(const InvLResponse& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -5782,15 +5782,15 @@ class InvLStatus final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(InvLStatus* other);
+  void InternalSwap(InvLResponse* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "primary.InvLStatus";
+    return "primary.InvLResponse";
   }
   protected:
-  explicit InvLStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit InvLResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -5807,36 +5807,36 @@ class InvLStatus final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRegidFieldNumber = 1,
-    kStatusFieldNumber = 2,
+    kRegIdFieldNumber = 1,
+    kRegValFieldNumber = 2,
   };
-  // uint32 regid = 1;
-  void clear_regid();
-  uint32_t regid() const;
-  void set_regid(uint32_t value);
+  // uint32 reg_id = 1;
+  void clear_reg_id();
+  uint32_t reg_id() const;
+  void set_reg_id(uint32_t value);
   private:
-  uint32_t _internal_regid() const;
-  void _internal_set_regid(uint32_t value);
+  uint32_t _internal_reg_id() const;
+  void _internal_set_reg_id(uint32_t value);
   public:
 
-  // uint32 status = 2;
-  void clear_status();
-  uint32_t status() const;
-  void set_status(uint32_t value);
+  // uint32 reg_val = 2;
+  void clear_reg_val();
+  uint32_t reg_val() const;
+  void set_reg_val(uint32_t value);
   private:
-  uint32_t _internal_status() const;
-  void _internal_set_status(uint32_t value);
+  uint32_t _internal_reg_val() const;
+  void _internal_set_reg_val(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:primary.InvLStatus)
+  // @@protoc_insertion_point(class_scope:primary.InvLResponse)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t regid_;
-  uint32_t status_;
+  uint32_t reg_id_;
+  uint32_t reg_val_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_primary_2eproto;
 };
@@ -7413,110 +7413,110 @@ inline void HvCellBalancingStatus::set_balancing_status(::primary::BalancingStat
 
 // -------------------------------------------------------------------
 
-// InvLSendCmd
+// InvLSetTorque
 
 // uint32 regid = 1;
-inline void InvLSendCmd::clear_regid() {
+inline void InvLSetTorque::clear_regid() {
   regid_ = 0u;
 }
-inline uint32_t InvLSendCmd::_internal_regid() const {
+inline uint32_t InvLSetTorque::_internal_regid() const {
   return regid_;
 }
-inline uint32_t InvLSendCmd::regid() const {
-  // @@protoc_insertion_point(field_get:primary.InvLSendCmd.regid)
+inline uint32_t InvLSetTorque::regid() const {
+  // @@protoc_insertion_point(field_get:primary.InvLSetTorque.regid)
   return _internal_regid();
 }
-inline void InvLSendCmd::_internal_set_regid(uint32_t value) {
+inline void InvLSetTorque::_internal_set_regid(uint32_t value) {
   
   regid_ = value;
 }
-inline void InvLSendCmd::set_regid(uint32_t value) {
+inline void InvLSetTorque::set_regid(uint32_t value) {
   _internal_set_regid(value);
-  // @@protoc_insertion_point(field_set:primary.InvLSendCmd.regid)
+  // @@protoc_insertion_point(field_set:primary.InvLSetTorque.regid)
 }
 
-// uint32 byte_1 = 2;
-inline void InvLSendCmd::clear_byte_1() {
-  byte_1_ = 0u;
+// uint32 lsb = 2;
+inline void InvLSetTorque::clear_lsb() {
+  lsb_ = 0u;
 }
-inline uint32_t InvLSendCmd::_internal_byte_1() const {
-  return byte_1_;
+inline uint32_t InvLSetTorque::_internal_lsb() const {
+  return lsb_;
 }
-inline uint32_t InvLSendCmd::byte_1() const {
-  // @@protoc_insertion_point(field_get:primary.InvLSendCmd.byte_1)
-  return _internal_byte_1();
+inline uint32_t InvLSetTorque::lsb() const {
+  // @@protoc_insertion_point(field_get:primary.InvLSetTorque.lsb)
+  return _internal_lsb();
 }
-inline void InvLSendCmd::_internal_set_byte_1(uint32_t value) {
+inline void InvLSetTorque::_internal_set_lsb(uint32_t value) {
   
-  byte_1_ = value;
+  lsb_ = value;
 }
-inline void InvLSendCmd::set_byte_1(uint32_t value) {
-  _internal_set_byte_1(value);
-  // @@protoc_insertion_point(field_set:primary.InvLSendCmd.byte_1)
+inline void InvLSetTorque::set_lsb(uint32_t value) {
+  _internal_set_lsb(value);
+  // @@protoc_insertion_point(field_set:primary.InvLSetTorque.lsb)
 }
 
-// uint32 byte_2 = 3;
-inline void InvLSendCmd::clear_byte_2() {
-  byte_2_ = 0u;
+// uint32 msb = 3;
+inline void InvLSetTorque::clear_msb() {
+  msb_ = 0u;
 }
-inline uint32_t InvLSendCmd::_internal_byte_2() const {
-  return byte_2_;
+inline uint32_t InvLSetTorque::_internal_msb() const {
+  return msb_;
 }
-inline uint32_t InvLSendCmd::byte_2() const {
-  // @@protoc_insertion_point(field_get:primary.InvLSendCmd.byte_2)
-  return _internal_byte_2();
+inline uint32_t InvLSetTorque::msb() const {
+  // @@protoc_insertion_point(field_get:primary.InvLSetTorque.msb)
+  return _internal_msb();
 }
-inline void InvLSendCmd::_internal_set_byte_2(uint32_t value) {
+inline void InvLSetTorque::_internal_set_msb(uint32_t value) {
   
-  byte_2_ = value;
+  msb_ = value;
 }
-inline void InvLSendCmd::set_byte_2(uint32_t value) {
-  _internal_set_byte_2(value);
-  // @@protoc_insertion_point(field_set:primary.InvLSendCmd.byte_2)
+inline void InvLSetTorque::set_msb(uint32_t value) {
+  _internal_set_msb(value);
+  // @@protoc_insertion_point(field_set:primary.InvLSetTorque.msb)
 }
 
 // -------------------------------------------------------------------
 
-// InvLStatus
+// InvLResponse
 
-// uint32 regid = 1;
-inline void InvLStatus::clear_regid() {
-  regid_ = 0u;
+// uint32 reg_id = 1;
+inline void InvLResponse::clear_reg_id() {
+  reg_id_ = 0u;
 }
-inline uint32_t InvLStatus::_internal_regid() const {
-  return regid_;
+inline uint32_t InvLResponse::_internal_reg_id() const {
+  return reg_id_;
 }
-inline uint32_t InvLStatus::regid() const {
-  // @@protoc_insertion_point(field_get:primary.InvLStatus.regid)
-  return _internal_regid();
+inline uint32_t InvLResponse::reg_id() const {
+  // @@protoc_insertion_point(field_get:primary.InvLResponse.reg_id)
+  return _internal_reg_id();
 }
-inline void InvLStatus::_internal_set_regid(uint32_t value) {
+inline void InvLResponse::_internal_set_reg_id(uint32_t value) {
   
-  regid_ = value;
+  reg_id_ = value;
 }
-inline void InvLStatus::set_regid(uint32_t value) {
-  _internal_set_regid(value);
-  // @@protoc_insertion_point(field_set:primary.InvLStatus.regid)
+inline void InvLResponse::set_reg_id(uint32_t value) {
+  _internal_set_reg_id(value);
+  // @@protoc_insertion_point(field_set:primary.InvLResponse.reg_id)
 }
 
-// uint32 status = 2;
-inline void InvLStatus::clear_status() {
-  status_ = 0u;
+// uint32 reg_val = 2;
+inline void InvLResponse::clear_reg_val() {
+  reg_val_ = 0u;
 }
-inline uint32_t InvLStatus::_internal_status() const {
-  return status_;
+inline uint32_t InvLResponse::_internal_reg_val() const {
+  return reg_val_;
 }
-inline uint32_t InvLStatus::status() const {
-  // @@protoc_insertion_point(field_get:primary.InvLStatus.status)
-  return _internal_status();
+inline uint32_t InvLResponse::reg_val() const {
+  // @@protoc_insertion_point(field_get:primary.InvLResponse.reg_val)
+  return _internal_reg_val();
 }
-inline void InvLStatus::_internal_set_status(uint32_t value) {
+inline void InvLResponse::_internal_set_reg_val(uint32_t value) {
   
-  status_ = value;
+  reg_val_ = value;
 }
-inline void InvLStatus::set_status(uint32_t value) {
-  _internal_set_status(value);
-  // @@protoc_insertion_point(field_set:primary.InvLStatus.status)
+inline void InvLResponse::set_reg_val(uint32_t value) {
+  _internal_set_reg_val(value);
+  // @@protoc_insertion_point(field_set:primary.InvLResponse.reg_val)
 }
 
 #ifdef __GNUC__
