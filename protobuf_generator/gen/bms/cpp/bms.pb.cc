@@ -16,23 +16,27 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace bms {
-constexpr BoardStatus::BoardStatus(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_CONSTEXPR BoardStatus::BoardStatus(
+    ::_pbi::ConstantInitialized)
   : errors_(0u)
   , balancing_status_(0)
 {}
 struct BoardStatusDefaultTypeInternal {
-  constexpr BoardStatusDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR BoardStatusDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~BoardStatusDefaultTypeInternal() {}
   union {
     BoardStatus _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT BoardStatusDefaultTypeInternal _BoardStatus_default_instance_;
-constexpr Temperatures::Temperatures(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BoardStatusDefaultTypeInternal _BoardStatus_default_instance_;
+PROTOBUF_CONSTEXPR Temperatures::Temperatures(
+    ::_pbi::ConstantInitialized)
   : start_index_(0u)
   , temp0_(0u)
   , temp1_(0u)
@@ -41,58 +45,58 @@ constexpr Temperatures::Temperatures(
   , temp4_(0u)
   , temp5_(0u){}
 struct TemperaturesDefaultTypeInternal {
-  constexpr TemperaturesDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR TemperaturesDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~TemperaturesDefaultTypeInternal() {}
   union {
     Temperatures _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT TemperaturesDefaultTypeInternal _Temperatures_default_instance_;
-constexpr Voltages::Voltages(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TemperaturesDefaultTypeInternal _Temperatures_default_instance_;
+PROTOBUF_CONSTEXPR Voltages::Voltages(
+    ::_pbi::ConstantInitialized)
   : start_index_(0u)
   , voltage0_(0u)
   , voltage1_(0u)
   , voltage2_(0u){}
 struct VoltagesDefaultTypeInternal {
-  constexpr VoltagesDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR VoltagesDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~VoltagesDefaultTypeInternal() {}
   union {
     Voltages _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT VoltagesDefaultTypeInternal _Voltages_default_instance_;
-constexpr Balancing::Balancing(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VoltagesDefaultTypeInternal _Voltages_default_instance_;
+PROTOBUF_CONSTEXPR Balancing::Balancing(
+    ::_pbi::ConstantInitialized)
   : board_index_(0u)
   , cells_(0u){}
 struct BalancingDefaultTypeInternal {
-  constexpr BalancingDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR BalancingDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~BalancingDefaultTypeInternal() {}
   union {
     Balancing _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT BalancingDefaultTypeInternal _Balancing_default_instance_;
-constexpr FwUpdate::FwUpdate(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BalancingDefaultTypeInternal _Balancing_default_instance_;
+PROTOBUF_CONSTEXPR FwUpdate::FwUpdate(
+    ::_pbi::ConstantInitialized)
   : board_index_(0u){}
 struct FwUpdateDefaultTypeInternal {
-  constexpr FwUpdateDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR FwUpdateDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~FwUpdateDefaultTypeInternal() {}
   union {
     FwUpdate _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT FwUpdateDefaultTypeInternal _FwUpdate_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FwUpdateDefaultTypeInternal _FwUpdate_default_instance_;
 }  // namespace bms
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_bms_2eproto[5];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_bms_2eproto[1];
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_bms_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_bms_2eproto[5];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_bms_2eproto[1];
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_bms_2eproto = nullptr;
 
 const uint32_t TableStruct_bms_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -142,7 +146,7 @@ const uint32_t TableStruct_bms_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(prot
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::bms::FwUpdate, board_index_),
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::bms::BoardStatus)},
   { 8, -1, -1, sizeof(::bms::Temperatures)},
   { 21, -1, -1, sizeof(::bms::Voltages)},
@@ -150,12 +154,12 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 39, -1, -1, sizeof(::bms::FwUpdate)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bms::_BoardStatus_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bms::_Temperatures_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bms::_Voltages_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bms::_Balancing_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bms::_FwUpdate_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::bms::_BoardStatus_default_instance_._instance,
+  &::bms::_Temperatures_default_instance_._instance,
+  &::bms::_Voltages_default_instance_._instance,
+  &::bms::_Balancing_default_instance_._instance,
+  &::bms::_FwUpdate_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_bms_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -173,19 +177,21 @@ const char descriptor_table_protodef_bms_2eproto[] PROTOBUF_SECTION_VARIABLE(pro
   "FF\020\000\022\036\n\032BALANCING_STATUS_DISCHARGE\020\001b\006pr"
   "oto3"
   ;
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_bms_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_bms_2eproto = {
-  false, false, 484, descriptor_table_protodef_bms_2eproto, "bms.proto", 
-  &descriptor_table_bms_2eproto_once, nullptr, 0, 5,
-  schemas, file_default_instances, TableStruct_bms_2eproto::offsets,
-  file_level_metadata_bms_2eproto, file_level_enum_descriptors_bms_2eproto, file_level_service_descriptors_bms_2eproto,
+static ::_pbi::once_flag descriptor_table_bms_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_bms_2eproto = {
+    false, false, 484, descriptor_table_protodef_bms_2eproto,
+    "bms.proto",
+    &descriptor_table_bms_2eproto_once, nullptr, 0, 5,
+    schemas, file_default_instances, TableStruct_bms_2eproto::offsets,
+    file_level_metadata_bms_2eproto, file_level_enum_descriptors_bms_2eproto,
+    file_level_service_descriptors_bms_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_bms_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_bms_2eproto_getter() {
   return &descriptor_table_bms_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_bms_2eproto(&descriptor_table_bms_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_bms_2eproto(&descriptor_table_bms_2eproto);
 namespace bms {
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BalancingStatusType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_bms_2eproto);
@@ -212,9 +218,6 @@ BoardStatus::BoardStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:bms.BoardStatus)
 }
 BoardStatus::BoardStatus(const BoardStatus& from)
@@ -235,21 +238,17 @@ inline void BoardStatus::SharedCtor() {
 
 BoardStatus::~BoardStatus() {
   // @@protoc_insertion_point(destructor:bms.BoardStatus)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void BoardStatus::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void BoardStatus::ArenaDtor(void* object) {
-  BoardStatus* _this = reinterpret_cast< BoardStatus* >(object);
-  (void)_this;
-}
-void BoardStatus::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void BoardStatus::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -266,11 +265,11 @@ void BoardStatus::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* BoardStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* BoardStatus::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint32 errors = 1;
       case 1:
@@ -321,18 +320,18 @@ uint8_t* BoardStatus::_InternalSerialize(
   // uint32 errors = 1;
   if (this->_internal_errors() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_errors(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_errors(), target);
   }
 
   // .bms.BalancingStatusType balancing_status = 2;
   if (this->_internal_balancing_status() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       2, this->_internal_balancing_status(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:bms.BoardStatus)
@@ -349,13 +348,13 @@ size_t BoardStatus::ByteSizeLong() const {
 
   // uint32 errors = 1;
   if (this->_internal_errors() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_errors());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_errors());
   }
 
   // .bms.BalancingStatusType balancing_status = 2;
   if (this->_internal_balancing_status() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_balancing_status());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_balancing_status());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -412,7 +411,7 @@ void BoardStatus::InternalSwap(BoardStatus* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata BoardStatus::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_bms_2eproto_getter, &descriptor_table_bms_2eproto_once,
       file_level_metadata_bms_2eproto[0]);
 }
@@ -427,9 +426,6 @@ Temperatures::Temperatures(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:bms.Temperatures)
 }
 Temperatures::Temperatures(const Temperatures& from)
@@ -450,21 +446,17 @@ inline void Temperatures::SharedCtor() {
 
 Temperatures::~Temperatures() {
   // @@protoc_insertion_point(destructor:bms.Temperatures)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Temperatures::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void Temperatures::ArenaDtor(void* object) {
-  Temperatures* _this = reinterpret_cast< Temperatures* >(object);
-  (void)_this;
-}
-void Temperatures::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Temperatures::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -481,11 +473,11 @@ void Temperatures::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Temperatures::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Temperatures::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint32 start_index = 1;
       case 1:
@@ -575,47 +567,47 @@ uint8_t* Temperatures::_InternalSerialize(
   // uint32 start_index = 1;
   if (this->_internal_start_index() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_start_index(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_start_index(), target);
   }
 
   // uint32 temp0 = 2;
   if (this->_internal_temp0() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_temp0(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_temp0(), target);
   }
 
   // uint32 temp1 = 3;
   if (this->_internal_temp1() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_temp1(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_temp1(), target);
   }
 
   // uint32 temp2 = 4;
   if (this->_internal_temp2() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_temp2(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_temp2(), target);
   }
 
   // uint32 temp3 = 5;
   if (this->_internal_temp3() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_temp3(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_temp3(), target);
   }
 
   // uint32 temp4 = 6;
   if (this->_internal_temp4() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_temp4(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_temp4(), target);
   }
 
   // uint32 temp5 = 7;
   if (this->_internal_temp5() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_temp5(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_temp5(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:bms.Temperatures)
@@ -632,37 +624,37 @@ size_t Temperatures::ByteSizeLong() const {
 
   // uint32 start_index = 1;
   if (this->_internal_start_index() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_start_index());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_start_index());
   }
 
   // uint32 temp0 = 2;
   if (this->_internal_temp0() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_temp0());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_temp0());
   }
 
   // uint32 temp1 = 3;
   if (this->_internal_temp1() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_temp1());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_temp1());
   }
 
   // uint32 temp2 = 4;
   if (this->_internal_temp2() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_temp2());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_temp2());
   }
 
   // uint32 temp3 = 5;
   if (this->_internal_temp3() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_temp3());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_temp3());
   }
 
   // uint32 temp4 = 6;
   if (this->_internal_temp4() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_temp4());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_temp4());
   }
 
   // uint32 temp5 = 7;
   if (this->_internal_temp5() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_temp5());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_temp5());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -734,7 +726,7 @@ void Temperatures::InternalSwap(Temperatures* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Temperatures::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_bms_2eproto_getter, &descriptor_table_bms_2eproto_once,
       file_level_metadata_bms_2eproto[1]);
 }
@@ -749,9 +741,6 @@ Voltages::Voltages(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:bms.Voltages)
 }
 Voltages::Voltages(const Voltages& from)
@@ -772,21 +761,17 @@ inline void Voltages::SharedCtor() {
 
 Voltages::~Voltages() {
   // @@protoc_insertion_point(destructor:bms.Voltages)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Voltages::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void Voltages::ArenaDtor(void* object) {
-  Voltages* _this = reinterpret_cast< Voltages* >(object);
-  (void)_this;
-}
-void Voltages::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Voltages::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -803,11 +788,11 @@ void Voltages::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Voltages::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Voltages::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint32 start_index = 1;
       case 1:
@@ -873,29 +858,29 @@ uint8_t* Voltages::_InternalSerialize(
   // uint32 start_index = 1;
   if (this->_internal_start_index() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_start_index(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_start_index(), target);
   }
 
   // uint32 voltage0 = 2;
   if (this->_internal_voltage0() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_voltage0(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_voltage0(), target);
   }
 
   // uint32 voltage1 = 3;
   if (this->_internal_voltage1() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_voltage1(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_voltage1(), target);
   }
 
   // uint32 voltage2 = 4;
   if (this->_internal_voltage2() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_voltage2(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_voltage2(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:bms.Voltages)
@@ -912,22 +897,22 @@ size_t Voltages::ByteSizeLong() const {
 
   // uint32 start_index = 1;
   if (this->_internal_start_index() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_start_index());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_start_index());
   }
 
   // uint32 voltage0 = 2;
   if (this->_internal_voltage0() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_voltage0());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_voltage0());
   }
 
   // uint32 voltage1 = 3;
   if (this->_internal_voltage1() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_voltage1());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_voltage1());
   }
 
   // uint32 voltage2 = 4;
   if (this->_internal_voltage2() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_voltage2());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_voltage2());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -990,7 +975,7 @@ void Voltages::InternalSwap(Voltages* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Voltages::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_bms_2eproto_getter, &descriptor_table_bms_2eproto_once,
       file_level_metadata_bms_2eproto[2]);
 }
@@ -1005,9 +990,6 @@ Balancing::Balancing(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:bms.Balancing)
 }
 Balancing::Balancing(const Balancing& from)
@@ -1028,21 +1010,17 @@ inline void Balancing::SharedCtor() {
 
 Balancing::~Balancing() {
   // @@protoc_insertion_point(destructor:bms.Balancing)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Balancing::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void Balancing::ArenaDtor(void* object) {
-  Balancing* _this = reinterpret_cast< Balancing* >(object);
-  (void)_this;
-}
-void Balancing::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Balancing::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -1059,11 +1037,11 @@ void Balancing::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Balancing::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Balancing::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint32 board_index = 1;
       case 1:
@@ -1113,17 +1091,17 @@ uint8_t* Balancing::_InternalSerialize(
   // uint32 board_index = 1;
   if (this->_internal_board_index() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_board_index(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_board_index(), target);
   }
 
   // uint32 cells = 2;
   if (this->_internal_cells() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_cells(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_cells(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:bms.Balancing)
@@ -1140,12 +1118,12 @@ size_t Balancing::ByteSizeLong() const {
 
   // uint32 board_index = 1;
   if (this->_internal_board_index() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_board_index());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_board_index());
   }
 
   // uint32 cells = 2;
   if (this->_internal_cells() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_cells());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_cells());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -1202,7 +1180,7 @@ void Balancing::InternalSwap(Balancing* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Balancing::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_bms_2eproto_getter, &descriptor_table_bms_2eproto_once,
       file_level_metadata_bms_2eproto[3]);
 }
@@ -1217,9 +1195,6 @@ FwUpdate::FwUpdate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
   // @@protoc_insertion_point(arena_constructor:bms.FwUpdate)
 }
 FwUpdate::FwUpdate(const FwUpdate& from)
@@ -1235,21 +1210,17 @@ board_index_ = 0u;
 
 FwUpdate::~FwUpdate() {
   // @@protoc_insertion_point(destructor:bms.FwUpdate)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void FwUpdate::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void FwUpdate::ArenaDtor(void* object) {
-  FwUpdate* _this = reinterpret_cast< FwUpdate* >(object);
-  (void)_this;
-}
-void FwUpdate::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void FwUpdate::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
@@ -1264,11 +1235,11 @@ void FwUpdate::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* FwUpdate::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* FwUpdate::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint32 board_index = 1;
       case 1:
@@ -1310,11 +1281,11 @@ uint8_t* FwUpdate::_InternalSerialize(
   // uint32 board_index = 1;
   if (this->_internal_board_index() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_board_index(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_board_index(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:bms.FwUpdate)
@@ -1331,7 +1302,7 @@ size_t FwUpdate::ByteSizeLong() const {
 
   // uint32 board_index = 1;
   if (this->_internal_board_index() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_board_index());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_board_index());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -1380,7 +1351,7 @@ void FwUpdate::InternalSwap(FwUpdate* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata FwUpdate::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_bms_2eproto_getter, &descriptor_table_bms_2eproto_once,
       file_level_metadata_bms_2eproto[4]);
 }
@@ -1388,19 +1359,24 @@ void FwUpdate::InternalSwap(FwUpdate* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace bms
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::bms::BoardStatus* Arena::CreateMaybeMessage< ::bms::BoardStatus >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::bms::BoardStatus*
+Arena::CreateMaybeMessage< ::bms::BoardStatus >(Arena* arena) {
   return Arena::CreateMessageInternal< ::bms::BoardStatus >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bms::Temperatures* Arena::CreateMaybeMessage< ::bms::Temperatures >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::bms::Temperatures*
+Arena::CreateMaybeMessage< ::bms::Temperatures >(Arena* arena) {
   return Arena::CreateMessageInternal< ::bms::Temperatures >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bms::Voltages* Arena::CreateMaybeMessage< ::bms::Voltages >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::bms::Voltages*
+Arena::CreateMaybeMessage< ::bms::Voltages >(Arena* arena) {
   return Arena::CreateMessageInternal< ::bms::Voltages >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bms::Balancing* Arena::CreateMaybeMessage< ::bms::Balancing >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::bms::Balancing*
+Arena::CreateMaybeMessage< ::bms::Balancing >(Arena* arena) {
   return Arena::CreateMessageInternal< ::bms::Balancing >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bms::FwUpdate* Arena::CreateMaybeMessage< ::bms::FwUpdate >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::bms::FwUpdate*
+Arena::CreateMaybeMessage< ::bms::FwUpdate >(Arena* arena) {
   return Arena::CreateMessageInternal< ::bms::FwUpdate >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE

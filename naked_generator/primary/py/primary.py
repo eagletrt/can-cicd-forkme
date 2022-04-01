@@ -91,6 +91,24 @@ class Inv_Errors(IntFlag):
     UNKNOWN_ERR_30 = 536870912
     BALLAST_OVERLOAD_WARN = 1073741824
 
+class Inv_IOInfo(IntFlag):
+    LMT1 = 1
+    LMT2 = 2
+    IN2 = 4
+    IN1 = 8
+    FRG = 16
+    RFE = 32
+    UNK6 = 64
+    UNK7 = 128
+    OUT1 = 256
+    OUT2 = 512
+    BTB = 1024
+    GO = 2048
+    OUT3 = 4096
+    OUT4 = 8192
+    G_OFF = 16384
+    BRK1 = 32768
+
 class Reg_Val(IntFlag):
     
 class Tlm_Status_Set(IntEnum):

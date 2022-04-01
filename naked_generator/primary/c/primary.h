@@ -164,6 +164,25 @@ typedef uint8_t primary_Inv_Errors[4]; // bitset
 #define primary_Inv_Errors_UNKNOWN_ERR_30 29
 #define primary_Inv_Errors_BALLAST_OVERLOAD_WARN 30
 
+typedef uint8_t primary_Inv_IOInfo[2]; // bitset
+#define primary_Inv_IOInfo_default { 0, 0 } // bitset filled with zeros
+#define primary_Inv_IOInfo_LMT1 0
+#define primary_Inv_IOInfo_LMT2 1
+#define primary_Inv_IOInfo_IN2 2
+#define primary_Inv_IOInfo_IN1 3
+#define primary_Inv_IOInfo_FRG 4
+#define primary_Inv_IOInfo_RFE 5
+#define primary_Inv_IOInfo_UNK6 6
+#define primary_Inv_IOInfo_UNK7 7
+#define primary_Inv_IOInfo_OUT1 8
+#define primary_Inv_IOInfo_OUT2 9
+#define primary_Inv_IOInfo_BTB 10
+#define primary_Inv_IOInfo_GO 11
+#define primary_Inv_IOInfo_OUT3 12
+#define primary_Inv_IOInfo_OUT4 13
+#define primary_Inv_IOInfo_G_OFF 14
+#define primary_Inv_IOInfo_BRK1 15
+
 typedef uint8_t primary_Reg_Val[4]; // bitset
 #define primary_Reg_Val_default { 0, 0, 0, 0 } // bitset filled with zeros
 
