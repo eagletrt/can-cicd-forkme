@@ -27,8 +27,8 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_STEER_VERSION(payload, primary_steer_version_d);
     
             primary::SteerVersion primary_steer_version_p;
-            primary_steer_version_p.set_component_version(static_cast<uint8_t>(primary_steer_version_d->component_version));
-            primary_steer_version_p.set_cancicd_version(static_cast<uint8_t>(primary_steer_version_d->cancicd_version));
+            primary_steer_version_p.set_component_version(static_cast<uint32_t>(primary_steer_version_d->component_version));
+            primary_steer_version_p.set_cancicd_version(static_cast<uint32_t>(primary_steer_version_d->cancicd_version));
 
             free(primary_steer_version_d);
 
@@ -42,8 +42,8 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_DAS_VERSION(payload, primary_das_version_d);
     
             primary::DasVersion primary_das_version_p;
-            primary_das_version_p.set_component_version(static_cast<uint8_t>(primary_das_version_d->component_version));
-            primary_das_version_p.set_cancicd_version(static_cast<uint8_t>(primary_das_version_d->cancicd_version));
+            primary_das_version_p.set_component_version(static_cast<uint32_t>(primary_das_version_d->component_version));
+            primary_das_version_p.set_cancicd_version(static_cast<uint32_t>(primary_das_version_d->cancicd_version));
 
             free(primary_das_version_d);
 
@@ -57,8 +57,8 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_HV_VERSION(payload, primary_hv_version_d);
     
             primary::HvVersion primary_hv_version_p;
-            primary_hv_version_p.set_component_version(static_cast<uint8_t>(primary_hv_version_d->component_version));
-            primary_hv_version_p.set_cancicd_version(static_cast<uint8_t>(primary_hv_version_d->cancicd_version));
+            primary_hv_version_p.set_component_version(static_cast<uint32_t>(primary_hv_version_d->component_version));
+            primary_hv_version_p.set_cancicd_version(static_cast<uint32_t>(primary_hv_version_d->cancicd_version));
 
             free(primary_hv_version_d);
 
@@ -72,8 +72,8 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_LV_VERSION(payload, primary_lv_version_d);
     
             primary::LvVersion primary_lv_version_p;
-            primary_lv_version_p.set_component_version(static_cast<uint8_t>(primary_lv_version_d->component_version));
-            primary_lv_version_p.set_cancicd_version(static_cast<uint8_t>(primary_lv_version_d->cancicd_version));
+            primary_lv_version_p.set_component_version(static_cast<uint32_t>(primary_lv_version_d->component_version));
+            primary_lv_version_p.set_cancicd_version(static_cast<uint32_t>(primary_lv_version_d->cancicd_version));
 
             free(primary_lv_version_d);
 
@@ -87,8 +87,8 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_TLM_VERSION(payload, primary_tlm_version_d);
     
             primary::TlmVersion primary_tlm_version_p;
-            primary_tlm_version_p.set_component_version(static_cast<uint8_t>(primary_tlm_version_d->component_version));
-            primary_tlm_version_p.set_cancicd_version(static_cast<uint8_t>(primary_tlm_version_d->cancicd_version));
+            primary_tlm_version_p.set_component_version(static_cast<uint32_t>(primary_tlm_version_d->component_version));
+            primary_tlm_version_p.set_cancicd_version(static_cast<uint32_t>(primary_tlm_version_d->cancicd_version));
 
             free(primary_tlm_version_d);
 
@@ -118,8 +118,8 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary::SetTlmStatus primary_set_tlm_status_p;
             primary_set_tlm_status_p.set_tlm_status_set(static_cast<primary::TlmStatusSetType>(primary_set_tlm_status_d->tlm_status_set));
             primary_set_tlm_status_p.set_race_type(static_cast<primary::RaceTypeType>(primary_set_tlm_status_d->race_type));
-            primary_set_tlm_status_p.set_driver(static_cast<uint8_t>(primary_set_tlm_status_d->driver));
-            primary_set_tlm_status_p.set_circuit(static_cast<uint8_t>(primary_set_tlm_status_d->circuit));
+            primary_set_tlm_status_p.set_driver(static_cast<uint32_t>(primary_set_tlm_status_d->driver));
+            primary_set_tlm_status_p.set_circuit(static_cast<uint32_t>(primary_set_tlm_status_d->circuit));
 
             free(primary_set_tlm_status_d);
 
@@ -135,8 +135,8 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             primary::TlmStatus primary_tlm_status_p;
             primary_tlm_status_p.set_tlm_status(static_cast<primary::TlmStatusType>(primary_tlm_status_d->tlm_status));
             primary_tlm_status_p.set_race_type(static_cast<primary::RaceTypeType>(primary_tlm_status_d->race_type));
-            primary_tlm_status_p.set_driver(static_cast<uint8_t>(primary_tlm_status_d->driver));
-            primary_tlm_status_p.set_circuit(static_cast<uint8_t>(primary_tlm_status_d->circuit));
+            primary_tlm_status_p.set_driver(static_cast<uint32_t>(primary_tlm_status_d->driver));
+            primary_tlm_status_p.set_circuit(static_cast<uint32_t>(primary_tlm_status_d->circuit));
 
             free(primary_tlm_status_d);
 
@@ -150,7 +150,7 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_STEER_SYSTEM_STATUS(payload, primary_steer_system_status_d);
     
             primary::SteerSystemStatus primary_steer_system_status_p;
-            primary_steer_system_status_p.set_soc_temp(static_cast<uint8_t>(primary_steer_system_status_d->soc_temp));
+            primary_steer_system_status_p.set_soc_temp(static_cast<uint32_t>(primary_steer_system_status_d->soc_temp));
 
             free(primary_steer_system_status_d);
 
@@ -164,10 +164,10 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_HV_VOLTAGE(payload, primary_hv_voltage_d);
     
             primary::HvVoltage primary_hv_voltage_p;
-            primary_hv_voltage_p.set_pack_voltage(static_cast<uint16_t>(primary_hv_voltage_d->pack_voltage));
-            primary_hv_voltage_p.set_bus_voltage(static_cast<uint16_t>(primary_hv_voltage_d->bus_voltage));
-            primary_hv_voltage_p.set_max_cell_voltage(static_cast<uint16_t>(primary_hv_voltage_d->max_cell_voltage));
-            primary_hv_voltage_p.set_min_cell_voltage(static_cast<uint16_t>(primary_hv_voltage_d->min_cell_voltage));
+            primary_hv_voltage_p.set_pack_voltage(static_cast<uint32_t>(primary_hv_voltage_d->pack_voltage));
+            primary_hv_voltage_p.set_bus_voltage(static_cast<uint32_t>(primary_hv_voltage_d->bus_voltage));
+            primary_hv_voltage_p.set_max_cell_voltage(static_cast<uint32_t>(primary_hv_voltage_d->max_cell_voltage));
+            primary_hv_voltage_p.set_min_cell_voltage(static_cast<uint32_t>(primary_hv_voltage_d->min_cell_voltage));
 
             free(primary_hv_voltage_d);
 
@@ -181,8 +181,8 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_HV_CURRENT(payload, primary_hv_current_d);
     
             primary::HvCurrent primary_hv_current_p;
-            primary_hv_current_p.set_current(static_cast<uint16_t>(primary_hv_current_d->current));
-            primary_hv_current_p.set_power(static_cast<int16_t>(primary_hv_current_d->power));
+            primary_hv_current_p.set_current(static_cast<uint32_t>(primary_hv_current_d->current));
+            primary_hv_current_p.set_power(static_cast<int32_t>(primary_hv_current_d->power));
 
             free(primary_hv_current_d);
 
@@ -196,9 +196,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_HV_TEMP(payload, primary_hv_temp_d);
     
             primary::HvTemp primary_hv_temp_p;
-            primary_hv_temp_p.set_average_temp(static_cast<uint16_t>(primary_hv_temp_d->average_temp));
-            primary_hv_temp_p.set_max_temp(static_cast<uint16_t>(primary_hv_temp_d->max_temp));
-            primary_hv_temp_p.set_min_temp(static_cast<uint16_t>(primary_hv_temp_d->min_temp));
+            primary_hv_temp_p.set_average_temp(static_cast<uint32_t>(primary_hv_temp_d->average_temp));
+            primary_hv_temp_p.set_max_temp(static_cast<uint32_t>(primary_hv_temp_d->max_temp));
+            primary_hv_temp_p.set_min_temp(static_cast<uint32_t>(primary_hv_temp_d->min_temp));
 
             free(primary_hv_temp_d);
 
@@ -332,7 +332,7 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_LV_CURRENT(payload, primary_lv_current_d);
     
             primary::LvCurrent primary_lv_current_p;
-            primary_lv_current_p.set_current(static_cast<uint8_t>(primary_lv_current_d->current));
+            primary_lv_current_p.set_current(static_cast<uint32_t>(primary_lv_current_d->current));
 
             free(primary_lv_current_d);
 
@@ -346,11 +346,11 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_LV_VOLTAGE(payload, primary_lv_voltage_d);
     
             primary::LvVoltage primary_lv_voltage_p;
-            primary_lv_voltage_p.set_total_voltage(static_cast<uint16_t>(primary_lv_voltage_d->total_voltage));
-            primary_lv_voltage_p.set_voltage_1(static_cast<uint8_t>(primary_lv_voltage_d->voltage_1));
-            primary_lv_voltage_p.set_voltage_2(static_cast<uint8_t>(primary_lv_voltage_d->voltage_2));
-            primary_lv_voltage_p.set_voltage_3(static_cast<uint8_t>(primary_lv_voltage_d->voltage_3));
-            primary_lv_voltage_p.set_voltage_4(static_cast<uint8_t>(primary_lv_voltage_d->voltage_4));
+            primary_lv_voltage_p.set_total_voltage(static_cast<uint32_t>(primary_lv_voltage_d->total_voltage));
+            primary_lv_voltage_p.set_voltage_1(static_cast<uint32_t>(primary_lv_voltage_d->voltage_1));
+            primary_lv_voltage_p.set_voltage_2(static_cast<uint32_t>(primary_lv_voltage_d->voltage_2));
+            primary_lv_voltage_p.set_voltage_3(static_cast<uint32_t>(primary_lv_voltage_d->voltage_3));
+            primary_lv_voltage_p.set_voltage_4(static_cast<uint32_t>(primary_lv_voltage_d->voltage_4));
 
             free(primary_lv_voltage_d);
 
@@ -364,8 +364,8 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_LV_TEMPERATURE(payload, primary_lv_temperature_d);
     
             primary::LvTemperature primary_lv_temperature_p;
-            primary_lv_temperature_p.set_bp_temperature(static_cast<uint8_t>(primary_lv_temperature_d->bp_temperature));
-            primary_lv_temperature_p.set_dcdc_temperature(static_cast<uint8_t>(primary_lv_temperature_d->dcdc_temperature));
+            primary_lv_temperature_p.set_bp_temperature(static_cast<uint32_t>(primary_lv_temperature_d->bp_temperature));
+            primary_lv_temperature_p.set_dcdc_temperature(static_cast<uint32_t>(primary_lv_temperature_d->dcdc_temperature));
 
             free(primary_lv_temperature_d);
 
@@ -379,9 +379,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_COOLING_STATUS(payload, primary_cooling_status_d);
     
             primary::CoolingStatus primary_cooling_status_p;
-            primary_cooling_status_p.set_hv_fan_speed(static_cast<uint8_t>(primary_cooling_status_d->hv_fan_speed));
-            primary_cooling_status_p.set_lv_fan_speed(static_cast<uint8_t>(primary_cooling_status_d->lv_fan_speed));
-            primary_cooling_status_p.set_pump_speed(static_cast<uint8_t>(primary_cooling_status_d->pump_speed));
+            primary_cooling_status_p.set_hv_fan_speed(static_cast<uint32_t>(primary_cooling_status_d->hv_fan_speed));
+            primary_cooling_status_p.set_lv_fan_speed(static_cast<uint32_t>(primary_cooling_status_d->lv_fan_speed));
+            primary_cooling_status_p.set_pump_speed(static_cast<uint32_t>(primary_cooling_status_d->pump_speed));
 
             free(primary_cooling_status_d);
 
@@ -403,10 +403,10 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_HV_CELLS_VOLTAGE(payload, primary_hv_cells_voltage_d);
     
             primary::HvCellsVoltage primary_hv_cells_voltage_p;
-            primary_hv_cells_voltage_p.set_cell_index(static_cast<uint8_t>(primary_hv_cells_voltage_d->cell_index));
-            primary_hv_cells_voltage_p.set_voltage_0(static_cast<uint16_t>(primary_hv_cells_voltage_d->voltage_0));
-            primary_hv_cells_voltage_p.set_voltage_1(static_cast<uint16_t>(primary_hv_cells_voltage_d->voltage_1));
-            primary_hv_cells_voltage_p.set_voltage_2(static_cast<uint16_t>(primary_hv_cells_voltage_d->voltage_2));
+            primary_hv_cells_voltage_p.set_cell_index(static_cast<uint32_t>(primary_hv_cells_voltage_d->cell_index));
+            primary_hv_cells_voltage_p.set_voltage_0(static_cast<uint32_t>(primary_hv_cells_voltage_d->voltage_0));
+            primary_hv_cells_voltage_p.set_voltage_1(static_cast<uint32_t>(primary_hv_cells_voltage_d->voltage_1));
+            primary_hv_cells_voltage_p.set_voltage_2(static_cast<uint32_t>(primary_hv_cells_voltage_d->voltage_2));
 
             free(primary_hv_cells_voltage_d);
 
@@ -420,14 +420,14 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_HV_CELLS_TEMP(payload, primary_hv_cells_temp_d);
     
             primary::HvCellsTemp primary_hv_cells_temp_p;
-            primary_hv_cells_temp_p.set_cell_index(static_cast<uint8_t>(primary_hv_cells_temp_d->cell_index));
-            primary_hv_cells_temp_p.set_temp_0(static_cast<uint8_t>(primary_hv_cells_temp_d->temp_0));
-            primary_hv_cells_temp_p.set_temp_1(static_cast<uint8_t>(primary_hv_cells_temp_d->temp_1));
-            primary_hv_cells_temp_p.set_temp_2(static_cast<uint8_t>(primary_hv_cells_temp_d->temp_2));
-            primary_hv_cells_temp_p.set_temp_3(static_cast<uint8_t>(primary_hv_cells_temp_d->temp_3));
-            primary_hv_cells_temp_p.set_temp_4(static_cast<uint8_t>(primary_hv_cells_temp_d->temp_4));
-            primary_hv_cells_temp_p.set_temp_5(static_cast<uint8_t>(primary_hv_cells_temp_d->temp_5));
-            primary_hv_cells_temp_p.set_temp_6(static_cast<uint8_t>(primary_hv_cells_temp_d->temp_6));
+            primary_hv_cells_temp_p.set_cell_index(static_cast<uint32_t>(primary_hv_cells_temp_d->cell_index));
+            primary_hv_cells_temp_p.set_temp_0(static_cast<uint32_t>(primary_hv_cells_temp_d->temp_0));
+            primary_hv_cells_temp_p.set_temp_1(static_cast<uint32_t>(primary_hv_cells_temp_d->temp_1));
+            primary_hv_cells_temp_p.set_temp_2(static_cast<uint32_t>(primary_hv_cells_temp_d->temp_2));
+            primary_hv_cells_temp_p.set_temp_3(static_cast<uint32_t>(primary_hv_cells_temp_d->temp_3));
+            primary_hv_cells_temp_p.set_temp_4(static_cast<uint32_t>(primary_hv_cells_temp_d->temp_4));
+            primary_hv_cells_temp_p.set_temp_5(static_cast<uint32_t>(primary_hv_cells_temp_d->temp_5));
+            primary_hv_cells_temp_p.set_temp_6(static_cast<uint32_t>(primary_hv_cells_temp_d->temp_6));
 
             free(primary_hv_cells_temp_d);
 
@@ -483,10 +483,10 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_SPEED(payload, primary_speed_d);
     
             primary::Speed primary_speed_p;
-            primary_speed_p.set_encoder_r(static_cast<uint16_t>(primary_speed_d->encoder_r));
-            primary_speed_p.set_encoder_l(static_cast<uint16_t>(primary_speed_d->encoder_l));
-            primary_speed_p.set_inverter_r(static_cast<uint16_t>(primary_speed_d->inverter_r));
-            primary_speed_p.set_inverter_l(static_cast<uint16_t>(primary_speed_d->inverter_l));
+            primary_speed_p.set_encoder_r(static_cast<uint32_t>(primary_speed_d->encoder_r));
+            primary_speed_p.set_encoder_l(static_cast<uint32_t>(primary_speed_d->encoder_l));
+            primary_speed_p.set_inverter_r(static_cast<uint32_t>(primary_speed_d->inverter_r));
+            primary_speed_p.set_inverter_l(static_cast<uint32_t>(primary_speed_d->inverter_l));
 
             free(primary_speed_d);
 
@@ -500,9 +500,9 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_INV_L_SET_TORQUE(payload, primary_inv_l_set_torque_d);
     
             primary::InvLSetTorque primary_inv_l_set_torque_p;
-            primary_inv_l_set_torque_p.set_regid(static_cast<uint8_t>(primary_inv_l_set_torque_d->regid));
-            primary_inv_l_set_torque_p.set_lsb(static_cast<uint8_t>(primary_inv_l_set_torque_d->lsb));
-            primary_inv_l_set_torque_p.set_msb(static_cast<uint8_t>(primary_inv_l_set_torque_d->msb));
+            primary_inv_l_set_torque_p.set_regid(static_cast<uint32_t>(primary_inv_l_set_torque_d->regid));
+            primary_inv_l_set_torque_p.set_lsb(static_cast<uint32_t>(primary_inv_l_set_torque_d->lsb));
+            primary_inv_l_set_torque_p.set_msb(static_cast<uint32_t>(primary_inv_l_set_torque_d->msb));
 
             free(primary_inv_l_set_torque_d);
 
@@ -516,7 +516,7 @@ std::string primary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_primary_INV_L_RESPONSE(payload, primary_inv_l_response_d);
     
             primary::InvLResponse primary_inv_l_response_p;
-            primary_inv_l_response_p.set_reg_id(static_cast<uint8_t>(primary_inv_l_response_d->reg_id));
+            primary_inv_l_response_p.set_reg_id(static_cast<uint32_t>(primary_inv_l_response_d->reg_id));
             BITSET_VALUE(primary_inv_l_response_d->reg_val, sizeof(primary_inv_l_response_d->reg_val))
             primary_inv_l_response_p.set_reg_val(bitset_value);
 

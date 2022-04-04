@@ -27,9 +27,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IMU_ANGULAR_RATE(payload, secondary_imu_angular_rate_d);
     
             secondary::ImuAngularRate secondary_imu_angular_rate_p;
-            secondary_imu_angular_rate_p.set_ang_rate_x(static_cast<uint16_t>(secondary_imu_angular_rate_d->ang_rate_x));
-            secondary_imu_angular_rate_p.set_ang_rate_y(static_cast<uint16_t>(secondary_imu_angular_rate_d->ang_rate_y));
-            secondary_imu_angular_rate_p.set_ang_rate_z(static_cast<uint16_t>(secondary_imu_angular_rate_d->ang_rate_z));
+            secondary_imu_angular_rate_p.set_ang_rate_x(static_cast<uint32_t>(secondary_imu_angular_rate_d->ang_rate_x));
+            secondary_imu_angular_rate_p.set_ang_rate_y(static_cast<uint32_t>(secondary_imu_angular_rate_d->ang_rate_y));
+            secondary_imu_angular_rate_p.set_ang_rate_z(static_cast<uint32_t>(secondary_imu_angular_rate_d->ang_rate_z));
 
             free(secondary_imu_angular_rate_d);
 
@@ -43,9 +43,9 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IMU_ACCELERATION(payload, secondary_imu_acceleration_d);
     
             secondary::ImuAcceleration secondary_imu_acceleration_p;
-            secondary_imu_acceleration_p.set_accel_x(static_cast<uint16_t>(secondary_imu_acceleration_d->accel_x));
-            secondary_imu_acceleration_p.set_accel_y(static_cast<uint16_t>(secondary_imu_acceleration_d->accel_y));
-            secondary_imu_acceleration_p.set_accel_z(static_cast<uint16_t>(secondary_imu_acceleration_d->accel_z));
+            secondary_imu_acceleration_p.set_accel_x(static_cast<uint32_t>(secondary_imu_acceleration_d->accel_x));
+            secondary_imu_acceleration_p.set_accel_y(static_cast<uint32_t>(secondary_imu_acceleration_d->accel_y));
+            secondary_imu_acceleration_p.set_accel_z(static_cast<uint32_t>(secondary_imu_acceleration_d->accel_z));
 
             free(secondary_imu_acceleration_d);
 
@@ -59,10 +59,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_FL_0(payload, secondary_irts_fl_0_d);
     
             secondary::IrtsFl0 secondary_irts_fl_0_p;
-            secondary_irts_fl_0_p.set_channel1(static_cast<uint16_t>(secondary_irts_fl_0_d->channel1));
-            secondary_irts_fl_0_p.set_channel2(static_cast<uint16_t>(secondary_irts_fl_0_d->channel2));
-            secondary_irts_fl_0_p.set_channel3(static_cast<uint16_t>(secondary_irts_fl_0_d->channel3));
-            secondary_irts_fl_0_p.set_channel4(static_cast<uint16_t>(secondary_irts_fl_0_d->channel4));
+            secondary_irts_fl_0_p.set_channel1(static_cast<uint32_t>(secondary_irts_fl_0_d->channel1));
+            secondary_irts_fl_0_p.set_channel2(static_cast<uint32_t>(secondary_irts_fl_0_d->channel2));
+            secondary_irts_fl_0_p.set_channel3(static_cast<uint32_t>(secondary_irts_fl_0_d->channel3));
+            secondary_irts_fl_0_p.set_channel4(static_cast<uint32_t>(secondary_irts_fl_0_d->channel4));
 
             free(secondary_irts_fl_0_d);
 
@@ -76,10 +76,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_FL_1(payload, secondary_irts_fl_1_d);
     
             secondary::IrtsFl1 secondary_irts_fl_1_p;
-            secondary_irts_fl_1_p.set_channel5(static_cast<uint16_t>(secondary_irts_fl_1_d->channel5));
-            secondary_irts_fl_1_p.set_channel6(static_cast<uint16_t>(secondary_irts_fl_1_d->channel6));
-            secondary_irts_fl_1_p.set_channel7(static_cast<uint16_t>(secondary_irts_fl_1_d->channel7));
-            secondary_irts_fl_1_p.set_channel8(static_cast<uint16_t>(secondary_irts_fl_1_d->channel8));
+            secondary_irts_fl_1_p.set_channel5(static_cast<uint32_t>(secondary_irts_fl_1_d->channel5));
+            secondary_irts_fl_1_p.set_channel6(static_cast<uint32_t>(secondary_irts_fl_1_d->channel6));
+            secondary_irts_fl_1_p.set_channel7(static_cast<uint32_t>(secondary_irts_fl_1_d->channel7));
+            secondary_irts_fl_1_p.set_channel8(static_cast<uint32_t>(secondary_irts_fl_1_d->channel8));
 
             free(secondary_irts_fl_1_d);
 
@@ -93,10 +93,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_FL_2(payload, secondary_irts_fl_2_d);
     
             secondary::IrtsFl2 secondary_irts_fl_2_p;
-            secondary_irts_fl_2_p.set_channel9(static_cast<uint16_t>(secondary_irts_fl_2_d->channel9));
-            secondary_irts_fl_2_p.set_channel10(static_cast<uint16_t>(secondary_irts_fl_2_d->channel10));
-            secondary_irts_fl_2_p.set_channel11(static_cast<uint16_t>(secondary_irts_fl_2_d->channel11));
-            secondary_irts_fl_2_p.set_channel12(static_cast<uint16_t>(secondary_irts_fl_2_d->channel12));
+            secondary_irts_fl_2_p.set_channel9(static_cast<uint32_t>(secondary_irts_fl_2_d->channel9));
+            secondary_irts_fl_2_p.set_channel10(static_cast<uint32_t>(secondary_irts_fl_2_d->channel10));
+            secondary_irts_fl_2_p.set_channel11(static_cast<uint32_t>(secondary_irts_fl_2_d->channel11));
+            secondary_irts_fl_2_p.set_channel12(static_cast<uint32_t>(secondary_irts_fl_2_d->channel12));
 
             free(secondary_irts_fl_2_d);
 
@@ -110,10 +110,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_FL_3(payload, secondary_irts_fl_3_d);
     
             secondary::IrtsFl3 secondary_irts_fl_3_p;
-            secondary_irts_fl_3_p.set_channel13(static_cast<uint16_t>(secondary_irts_fl_3_d->channel13));
-            secondary_irts_fl_3_p.set_channel14(static_cast<uint16_t>(secondary_irts_fl_3_d->channel14));
-            secondary_irts_fl_3_p.set_channel15(static_cast<uint16_t>(secondary_irts_fl_3_d->channel15));
-            secondary_irts_fl_3_p.set_channel16(static_cast<uint16_t>(secondary_irts_fl_3_d->channel16));
+            secondary_irts_fl_3_p.set_channel13(static_cast<uint32_t>(secondary_irts_fl_3_d->channel13));
+            secondary_irts_fl_3_p.set_channel14(static_cast<uint32_t>(secondary_irts_fl_3_d->channel14));
+            secondary_irts_fl_3_p.set_channel15(static_cast<uint32_t>(secondary_irts_fl_3_d->channel15));
+            secondary_irts_fl_3_p.set_channel16(static_cast<uint32_t>(secondary_irts_fl_3_d->channel16));
 
             free(secondary_irts_fl_3_d);
 
@@ -127,10 +127,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_FR_0(payload, secondary_irts_fr_0_d);
     
             secondary::IrtsFr0 secondary_irts_fr_0_p;
-            secondary_irts_fr_0_p.set_channel1(static_cast<uint16_t>(secondary_irts_fr_0_d->channel1));
-            secondary_irts_fr_0_p.set_channel2(static_cast<uint16_t>(secondary_irts_fr_0_d->channel2));
-            secondary_irts_fr_0_p.set_channel3(static_cast<uint16_t>(secondary_irts_fr_0_d->channel3));
-            secondary_irts_fr_0_p.set_channel4(static_cast<uint16_t>(secondary_irts_fr_0_d->channel4));
+            secondary_irts_fr_0_p.set_channel1(static_cast<uint32_t>(secondary_irts_fr_0_d->channel1));
+            secondary_irts_fr_0_p.set_channel2(static_cast<uint32_t>(secondary_irts_fr_0_d->channel2));
+            secondary_irts_fr_0_p.set_channel3(static_cast<uint32_t>(secondary_irts_fr_0_d->channel3));
+            secondary_irts_fr_0_p.set_channel4(static_cast<uint32_t>(secondary_irts_fr_0_d->channel4));
 
             free(secondary_irts_fr_0_d);
 
@@ -144,10 +144,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_FR_1(payload, secondary_irts_fr_1_d);
     
             secondary::IrtsFr1 secondary_irts_fr_1_p;
-            secondary_irts_fr_1_p.set_channel5(static_cast<uint16_t>(secondary_irts_fr_1_d->channel5));
-            secondary_irts_fr_1_p.set_channel6(static_cast<uint16_t>(secondary_irts_fr_1_d->channel6));
-            secondary_irts_fr_1_p.set_channel7(static_cast<uint16_t>(secondary_irts_fr_1_d->channel7));
-            secondary_irts_fr_1_p.set_channel8(static_cast<uint16_t>(secondary_irts_fr_1_d->channel8));
+            secondary_irts_fr_1_p.set_channel5(static_cast<uint32_t>(secondary_irts_fr_1_d->channel5));
+            secondary_irts_fr_1_p.set_channel6(static_cast<uint32_t>(secondary_irts_fr_1_d->channel6));
+            secondary_irts_fr_1_p.set_channel7(static_cast<uint32_t>(secondary_irts_fr_1_d->channel7));
+            secondary_irts_fr_1_p.set_channel8(static_cast<uint32_t>(secondary_irts_fr_1_d->channel8));
 
             free(secondary_irts_fr_1_d);
 
@@ -161,10 +161,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_FR_2(payload, secondary_irts_fr_2_d);
     
             secondary::IrtsFr2 secondary_irts_fr_2_p;
-            secondary_irts_fr_2_p.set_channel9(static_cast<uint16_t>(secondary_irts_fr_2_d->channel9));
-            secondary_irts_fr_2_p.set_channel10(static_cast<uint16_t>(secondary_irts_fr_2_d->channel10));
-            secondary_irts_fr_2_p.set_channel11(static_cast<uint16_t>(secondary_irts_fr_2_d->channel11));
-            secondary_irts_fr_2_p.set_channel12(static_cast<uint16_t>(secondary_irts_fr_2_d->channel12));
+            secondary_irts_fr_2_p.set_channel9(static_cast<uint32_t>(secondary_irts_fr_2_d->channel9));
+            secondary_irts_fr_2_p.set_channel10(static_cast<uint32_t>(secondary_irts_fr_2_d->channel10));
+            secondary_irts_fr_2_p.set_channel11(static_cast<uint32_t>(secondary_irts_fr_2_d->channel11));
+            secondary_irts_fr_2_p.set_channel12(static_cast<uint32_t>(secondary_irts_fr_2_d->channel12));
 
             free(secondary_irts_fr_2_d);
 
@@ -178,10 +178,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_FR_3(payload, secondary_irts_fr_3_d);
     
             secondary::IrtsFr3 secondary_irts_fr_3_p;
-            secondary_irts_fr_3_p.set_channel13(static_cast<uint16_t>(secondary_irts_fr_3_d->channel13));
-            secondary_irts_fr_3_p.set_channel14(static_cast<uint16_t>(secondary_irts_fr_3_d->channel14));
-            secondary_irts_fr_3_p.set_channel15(static_cast<uint16_t>(secondary_irts_fr_3_d->channel15));
-            secondary_irts_fr_3_p.set_channel16(static_cast<uint16_t>(secondary_irts_fr_3_d->channel16));
+            secondary_irts_fr_3_p.set_channel13(static_cast<uint32_t>(secondary_irts_fr_3_d->channel13));
+            secondary_irts_fr_3_p.set_channel14(static_cast<uint32_t>(secondary_irts_fr_3_d->channel14));
+            secondary_irts_fr_3_p.set_channel15(static_cast<uint32_t>(secondary_irts_fr_3_d->channel15));
+            secondary_irts_fr_3_p.set_channel16(static_cast<uint32_t>(secondary_irts_fr_3_d->channel16));
 
             free(secondary_irts_fr_3_d);
 
@@ -195,10 +195,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_RL_0(payload, secondary_irts_rl_0_d);
     
             secondary::IrtsRl0 secondary_irts_rl_0_p;
-            secondary_irts_rl_0_p.set_channel1(static_cast<uint16_t>(secondary_irts_rl_0_d->channel1));
-            secondary_irts_rl_0_p.set_channel2(static_cast<uint16_t>(secondary_irts_rl_0_d->channel2));
-            secondary_irts_rl_0_p.set_channel3(static_cast<uint16_t>(secondary_irts_rl_0_d->channel3));
-            secondary_irts_rl_0_p.set_channel4(static_cast<uint16_t>(secondary_irts_rl_0_d->channel4));
+            secondary_irts_rl_0_p.set_channel1(static_cast<uint32_t>(secondary_irts_rl_0_d->channel1));
+            secondary_irts_rl_0_p.set_channel2(static_cast<uint32_t>(secondary_irts_rl_0_d->channel2));
+            secondary_irts_rl_0_p.set_channel3(static_cast<uint32_t>(secondary_irts_rl_0_d->channel3));
+            secondary_irts_rl_0_p.set_channel4(static_cast<uint32_t>(secondary_irts_rl_0_d->channel4));
 
             free(secondary_irts_rl_0_d);
 
@@ -212,10 +212,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_RL_1(payload, secondary_irts_rl_1_d);
     
             secondary::IrtsRl1 secondary_irts_rl_1_p;
-            secondary_irts_rl_1_p.set_channel5(static_cast<uint16_t>(secondary_irts_rl_1_d->channel5));
-            secondary_irts_rl_1_p.set_channel6(static_cast<uint16_t>(secondary_irts_rl_1_d->channel6));
-            secondary_irts_rl_1_p.set_channel7(static_cast<uint16_t>(secondary_irts_rl_1_d->channel7));
-            secondary_irts_rl_1_p.set_channel8(static_cast<uint16_t>(secondary_irts_rl_1_d->channel8));
+            secondary_irts_rl_1_p.set_channel5(static_cast<uint32_t>(secondary_irts_rl_1_d->channel5));
+            secondary_irts_rl_1_p.set_channel6(static_cast<uint32_t>(secondary_irts_rl_1_d->channel6));
+            secondary_irts_rl_1_p.set_channel7(static_cast<uint32_t>(secondary_irts_rl_1_d->channel7));
+            secondary_irts_rl_1_p.set_channel8(static_cast<uint32_t>(secondary_irts_rl_1_d->channel8));
 
             free(secondary_irts_rl_1_d);
 
@@ -229,10 +229,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_RL_2(payload, secondary_irts_rl_2_d);
     
             secondary::IrtsRl2 secondary_irts_rl_2_p;
-            secondary_irts_rl_2_p.set_channel9(static_cast<uint16_t>(secondary_irts_rl_2_d->channel9));
-            secondary_irts_rl_2_p.set_channel10(static_cast<uint16_t>(secondary_irts_rl_2_d->channel10));
-            secondary_irts_rl_2_p.set_channel11(static_cast<uint16_t>(secondary_irts_rl_2_d->channel11));
-            secondary_irts_rl_2_p.set_channel12(static_cast<uint16_t>(secondary_irts_rl_2_d->channel12));
+            secondary_irts_rl_2_p.set_channel9(static_cast<uint32_t>(secondary_irts_rl_2_d->channel9));
+            secondary_irts_rl_2_p.set_channel10(static_cast<uint32_t>(secondary_irts_rl_2_d->channel10));
+            secondary_irts_rl_2_p.set_channel11(static_cast<uint32_t>(secondary_irts_rl_2_d->channel11));
+            secondary_irts_rl_2_p.set_channel12(static_cast<uint32_t>(secondary_irts_rl_2_d->channel12));
 
             free(secondary_irts_rl_2_d);
 
@@ -246,10 +246,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_RL_3(payload, secondary_irts_rl_3_d);
     
             secondary::IrtsRl3 secondary_irts_rl_3_p;
-            secondary_irts_rl_3_p.set_channel13(static_cast<uint16_t>(secondary_irts_rl_3_d->channel13));
-            secondary_irts_rl_3_p.set_channel14(static_cast<uint16_t>(secondary_irts_rl_3_d->channel14));
-            secondary_irts_rl_3_p.set_channel15(static_cast<uint16_t>(secondary_irts_rl_3_d->channel15));
-            secondary_irts_rl_3_p.set_channel16(static_cast<uint16_t>(secondary_irts_rl_3_d->channel16));
+            secondary_irts_rl_3_p.set_channel13(static_cast<uint32_t>(secondary_irts_rl_3_d->channel13));
+            secondary_irts_rl_3_p.set_channel14(static_cast<uint32_t>(secondary_irts_rl_3_d->channel14));
+            secondary_irts_rl_3_p.set_channel15(static_cast<uint32_t>(secondary_irts_rl_3_d->channel15));
+            secondary_irts_rl_3_p.set_channel16(static_cast<uint32_t>(secondary_irts_rl_3_d->channel16));
 
             free(secondary_irts_rl_3_d);
 
@@ -263,10 +263,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_RR_0(payload, secondary_irts_rr_0_d);
     
             secondary::IrtsRr0 secondary_irts_rr_0_p;
-            secondary_irts_rr_0_p.set_channel1(static_cast<uint16_t>(secondary_irts_rr_0_d->channel1));
-            secondary_irts_rr_0_p.set_channel2(static_cast<uint16_t>(secondary_irts_rr_0_d->channel2));
-            secondary_irts_rr_0_p.set_channel3(static_cast<uint16_t>(secondary_irts_rr_0_d->channel3));
-            secondary_irts_rr_0_p.set_channel4(static_cast<uint16_t>(secondary_irts_rr_0_d->channel4));
+            secondary_irts_rr_0_p.set_channel1(static_cast<uint32_t>(secondary_irts_rr_0_d->channel1));
+            secondary_irts_rr_0_p.set_channel2(static_cast<uint32_t>(secondary_irts_rr_0_d->channel2));
+            secondary_irts_rr_0_p.set_channel3(static_cast<uint32_t>(secondary_irts_rr_0_d->channel3));
+            secondary_irts_rr_0_p.set_channel4(static_cast<uint32_t>(secondary_irts_rr_0_d->channel4));
 
             free(secondary_irts_rr_0_d);
 
@@ -280,10 +280,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_RR_1(payload, secondary_irts_rr_1_d);
     
             secondary::IrtsRr1 secondary_irts_rr_1_p;
-            secondary_irts_rr_1_p.set_channel5(static_cast<uint16_t>(secondary_irts_rr_1_d->channel5));
-            secondary_irts_rr_1_p.set_channel6(static_cast<uint16_t>(secondary_irts_rr_1_d->channel6));
-            secondary_irts_rr_1_p.set_channel7(static_cast<uint16_t>(secondary_irts_rr_1_d->channel7));
-            secondary_irts_rr_1_p.set_channel8(static_cast<uint16_t>(secondary_irts_rr_1_d->channel8));
+            secondary_irts_rr_1_p.set_channel5(static_cast<uint32_t>(secondary_irts_rr_1_d->channel5));
+            secondary_irts_rr_1_p.set_channel6(static_cast<uint32_t>(secondary_irts_rr_1_d->channel6));
+            secondary_irts_rr_1_p.set_channel7(static_cast<uint32_t>(secondary_irts_rr_1_d->channel7));
+            secondary_irts_rr_1_p.set_channel8(static_cast<uint32_t>(secondary_irts_rr_1_d->channel8));
 
             free(secondary_irts_rr_1_d);
 
@@ -297,10 +297,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_RR_2(payload, secondary_irts_rr_2_d);
     
             secondary::IrtsRr2 secondary_irts_rr_2_p;
-            secondary_irts_rr_2_p.set_channel9(static_cast<uint16_t>(secondary_irts_rr_2_d->channel9));
-            secondary_irts_rr_2_p.set_channel10(static_cast<uint16_t>(secondary_irts_rr_2_d->channel10));
-            secondary_irts_rr_2_p.set_channel11(static_cast<uint16_t>(secondary_irts_rr_2_d->channel11));
-            secondary_irts_rr_2_p.set_channel12(static_cast<uint16_t>(secondary_irts_rr_2_d->channel12));
+            secondary_irts_rr_2_p.set_channel9(static_cast<uint32_t>(secondary_irts_rr_2_d->channel9));
+            secondary_irts_rr_2_p.set_channel10(static_cast<uint32_t>(secondary_irts_rr_2_d->channel10));
+            secondary_irts_rr_2_p.set_channel11(static_cast<uint32_t>(secondary_irts_rr_2_d->channel11));
+            secondary_irts_rr_2_p.set_channel12(static_cast<uint32_t>(secondary_irts_rr_2_d->channel12));
 
             free(secondary_irts_rr_2_d);
 
@@ -314,10 +314,10 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_IRTS_RR_3(payload, secondary_irts_rr_3_d);
     
             secondary::IrtsRr3 secondary_irts_rr_3_p;
-            secondary_irts_rr_3_p.set_channel13(static_cast<uint16_t>(secondary_irts_rr_3_d->channel13));
-            secondary_irts_rr_3_p.set_channel14(static_cast<uint16_t>(secondary_irts_rr_3_d->channel14));
-            secondary_irts_rr_3_p.set_channel15(static_cast<uint16_t>(secondary_irts_rr_3_d->channel15));
-            secondary_irts_rr_3_p.set_channel16(static_cast<uint16_t>(secondary_irts_rr_3_d->channel16));
+            secondary_irts_rr_3_p.set_channel13(static_cast<uint32_t>(secondary_irts_rr_3_d->channel13));
+            secondary_irts_rr_3_p.set_channel14(static_cast<uint32_t>(secondary_irts_rr_3_d->channel14));
+            secondary_irts_rr_3_p.set_channel15(static_cast<uint32_t>(secondary_irts_rr_3_d->channel15));
+            secondary_irts_rr_3_p.set_channel16(static_cast<uint32_t>(secondary_irts_rr_3_d->channel16));
 
             free(secondary_irts_rr_3_d);
 
@@ -346,7 +346,7 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_GPS_SPEED(payload, secondary_gps_speed_d);
     
             secondary::GpsSpeed secondary_gps_speed_p;
-            secondary_gps_speed_p.set_speed(static_cast<uint16_t>(secondary_gps_speed_d->speed));
+            secondary_gps_speed_p.set_speed(static_cast<uint32_t>(secondary_gps_speed_d->speed));
 
             free(secondary_gps_speed_d);
 
@@ -360,7 +360,7 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
             deserialize_secondary_LAP_COUNT(payload, secondary_lap_count_d);
     
             secondary::LapCount secondary_lap_count_p;
-            secondary_lap_count_p.set_lap_count(static_cast<uint8_t>(secondary_lap_count_d->lap_count));
+            secondary_lap_count_p.set_lap_count(static_cast<uint32_t>(secondary_lap_count_d->lap_count));
             secondary_lap_count_p.set_timestamp(static_cast<uint32_t>(secondary_lap_count_d->timestamp));
 
             free(secondary_lap_count_d);
