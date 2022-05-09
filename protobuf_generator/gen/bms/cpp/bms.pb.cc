@@ -93,8 +93,24 @@ struct FwUpdateDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FwUpdateDefaultTypeInternal _FwUpdate_default_instance_;
+PROTOBUF_CONSTEXPR BmsFenice::BmsFenice(
+    ::_pbi::ConstantInitialized)
+  : board_status_()
+  , temperatures_()
+  , voltages_()
+  , balancing_()
+  , fw_update_(){}
+struct BmsFeniceDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BmsFeniceDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~BmsFeniceDefaultTypeInternal() {}
+  union {
+    BmsFenice _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BmsFeniceDefaultTypeInternal _BmsFenice_default_instance_;
 }  // namespace bms
-static ::_pb::Metadata file_level_metadata_bms_2eproto[5];
+static ::_pb::Metadata file_level_metadata_bms_2eproto[6];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_bms_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_bms_2eproto = nullptr;
 
@@ -145,6 +161,17 @@ const uint32_t TableStruct_bms_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(prot
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::bms::FwUpdate, board_index_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::bms::BmsFenice, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::bms::BmsFenice, board_status_),
+  PROTOBUF_FIELD_OFFSET(::bms::BmsFenice, temperatures_),
+  PROTOBUF_FIELD_OFFSET(::bms::BmsFenice, voltages_),
+  PROTOBUF_FIELD_OFFSET(::bms::BmsFenice, balancing_),
+  PROTOBUF_FIELD_OFFSET(::bms::BmsFenice, fw_update_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::bms::BoardStatus)},
@@ -152,6 +179,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 21, -1, -1, sizeof(::bms::Voltages)},
   { 31, -1, -1, sizeof(::bms::Balancing)},
   { 39, -1, -1, sizeof(::bms::FwUpdate)},
+  { 46, -1, -1, sizeof(::bms::BmsFenice)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -160,6 +188,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::bms::_Voltages_default_instance_._instance,
   &::bms::_Balancing_default_instance_._instance,
   &::bms::_FwUpdate_default_instance_._instance,
+  &::bms::_BmsFenice_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_bms_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -172,16 +201,21 @@ const char descriptor_table_protodef_bms_2eproto[] PROTOBUF_SECTION_VARIABLE(pro
   "\n\013start_index\030\001 \001(\r\022\020\n\010voltage0\030\002 \001(\r\022\020\n"
   "\010voltage1\030\003 \001(\r\022\020\n\010voltage2\030\004 \001(\r\"/\n\tBal"
   "ancing\022\023\n\013board_index\030\001 \001(\r\022\r\n\005cells\030\002 \001"
-  "(\r\"\037\n\010FwUpdate\022\023\n\013board_index\030\001 \001(\r*O\n\023B"
-  "alancingStatusType\022\030\n\024BALANCING_STATUS_O"
-  "FF\020\000\022\036\n\032BALANCING_STATUS_DISCHARGE\020\001b\006pr"
-  "oto3"
+  "(\r\"\037\n\010FwUpdate\022\023\n\013board_index\030\001 \001(\r\"\302\001\n\t"
+  "BmsFenice\022&\n\014board_status\030\001 \003(\0132\020.bms.Bo"
+  "ardStatus\022\'\n\014temperatures\030\002 \003(\0132\021.bms.Te"
+  "mperatures\022\037\n\010voltages\030\003 \003(\0132\r.bms.Volta"
+  "ges\022!\n\tbalancing\030\004 \003(\0132\016.bms.Balancing\022 "
+  "\n\tfw_update\030\005 \003(\0132\r.bms.FwUpdate*O\n\023Bala"
+  "ncingStatusType\022\030\n\024BALANCING_STATUS_OFF\020"
+  "\000\022\036\n\032BALANCING_STATUS_DISCHARGE\020\001b\006proto"
+  "3"
   ;
 static ::_pbi::once_flag descriptor_table_bms_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_bms_2eproto = {
-    false, false, 484, descriptor_table_protodef_bms_2eproto,
+    false, false, 681, descriptor_table_protodef_bms_2eproto,
     "bms.proto",
-    &descriptor_table_bms_2eproto_once, nullptr, 0, 5,
+    &descriptor_table_bms_2eproto_once, nullptr, 0, 6,
     schemas, file_default_instances, TableStruct_bms_2eproto::offsets,
     file_level_metadata_bms_2eproto, file_level_enum_descriptors_bms_2eproto,
     file_level_service_descriptors_bms_2eproto,
@@ -1356,6 +1390,316 @@ void FwUpdate::InternalSwap(FwUpdate* other) {
       file_level_metadata_bms_2eproto[4]);
 }
 
+// ===================================================================
+
+class BmsFenice::_Internal {
+ public:
+};
+
+BmsFenice::BmsFenice(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  board_status_(arena),
+  temperatures_(arena),
+  voltages_(arena),
+  balancing_(arena),
+  fw_update_(arena) {
+  SharedCtor();
+  // @@protoc_insertion_point(arena_constructor:bms.BmsFenice)
+}
+BmsFenice::BmsFenice(const BmsFenice& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      board_status_(from.board_status_),
+      temperatures_(from.temperatures_),
+      voltages_(from.voltages_),
+      balancing_(from.balancing_),
+      fw_update_(from.fw_update_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:bms.BmsFenice)
+}
+
+inline void BmsFenice::SharedCtor() {
+}
+
+BmsFenice::~BmsFenice() {
+  // @@protoc_insertion_point(destructor:bms.BmsFenice)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void BmsFenice::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void BmsFenice::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void BmsFenice::Clear() {
+// @@protoc_insertion_point(message_clear_start:bms.BmsFenice)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  board_status_.Clear();
+  temperatures_.Clear();
+  voltages_.Clear();
+  balancing_.Clear();
+  fw_update_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* BmsFenice::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .bms.BoardStatus board_status = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_board_status(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .bms.Temperatures temperatures = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_temperatures(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .bms.Voltages voltages = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_voltages(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .bms.Balancing balancing = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_balancing(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .bms.FwUpdate fw_update = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_fw_update(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* BmsFenice::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:bms.BmsFenice)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .bms.BoardStatus board_status = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_board_status_size()); i < n; i++) {
+    const auto& repfield = this->_internal_board_status(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .bms.Temperatures temperatures = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_temperatures_size()); i < n; i++) {
+    const auto& repfield = this->_internal_temperatures(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .bms.Voltages voltages = 3;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_voltages_size()); i < n; i++) {
+    const auto& repfield = this->_internal_voltages(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .bms.Balancing balancing = 4;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_balancing_size()); i < n; i++) {
+    const auto& repfield = this->_internal_balancing(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .bms.FwUpdate fw_update = 5;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_fw_update_size()); i < n; i++) {
+    const auto& repfield = this->_internal_fw_update(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:bms.BmsFenice)
+  return target;
+}
+
+size_t BmsFenice::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:bms.BmsFenice)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .bms.BoardStatus board_status = 1;
+  total_size += 1UL * this->_internal_board_status_size();
+  for (const auto& msg : this->board_status_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .bms.Temperatures temperatures = 2;
+  total_size += 1UL * this->_internal_temperatures_size();
+  for (const auto& msg : this->temperatures_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .bms.Voltages voltages = 3;
+  total_size += 1UL * this->_internal_voltages_size();
+  for (const auto& msg : this->voltages_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .bms.Balancing balancing = 4;
+  total_size += 1UL * this->_internal_balancing_size();
+  for (const auto& msg : this->balancing_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .bms.FwUpdate fw_update = 5;
+  total_size += 1UL * this->_internal_fw_update_size();
+  for (const auto& msg : this->fw_update_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData BmsFenice::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    BmsFenice::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*BmsFenice::GetClassData() const { return &_class_data_; }
+
+void BmsFenice::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<BmsFenice *>(to)->MergeFrom(
+      static_cast<const BmsFenice &>(from));
+}
+
+
+void BmsFenice::MergeFrom(const BmsFenice& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:bms.BmsFenice)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  board_status_.MergeFrom(from.board_status_);
+  temperatures_.MergeFrom(from.temperatures_);
+  voltages_.MergeFrom(from.voltages_);
+  balancing_.MergeFrom(from.balancing_);
+  fw_update_.MergeFrom(from.fw_update_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void BmsFenice::CopyFrom(const BmsFenice& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:bms.BmsFenice)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BmsFenice::IsInitialized() const {
+  return true;
+}
+
+void BmsFenice::InternalSwap(BmsFenice* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  board_status_.InternalSwap(&other->board_status_);
+  temperatures_.InternalSwap(&other->temperatures_);
+  voltages_.InternalSwap(&other->voltages_);
+  balancing_.InternalSwap(&other->balancing_);
+  fw_update_.InternalSwap(&other->fw_update_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata BmsFenice::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_bms_2eproto_getter, &descriptor_table_bms_2eproto_once,
+      file_level_metadata_bms_2eproto[5]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace bms
 PROTOBUF_NAMESPACE_OPEN
@@ -1378,6 +1722,10 @@ Arena::CreateMaybeMessage< ::bms::Balancing >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::bms::FwUpdate*
 Arena::CreateMaybeMessage< ::bms::FwUpdate >(Arena* arena) {
   return Arena::CreateMessageInternal< ::bms::FwUpdate >(arena);
+}
+template<> PROTOBUF_NOINLINE ::bms::BmsFenice*
+Arena::CreateMaybeMessage< ::bms::BmsFenice >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::bms::BmsFenice >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

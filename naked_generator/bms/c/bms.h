@@ -8,7 +8,6 @@ extern "C" {
 #include <stdbool.h>
 #include <stdint.h>
 #include <assert.h>
-#include <stdio.h>
 
 /*
 *   NAKED SHARED 
@@ -69,58 +68,72 @@ extern "C" {
     #define getBit(bitset, index)  ((bitset)[(index)/8] &  (1 << (index) % 8) )
 #endif
 
+// Types
 
+typedef union {
+    uint8_t bytes[4];
+    float value;
+} float_t;
 
-typedef uint8_t bms_errors[1]; // bitset
-#define bms_errors_default { 0 } // bitset filled with zeros
-#define bms_errors_CAN_COMM 0
-#define bms_errors_LTC_COMM 1
-#define bms_errors_TEMP_COMM_0 2
-#define bms_errors_TEMP_COMM_1 3
-#define bms_errors_TEMP_COMM_2 4
-#define bms_errors_TEMP_COMM_3 5
-#define bms_errors_TEMP_COMM_4 6
-#define bms_errors_TEMP_COMM_5 7
+typedef union {
+    uint8_t bytes[8];
+    double value;
+} double_t;
 
-typedef uint8_t bms_balancing_cells[3]; // bitset
-#define bms_balancing_cells_default { 0, 0, 0 } // bitset filled with zeros
-#define bms_balancing_cells_CELL0 0
-#define bms_balancing_cells_CELL1 1
-#define bms_balancing_cells_CELL2 2
-#define bms_balancing_cells_CELL3 3
-#define bms_balancing_cells_CELL4 4
-#define bms_balancing_cells_CELL5 5
-#define bms_balancing_cells_CELL6 6
-#define bms_balancing_cells_CELL7 7
-#define bms_balancing_cells_CELL8 8
-#define bms_balancing_cells_CELL9 9
-#define bms_balancing_cells_CELL10 10
-#define bms_balancing_cells_CELL11 11
-#define bms_balancing_cells_CELL12 12
-#define bms_balancing_cells_CELL13 13
-#define bms_balancing_cells_CELL14 14
-#define bms_balancing_cells_CELL15 15
-#define bms_balancing_cells_CELL16 16
-#define bms_balancing_cells_CELL17 17
+// Frequencies
 
+// Sizes
+#define BMS_BOARD_STATUS_SIZE 2
+#define BMS_TEMPERATURES_SIZE 7
+#define BMS_VOLTAGES_SIZE 7
+#define BMS_BALANCING_SIZE 4
+#define BMS_FW_UPDATE_SIZE 1
+
+// Bitsets
+typedef uint8_t BmsErrors[1];
+#define BMS_ERRORS_DEFAULT { 0 }
+#define BMS_ERRORS_CAN_COMM 0
+#define BMS_ERRORS_LTC_COMM 1
+#define BMS_ERRORS_TEMP_COMM_0 2
+#define BMS_ERRORS_TEMP_COMM_1 3
+#define BMS_ERRORS_TEMP_COMM_2 4
+#define BMS_ERRORS_TEMP_COMM_3 5
+#define BMS_ERRORS_TEMP_COMM_4 6
+#define BMS_ERRORS_TEMP_COMM_5 7
+
+typedef uint8_t BmsBalancingCells[3];
+#define BMS_BALANCING_CELLS_DEFAULT { 0, 0, 0 }
+#define BMS_BALANCING_CELLS_CELL0 0
+#define BMS_BALANCING_CELLS_CELL1 1
+#define BMS_BALANCING_CELLS_CELL2 2
+#define BMS_BALANCING_CELLS_CELL3 3
+#define BMS_BALANCING_CELLS_CELL4 4
+#define BMS_BALANCING_CELLS_CELL5 5
+#define BMS_BALANCING_CELLS_CELL6 6
+#define BMS_BALANCING_CELLS_CELL7 7
+#define BMS_BALANCING_CELLS_CELL8 8
+#define BMS_BALANCING_CELLS_CELL9 9
+#define BMS_BALANCING_CELLS_CELL10 10
+#define BMS_BALANCING_CELLS_CELL11 11
+#define BMS_BALANCING_CELLS_CELL12 12
+#define BMS_BALANCING_CELLS_CELL13 13
+#define BMS_BALANCING_CELLS_CELL14 14
+#define BMS_BALANCING_CELLS_CELL15 15
+#define BMS_BALANCING_CELLS_CELL16 16
+#define BMS_BALANCING_CELLS_CELL17 17
+
+// Enums
 typedef enum __is_packed {
-    bms_balancing_status_OFF = 0,
-    bms_balancing_status_DISCHARGE = 1,
-} bms_balancing_status;
+    BMS_BALANCING_STATUS_OFF = 0,
+    BMS_BALANCING_STATUS_DISCHARGE = 1,
+} BmsBalancingStatus;
 
-/* bms_BOARD_STATUS */
-    
+// Structs
 typedef struct __is_packed {
-    bms_errors errors;
-    bms_balancing_status balancing_status;
-} bms_BOARD_STATUS;
-static_assert(sizeof(bms_BOARD_STATUS) == 2, "struct size mismatch");
-    
-size_t serialize_bms_BOARD_STATUS(uint8_t* buffer, bms_errors errors, bms_balancing_status balancing_status);
-size_t deserialize_bms_BOARD_STATUS(uint8_t* buffer, bms_BOARD_STATUS* bms_board_status);
+    BmsErrors errors;
+    BmsBalancingStatus balancing_status;
+} BmsBoardStatusMsg;
 
-/* bms_TEMPERATURES */
-    
 typedef struct __is_packed {
     uint8_t start_index;
     uint8_t temp0;
@@ -129,46 +142,95 @@ typedef struct __is_packed {
     uint8_t temp3;
     uint8_t temp4;
     uint8_t temp5;
-} bms_TEMPERATURES;
-static_assert(sizeof(bms_TEMPERATURES) == 7, "struct size mismatch");
-    
-size_t serialize_bms_TEMPERATURES(uint8_t* buffer, uint8_t start_index, uint8_t temp0, uint8_t temp1, uint8_t temp2, uint8_t temp3, uint8_t temp4, uint8_t temp5);
-size_t deserialize_bms_TEMPERATURES(uint8_t* buffer, bms_TEMPERATURES* bms_temperatures);
+} BmsTemperaturesMsg;
 
-/* bms_VOLTAGES */
-    
 typedef struct __is_packed {
-    uint8_t start_index;
-    uint8_t __unused_padding_1;
     uint16_t voltage0;
     uint16_t voltage1;
     uint16_t voltage2;
-} bms_VOLTAGES;
-static_assert(sizeof(bms_VOLTAGES) == 8, "struct size mismatch");
-    
-size_t serialize_bms_VOLTAGES(uint8_t* buffer, uint8_t start_index, uint16_t voltage0, uint16_t voltage1, uint16_t voltage2);
-size_t deserialize_bms_VOLTAGES(uint8_t* buffer, bms_VOLTAGES* bms_voltages);
+    uint8_t start_index;
+} BmsVoltagesMsg;
 
-/* bms_BALANCING */
-    
+typedef struct __is_packed {
+    BmsBalancingCells cells;
+    uint8_t board_index;
+} BmsBalancingMsg;
+
 typedef struct __is_packed {
     uint8_t board_index;
-    bms_balancing_cells cells;
-} bms_BALANCING;
-static_assert(sizeof(bms_BALANCING) == 4, "struct size mismatch");
-    
-size_t serialize_bms_BALANCING(uint8_t* buffer, uint8_t board_index, bms_balancing_cells cells);
-size_t deserialize_bms_BALANCING(uint8_t* buffer, bms_BALANCING* bms_balancing);
+} BmsFwUpdateMsg;
 
-/* bms_FW_UPDATE */
-    
-typedef struct __is_packed {
-    uint8_t board_index;
-} bms_FW_UPDATE;
-static_assert(sizeof(bms_FW_UPDATE) == 1, "struct size mismatch");
-    
-size_t serialize_bms_FW_UPDATE(uint8_t* buffer, uint8_t board_index);
-size_t deserialize_bms_FW_UPDATE(uint8_t* buffer, bms_FW_UPDATE* bms_fw_update);
+// Functions
+
+void serialize_BmsBoardStatus(uint8_t *data, BmsBoardStatusMsg *msg){
+    data[0] = msg->errors[0];
+    data[1] = msg->balancing_status << 7;
+}
+
+void deserialize_BmsBoardStatus(uint8_t *data, BmsBoardStatusMsg *msg){
+    msg->errors[0] = data[0];
+    msg->balancing_status = (BmsBalancingStatus) ((data[1] & 128) >> 7);
+}
+
+void serialize_BmsTemperatures(uint8_t *data, BmsTemperaturesMsg *msg){
+    data[0] = msg->start_index;
+    data[1] = msg->temp0;
+    data[2] = msg->temp1;
+    data[3] = msg->temp2;
+    data[4] = msg->temp3;
+    data[5] = msg->temp4;
+    data[6] = msg->temp5;
+}
+
+void deserialize_BmsTemperatures(uint8_t *data, BmsTemperaturesMsg *msg){
+    msg->start_index = data[0];
+    msg->temp0 = data[1];
+    msg->temp1 = data[2];
+    msg->temp2 = data[3];
+    msg->temp3 = data[4];
+    msg->temp4 = data[5];
+    msg->temp5 = data[6];
+}
+
+void serialize_BmsVoltages(uint8_t *data, BmsVoltagesMsg *msg){
+    data[0] = msg->voltage0 & 255;
+    data[1] = (msg->voltage0 >> 8) & 255;
+    data[2] = msg->voltage1 & 255;
+    data[3] = (msg->voltage1 >> 8) & 255;
+    data[4] = msg->voltage2 & 255;
+    data[5] = (msg->voltage2 >> 8) & 255;
+    data[6] = msg->start_index;
+}
+
+void deserialize_BmsVoltages(uint8_t *data, BmsVoltagesMsg *msg){
+    msg->voltage0 = data[0] | (data[1] << 8);
+    msg->voltage1 = data[2] | (data[3] << 8);
+    msg->voltage2 = data[4] | (data[5] << 8);
+    msg->start_index = data[6];
+}
+
+void serialize_BmsBalancing(uint8_t *data, BmsBalancingMsg *msg){
+    data[0] = msg->cells[0];
+    data[1] = msg->cells[1];
+    data[2] = msg->cells[2];
+    data[3] = msg->board_index;
+}
+
+void deserialize_BmsBalancing(uint8_t *data, BmsBalancingMsg *msg){
+    msg->cells[0] = data[0];
+    msg->cells[1] = data[1];
+    msg->cells[2] = data[2];
+    msg->board_index = data[3];
+}
+
+void serialize_BmsFwUpdate(uint8_t *data, BmsFwUpdateMsg *msg){
+    data[0] = msg->board_index;
+}
+
+void deserialize_BmsFwUpdate(uint8_t *data, BmsFwUpdateMsg *msg){
+    msg->board_index = data[0];
+}
+
 #endif
 
 #ifdef __cplusplus

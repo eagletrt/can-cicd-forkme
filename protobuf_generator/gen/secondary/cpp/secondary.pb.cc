@@ -327,8 +327,40 @@ struct LapCountDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LapCountDefaultTypeInternal _LapCount_default_instance_;
+PROTOBUF_CONSTEXPR SecondaryFenice::SecondaryFenice(
+    ::_pbi::ConstantInitialized)
+  : imu_angular_rate_()
+  , imu_acceleration_()
+  , irts_fl_0_()
+  , irts_fl_1_()
+  , irts_fl_2_()
+  , irts_fl_3_()
+  , irts_fr_0_()
+  , irts_fr_1_()
+  , irts_fr_2_()
+  , irts_fr_3_()
+  , irts_rl_0_()
+  , irts_rl_1_()
+  , irts_rl_2_()
+  , irts_rl_3_()
+  , irts_rr_0_()
+  , irts_rr_1_()
+  , irts_rr_2_()
+  , irts_rr_3_()
+  , gps_coords_()
+  , gps_speed_()
+  , lap_count_(){}
+struct SecondaryFeniceDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SecondaryFeniceDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SecondaryFeniceDefaultTypeInternal() {}
+  union {
+    SecondaryFenice _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SecondaryFeniceDefaultTypeInternal _SecondaryFenice_default_instance_;
 }  // namespace secondary
-static ::_pb::Metadata file_level_metadata_secondary_2eproto[21];
+static ::_pb::Metadata file_level_metadata_secondary_2eproto[22];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_secondary_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_secondary_2eproto = nullptr;
 
@@ -534,6 +566,33 @@ const uint32_t TableStruct_secondary_2eproto::offsets[] PROTOBUF_SECTION_VARIABL
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::secondary::LapCount, lap_count_),
   PROTOBUF_FIELD_OFFSET(::secondary::LapCount, timestamp_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, imu_angular_rate_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, imu_acceleration_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_fl_0_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_fl_1_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_fl_2_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_fl_3_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_fr_0_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_fr_1_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_fr_2_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_fr_3_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_rl_0_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_rl_1_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_rl_2_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_rl_3_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_rr_0_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_rr_1_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_rr_2_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, irts_rr_3_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, gps_coords_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, gps_speed_),
+  PROTOBUF_FIELD_OFFSET(::secondary::SecondaryFenice, lap_count_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::secondary::ImuAngularRate)},
@@ -557,6 +616,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 178, -1, -1, sizeof(::secondary::GpsCoords)},
   { 186, -1, -1, sizeof(::secondary::GpsSpeed)},
   { 193, -1, -1, sizeof(::secondary::LapCount)},
+  { 201, -1, -1, sizeof(::secondary::SecondaryFenice)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -581,6 +641,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::secondary::_GpsCoords_default_instance_._instance,
   &::secondary::_GpsSpeed_default_instance_._instance,
   &::secondary::_LapCount_default_instance_._instance,
+  &::secondary::_SecondaryFenice_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_secondary_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -625,13 +686,35 @@ const char descriptor_table_protodef_secondary_2eproto[] PROTOBUF_SECTION_VARIAB
   "nnel16\030\004 \001(\r\"0\n\tGpsCoords\022\020\n\010latitude\030\001 "
   "\001(\002\022\021\n\tlongitude\030\002 \001(\002\"\031\n\010GpsSpeed\022\r\n\005sp"
   "eed\030\001 \001(\r\"0\n\010LapCount\022\021\n\tlap_count\030\001 \001(\r"
-  "\022\021\n\ttimestamp\030\002 \001(\rb\006proto3"
+  "\022\021\n\ttimestamp\030\002 \001(\r\"\346\006\n\017SecondaryFenice\022"
+  "3\n\020imu_angular_rate\030\001 \003(\0132\031.secondary.Im"
+  "uAngularRate\0224\n\020imu_acceleration\030\002 \003(\0132\032"
+  ".secondary.ImuAcceleration\022%\n\tirts_fl_0\030"
+  "\003 \003(\0132\022.secondary.IrtsFl0\022%\n\tirts_fl_1\030\004"
+  " \003(\0132\022.secondary.IrtsFl1\022%\n\tirts_fl_2\030\005 "
+  "\003(\0132\022.secondary.IrtsFl2\022%\n\tirts_fl_3\030\006 \003"
+  "(\0132\022.secondary.IrtsFl3\022%\n\tirts_fr_0\030\007 \003("
+  "\0132\022.secondary.IrtsFr0\022%\n\tirts_fr_1\030\010 \003(\013"
+  "2\022.secondary.IrtsFr1\022%\n\tirts_fr_2\030\t \003(\0132"
+  "\022.secondary.IrtsFr2\022%\n\tirts_fr_3\030\n \003(\0132\022"
+  ".secondary.IrtsFr3\022%\n\tirts_rl_0\030\013 \003(\0132\022."
+  "secondary.IrtsRl0\022%\n\tirts_rl_1\030\014 \003(\0132\022.s"
+  "econdary.IrtsRl1\022%\n\tirts_rl_2\030\r \003(\0132\022.se"
+  "condary.IrtsRl2\022%\n\tirts_rl_3\030\016 \003(\0132\022.sec"
+  "ondary.IrtsRl3\022%\n\tirts_rr_0\030\017 \003(\0132\022.seco"
+  "ndary.IrtsRr0\022%\n\tirts_rr_1\030\020 \003(\0132\022.secon"
+  "dary.IrtsRr1\022%\n\tirts_rr_2\030\021 \003(\0132\022.second"
+  "ary.IrtsRr2\022%\n\tirts_rr_3\030\022 \003(\0132\022.seconda"
+  "ry.IrtsRr3\022(\n\ngps_coords\030\023 \003(\0132\024.seconda"
+  "ry.GpsCoords\022&\n\tgps_speed\030\024 \003(\0132\023.second"
+  "ary.GpsSpeed\022&\n\tlap_count\030\025 \003(\0132\023.second"
+  "ary.LapCountb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_secondary_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_secondary_2eproto = {
-    false, false, 1667, descriptor_table_protodef_secondary_2eproto,
+    false, false, 2540, descriptor_table_protodef_secondary_2eproto,
     "secondary.proto",
-    &descriptor_table_secondary_2eproto_once, nullptr, 0, 21,
+    &descriptor_table_secondary_2eproto_once, nullptr, 0, 22,
     schemas, file_default_instances, TableStruct_secondary_2eproto::offsets,
     file_level_metadata_secondary_2eproto, file_level_enum_descriptors_secondary_2eproto,
     file_level_service_descriptors_secondary_2eproto,
@@ -5687,6 +5770,844 @@ void LapCount::InternalSwap(LapCount* other) {
       file_level_metadata_secondary_2eproto[20]);
 }
 
+// ===================================================================
+
+class SecondaryFenice::_Internal {
+ public:
+};
+
+SecondaryFenice::SecondaryFenice(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  imu_angular_rate_(arena),
+  imu_acceleration_(arena),
+  irts_fl_0_(arena),
+  irts_fl_1_(arena),
+  irts_fl_2_(arena),
+  irts_fl_3_(arena),
+  irts_fr_0_(arena),
+  irts_fr_1_(arena),
+  irts_fr_2_(arena),
+  irts_fr_3_(arena),
+  irts_rl_0_(arena),
+  irts_rl_1_(arena),
+  irts_rl_2_(arena),
+  irts_rl_3_(arena),
+  irts_rr_0_(arena),
+  irts_rr_1_(arena),
+  irts_rr_2_(arena),
+  irts_rr_3_(arena),
+  gps_coords_(arena),
+  gps_speed_(arena),
+  lap_count_(arena) {
+  SharedCtor();
+  // @@protoc_insertion_point(arena_constructor:secondary.SecondaryFenice)
+}
+SecondaryFenice::SecondaryFenice(const SecondaryFenice& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      imu_angular_rate_(from.imu_angular_rate_),
+      imu_acceleration_(from.imu_acceleration_),
+      irts_fl_0_(from.irts_fl_0_),
+      irts_fl_1_(from.irts_fl_1_),
+      irts_fl_2_(from.irts_fl_2_),
+      irts_fl_3_(from.irts_fl_3_),
+      irts_fr_0_(from.irts_fr_0_),
+      irts_fr_1_(from.irts_fr_1_),
+      irts_fr_2_(from.irts_fr_2_),
+      irts_fr_3_(from.irts_fr_3_),
+      irts_rl_0_(from.irts_rl_0_),
+      irts_rl_1_(from.irts_rl_1_),
+      irts_rl_2_(from.irts_rl_2_),
+      irts_rl_3_(from.irts_rl_3_),
+      irts_rr_0_(from.irts_rr_0_),
+      irts_rr_1_(from.irts_rr_1_),
+      irts_rr_2_(from.irts_rr_2_),
+      irts_rr_3_(from.irts_rr_3_),
+      gps_coords_(from.gps_coords_),
+      gps_speed_(from.gps_speed_),
+      lap_count_(from.lap_count_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:secondary.SecondaryFenice)
+}
+
+inline void SecondaryFenice::SharedCtor() {
+}
+
+SecondaryFenice::~SecondaryFenice() {
+  // @@protoc_insertion_point(destructor:secondary.SecondaryFenice)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void SecondaryFenice::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SecondaryFenice::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SecondaryFenice::Clear() {
+// @@protoc_insertion_point(message_clear_start:secondary.SecondaryFenice)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  imu_angular_rate_.Clear();
+  imu_acceleration_.Clear();
+  irts_fl_0_.Clear();
+  irts_fl_1_.Clear();
+  irts_fl_2_.Clear();
+  irts_fl_3_.Clear();
+  irts_fr_0_.Clear();
+  irts_fr_1_.Clear();
+  irts_fr_2_.Clear();
+  irts_fr_3_.Clear();
+  irts_rl_0_.Clear();
+  irts_rl_1_.Clear();
+  irts_rl_2_.Clear();
+  irts_rl_3_.Clear();
+  irts_rr_0_.Clear();
+  irts_rr_1_.Clear();
+  irts_rr_2_.Clear();
+  irts_rr_3_.Clear();
+  gps_coords_.Clear();
+  gps_speed_.Clear();
+  lap_count_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SecondaryFenice::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .secondary.ImuAngularRate imu_angular_rate = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_imu_angular_rate(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.ImuAcceleration imu_acceleration = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_imu_acceleration(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsFl0 irts_fl_0 = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_fl_0(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsFl1 irts_fl_1 = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_fl_1(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsFl2 irts_fl_2 = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_fl_2(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsFl3 irts_fl_3 = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_fl_3(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsFr0 irts_fr_0 = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_fr_0(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsFr1 irts_fr_1 = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_fr_1(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsFr2 irts_fr_2 = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_fr_2(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<74>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsFr3 irts_fr_3 = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_fr_3(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<82>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsRl0 irts_rl_0 = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_rl_0(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<90>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsRl1 irts_rl_1 = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_rl_1(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<98>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsRl2 irts_rl_2 = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 106)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_rl_2(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<106>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsRl3 irts_rl_3 = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 114)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_rl_3(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<114>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsRr0 irts_rr_0 = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 122)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_irts_rr_0(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<122>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsRr1 irts_rr_1 = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 130)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            ptr = ctx->ParseMessage(_internal_add_irts_rr_1(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<130>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsRr2 irts_rr_2 = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 138)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            ptr = ctx->ParseMessage(_internal_add_irts_rr_2(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<138>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.IrtsRr3 irts_rr_3 = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 146)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            ptr = ctx->ParseMessage(_internal_add_irts_rr_3(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<146>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.GpsCoords gps_coords = 19;
+      case 19:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 154)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            ptr = ctx->ParseMessage(_internal_add_gps_coords(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<154>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.GpsSpeed gps_speed = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 162)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            ptr = ctx->ParseMessage(_internal_add_gps_speed(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<162>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .secondary.LapCount lap_count = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 170)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            ptr = ctx->ParseMessage(_internal_add_lap_count(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<170>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SecondaryFenice::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:secondary.SecondaryFenice)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .secondary.ImuAngularRate imu_angular_rate = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_imu_angular_rate_size()); i < n; i++) {
+    const auto& repfield = this->_internal_imu_angular_rate(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.ImuAcceleration imu_acceleration = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_imu_acceleration_size()); i < n; i++) {
+    const auto& repfield = this->_internal_imu_acceleration(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsFl0 irts_fl_0 = 3;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_fl_0_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_fl_0(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsFl1 irts_fl_1 = 4;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_fl_1_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_fl_1(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsFl2 irts_fl_2 = 5;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_fl_2_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_fl_2(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsFl3 irts_fl_3 = 6;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_fl_3_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_fl_3(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(6, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsFr0 irts_fr_0 = 7;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_fr_0_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_fr_0(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(7, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsFr1 irts_fr_1 = 8;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_fr_1_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_fr_1(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(8, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsFr2 irts_fr_2 = 9;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_fr_2_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_fr_2(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(9, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsFr3 irts_fr_3 = 10;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_fr_3_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_fr_3(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(10, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsRl0 irts_rl_0 = 11;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_rl_0_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_rl_0(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(11, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsRl1 irts_rl_1 = 12;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_rl_1_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_rl_1(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(12, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsRl2 irts_rl_2 = 13;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_rl_2_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_rl_2(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(13, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsRl3 irts_rl_3 = 14;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_rl_3_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_rl_3(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(14, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsRr0 irts_rr_0 = 15;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_rr_0_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_rr_0(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(15, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsRr1 irts_rr_1 = 16;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_rr_1_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_rr_1(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(16, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsRr2 irts_rr_2 = 17;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_rr_2_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_rr_2(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(17, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.IrtsRr3 irts_rr_3 = 18;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_irts_rr_3_size()); i < n; i++) {
+    const auto& repfield = this->_internal_irts_rr_3(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(18, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.GpsCoords gps_coords = 19;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_gps_coords_size()); i < n; i++) {
+    const auto& repfield = this->_internal_gps_coords(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(19, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.GpsSpeed gps_speed = 20;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_gps_speed_size()); i < n; i++) {
+    const auto& repfield = this->_internal_gps_speed(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(20, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .secondary.LapCount lap_count = 21;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_lap_count_size()); i < n; i++) {
+    const auto& repfield = this->_internal_lap_count(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(21, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:secondary.SecondaryFenice)
+  return target;
+}
+
+size_t SecondaryFenice::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:secondary.SecondaryFenice)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .secondary.ImuAngularRate imu_angular_rate = 1;
+  total_size += 1UL * this->_internal_imu_angular_rate_size();
+  for (const auto& msg : this->imu_angular_rate_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.ImuAcceleration imu_acceleration = 2;
+  total_size += 1UL * this->_internal_imu_acceleration_size();
+  for (const auto& msg : this->imu_acceleration_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsFl0 irts_fl_0 = 3;
+  total_size += 1UL * this->_internal_irts_fl_0_size();
+  for (const auto& msg : this->irts_fl_0_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsFl1 irts_fl_1 = 4;
+  total_size += 1UL * this->_internal_irts_fl_1_size();
+  for (const auto& msg : this->irts_fl_1_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsFl2 irts_fl_2 = 5;
+  total_size += 1UL * this->_internal_irts_fl_2_size();
+  for (const auto& msg : this->irts_fl_2_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsFl3 irts_fl_3 = 6;
+  total_size += 1UL * this->_internal_irts_fl_3_size();
+  for (const auto& msg : this->irts_fl_3_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsFr0 irts_fr_0 = 7;
+  total_size += 1UL * this->_internal_irts_fr_0_size();
+  for (const auto& msg : this->irts_fr_0_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsFr1 irts_fr_1 = 8;
+  total_size += 1UL * this->_internal_irts_fr_1_size();
+  for (const auto& msg : this->irts_fr_1_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsFr2 irts_fr_2 = 9;
+  total_size += 1UL * this->_internal_irts_fr_2_size();
+  for (const auto& msg : this->irts_fr_2_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsFr3 irts_fr_3 = 10;
+  total_size += 1UL * this->_internal_irts_fr_3_size();
+  for (const auto& msg : this->irts_fr_3_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsRl0 irts_rl_0 = 11;
+  total_size += 1UL * this->_internal_irts_rl_0_size();
+  for (const auto& msg : this->irts_rl_0_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsRl1 irts_rl_1 = 12;
+  total_size += 1UL * this->_internal_irts_rl_1_size();
+  for (const auto& msg : this->irts_rl_1_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsRl2 irts_rl_2 = 13;
+  total_size += 1UL * this->_internal_irts_rl_2_size();
+  for (const auto& msg : this->irts_rl_2_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsRl3 irts_rl_3 = 14;
+  total_size += 1UL * this->_internal_irts_rl_3_size();
+  for (const auto& msg : this->irts_rl_3_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsRr0 irts_rr_0 = 15;
+  total_size += 1UL * this->_internal_irts_rr_0_size();
+  for (const auto& msg : this->irts_rr_0_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsRr1 irts_rr_1 = 16;
+  total_size += 2UL * this->_internal_irts_rr_1_size();
+  for (const auto& msg : this->irts_rr_1_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsRr2 irts_rr_2 = 17;
+  total_size += 2UL * this->_internal_irts_rr_2_size();
+  for (const auto& msg : this->irts_rr_2_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.IrtsRr3 irts_rr_3 = 18;
+  total_size += 2UL * this->_internal_irts_rr_3_size();
+  for (const auto& msg : this->irts_rr_3_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.GpsCoords gps_coords = 19;
+  total_size += 2UL * this->_internal_gps_coords_size();
+  for (const auto& msg : this->gps_coords_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.GpsSpeed gps_speed = 20;
+  total_size += 2UL * this->_internal_gps_speed_size();
+  for (const auto& msg : this->gps_speed_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .secondary.LapCount lap_count = 21;
+  total_size += 2UL * this->_internal_lap_count_size();
+  for (const auto& msg : this->lap_count_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SecondaryFenice::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SecondaryFenice::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SecondaryFenice::GetClassData() const { return &_class_data_; }
+
+void SecondaryFenice::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SecondaryFenice *>(to)->MergeFrom(
+      static_cast<const SecondaryFenice &>(from));
+}
+
+
+void SecondaryFenice::MergeFrom(const SecondaryFenice& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:secondary.SecondaryFenice)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  imu_angular_rate_.MergeFrom(from.imu_angular_rate_);
+  imu_acceleration_.MergeFrom(from.imu_acceleration_);
+  irts_fl_0_.MergeFrom(from.irts_fl_0_);
+  irts_fl_1_.MergeFrom(from.irts_fl_1_);
+  irts_fl_2_.MergeFrom(from.irts_fl_2_);
+  irts_fl_3_.MergeFrom(from.irts_fl_3_);
+  irts_fr_0_.MergeFrom(from.irts_fr_0_);
+  irts_fr_1_.MergeFrom(from.irts_fr_1_);
+  irts_fr_2_.MergeFrom(from.irts_fr_2_);
+  irts_fr_3_.MergeFrom(from.irts_fr_3_);
+  irts_rl_0_.MergeFrom(from.irts_rl_0_);
+  irts_rl_1_.MergeFrom(from.irts_rl_1_);
+  irts_rl_2_.MergeFrom(from.irts_rl_2_);
+  irts_rl_3_.MergeFrom(from.irts_rl_3_);
+  irts_rr_0_.MergeFrom(from.irts_rr_0_);
+  irts_rr_1_.MergeFrom(from.irts_rr_1_);
+  irts_rr_2_.MergeFrom(from.irts_rr_2_);
+  irts_rr_3_.MergeFrom(from.irts_rr_3_);
+  gps_coords_.MergeFrom(from.gps_coords_);
+  gps_speed_.MergeFrom(from.gps_speed_);
+  lap_count_.MergeFrom(from.lap_count_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SecondaryFenice::CopyFrom(const SecondaryFenice& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:secondary.SecondaryFenice)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SecondaryFenice::IsInitialized() const {
+  return true;
+}
+
+void SecondaryFenice::InternalSwap(SecondaryFenice* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  imu_angular_rate_.InternalSwap(&other->imu_angular_rate_);
+  imu_acceleration_.InternalSwap(&other->imu_acceleration_);
+  irts_fl_0_.InternalSwap(&other->irts_fl_0_);
+  irts_fl_1_.InternalSwap(&other->irts_fl_1_);
+  irts_fl_2_.InternalSwap(&other->irts_fl_2_);
+  irts_fl_3_.InternalSwap(&other->irts_fl_3_);
+  irts_fr_0_.InternalSwap(&other->irts_fr_0_);
+  irts_fr_1_.InternalSwap(&other->irts_fr_1_);
+  irts_fr_2_.InternalSwap(&other->irts_fr_2_);
+  irts_fr_3_.InternalSwap(&other->irts_fr_3_);
+  irts_rl_0_.InternalSwap(&other->irts_rl_0_);
+  irts_rl_1_.InternalSwap(&other->irts_rl_1_);
+  irts_rl_2_.InternalSwap(&other->irts_rl_2_);
+  irts_rl_3_.InternalSwap(&other->irts_rl_3_);
+  irts_rr_0_.InternalSwap(&other->irts_rr_0_);
+  irts_rr_1_.InternalSwap(&other->irts_rr_1_);
+  irts_rr_2_.InternalSwap(&other->irts_rr_2_);
+  irts_rr_3_.InternalSwap(&other->irts_rr_3_);
+  gps_coords_.InternalSwap(&other->gps_coords_);
+  gps_speed_.InternalSwap(&other->gps_speed_);
+  lap_count_.InternalSwap(&other->lap_count_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SecondaryFenice::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_secondary_2eproto_getter, &descriptor_table_secondary_2eproto_once,
+      file_level_metadata_secondary_2eproto[21]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace secondary
 PROTOBUF_NAMESPACE_OPEN
@@ -5773,6 +6694,10 @@ Arena::CreateMaybeMessage< ::secondary::GpsSpeed >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::secondary::LapCount*
 Arena::CreateMaybeMessage< ::secondary::LapCount >(Arena* arena) {
   return Arena::CreateMessageInternal< ::secondary::LapCount >(arena);
+}
+template<> PROTOBUF_NOINLINE ::secondary::SecondaryFenice*
+Arena::CreateMaybeMessage< ::secondary::SecondaryFenice >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::secondary::SecondaryFenice >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

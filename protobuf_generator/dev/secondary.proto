@@ -139,3 +139,27 @@ message LapCount {
   uint32 lap_count = 1;
   uint32 timestamp = 2;
 }
+
+message SecondaryFenice {
+  repeated ImuAngularRate imu_angular_rate = 1;
+  repeated ImuAcceleration imu_acceleration = 2;
+  repeated IrtsFl0 irts_fl_0 = 3;
+  repeated IrtsFl1 irts_fl_1 = 4;
+  repeated IrtsFl2 irts_fl_2 = 5;
+  repeated IrtsFl3 irts_fl_3 = 6;
+  repeated IrtsFr0 irts_fr_0 = 7;
+  repeated IrtsFr1 irts_fr_1 = 8;
+  repeated IrtsFr2 irts_fr_2 = 9;
+  repeated IrtsFr3 irts_fr_3 = 10;
+  repeated IrtsRl0 irts_rl_0 = 11;
+  repeated IrtsRl1 irts_rl_1 = 12;
+  repeated IrtsRl2 irts_rl_2 = 13;
+  repeated IrtsRl3 irts_rl_3 = 14;
+  repeated IrtsRr0 irts_rr_0 = 15;
+  repeated IrtsRr1 irts_rr_1 = 16;
+  repeated IrtsRr2 irts_rr_2 = 17;
+  repeated IrtsRr3 irts_rr_3 = 18;
+  repeated GpsCoords gps_coords = 19;
+  repeated GpsSpeed gps_speed = 20;
+  repeated LapCount lap_count = 21;
+}

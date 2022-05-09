@@ -23,8 +23,8 @@ std::string bms_naked2protobuf(uint32_t id, uint8_t* payload){
     switch(id) {
 
         case 1536: case 1568: case 1600: case 1632: case 1664: case 1696: {
-            bms_BOARD_STATUS* bms_board_status_d = (bms_BOARD_STATUS*)malloc(sizeof(bms_BOARD_STATUS));
-            deserialize_bms_BOARD_STATUS(payload, bms_board_status_d);
+            BmsBoardStatusMsg* bms_board_status_d = (BmsBoardStatusMsg*)malloc(BMS_BOARD_STATUS_SIZE);
+            deserialize_BmsBoardStatus(payload, bms_board_status_d);
     
             bms::BoardStatus bms_board_status_p;
             BITSET_VALUE(bms_board_status_d->errors, sizeof(bms_board_status_d->errors))
@@ -39,8 +39,8 @@ std::string bms_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1281: case 1313: case 1345: case 1377: case 1409: case 1441: {
-            bms_TEMPERATURES* bms_temperatures_d = (bms_TEMPERATURES*)malloc(sizeof(bms_TEMPERATURES));
-            deserialize_bms_TEMPERATURES(payload, bms_temperatures_d);
+            BmsTemperaturesMsg* bms_temperatures_d = (BmsTemperaturesMsg*)malloc(BMS_TEMPERATURES_SIZE);
+            deserialize_BmsTemperatures(payload, bms_temperatures_d);
     
             bms::Temperatures bms_temperatures_p;
             bms_temperatures_p.set_start_index(static_cast<uint32_t>(bms_temperatures_d->start_index));
@@ -59,8 +59,8 @@ std::string bms_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 514: case 546: case 578: case 610: case 642: case 674: {
-            bms_VOLTAGES* bms_voltages_d = (bms_VOLTAGES*)malloc(sizeof(bms_VOLTAGES));
-            deserialize_bms_VOLTAGES(payload, bms_voltages_d);
+            BmsVoltagesMsg* bms_voltages_d = (BmsVoltagesMsg*)malloc(BMS_VOLTAGES_SIZE);
+            deserialize_BmsVoltages(payload, bms_voltages_d);
     
             bms::Voltages bms_voltages_p;
             bms_voltages_p.set_start_index(static_cast<uint32_t>(bms_voltages_d->start_index));
@@ -76,8 +76,8 @@ std::string bms_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 515: {
-            bms_BALANCING* bms_balancing_d = (bms_BALANCING*)malloc(sizeof(bms_BALANCING));
-            deserialize_bms_BALANCING(payload, bms_balancing_d);
+            BmsBalancingMsg* bms_balancing_d = (BmsBalancingMsg*)malloc(BMS_BALANCING_SIZE);
+            deserialize_BmsBalancing(payload, bms_balancing_d);
     
             bms::Balancing bms_balancing_p;
             bms_balancing_p.set_board_index(static_cast<uint32_t>(bms_balancing_d->board_index));
@@ -92,8 +92,8 @@ std::string bms_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 260: {
-            bms_FW_UPDATE* bms_fw_update_d = (bms_FW_UPDATE*)malloc(sizeof(bms_FW_UPDATE));
-            deserialize_bms_FW_UPDATE(payload, bms_fw_update_d);
+            BmsFwUpdateMsg* bms_fw_update_d = (BmsFwUpdateMsg*)malloc(BMS_FW_UPDATE_SIZE);
+            deserialize_BmsFwUpdate(payload, bms_fw_update_d);
     
             bms::FwUpdate bms_fw_update_p;
             bms_fw_update_p.set_board_index(static_cast<uint32_t>(bms_fw_update_d->board_index));

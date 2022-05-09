@@ -8,7 +8,6 @@ extern "C" {
 #include <stdbool.h>
 #include <stdint.h>
 #include <assert.h>
-#include <stdio.h>
 
 /*
 *   NAKED SHARED 
@@ -69,274 +68,542 @@ extern "C" {
     #define getBit(bitset, index)  ((bitset)[(index)/8] &  (1 << (index) % 8) )
 #endif
 
+// Types
 
+typedef union {
+    uint8_t bytes[4];
+    float value;
+} float_t;
 
-/* secondary_IMU_ANGULAR_RATE */
-    
+typedef union {
+    uint8_t bytes[8];
+    double value;
+} double_t;
+
+// Frequencies
+
+// Sizes
+#define SECONDARY_IMU_ANGULAR_RATE_SIZE 6
+#define SECONDARY_IMU_ACCELERATION_SIZE 6
+#define SECONDARY_IRTS_FL_0_SIZE 8
+#define SECONDARY_IRTS_FL_1_SIZE 8
+#define SECONDARY_IRTS_FL_2_SIZE 8
+#define SECONDARY_IRTS_FL_3_SIZE 8
+#define SECONDARY_IRTS_FR_0_SIZE 8
+#define SECONDARY_IRTS_FR_1_SIZE 8
+#define SECONDARY_IRTS_FR_2_SIZE 8
+#define SECONDARY_IRTS_FR_3_SIZE 8
+#define SECONDARY_IRTS_RL_0_SIZE 8
+#define SECONDARY_IRTS_RL_1_SIZE 8
+#define SECONDARY_IRTS_RL_2_SIZE 8
+#define SECONDARY_IRTS_RL_3_SIZE 8
+#define SECONDARY_IRTS_RR_0_SIZE 8
+#define SECONDARY_IRTS_RR_1_SIZE 8
+#define SECONDARY_IRTS_RR_2_SIZE 8
+#define SECONDARY_IRTS_RR_3_SIZE 8
+#define SECONDARY_GPS_COORDS_SIZE 8
+#define SECONDARY_GPS_SPEED_SIZE 2
+#define SECONDARY_LAP_COUNT_SIZE 5
+
+// Bitsets
+// Enums
+// Structs
 typedef struct __is_packed {
     uint16_t ang_rate_x;
     uint16_t ang_rate_y;
     uint16_t ang_rate_z;
-} secondary_IMU_ANGULAR_RATE;
-static_assert(sizeof(secondary_IMU_ANGULAR_RATE) == 6, "struct size mismatch");
-    
-size_t serialize_secondary_IMU_ANGULAR_RATE(uint8_t* buffer, uint16_t ang_rate_x, uint16_t ang_rate_y, uint16_t ang_rate_z);
-size_t deserialize_secondary_IMU_ANGULAR_RATE(uint8_t* buffer, secondary_IMU_ANGULAR_RATE* secondary_imu_angular_rate);
+} SecondaryImuAngularRateMsg;
 
-/* secondary_IMU_ACCELERATION */
-    
 typedef struct __is_packed {
     uint16_t accel_x;
     uint16_t accel_y;
     uint16_t accel_z;
-} secondary_IMU_ACCELERATION;
-static_assert(sizeof(secondary_IMU_ACCELERATION) == 6, "struct size mismatch");
-    
-size_t serialize_secondary_IMU_ACCELERATION(uint8_t* buffer, uint16_t accel_x, uint16_t accel_y, uint16_t accel_z);
-size_t deserialize_secondary_IMU_ACCELERATION(uint8_t* buffer, secondary_IMU_ACCELERATION* secondary_imu_acceleration);
+} SecondaryImuAccelerationMsg;
 
-/* secondary_IRTS_FL_0 */
-    
 typedef struct __is_packed {
     uint16_t channel1;
     uint16_t channel2;
     uint16_t channel3;
     uint16_t channel4;
-} secondary_IRTS_FL_0;
-static_assert(sizeof(secondary_IRTS_FL_0) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_FL_0(uint8_t* buffer, uint16_t channel1, uint16_t channel2, uint16_t channel3, uint16_t channel4);
-size_t deserialize_secondary_IRTS_FL_0(uint8_t* buffer, secondary_IRTS_FL_0* secondary_irts_fl_0);
+} SecondaryIrtsFl0Msg;
 
-/* secondary_IRTS_FL_1 */
-    
 typedef struct __is_packed {
     uint16_t channel5;
     uint16_t channel6;
     uint16_t channel7;
     uint16_t channel8;
-} secondary_IRTS_FL_1;
-static_assert(sizeof(secondary_IRTS_FL_1) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_FL_1(uint8_t* buffer, uint16_t channel5, uint16_t channel6, uint16_t channel7, uint16_t channel8);
-size_t deserialize_secondary_IRTS_FL_1(uint8_t* buffer, secondary_IRTS_FL_1* secondary_irts_fl_1);
+} SecondaryIrtsFl1Msg;
 
-/* secondary_IRTS_FL_2 */
-    
 typedef struct __is_packed {
     uint16_t channel9;
     uint16_t channel10;
     uint16_t channel11;
     uint16_t channel12;
-} secondary_IRTS_FL_2;
-static_assert(sizeof(secondary_IRTS_FL_2) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_FL_2(uint8_t* buffer, uint16_t channel9, uint16_t channel10, uint16_t channel11, uint16_t channel12);
-size_t deserialize_secondary_IRTS_FL_2(uint8_t* buffer, secondary_IRTS_FL_2* secondary_irts_fl_2);
+} SecondaryIrtsFl2Msg;
 
-/* secondary_IRTS_FL_3 */
-    
 typedef struct __is_packed {
     uint16_t channel13;
     uint16_t channel14;
     uint16_t channel15;
     uint16_t channel16;
-} secondary_IRTS_FL_3;
-static_assert(sizeof(secondary_IRTS_FL_3) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_FL_3(uint8_t* buffer, uint16_t channel13, uint16_t channel14, uint16_t channel15, uint16_t channel16);
-size_t deserialize_secondary_IRTS_FL_3(uint8_t* buffer, secondary_IRTS_FL_3* secondary_irts_fl_3);
+} SecondaryIrtsFl3Msg;
 
-/* secondary_IRTS_FR_0 */
-    
 typedef struct __is_packed {
     uint16_t channel1;
     uint16_t channel2;
     uint16_t channel3;
     uint16_t channel4;
-} secondary_IRTS_FR_0;
-static_assert(sizeof(secondary_IRTS_FR_0) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_FR_0(uint8_t* buffer, uint16_t channel1, uint16_t channel2, uint16_t channel3, uint16_t channel4);
-size_t deserialize_secondary_IRTS_FR_0(uint8_t* buffer, secondary_IRTS_FR_0* secondary_irts_fr_0);
+} SecondaryIrtsFr0Msg;
 
-/* secondary_IRTS_FR_1 */
-    
 typedef struct __is_packed {
     uint16_t channel5;
     uint16_t channel6;
     uint16_t channel7;
     uint16_t channel8;
-} secondary_IRTS_FR_1;
-static_assert(sizeof(secondary_IRTS_FR_1) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_FR_1(uint8_t* buffer, uint16_t channel5, uint16_t channel6, uint16_t channel7, uint16_t channel8);
-size_t deserialize_secondary_IRTS_FR_1(uint8_t* buffer, secondary_IRTS_FR_1* secondary_irts_fr_1);
+} SecondaryIrtsFr1Msg;
 
-/* secondary_IRTS_FR_2 */
-    
 typedef struct __is_packed {
     uint16_t channel9;
     uint16_t channel10;
     uint16_t channel11;
     uint16_t channel12;
-} secondary_IRTS_FR_2;
-static_assert(sizeof(secondary_IRTS_FR_2) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_FR_2(uint8_t* buffer, uint16_t channel9, uint16_t channel10, uint16_t channel11, uint16_t channel12);
-size_t deserialize_secondary_IRTS_FR_2(uint8_t* buffer, secondary_IRTS_FR_2* secondary_irts_fr_2);
+} SecondaryIrtsFr2Msg;
 
-/* secondary_IRTS_FR_3 */
-    
 typedef struct __is_packed {
     uint16_t channel13;
     uint16_t channel14;
     uint16_t channel15;
     uint16_t channel16;
-} secondary_IRTS_FR_3;
-static_assert(sizeof(secondary_IRTS_FR_3) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_FR_3(uint8_t* buffer, uint16_t channel13, uint16_t channel14, uint16_t channel15, uint16_t channel16);
-size_t deserialize_secondary_IRTS_FR_3(uint8_t* buffer, secondary_IRTS_FR_3* secondary_irts_fr_3);
+} SecondaryIrtsFr3Msg;
 
-/* secondary_IRTS_RL_0 */
-    
 typedef struct __is_packed {
     uint16_t channel1;
     uint16_t channel2;
     uint16_t channel3;
     uint16_t channel4;
-} secondary_IRTS_RL_0;
-static_assert(sizeof(secondary_IRTS_RL_0) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_RL_0(uint8_t* buffer, uint16_t channel1, uint16_t channel2, uint16_t channel3, uint16_t channel4);
-size_t deserialize_secondary_IRTS_RL_0(uint8_t* buffer, secondary_IRTS_RL_0* secondary_irts_rl_0);
+} SecondaryIrtsRl0Msg;
 
-/* secondary_IRTS_RL_1 */
-    
 typedef struct __is_packed {
     uint16_t channel5;
     uint16_t channel6;
     uint16_t channel7;
     uint16_t channel8;
-} secondary_IRTS_RL_1;
-static_assert(sizeof(secondary_IRTS_RL_1) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_RL_1(uint8_t* buffer, uint16_t channel5, uint16_t channel6, uint16_t channel7, uint16_t channel8);
-size_t deserialize_secondary_IRTS_RL_1(uint8_t* buffer, secondary_IRTS_RL_1* secondary_irts_rl_1);
+} SecondaryIrtsRl1Msg;
 
-/* secondary_IRTS_RL_2 */
-    
 typedef struct __is_packed {
     uint16_t channel9;
     uint16_t channel10;
     uint16_t channel11;
     uint16_t channel12;
-} secondary_IRTS_RL_2;
-static_assert(sizeof(secondary_IRTS_RL_2) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_RL_2(uint8_t* buffer, uint16_t channel9, uint16_t channel10, uint16_t channel11, uint16_t channel12);
-size_t deserialize_secondary_IRTS_RL_2(uint8_t* buffer, secondary_IRTS_RL_2* secondary_irts_rl_2);
+} SecondaryIrtsRl2Msg;
 
-/* secondary_IRTS_RL_3 */
-    
 typedef struct __is_packed {
     uint16_t channel13;
     uint16_t channel14;
     uint16_t channel15;
     uint16_t channel16;
-} secondary_IRTS_RL_3;
-static_assert(sizeof(secondary_IRTS_RL_3) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_RL_3(uint8_t* buffer, uint16_t channel13, uint16_t channel14, uint16_t channel15, uint16_t channel16);
-size_t deserialize_secondary_IRTS_RL_3(uint8_t* buffer, secondary_IRTS_RL_3* secondary_irts_rl_3);
+} SecondaryIrtsRl3Msg;
 
-/* secondary_IRTS_RR_0 */
-    
 typedef struct __is_packed {
     uint16_t channel1;
     uint16_t channel2;
     uint16_t channel3;
     uint16_t channel4;
-} secondary_IRTS_RR_0;
-static_assert(sizeof(secondary_IRTS_RR_0) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_RR_0(uint8_t* buffer, uint16_t channel1, uint16_t channel2, uint16_t channel3, uint16_t channel4);
-size_t deserialize_secondary_IRTS_RR_0(uint8_t* buffer, secondary_IRTS_RR_0* secondary_irts_rr_0);
+} SecondaryIrtsRr0Msg;
 
-/* secondary_IRTS_RR_1 */
-    
 typedef struct __is_packed {
     uint16_t channel5;
     uint16_t channel6;
     uint16_t channel7;
     uint16_t channel8;
-} secondary_IRTS_RR_1;
-static_assert(sizeof(secondary_IRTS_RR_1) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_RR_1(uint8_t* buffer, uint16_t channel5, uint16_t channel6, uint16_t channel7, uint16_t channel8);
-size_t deserialize_secondary_IRTS_RR_1(uint8_t* buffer, secondary_IRTS_RR_1* secondary_irts_rr_1);
+} SecondaryIrtsRr1Msg;
 
-/* secondary_IRTS_RR_2 */
-    
 typedef struct __is_packed {
     uint16_t channel9;
     uint16_t channel10;
     uint16_t channel11;
     uint16_t channel12;
-} secondary_IRTS_RR_2;
-static_assert(sizeof(secondary_IRTS_RR_2) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_RR_2(uint8_t* buffer, uint16_t channel9, uint16_t channel10, uint16_t channel11, uint16_t channel12);
-size_t deserialize_secondary_IRTS_RR_2(uint8_t* buffer, secondary_IRTS_RR_2* secondary_irts_rr_2);
+} SecondaryIrtsRr2Msg;
 
-/* secondary_IRTS_RR_3 */
-    
 typedef struct __is_packed {
     uint16_t channel13;
     uint16_t channel14;
     uint16_t channel15;
     uint16_t channel16;
-} secondary_IRTS_RR_3;
-static_assert(sizeof(secondary_IRTS_RR_3) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_IRTS_RR_3(uint8_t* buffer, uint16_t channel13, uint16_t channel14, uint16_t channel15, uint16_t channel16);
-size_t deserialize_secondary_IRTS_RR_3(uint8_t* buffer, secondary_IRTS_RR_3* secondary_irts_rr_3);
+} SecondaryIrtsRr3Msg;
 
-/* secondary_GPS_COORDS */
-    
 typedef struct __is_packed {
     float latitude;
     float longitude;
-} secondary_GPS_COORDS;
-static_assert(sizeof(secondary_GPS_COORDS) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_GPS_COORDS(uint8_t* buffer, float latitude, float longitude);
-size_t deserialize_secondary_GPS_COORDS(uint8_t* buffer, secondary_GPS_COORDS* secondary_gps_coords);
+} SecondaryGpsCoordsMsg;
 
-/* secondary_GPS_SPEED */
-    
 typedef struct __is_packed {
     uint16_t speed;
-} secondary_GPS_SPEED;
-static_assert(sizeof(secondary_GPS_SPEED) == 2, "struct size mismatch");
-    
-size_t serialize_secondary_GPS_SPEED(uint8_t* buffer, uint16_t speed);
-size_t deserialize_secondary_GPS_SPEED(uint8_t* buffer, secondary_GPS_SPEED* secondary_gps_speed);
+} SecondaryGpsSpeedMsg;
 
-/* secondary_LAP_COUNT */
-    
 typedef struct __is_packed {
-    uint8_t lap_count;
-    uint8_t __unused_padding_1;
-    uint8_t __unused_padding_2;
-    uint8_t __unused_padding_3;
     uint32_t timestamp;
-} secondary_LAP_COUNT;
-static_assert(sizeof(secondary_LAP_COUNT) == 8, "struct size mismatch");
-    
-size_t serialize_secondary_LAP_COUNT(uint8_t* buffer, uint8_t lap_count, uint32_t timestamp);
-size_t deserialize_secondary_LAP_COUNT(uint8_t* buffer, secondary_LAP_COUNT* secondary_lap_count);
+    uint8_t lap_count;
+} SecondaryLapCountMsg;
+
+// Functions
+
+void serialize_SecondaryImuAngularRate(uint8_t *data, SecondaryImuAngularRateMsg *msg){
+    data[0] = msg->ang_rate_x & 255;
+    data[1] = (msg->ang_rate_x >> 8) & 255;
+    data[2] = msg->ang_rate_y & 255;
+    data[3] = (msg->ang_rate_y >> 8) & 255;
+    data[4] = msg->ang_rate_z & 255;
+    data[5] = (msg->ang_rate_z >> 8) & 255;
+}
+
+void deserialize_SecondaryImuAngularRate(uint8_t *data, SecondaryImuAngularRateMsg *msg){
+    msg->ang_rate_x = data[0] | (data[1] << 8);
+    msg->ang_rate_y = data[2] | (data[3] << 8);
+    msg->ang_rate_z = data[4] | (data[5] << 8);
+}
+
+void serialize_SecondaryImuAcceleration(uint8_t *data, SecondaryImuAccelerationMsg *msg){
+    data[0] = msg->accel_x & 255;
+    data[1] = (msg->accel_x >> 8) & 255;
+    data[2] = msg->accel_y & 255;
+    data[3] = (msg->accel_y >> 8) & 255;
+    data[4] = msg->accel_z & 255;
+    data[5] = (msg->accel_z >> 8) & 255;
+}
+
+void deserialize_SecondaryImuAcceleration(uint8_t *data, SecondaryImuAccelerationMsg *msg){
+    msg->accel_x = data[0] | (data[1] << 8);
+    msg->accel_y = data[2] | (data[3] << 8);
+    msg->accel_z = data[4] | (data[5] << 8);
+}
+
+void serialize_SecondaryIrtsFl0(uint8_t *data, SecondaryIrtsFl0Msg *msg){
+    data[0] = msg->channel1 & 255;
+    data[1] = (msg->channel1 >> 8) & 255;
+    data[2] = msg->channel2 & 255;
+    data[3] = (msg->channel2 >> 8) & 255;
+    data[4] = msg->channel3 & 255;
+    data[5] = (msg->channel3 >> 8) & 255;
+    data[6] = msg->channel4 & 255;
+    data[7] = (msg->channel4 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsFl0(uint8_t *data, SecondaryIrtsFl0Msg *msg){
+    msg->channel1 = data[0] | (data[1] << 8);
+    msg->channel2 = data[2] | (data[3] << 8);
+    msg->channel3 = data[4] | (data[5] << 8);
+    msg->channel4 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsFl1(uint8_t *data, SecondaryIrtsFl1Msg *msg){
+    data[0] = msg->channel5 & 255;
+    data[1] = (msg->channel5 >> 8) & 255;
+    data[2] = msg->channel6 & 255;
+    data[3] = (msg->channel6 >> 8) & 255;
+    data[4] = msg->channel7 & 255;
+    data[5] = (msg->channel7 >> 8) & 255;
+    data[6] = msg->channel8 & 255;
+    data[7] = (msg->channel8 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsFl1(uint8_t *data, SecondaryIrtsFl1Msg *msg){
+    msg->channel5 = data[0] | (data[1] << 8);
+    msg->channel6 = data[2] | (data[3] << 8);
+    msg->channel7 = data[4] | (data[5] << 8);
+    msg->channel8 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsFl2(uint8_t *data, SecondaryIrtsFl2Msg *msg){
+    data[0] = msg->channel9 & 255;
+    data[1] = (msg->channel9 >> 8) & 255;
+    data[2] = msg->channel10 & 255;
+    data[3] = (msg->channel10 >> 8) & 255;
+    data[4] = msg->channel11 & 255;
+    data[5] = (msg->channel11 >> 8) & 255;
+    data[6] = msg->channel12 & 255;
+    data[7] = (msg->channel12 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsFl2(uint8_t *data, SecondaryIrtsFl2Msg *msg){
+    msg->channel9 = data[0] | (data[1] << 8);
+    msg->channel10 = data[2] | (data[3] << 8);
+    msg->channel11 = data[4] | (data[5] << 8);
+    msg->channel12 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsFl3(uint8_t *data, SecondaryIrtsFl3Msg *msg){
+    data[0] = msg->channel13 & 255;
+    data[1] = (msg->channel13 >> 8) & 255;
+    data[2] = msg->channel14 & 255;
+    data[3] = (msg->channel14 >> 8) & 255;
+    data[4] = msg->channel15 & 255;
+    data[5] = (msg->channel15 >> 8) & 255;
+    data[6] = msg->channel16 & 255;
+    data[7] = (msg->channel16 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsFl3(uint8_t *data, SecondaryIrtsFl3Msg *msg){
+    msg->channel13 = data[0] | (data[1] << 8);
+    msg->channel14 = data[2] | (data[3] << 8);
+    msg->channel15 = data[4] | (data[5] << 8);
+    msg->channel16 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsFr0(uint8_t *data, SecondaryIrtsFr0Msg *msg){
+    data[0] = msg->channel1 & 255;
+    data[1] = (msg->channel1 >> 8) & 255;
+    data[2] = msg->channel2 & 255;
+    data[3] = (msg->channel2 >> 8) & 255;
+    data[4] = msg->channel3 & 255;
+    data[5] = (msg->channel3 >> 8) & 255;
+    data[6] = msg->channel4 & 255;
+    data[7] = (msg->channel4 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsFr0(uint8_t *data, SecondaryIrtsFr0Msg *msg){
+    msg->channel1 = data[0] | (data[1] << 8);
+    msg->channel2 = data[2] | (data[3] << 8);
+    msg->channel3 = data[4] | (data[5] << 8);
+    msg->channel4 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsFr1(uint8_t *data, SecondaryIrtsFr1Msg *msg){
+    data[0] = msg->channel5 & 255;
+    data[1] = (msg->channel5 >> 8) & 255;
+    data[2] = msg->channel6 & 255;
+    data[3] = (msg->channel6 >> 8) & 255;
+    data[4] = msg->channel7 & 255;
+    data[5] = (msg->channel7 >> 8) & 255;
+    data[6] = msg->channel8 & 255;
+    data[7] = (msg->channel8 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsFr1(uint8_t *data, SecondaryIrtsFr1Msg *msg){
+    msg->channel5 = data[0] | (data[1] << 8);
+    msg->channel6 = data[2] | (data[3] << 8);
+    msg->channel7 = data[4] | (data[5] << 8);
+    msg->channel8 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsFr2(uint8_t *data, SecondaryIrtsFr2Msg *msg){
+    data[0] = msg->channel9 & 255;
+    data[1] = (msg->channel9 >> 8) & 255;
+    data[2] = msg->channel10 & 255;
+    data[3] = (msg->channel10 >> 8) & 255;
+    data[4] = msg->channel11 & 255;
+    data[5] = (msg->channel11 >> 8) & 255;
+    data[6] = msg->channel12 & 255;
+    data[7] = (msg->channel12 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsFr2(uint8_t *data, SecondaryIrtsFr2Msg *msg){
+    msg->channel9 = data[0] | (data[1] << 8);
+    msg->channel10 = data[2] | (data[3] << 8);
+    msg->channel11 = data[4] | (data[5] << 8);
+    msg->channel12 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsFr3(uint8_t *data, SecondaryIrtsFr3Msg *msg){
+    data[0] = msg->channel13 & 255;
+    data[1] = (msg->channel13 >> 8) & 255;
+    data[2] = msg->channel14 & 255;
+    data[3] = (msg->channel14 >> 8) & 255;
+    data[4] = msg->channel15 & 255;
+    data[5] = (msg->channel15 >> 8) & 255;
+    data[6] = msg->channel16 & 255;
+    data[7] = (msg->channel16 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsFr3(uint8_t *data, SecondaryIrtsFr3Msg *msg){
+    msg->channel13 = data[0] | (data[1] << 8);
+    msg->channel14 = data[2] | (data[3] << 8);
+    msg->channel15 = data[4] | (data[5] << 8);
+    msg->channel16 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsRl0(uint8_t *data, SecondaryIrtsRl0Msg *msg){
+    data[0] = msg->channel1 & 255;
+    data[1] = (msg->channel1 >> 8) & 255;
+    data[2] = msg->channel2 & 255;
+    data[3] = (msg->channel2 >> 8) & 255;
+    data[4] = msg->channel3 & 255;
+    data[5] = (msg->channel3 >> 8) & 255;
+    data[6] = msg->channel4 & 255;
+    data[7] = (msg->channel4 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsRl0(uint8_t *data, SecondaryIrtsRl0Msg *msg){
+    msg->channel1 = data[0] | (data[1] << 8);
+    msg->channel2 = data[2] | (data[3] << 8);
+    msg->channel3 = data[4] | (data[5] << 8);
+    msg->channel4 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsRl1(uint8_t *data, SecondaryIrtsRl1Msg *msg){
+    data[0] = msg->channel5 & 255;
+    data[1] = (msg->channel5 >> 8) & 255;
+    data[2] = msg->channel6 & 255;
+    data[3] = (msg->channel6 >> 8) & 255;
+    data[4] = msg->channel7 & 255;
+    data[5] = (msg->channel7 >> 8) & 255;
+    data[6] = msg->channel8 & 255;
+    data[7] = (msg->channel8 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsRl1(uint8_t *data, SecondaryIrtsRl1Msg *msg){
+    msg->channel5 = data[0] | (data[1] << 8);
+    msg->channel6 = data[2] | (data[3] << 8);
+    msg->channel7 = data[4] | (data[5] << 8);
+    msg->channel8 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsRl2(uint8_t *data, SecondaryIrtsRl2Msg *msg){
+    data[0] = msg->channel9 & 255;
+    data[1] = (msg->channel9 >> 8) & 255;
+    data[2] = msg->channel10 & 255;
+    data[3] = (msg->channel10 >> 8) & 255;
+    data[4] = msg->channel11 & 255;
+    data[5] = (msg->channel11 >> 8) & 255;
+    data[6] = msg->channel12 & 255;
+    data[7] = (msg->channel12 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsRl2(uint8_t *data, SecondaryIrtsRl2Msg *msg){
+    msg->channel9 = data[0] | (data[1] << 8);
+    msg->channel10 = data[2] | (data[3] << 8);
+    msg->channel11 = data[4] | (data[5] << 8);
+    msg->channel12 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsRl3(uint8_t *data, SecondaryIrtsRl3Msg *msg){
+    data[0] = msg->channel13 & 255;
+    data[1] = (msg->channel13 >> 8) & 255;
+    data[2] = msg->channel14 & 255;
+    data[3] = (msg->channel14 >> 8) & 255;
+    data[4] = msg->channel15 & 255;
+    data[5] = (msg->channel15 >> 8) & 255;
+    data[6] = msg->channel16 & 255;
+    data[7] = (msg->channel16 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsRl3(uint8_t *data, SecondaryIrtsRl3Msg *msg){
+    msg->channel13 = data[0] | (data[1] << 8);
+    msg->channel14 = data[2] | (data[3] << 8);
+    msg->channel15 = data[4] | (data[5] << 8);
+    msg->channel16 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsRr0(uint8_t *data, SecondaryIrtsRr0Msg *msg){
+    data[0] = msg->channel1 & 255;
+    data[1] = (msg->channel1 >> 8) & 255;
+    data[2] = msg->channel2 & 255;
+    data[3] = (msg->channel2 >> 8) & 255;
+    data[4] = msg->channel3 & 255;
+    data[5] = (msg->channel3 >> 8) & 255;
+    data[6] = msg->channel4 & 255;
+    data[7] = (msg->channel4 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsRr0(uint8_t *data, SecondaryIrtsRr0Msg *msg){
+    msg->channel1 = data[0] | (data[1] << 8);
+    msg->channel2 = data[2] | (data[3] << 8);
+    msg->channel3 = data[4] | (data[5] << 8);
+    msg->channel4 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsRr1(uint8_t *data, SecondaryIrtsRr1Msg *msg){
+    data[0] = msg->channel5 & 255;
+    data[1] = (msg->channel5 >> 8) & 255;
+    data[2] = msg->channel6 & 255;
+    data[3] = (msg->channel6 >> 8) & 255;
+    data[4] = msg->channel7 & 255;
+    data[5] = (msg->channel7 >> 8) & 255;
+    data[6] = msg->channel8 & 255;
+    data[7] = (msg->channel8 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsRr1(uint8_t *data, SecondaryIrtsRr1Msg *msg){
+    msg->channel5 = data[0] | (data[1] << 8);
+    msg->channel6 = data[2] | (data[3] << 8);
+    msg->channel7 = data[4] | (data[5] << 8);
+    msg->channel8 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsRr2(uint8_t *data, SecondaryIrtsRr2Msg *msg){
+    data[0] = msg->channel9 & 255;
+    data[1] = (msg->channel9 >> 8) & 255;
+    data[2] = msg->channel10 & 255;
+    data[3] = (msg->channel10 >> 8) & 255;
+    data[4] = msg->channel11 & 255;
+    data[5] = (msg->channel11 >> 8) & 255;
+    data[6] = msg->channel12 & 255;
+    data[7] = (msg->channel12 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsRr2(uint8_t *data, SecondaryIrtsRr2Msg *msg){
+    msg->channel9 = data[0] | (data[1] << 8);
+    msg->channel10 = data[2] | (data[3] << 8);
+    msg->channel11 = data[4] | (data[5] << 8);
+    msg->channel12 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryIrtsRr3(uint8_t *data, SecondaryIrtsRr3Msg *msg){
+    data[0] = msg->channel13 & 255;
+    data[1] = (msg->channel13 >> 8) & 255;
+    data[2] = msg->channel14 & 255;
+    data[3] = (msg->channel14 >> 8) & 255;
+    data[4] = msg->channel15 & 255;
+    data[5] = (msg->channel15 >> 8) & 255;
+    data[6] = msg->channel16 & 255;
+    data[7] = (msg->channel16 >> 8) & 255;
+}
+
+void deserialize_SecondaryIrtsRr3(uint8_t *data, SecondaryIrtsRr3Msg *msg){
+    msg->channel13 = data[0] | (data[1] << 8);
+    msg->channel14 = data[2] | (data[3] << 8);
+    msg->channel15 = data[4] | (data[5] << 8);
+    msg->channel16 = data[6] | (data[7] << 8);
+}
+
+void serialize_SecondaryGpsCoords(uint8_t *data, SecondaryGpsCoordsMsg *msg){
+    data[0] = ((float_t) msg->latitude).bytes[0];
+    data[1] = ((float_t) msg->latitude).bytes[1];
+    data[2] = ((float_t) msg->latitude).bytes[2];
+    data[3] = ((float_t) msg->latitude).bytes[3];
+    data[4] = ((float_t) msg->longitude).bytes[0];
+    data[5] = ((float_t) msg->longitude).bytes[1];
+    data[6] = ((float_t) msg->longitude).bytes[2];
+    data[7] = ((float_t) msg->longitude).bytes[3];
+}
+
+void deserialize_SecondaryGpsCoords(uint8_t *data, SecondaryGpsCoordsMsg *msg){
+    msg->latitude = ((float_t) {data[0], data[1], data[2], data[3]}).value;
+    msg->longitude = ((float_t) {data[4], data[5], data[6], data[7]}).value;
+}
+
+void serialize_SecondaryGpsSpeed(uint8_t *data, SecondaryGpsSpeedMsg *msg){
+    data[0] = msg->speed & 255;
+    data[1] = (msg->speed >> 8) & 255;
+}
+
+void deserialize_SecondaryGpsSpeed(uint8_t *data, SecondaryGpsSpeedMsg *msg){
+    msg->speed = data[0] | (data[1] << 8);
+}
+
+void serialize_SecondaryLapCount(uint8_t *data, SecondaryLapCountMsg *msg){
+    data[0] = msg->timestamp & 255;
+    data[1] = (msg->timestamp >> 8) & 255;
+    data[2] = (msg->timestamp >> 16) & 255;
+    data[3] = (msg->timestamp >> 24) & 255;
+    data[4] = msg->lap_count;
+}
+
+void deserialize_SecondaryLapCount(uint8_t *data, SecondaryLapCountMsg *msg){
+    msg->timestamp = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
+    msg->lap_count = data[4];
+}
+
 #endif
 
 #ifdef __cplusplus

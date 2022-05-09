@@ -37,3 +37,11 @@ message Balancing {
 message FwUpdate {
   uint32 board_index = 1;
 }
+
+message BmsFenice {
+  repeated BoardStatus board_status = 1;
+  repeated Temperatures temperatures = 2;
+  repeated Voltages voltages = 3;
+  repeated Balancing balancing = 4;
+  repeated FwUpdate fw_update = 5;
+}

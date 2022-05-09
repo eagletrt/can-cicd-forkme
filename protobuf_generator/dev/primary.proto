@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package primary;
 
-enum TlmStatusSetType {
-  TLM_STATUS_SET_OFF = 0;
-  TLM_STATUS_SET_ON = 1;
+enum TlmStatusType {
+  TLM_STATUS_ON = 0;
+  TLM_STATUS_OFF = 1;
 }
 
 enum RaceTypeType {
@@ -12,11 +12,6 @@ enum RaceTypeType {
   RACE_TYPE_SKIDPAD = 1;
   RACE_TYPE_AUTOCROSS = 2;
   RACE_TYPE_ENDURANCE = 3;
-}
-
-enum TlmStatusType {
-  TLM_STATUS_ON = 0;
-  TLM_STATUS_OFF = 1;
 }
 
 enum InverterStatusType {
@@ -114,7 +109,7 @@ message Timestamp {
 }
 
 message SetTlmStatus {
-  TlmStatusSetType tlm_status_set = 1;
+  TlmStatusType tlm_status = 1;
   RaceTypeType race_type = 2;
   uint32 driver = 3;
   uint32 circuit = 4;
@@ -258,4 +253,40 @@ message InvLSetTorque {
 message InvLResponse {
   uint32 reg_id = 1;
   uint32 reg_val = 2;
+}
+
+message PrimaryFenice {
+  repeated SteerVersion steer_version = 1;
+  repeated DasVersion das_version = 2;
+  repeated HvVersion hv_version = 3;
+  repeated LvVersion lv_version = 4;
+  repeated TlmVersion tlm_version = 5;
+  repeated Timestamp timestamp = 6;
+  repeated SetTlmStatus set_tlm_status = 7;
+  repeated SteerSystemStatus steer_system_status = 8;
+  repeated Marker marker = 9;
+  repeated TlmStatus tlm_status = 10;
+  repeated CarStatus car_status = 11;
+  repeated DasErrors das_errors = 12;
+  repeated Speed speed = 13;
+  repeated HvVoltage hv_voltage = 14;
+  repeated HvCurrent hv_current = 15;
+  repeated HvTemp hv_temp = 16;
+  repeated HvErrors hv_errors = 17;
+  repeated TsStatus ts_status = 18;
+  repeated SetTsStatus set_ts_status = 19;
+  repeated SetCellBalancingStatus set_cell_balancing_status = 20;
+  repeated HandcartStatus handcart_status = 21;
+  repeated SteerStatus steer_status = 22;
+  repeated SetCarStatus set_car_status = 23;
+  repeated SetPedalsRange set_pedals_range = 24;
+  repeated LvCurrent lv_current = 25;
+  repeated LvVoltage lv_voltage = 26;
+  repeated LvTemperature lv_temperature = 27;
+  repeated CoolingStatus cooling_status = 28;
+  repeated HvCellsVoltage hv_cells_voltage = 29;
+  repeated HvCellsTemp hv_cells_temp = 30;
+  repeated HvCellBalancingStatus hv_cell_balancing_status = 31;
+  repeated InvLSetTorque inv_l_set_torque = 32;
+  repeated InvLResponse inv_l_response = 33;
 }

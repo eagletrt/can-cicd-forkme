@@ -1,8 +1,9 @@
 from enum import IntEnum, IntFlag
 from struct import pack, unpack
-from collections import namedtuple
 
-class Hv_Errors(IntFlag):
+# Bitsets
+
+class PrimaryHvErrors(IntFlag):
     LTC_PEC_ERROR = 1
     CELL_UNDER_VOLTAGE = 2
     CELL_OVER_VOLTAGE = 4
@@ -14,7 +15,7 @@ class Hv_Errors(IntFlag):
     FEEDBACK_HARD = 256
     FEEDBACK_SOFT = 512
 
-class Das_Errors(IntFlag):
+class PrimaryDasErrors(IntFlag):
     PEDAL_ADC = 1
     PEDAL_IMPLAUSIBILITY = 2
     IMU_TOUT = 4
@@ -24,7 +25,7 @@ class Das_Errors(IntFlag):
     INVR_TOUT = 64
     FSM = 128
 
-class Inv_Status(IntFlag):
+class PrimaryInvStatus(IntFlag):
     DRIVE_ENABLE = 1
     NCR0 = 2
     LIMP = 4
@@ -58,7 +59,7 @@ class Inv_Status(IntFlag):
     MD = 1073741824
     HND_WHL = 2147483648
 
-class Inv_Errors(IntFlag):
+class PrimaryInvErrors(IntFlag):
     BAD_PARAM = 1
     HW_FAULT = 2
     SAFETY_FAULT = 4
@@ -91,529 +92,1014 @@ class Inv_Errors(IntFlag):
     UNKNOWN_ERR_30 = 536870912
     BALLAST_OVERLOAD_WARN = 1073741824
 
-class Inv_IOInfo(IntFlag):
-    LMT1 = 1
-    LMT2 = 2
-    IN2 = 4
-    IN1 = 8
-    FRG = 16
-    RFE = 32
-    UNK6 = 64
-    UNK7 = 128
-    OUT1 = 256
-    OUT2 = 512
-    BTB = 1024
-    GO = 2048
-    OUT3 = 4096
-    OUT4 = 8192
-    G_OFF = 16384
-    BRK1 = 32768
+class PrimaryRegVal():
+    inv_status = PrimaryInvStatus(0)
+    inv_errors = PrimaryInvErrors(0)
 
-class Reg_Val(IntFlag):
-    
-class Tlm_Status_Set(IntEnum):
+# Enums
+
+class PrimaryTlmStatus(IntEnum):
     OFF = 0
     ON = 1
-    
-class Race_Type(IntEnum):
+
+class PrimaryRaceType(IntEnum):
     ACCELERATION = 0
     SKIDPAD = 1
     AUTOCROSS = 2
     ENDURANCE = 3
-    
-class Tlm_Status(IntEnum):
-    ON = 0
-    OFF = 1
-    
-class Inverter_Status(IntEnum):
+
+class PrimaryInverterStatus(IntEnum):
     OFF = 0
     IDLE = 1
     ON = 2
-    
-class Car_Status(IntEnum):
+
+class PrimaryCarStatus(IntEnum):
     IDLE = 0
     SETUP = 1
     RUN = 2
-    
-class Ts_Status(IntEnum):
+
+class PrimaryTsStatus(IntEnum):
     OFF = 0
     PRECHARGE = 1
     ON = 2
     FATAL = 3
-    
-class Ts_Status_Set(IntEnum):
+
+class PrimaryTsStatusSet(IntEnum):
     OFF = 0
     ON = 1
-    
-class Set_Balancing_Status(IntEnum):
+
+class PrimarySetBalancingStatus(IntEnum):
     OFF = 0
     ON = 1
-    
-class Traction_Control(IntEnum):
+
+class PrimaryTractionControl(IntEnum):
     OFF = 0
     SLIP_CONTROL = 1
     TORQUE_VECTORING = 2
     COMPLETE = 3
-    
-class Map(IntEnum):
+
+class PrimaryMap(IntEnum):
     R = 0
     D20 = 1
     D40 = 2
     D60 = 3
     D80 = 4
     D100 = 5
-    
-class Car_Status_Set(IntEnum):
+
+class PrimaryCarStatusSet(IntEnum):
     IDLE = 0
     RUN = 1
-    
-class Bound(IntEnum):
+
+class PrimaryBound(IntEnum):
     SET_MAX = 0
     SET_MIN = 1
-    
-class Pedal(IntEnum):
+
+class PrimaryPedal(IntEnum):
     ACCELERATOR = 0
     BRAKE = 1
-    
-class Balancing_Status(IntEnum):
+
+class PrimaryBalancingStatus(IntEnum):
     OFF = 0
     ON = 1
 
+# Messages
 
-# SteerVersion
-class SteerVersion:
-    struct = namedtuple("SteerVersion_struct", "component_version cancicd_version", rename=True)
-    schema = "<bb"
-    frequency_ms = 1000
-    
-    @staticmethod
-    def serialize(component_version, cancicd_version) -> bytes:
-        return pack(SteerVersion.schema, component_version, cancicd_version)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SteerVersion.struct":
-        return SteerVersion.struct._make(unpack(SteerVersion.schema, buffer))
+class PrimarySteerVersionMsg:
+    def __init__(self, component_version: int = None, cancicd_version: int = None):
+        if component_version is not None:
+            self.component_version = int(component_version)
+        if cancicd_version is not None:
+            self.cancicd_version = int(cancicd_version)
+        self.size = 2
+        self.millis = 1000
 
-# DasVersion
-class DasVersion:
-    struct = namedtuple("DasVersion_struct", "component_version cancicd_version", rename=True)
-    schema = "<bb"
-    frequency_ms = 1000
-    
-    @staticmethod
-    def serialize(component_version, cancicd_version) -> bytes:
-        return pack(DasVersion.schema, component_version, cancicd_version)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "DasVersion.struct":
-        return DasVersion.struct._make(unpack(DasVersion.schema, buffer))
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BB", self.component_version, self.cancicd_version))
+        return data
 
-# HvVersion
-class HvVersion:
-    struct = namedtuple("HvVersion_struct", "component_version cancicd_version", rename=True)
-    schema = "<bb"
-    frequency_ms = 1000
-    
-    @staticmethod
-    def serialize(component_version, cancicd_version) -> bytes:
-        return pack(HvVersion.schema, component_version, cancicd_version)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "HvVersion.struct":
-        return HvVersion.struct._make(unpack(HvVersion.schema, buffer))
+    def deserialize(self, data):
+        self.component_version = int(unpack("<B", data[0:1])[0])
+        self.cancicd_version = int(unpack("<xB", data[0:2])[0])
 
-# LvVersion
-class LvVersion:
-    struct = namedtuple("LvVersion_struct", "component_version cancicd_version", rename=True)
-    schema = "<bb"
-    frequency_ms = 1000
-    
-    @staticmethod
-    def serialize(component_version, cancicd_version) -> bytes:
-        return pack(LvVersion.schema, component_version, cancicd_version)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "LvVersion.struct":
-        return LvVersion.struct._make(unpack(LvVersion.schema, buffer))
+    def __eq__(self, other):
+        if not isinstance(other, PrimarySteerVersionMsg):
+            return False
+        if self.component_version != other.component_version:
+            return False
+        if self.cancicd_version != other.cancicd_version:
+            return False
+        return True
 
-# TlmVersion
-class TlmVersion:
-    struct = namedtuple("TlmVersion_struct", "component_version cancicd_version", rename=True)
-    schema = "<bb"
-    frequency_ms = 1000
-    
-    @staticmethod
-    def serialize(component_version, cancicd_version) -> bytes:
-        return pack(TlmVersion.schema, component_version, cancicd_version)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "TlmVersion.struct":
-        return TlmVersion.struct._make(unpack(TlmVersion.schema, buffer))
+class PrimaryDasVersionMsg:
+    def __init__(self, component_version: int = None, cancicd_version: int = None):
+        if component_version is not None:
+            self.component_version = int(component_version)
+        if cancicd_version is not None:
+            self.cancicd_version = int(cancicd_version)
+        self.size = 2
+        self.millis = 1000
 
-# Timestamp
-class Timestamp:
-    struct = namedtuple("Timestamp_struct", "timestamp", rename=True)
-    schema = "<i"
-    frequency_ms = 1000
-    
-    @staticmethod
-    def serialize(timestamp) -> bytes:
-        return pack(Timestamp.schema, timestamp)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "Timestamp.struct":
-        return Timestamp.struct._make(unpack(Timestamp.schema, buffer))
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BB", self.component_version, self.cancicd_version))
+        return data
 
-# SetTlmStatus
-class SetTlmStatus:
-    struct = namedtuple("SetTlmStatus_struct", "tlm_status_set race_type driver circuit", rename=True)
-    schema = "<BBbb"
-    @staticmethod
-    def serialize(tlm_status_set, race_type, driver, circuit) -> bytes:
-        return pack(SetTlmStatus.schema, tlm_status_set, race_type, driver, circuit)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SetTlmStatus.struct":
-        return SetTlmStatus.struct._make(unpack(SetTlmStatus.schema, buffer))
+    def deserialize(self, data):
+        self.component_version = int(unpack("<B", data[0:1])[0])
+        self.cancicd_version = int(unpack("<xB", data[0:2])[0])
 
-# SteerSystemStatus
-class SteerSystemStatus:
-    struct = namedtuple("SteerSystemStatus_struct", "soc_temp", rename=True)
-    schema = "<b"
-    frequency_ms = 2000
-    
-    @staticmethod
-    def serialize(soc_temp) -> bytes:
-        return pack(SteerSystemStatus.schema, soc_temp)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SteerSystemStatus.struct":
-        return SteerSystemStatus.struct._make(unpack(SteerSystemStatus.schema, buffer))
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryDasVersionMsg):
+            return False
+        if self.component_version != other.component_version:
+            return False
+        if self.cancicd_version != other.cancicd_version:
+            return False
+        return True
 
-# TlmStatus
-class TlmStatus:
-    struct = namedtuple("TlmStatus_struct", "tlm_status race_type driver circuit", rename=True)
-    schema = "<BBbb"
-    frequency_ms = 1000
-    
-    @staticmethod
-    def serialize(tlm_status, race_type, driver, circuit) -> bytes:
-        return pack(TlmStatus.schema, tlm_status, race_type, driver, circuit)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "TlmStatus.struct":
-        return TlmStatus.struct._make(unpack(TlmStatus.schema, buffer))
+class PrimaryHvVersionMsg:
+    def __init__(self, component_version: int = None, cancicd_version: int = None):
+        if component_version is not None:
+            self.component_version = int(component_version)
+        if cancicd_version is not None:
+            self.cancicd_version = int(cancicd_version)
+        self.size = 2
+        self.millis = 1000
 
-# CarStatus
-class CarStatus:
-    struct = namedtuple("CarStatus_struct", "inverter_l inverter_r car_status", rename=True)
-    schema = "<BBB"
-    frequency_ms = 100
-    
-    @staticmethod
-    def serialize(inverter_l, inverter_r, car_status) -> bytes:
-        return pack(CarStatus.schema, inverter_l, inverter_r, car_status)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "CarStatus.struct":
-        return CarStatus.struct._make(unpack(CarStatus.schema, buffer))
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BB", self.component_version, self.cancicd_version))
+        return data
 
-# DasErrors
-class DasErrors:
-    struct = namedtuple("DasErrors_struct", "das_error", rename=True)
-    schema = "<b"
-    frequency_ms = 20
-    
-    @staticmethod
-    def serialize(das_error) -> bytes:
-        return pack(DasErrors.schema, das_error)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "DasErrors.struct":
-        return DasErrors.struct._make(unpack(DasErrors.schema, buffer))
+    def deserialize(self, data):
+        self.component_version = int(unpack("<B", data[0:1])[0])
+        self.cancicd_version = int(unpack("<xB", data[0:2])[0])
 
-# Speed
-class Speed:
-    struct = namedtuple("Speed_struct", "encoder_r encoder_l inverter_r inverter_l", rename=True)
-    schema = "<hhhh"
-    frequency_ms = 100
-    
-    @staticmethod
-    def serialize(encoder_r, encoder_l, inverter_r, inverter_l) -> bytes:
-        return pack(Speed.schema, encoder_r, encoder_l, inverter_r, inverter_l)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "Speed.struct":
-        return Speed.struct._make(unpack(Speed.schema, buffer))
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryHvVersionMsg):
+            return False
+        if self.component_version != other.component_version:
+            return False
+        if self.cancicd_version != other.cancicd_version:
+            return False
+        return True
 
-# HvVoltage
-class HvVoltage:
-    struct = namedtuple("HvVoltage_struct", "pack_voltage bus_voltage max_cell_voltage min_cell_voltage", rename=True)
-    schema = "<hhhh"
-    frequency_ms = 20
-    
-    @staticmethod
-    def serialize(pack_voltage, bus_voltage, max_cell_voltage, min_cell_voltage) -> bytes:
-        return pack(HvVoltage.schema, pack_voltage, bus_voltage, max_cell_voltage, min_cell_voltage)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "HvVoltage.struct":
-        return HvVoltage.struct._make(unpack(HvVoltage.schema, buffer))
+class PrimaryLvVersionMsg:
+    def __init__(self, component_version: int = None, cancicd_version: int = None):
+        if component_version is not None:
+            self.component_version = int(component_version)
+        if cancicd_version is not None:
+            self.cancicd_version = int(cancicd_version)
+        self.size = 2
+        self.millis = 1000
 
-# HvCurrent
-class HvCurrent:
-    struct = namedtuple("HvCurrent_struct", "current power", rename=True)
-    schema = "<hH"
-    frequency_ms = 20
-    
-    @staticmethod
-    def serialize(current, power) -> bytes:
-        return pack(HvCurrent.schema, current, power)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "HvCurrent.struct":
-        return HvCurrent.struct._make(unpack(HvCurrent.schema, buffer))
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BB", self.component_version, self.cancicd_version))
+        return data
 
-# HvTemp
-class HvTemp:
-    struct = namedtuple("HvTemp_struct", "average_temp max_temp min_temp", rename=True)
-    schema = "<hhh"
-    frequency_ms = 200
-    
-    @staticmethod
-    def serialize(average_temp, max_temp, min_temp) -> bytes:
-        return pack(HvTemp.schema, average_temp, max_temp, min_temp)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "HvTemp.struct":
-        return HvTemp.struct._make(unpack(HvTemp.schema, buffer))
+    def deserialize(self, data):
+        self.component_version = int(unpack("<B", data[0:1])[0])
+        self.cancicd_version = int(unpack("<xB", data[0:2])[0])
 
-# HvErrors
-class HvErrors:
-    struct = namedtuple("HvErrors_struct", "warnings errors", rename=True)
-    schema = "<hh"
-    frequency_ms = 20
-    
-    @staticmethod
-    def serialize(warnings, errors) -> bytes:
-        return pack(HvErrors.schema, warnings, errors)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "HvErrors.struct":
-        return HvErrors.struct._make(unpack(HvErrors.schema, buffer))
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryLvVersionMsg):
+            return False
+        if self.component_version != other.component_version:
+            return False
+        if self.cancicd_version != other.cancicd_version:
+            return False
+        return True
 
-# TsStatus
-class TsStatus:
-    struct = namedtuple("TsStatus_struct", "ts_status", rename=True)
-    schema = "<B"
-    frequency_ms = 20
-    
-    @staticmethod
-    def serialize(ts_status) -> bytes:
-        return pack(TsStatus.schema, ts_status)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "TsStatus.struct":
-        return TsStatus.struct._make(unpack(TsStatus.schema, buffer))
+class PrimaryTlmVersionMsg:
+    def __init__(self, component_version: int = None, cancicd_version: int = None):
+        if component_version is not None:
+            self.component_version = int(component_version)
+        if cancicd_version is not None:
+            self.cancicd_version = int(cancicd_version)
+        self.size = 2
+        self.millis = 1000
 
-# SetTsStatus
-class SetTsStatus:
-    struct = namedtuple("SetTsStatus_struct", "ts_status_set", rename=True)
-    schema = "<B"
-    @staticmethod
-    def serialize(ts_status_set) -> bytes:
-        return pack(SetTsStatus.schema, ts_status_set)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SetTsStatus.struct":
-        return SetTsStatus.struct._make(unpack(SetTsStatus.schema, buffer))
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BB", self.component_version, self.cancicd_version))
+        return data
 
-# SetCellBalancingStatus
-class SetCellBalancingStatus:
-    struct = namedtuple("SetCellBalancingStatus_struct", "set_balancing_status", rename=True)
-    schema = "<B"
-    @staticmethod
-    def serialize(set_balancing_status) -> bytes:
-        return pack(SetCellBalancingStatus.schema, set_balancing_status)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SetCellBalancingStatus.struct":
-        return SetCellBalancingStatus.struct._make(unpack(SetCellBalancingStatus.schema, buffer))
+    def deserialize(self, data):
+        self.component_version = int(unpack("<B", data[0:1])[0])
+        self.cancicd_version = int(unpack("<xB", data[0:2])[0])
 
-# HandcartStatus
-class HandcartStatus:
-    struct = namedtuple("HandcartStatus_struct", "connected", rename=True)
-    schema = "<b"
-    frequency_ms = 500
-    
-    @staticmethod
-    def serialize(connected) -> bytes:
-        return pack(HandcartStatus.schema, connected)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "HandcartStatus.struct":
-        return HandcartStatus.struct._make(unpack(HandcartStatus.schema, buffer))
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryTlmVersionMsg):
+            return False
+        if self.component_version != other.component_version:
+            return False
+        if self.cancicd_version != other.cancicd_version:
+            return False
+        return True
 
-# SteerStatus
-class SteerStatus:
-    struct = namedtuple("SteerStatus_struct", "traction_control map", rename=True)
-    schema = "<BB"
-    frequency_ms = 100
-    
-    @staticmethod
-    def serialize(traction_control, map) -> bytes:
-        return pack(SteerStatus.schema, traction_control, map)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SteerStatus.struct":
-        return SteerStatus.struct._make(unpack(SteerStatus.schema, buffer))
+class PrimaryTimestampMsg:
+    def __init__(self, timestamp: int = None):
+        if timestamp is not None:
+            self.timestamp = int(timestamp)
+        self.size = 4
+        self.millis = 1000
 
-# SetCarStatus
-class SetCarStatus:
-    struct = namedtuple("SetCarStatus_struct", "car_status_set", rename=True)
-    schema = "<B"
-    @staticmethod
-    def serialize(car_status_set) -> bytes:
-        return pack(SetCarStatus.schema, car_status_set)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SetCarStatus.struct":
-        return SetCarStatus.struct._make(unpack(SetCarStatus.schema, buffer))
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<I", self.timestamp))
+        return data
 
-# SetPedalsRange
-class SetPedalsRange:
-    struct = namedtuple("SetPedalsRange_struct", "bound pedal", rename=True)
-    schema = "<BB"
-    @staticmethod
-    def serialize(bound, pedal) -> bytes:
-        return pack(SetPedalsRange.schema, bound, pedal)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "SetPedalsRange.struct":
-        return SetPedalsRange.struct._make(unpack(SetPedalsRange.schema, buffer))
+    def deserialize(self, data):
+        self.timestamp = int(unpack("<I", data[0:4])[0])
 
-# LvCurrent
-class LvCurrent:
-    struct = namedtuple("LvCurrent_struct", "current", rename=True)
-    schema = "<b"
-    frequency_ms = 500
-    
-    @staticmethod
-    def serialize(current) -> bytes:
-        return pack(LvCurrent.schema, current)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "LvCurrent.struct":
-        return LvCurrent.struct._make(unpack(LvCurrent.schema, buffer))
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryTimestampMsg):
+            return False
+        if self.timestamp != other.timestamp:
+            return False
+        return True
 
-# LvVoltage
-class LvVoltage:
-    struct = namedtuple("LvVoltage_struct", "voltage_1 voltage_2 voltage_3 voltage_4 total_voltage", rename=True)
-    schema = "<bbbbh"
-    frequency_ms = 200
-    
-    @staticmethod
-    def serialize(voltage_1, voltage_2, voltage_3, voltage_4, total_voltage) -> bytes:
-        return pack(LvVoltage.schema, voltage_1, voltage_2, voltage_3, voltage_4, total_voltage)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "LvVoltage.struct":
-        return LvVoltage.struct._make(unpack(LvVoltage.schema, buffer))
+class PrimarySetTlmStatusMsg:
+    def __init__(self, driver: int = None, circuit: int = None, race_type: PrimaryRaceType = None, tlm_status: PrimaryTlmStatus = None):
+        if driver is not None:
+            self.driver = int(driver)
+        if circuit is not None:
+            self.circuit = int(circuit)
+        if race_type is not None:
+            self.race_type = PrimaryRaceType(race_type)
+        if tlm_status is not None:
+            self.tlm_status = PrimaryTlmStatus(tlm_status)
+        self.size = 3
 
-# LvTemperature
-class LvTemperature:
-    struct = namedtuple("LvTemperature_struct", "bp_temperature dcdc_temperature", rename=True)
-    schema = "<bb"
-    frequency_ms = 200
-    
-    @staticmethod
-    def serialize(bp_temperature, dcdc_temperature) -> bytes:
-        return pack(LvTemperature.schema, bp_temperature, dcdc_temperature)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "LvTemperature.struct":
-        return LvTemperature.struct._make(unpack(LvTemperature.schema, buffer))
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BBB", self.driver, self.circuit, self.race_type << 6 & 255 | self.tlm_status << 5 & 255))
+        return data
 
-# CoolingStatus
-class CoolingStatus:
-    struct = namedtuple("CoolingStatus_struct", "hv_fan_speed lv_fan_speed pump_speed", rename=True)
-    schema = "<bbb"
-    frequency_ms = 1000
-    
-    @staticmethod
-    def serialize(hv_fan_speed, lv_fan_speed, pump_speed) -> bytes:
-        return pack(CoolingStatus.schema, hv_fan_speed, lv_fan_speed, pump_speed)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "CoolingStatus.struct":
-        return CoolingStatus.struct._make(unpack(CoolingStatus.schema, buffer))
+    def deserialize(self, data):
+        self.driver = int(unpack("<B", data[0:1])[0])
+        self.circuit = int(unpack("<xB", data[0:2])[0])
+        self.race_type = PrimaryRaceType((unpack("<xxB", data[0:3])[0] & 192) >> 6)
+        self.tlm_status = PrimaryTlmStatus((unpack("<xxB", data[0:3])[0] & 32) >> 5)
 
-# HvCellsVoltage
-class HvCellsVoltage:
-    struct = namedtuple("HvCellsVoltage_struct", "cell_index __unused_padding_1 voltage_0 voltage_1 voltage_2", rename=True)
-    schema = "<bXhhh"
-    frequency_ms = 200
-    
-    @staticmethod
-    def serialize(cell_index, voltage_0, voltage_1, voltage_2) -> bytes:
-        return pack(HvCellsVoltage.schema, cell_index, voltage_0, voltage_1, voltage_2)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "HvCellsVoltage.struct":
-        return HvCellsVoltage.struct._make(unpack(HvCellsVoltage.schema, buffer))
+    def __eq__(self, other):
+        if not isinstance(other, PrimarySetTlmStatusMsg):
+            return False
+        if self.driver != other.driver:
+            return False
+        if self.circuit != other.circuit:
+            return False
+        if self.race_type != other.race_type:
+            return False
+        if self.tlm_status != other.tlm_status:
+            return False
+        return True
 
-# HvCellsTemp
-class HvCellsTemp:
-    struct = namedtuple("HvCellsTemp_struct", "cell_index temp_0 temp_1 temp_2 temp_3 temp_4 temp_5 temp_6", rename=True)
-    schema = "<bbbbbbbb"
-    frequency_ms = 100
-    
-    @staticmethod
-    def serialize(cell_index, temp_0, temp_1, temp_2, temp_3, temp_4, temp_5, temp_6) -> bytes:
-        return pack(HvCellsTemp.schema, cell_index, temp_0, temp_1, temp_2, temp_3, temp_4, temp_5, temp_6)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "HvCellsTemp.struct":
-        return HvCellsTemp.struct._make(unpack(HvCellsTemp.schema, buffer))
+class PrimarySteerSystemStatusMsg:
+    def __init__(self, soc_temp: int = None):
+        if soc_temp is not None:
+            self.soc_temp = int(soc_temp)
+        self.size = 1
+        self.millis = 2000
 
-# HvCellBalancingStatus
-class HvCellBalancingStatus:
-    struct = namedtuple("HvCellBalancingStatus_struct", "balancing_status", rename=True)
-    schema = "<B"
-    frequency_ms = 500
-    
-    @staticmethod
-    def serialize(balancing_status) -> bytes:
-        return pack(HvCellBalancingStatus.schema, balancing_status)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "HvCellBalancingStatus.struct":
-        return HvCellBalancingStatus.struct._make(unpack(HvCellBalancingStatus.schema, buffer))
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.soc_temp))
+        return data
 
-# InvLSetTorque
-class InvLSetTorque:
-    struct = namedtuple("InvLSetTorque_struct", "regid lsb msb", rename=True)
-    schema = "<bbb"
-    frequency_ms = 20
-    
-    @staticmethod
-    def serialize(regid, lsb, msb) -> bytes:
-        return pack(InvLSetTorque.schema, regid, lsb, msb)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "InvLSetTorque.struct":
-        return InvLSetTorque.struct._make(unpack(InvLSetTorque.schema, buffer))
+    def deserialize(self, data):
+        self.soc_temp = int(unpack("<B", data[0:1])[0])
 
-# InvLResponse
-class InvLResponse:
-    struct = namedtuple("InvLResponse_struct", "reg_id reg_val", rename=True)
-    schema = "<bi"
-    frequency_ms = 100
-    
-    @staticmethod
-    def serialize(reg_id, reg_val) -> bytes:
-        return pack(InvLResponse.schema, reg_id, reg_val)
-    
-    @staticmethod
-    def deserialize(buffer: bytes) -> "InvLResponse.struct":
-        return InvLResponse.struct._make(unpack(InvLResponse.schema, buffer))
+    def __eq__(self, other):
+        if not isinstance(other, PrimarySteerSystemStatusMsg):
+            return False
+        if self.soc_temp != other.soc_temp:
+            return False
+        return True
+
+class PrimaryMarkerMsg:
+    def __init__(self):
+        self.size = 0
+
+    def serialize(self):
+        return bytearray()
+
+    def deserialize(self, data):
+        pass
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryMarkerMsg):
+            return False
+        return True
+
+class PrimaryTlmStatusMsg:
+    def __init__(self, driver: int = None, circuit: int = None, race_type: PrimaryRaceType = None, tlm_status: PrimaryTlmStatus = None):
+        if driver is not None:
+            self.driver = int(driver)
+        if circuit is not None:
+            self.circuit = int(circuit)
+        if race_type is not None:
+            self.race_type = PrimaryRaceType(race_type)
+        if tlm_status is not None:
+            self.tlm_status = PrimaryTlmStatus(tlm_status)
+        self.size = 3
+        self.millis = 1000
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BBB", self.driver, self.circuit, self.race_type << 6 & 255 | self.tlm_status << 5 & 255))
+        return data
+
+    def deserialize(self, data):
+        self.driver = int(unpack("<B", data[0:1])[0])
+        self.circuit = int(unpack("<xB", data[0:2])[0])
+        self.race_type = PrimaryRaceType((unpack("<xxB", data[0:3])[0] & 192) >> 6)
+        self.tlm_status = PrimaryTlmStatus((unpack("<xxB", data[0:3])[0] & 32) >> 5)
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryTlmStatusMsg):
+            return False
+        if self.driver != other.driver:
+            return False
+        if self.circuit != other.circuit:
+            return False
+        if self.race_type != other.race_type:
+            return False
+        if self.tlm_status != other.tlm_status:
+            return False
+        return True
+
+class PrimaryCarStatusMsg:
+    def __init__(self, inverter_l: PrimaryInverterStatus = None, inverter_r: PrimaryInverterStatus = None, car_status: PrimaryCarStatus = None):
+        if inverter_l is not None:
+            self.inverter_l = PrimaryInverterStatus(inverter_l)
+        if inverter_r is not None:
+            self.inverter_r = PrimaryInverterStatus(inverter_r)
+        if car_status is not None:
+            self.car_status = PrimaryCarStatus(car_status)
+        self.size = 1
+        self.millis = 100
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.inverter_l << 6 & 255 | self.inverter_r << 4 & 255 | self.car_status << 2 & 255))
+        return data
+
+    def deserialize(self, data):
+        self.inverter_l = PrimaryInverterStatus((unpack("<B", data[0:1])[0] & 192) >> 6)
+        self.inverter_r = PrimaryInverterStatus((unpack("<B", data[0:1])[0] & 48) >> 4)
+        self.car_status = PrimaryCarStatus((unpack("<B", data[0:1])[0] & 12) >> 2)
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryCarStatusMsg):
+            return False
+        if self.inverter_l != other.inverter_l:
+            return False
+        if self.inverter_r != other.inverter_r:
+            return False
+        if self.car_status != other.car_status:
+            return False
+        return True
+
+class PrimaryDasErrorsMsg:
+    def __init__(self, das_error: bin = None):
+        if das_error is not None:
+            self.das_error = bin(das_error)
+        self.size = 1
+        self.millis = 20
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", (int(self.das_error,2) >> 0) & 255))
+        return data
+
+    def deserialize(self, data):
+        self.das_error = bin((unpack("<B", data[0:1])[0] << 0))
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryDasErrorsMsg):
+            return False
+        if self.das_error != other.das_error:
+            return False
+        return True
+
+class PrimarySpeedMsg:
+    def __init__(self, encoder_r: int = None, encoder_l: int = None, inverter_r: int = None, inverter_l: int = None):
+        if encoder_r is not None:
+            self.encoder_r = int(encoder_r)
+        if encoder_l is not None:
+            self.encoder_l = int(encoder_l)
+        if inverter_r is not None:
+            self.inverter_r = int(inverter_r)
+        if inverter_l is not None:
+            self.inverter_l = int(inverter_l)
+        self.size = 8
+        self.millis = 100
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<HHHH", self.encoder_r, self.encoder_l, self.inverter_r, self.inverter_l))
+        return data
+
+    def deserialize(self, data):
+        self.encoder_r = int(unpack("<H", data[0:2])[0])
+        self.encoder_l = int(unpack("<xxH", data[0:4])[0])
+        self.inverter_r = int(unpack("<xxxxH", data[0:6])[0])
+        self.inverter_l = int(unpack("<xxxxxxH", data[0:8])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimarySpeedMsg):
+            return False
+        if self.encoder_r != other.encoder_r:
+            return False
+        if self.encoder_l != other.encoder_l:
+            return False
+        if self.inverter_r != other.inverter_r:
+            return False
+        if self.inverter_l != other.inverter_l:
+            return False
+        return True
+
+class PrimaryHvVoltageMsg:
+    def __init__(self, pack_voltage: int = None, bus_voltage: int = None, max_cell_voltage: int = None, min_cell_voltage: int = None):
+        if pack_voltage is not None:
+            self.pack_voltage = int(pack_voltage)
+        if bus_voltage is not None:
+            self.bus_voltage = int(bus_voltage)
+        if max_cell_voltage is not None:
+            self.max_cell_voltage = int(max_cell_voltage)
+        if min_cell_voltage is not None:
+            self.min_cell_voltage = int(min_cell_voltage)
+        self.size = 8
+        self.millis = 20
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<HHHH", self.pack_voltage, self.bus_voltage, self.max_cell_voltage, self.min_cell_voltage))
+        return data
+
+    def deserialize(self, data):
+        self.pack_voltage = int(unpack("<H", data[0:2])[0])
+        self.bus_voltage = int(unpack("<xxH", data[0:4])[0])
+        self.max_cell_voltage = int(unpack("<xxxxH", data[0:6])[0])
+        self.min_cell_voltage = int(unpack("<xxxxxxH", data[0:8])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryHvVoltageMsg):
+            return False
+        if self.pack_voltage != other.pack_voltage:
+            return False
+        if self.bus_voltage != other.bus_voltage:
+            return False
+        if self.max_cell_voltage != other.max_cell_voltage:
+            return False
+        if self.min_cell_voltage != other.min_cell_voltage:
+            return False
+        return True
+
+class PrimaryHvCurrentMsg:
+    def __init__(self, current: int = None, power: int = None):
+        if current is not None:
+            self.current = int(current)
+        if power is not None:
+            self.power = int(power)
+        self.size = 4
+        self.millis = 20
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<Hh", self.current, self.power))
+        return data
+
+    def deserialize(self, data):
+        self.current = int(unpack("<H", data[0:2])[0])
+        self.power = int(unpack("<xxh", data[0:4])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryHvCurrentMsg):
+            return False
+        if self.current != other.current:
+            return False
+        if self.power != other.power:
+            return False
+        return True
+
+class PrimaryHvTempMsg:
+    def __init__(self, average_temp: int = None, max_temp: int = None, min_temp: int = None):
+        if average_temp is not None:
+            self.average_temp = int(average_temp)
+        if max_temp is not None:
+            self.max_temp = int(max_temp)
+        if min_temp is not None:
+            self.min_temp = int(min_temp)
+        self.size = 6
+        self.millis = 200
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<HHH", self.average_temp, self.max_temp, self.min_temp))
+        return data
+
+    def deserialize(self, data):
+        self.average_temp = int(unpack("<H", data[0:2])[0])
+        self.max_temp = int(unpack("<xxH", data[0:4])[0])
+        self.min_temp = int(unpack("<xxxxH", data[0:6])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryHvTempMsg):
+            return False
+        if self.average_temp != other.average_temp:
+            return False
+        if self.max_temp != other.max_temp:
+            return False
+        if self.min_temp != other.min_temp:
+            return False
+        return True
+
+class PrimaryHvErrorsMsg:
+    def __init__(self, warnings: bin = None, errors: bin = None):
+        if warnings is not None:
+            self.warnings = bin(warnings)
+        if errors is not None:
+            self.errors = bin(errors)
+        self.size = 4
+        self.millis = 20
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BBBB", (int(self.warnings,2) >> 8) & 255, (int(self.warnings,2) >> 0) & 255, (int(self.errors,2) >> 8) & 255, (int(self.errors,2) >> 0) & 255))
+        return data
+
+    def deserialize(self, data):
+        self.warnings = bin((unpack("<BB", data[0:2])[0] << 8) | (unpack("<BB", data[0:2])[1] << 0))
+        self.errors = bin((unpack("<xxBB", data[0:4])[0] << 8) | (unpack("<xxBB", data[0:4])[1] << 0))
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryHvErrorsMsg):
+            return False
+        if self.warnings != other.warnings:
+            return False
+        if self.errors != other.errors:
+            return False
+        return True
+
+class PrimaryTsStatusMsg:
+    def __init__(self, ts_status: PrimaryTsStatus = None):
+        if ts_status is not None:
+            self.ts_status = PrimaryTsStatus(ts_status)
+        self.size = 1
+        self.millis = 20
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.ts_status << 6 & 255))
+        return data
+
+    def deserialize(self, data):
+        self.ts_status = PrimaryTsStatus((unpack("<B", data[0:1])[0] & 192) >> 6)
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryTsStatusMsg):
+            return False
+        if self.ts_status != other.ts_status:
+            return False
+        return True
+
+class PrimarySetTsStatusMsg:
+    def __init__(self, ts_status_set: PrimaryTsStatusSet = None):
+        if ts_status_set is not None:
+            self.ts_status_set = PrimaryTsStatusSet(ts_status_set)
+        self.size = 1
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.ts_status_set << 7 & 255))
+        return data
+
+    def deserialize(self, data):
+        self.ts_status_set = PrimaryTsStatusSet((unpack("<B", data[0:1])[0] & 128) >> 7)
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimarySetTsStatusMsg):
+            return False
+        if self.ts_status_set != other.ts_status_set:
+            return False
+        return True
+
+class PrimarySetCellBalancingStatusMsg:
+    def __init__(self, set_balancing_status: PrimarySetBalancingStatus = None):
+        if set_balancing_status is not None:
+            self.set_balancing_status = PrimarySetBalancingStatus(set_balancing_status)
+        self.size = 1
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.set_balancing_status << 7 & 255))
+        return data
+
+    def deserialize(self, data):
+        self.set_balancing_status = PrimarySetBalancingStatus((unpack("<B", data[0:1])[0] & 128) >> 7)
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimarySetCellBalancingStatusMsg):
+            return False
+        if self.set_balancing_status != other.set_balancing_status:
+            return False
+        return True
+
+class PrimaryHandcartStatusMsg:
+    def __init__(self, connected: bool = None):
+        if connected is not None:
+            self.connected = bool(connected)
+        self.size = 1
+        self.millis = 500
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.connected << 7 & 255))
+        return data
+
+    def deserialize(self, data):
+        self.connected = bool((unpack("<B", data[0:1])[0] & 128) >> 7)
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryHandcartStatusMsg):
+            return False
+        if self.connected != other.connected:
+            return False
+        return True
+
+class PrimarySteerStatusMsg:
+    def __init__(self, map: PrimaryMap = None, traction_control: PrimaryTractionControl = None):
+        if map is not None:
+            self.map = PrimaryMap(map)
+        if traction_control is not None:
+            self.traction_control = PrimaryTractionControl(traction_control)
+        self.size = 1
+        self.millis = 100
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.map << 5 & 255 | self.traction_control << 3 & 255))
+        return data
+
+    def deserialize(self, data):
+        self.map = PrimaryMap((unpack("<B", data[0:1])[0] & 224) >> 5)
+        self.traction_control = PrimaryTractionControl((unpack("<B", data[0:1])[0] & 24) >> 3)
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimarySteerStatusMsg):
+            return False
+        if self.map != other.map:
+            return False
+        if self.traction_control != other.traction_control:
+            return False
+        return True
+
+class PrimarySetCarStatusMsg:
+    def __init__(self, car_status_set: PrimaryCarStatusSet = None):
+        if car_status_set is not None:
+            self.car_status_set = PrimaryCarStatusSet(car_status_set)
+        self.size = 1
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.car_status_set << 7 & 255))
+        return data
+
+    def deserialize(self, data):
+        self.car_status_set = PrimaryCarStatusSet((unpack("<B", data[0:1])[0] & 128) >> 7)
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimarySetCarStatusMsg):
+            return False
+        if self.car_status_set != other.car_status_set:
+            return False
+        return True
+
+class PrimarySetPedalsRangeMsg:
+    def __init__(self, bound: PrimaryBound = None, pedal: PrimaryPedal = None):
+        if bound is not None:
+            self.bound = PrimaryBound(bound)
+        if pedal is not None:
+            self.pedal = PrimaryPedal(pedal)
+        self.size = 1
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.bound << 7 & 255 | self.pedal << 6 & 255))
+        return data
+
+    def deserialize(self, data):
+        self.bound = PrimaryBound((unpack("<B", data[0:1])[0] & 128) >> 7)
+        self.pedal = PrimaryPedal((unpack("<B", data[0:1])[0] & 64) >> 6)
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimarySetPedalsRangeMsg):
+            return False
+        if self.bound != other.bound:
+            return False
+        if self.pedal != other.pedal:
+            return False
+        return True
+
+class PrimaryLvCurrentMsg:
+    def __init__(self, current: int = None):
+        if current is not None:
+            self.current = int(current)
+        self.size = 1
+        self.millis = 500
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.current))
+        return data
+
+    def deserialize(self, data):
+        self.current = int(unpack("<B", data[0:1])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryLvCurrentMsg):
+            return False
+        if self.current != other.current:
+            return False
+        return True
+
+class PrimaryLvVoltageMsg:
+    def __init__(self, total_voltage: int = None, voltage_1: int = None, voltage_2: int = None, voltage_3: int = None, voltage_4: int = None):
+        if total_voltage is not None:
+            self.total_voltage = int(total_voltage)
+        if voltage_1 is not None:
+            self.voltage_1 = int(voltage_1)
+        if voltage_2 is not None:
+            self.voltage_2 = int(voltage_2)
+        if voltage_3 is not None:
+            self.voltage_3 = int(voltage_3)
+        if voltage_4 is not None:
+            self.voltage_4 = int(voltage_4)
+        self.size = 6
+        self.millis = 200
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<HBBBB", self.total_voltage, self.voltage_1, self.voltage_2, self.voltage_3, self.voltage_4))
+        return data
+
+    def deserialize(self, data):
+        self.total_voltage = int(unpack("<H", data[0:2])[0])
+        self.voltage_1 = int(unpack("<xxB", data[0:3])[0])
+        self.voltage_2 = int(unpack("<xxxB", data[0:4])[0])
+        self.voltage_3 = int(unpack("<xxxxB", data[0:5])[0])
+        self.voltage_4 = int(unpack("<xxxxxB", data[0:6])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryLvVoltageMsg):
+            return False
+        if self.total_voltage != other.total_voltage:
+            return False
+        if self.voltage_1 != other.voltage_1:
+            return False
+        if self.voltage_2 != other.voltage_2:
+            return False
+        if self.voltage_3 != other.voltage_3:
+            return False
+        if self.voltage_4 != other.voltage_4:
+            return False
+        return True
+
+class PrimaryLvTemperatureMsg:
+    def __init__(self, bp_temperature: int = None, dcdc_temperature: int = None):
+        if bp_temperature is not None:
+            self.bp_temperature = int(bp_temperature)
+        if dcdc_temperature is not None:
+            self.dcdc_temperature = int(dcdc_temperature)
+        self.size = 2
+        self.millis = 200
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BB", self.bp_temperature, self.dcdc_temperature))
+        return data
+
+    def deserialize(self, data):
+        self.bp_temperature = int(unpack("<B", data[0:1])[0])
+        self.dcdc_temperature = int(unpack("<xB", data[0:2])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryLvTemperatureMsg):
+            return False
+        if self.bp_temperature != other.bp_temperature:
+            return False
+        if self.dcdc_temperature != other.dcdc_temperature:
+            return False
+        return True
+
+class PrimaryCoolingStatusMsg:
+    def __init__(self, hv_fan_speed: int = None, lv_fan_speed: int = None, pump_speed: int = None):
+        if hv_fan_speed is not None:
+            self.hv_fan_speed = int(hv_fan_speed)
+        if lv_fan_speed is not None:
+            self.lv_fan_speed = int(lv_fan_speed)
+        if pump_speed is not None:
+            self.pump_speed = int(pump_speed)
+        self.size = 3
+        self.millis = 1000
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BBB", self.hv_fan_speed, self.lv_fan_speed, self.pump_speed))
+        return data
+
+    def deserialize(self, data):
+        self.hv_fan_speed = int(unpack("<B", data[0:1])[0])
+        self.lv_fan_speed = int(unpack("<xB", data[0:2])[0])
+        self.pump_speed = int(unpack("<xxB", data[0:3])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryCoolingStatusMsg):
+            return False
+        if self.hv_fan_speed != other.hv_fan_speed:
+            return False
+        if self.lv_fan_speed != other.lv_fan_speed:
+            return False
+        if self.pump_speed != other.pump_speed:
+            return False
+        return True
+
+class PrimaryHvCellsVoltageMsg:
+    def __init__(self, voltage_0: int = None, voltage_1: int = None, voltage_2: int = None, cell_index: int = None):
+        if voltage_0 is not None:
+            self.voltage_0 = int(voltage_0)
+        if voltage_1 is not None:
+            self.voltage_1 = int(voltage_1)
+        if voltage_2 is not None:
+            self.voltage_2 = int(voltage_2)
+        if cell_index is not None:
+            self.cell_index = int(cell_index)
+        self.size = 7
+        self.millis = 200
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<HHHB", self.voltage_0, self.voltage_1, self.voltage_2, self.cell_index))
+        return data
+
+    def deserialize(self, data):
+        self.voltage_0 = int(unpack("<H", data[0:2])[0])
+        self.voltage_1 = int(unpack("<xxH", data[0:4])[0])
+        self.voltage_2 = int(unpack("<xxxxH", data[0:6])[0])
+        self.cell_index = int(unpack("<xxxxxxB", data[0:7])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryHvCellsVoltageMsg):
+            return False
+        if self.voltage_0 != other.voltage_0:
+            return False
+        if self.voltage_1 != other.voltage_1:
+            return False
+        if self.voltage_2 != other.voltage_2:
+            return False
+        if self.cell_index != other.cell_index:
+            return False
+        return True
+
+class PrimaryHvCellsTempMsg:
+    def __init__(self, cell_index: int = None, temp_0: int = None, temp_1: int = None, temp_2: int = None, temp_3: int = None, temp_4: int = None, temp_5: int = None, temp_6: int = None):
+        if cell_index is not None:
+            self.cell_index = int(cell_index)
+        if temp_0 is not None:
+            self.temp_0 = int(temp_0)
+        if temp_1 is not None:
+            self.temp_1 = int(temp_1)
+        if temp_2 is not None:
+            self.temp_2 = int(temp_2)
+        if temp_3 is not None:
+            self.temp_3 = int(temp_3)
+        if temp_4 is not None:
+            self.temp_4 = int(temp_4)
+        if temp_5 is not None:
+            self.temp_5 = int(temp_5)
+        if temp_6 is not None:
+            self.temp_6 = int(temp_6)
+        self.size = 8
+        self.millis = 100
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BBBBBBBB", self.cell_index, self.temp_0, self.temp_1, self.temp_2, self.temp_3, self.temp_4, self.temp_5, self.temp_6))
+        return data
+
+    def deserialize(self, data):
+        self.cell_index = int(unpack("<B", data[0:1])[0])
+        self.temp_0 = int(unpack("<xB", data[0:2])[0])
+        self.temp_1 = int(unpack("<xxB", data[0:3])[0])
+        self.temp_2 = int(unpack("<xxxB", data[0:4])[0])
+        self.temp_3 = int(unpack("<xxxxB", data[0:5])[0])
+        self.temp_4 = int(unpack("<xxxxxB", data[0:6])[0])
+        self.temp_5 = int(unpack("<xxxxxxB", data[0:7])[0])
+        self.temp_6 = int(unpack("<xxxxxxxB", data[0:8])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryHvCellsTempMsg):
+            return False
+        if self.cell_index != other.cell_index:
+            return False
+        if self.temp_0 != other.temp_0:
+            return False
+        if self.temp_1 != other.temp_1:
+            return False
+        if self.temp_2 != other.temp_2:
+            return False
+        if self.temp_3 != other.temp_3:
+            return False
+        if self.temp_4 != other.temp_4:
+            return False
+        if self.temp_5 != other.temp_5:
+            return False
+        if self.temp_6 != other.temp_6:
+            return False
+        return True
+
+class PrimaryHvCellBalancingStatusMsg:
+    def __init__(self, balancing_status: PrimaryBalancingStatus = None):
+        if balancing_status is not None:
+            self.balancing_status = PrimaryBalancingStatus(balancing_status)
+        self.size = 1
+        self.millis = 500
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<B", self.balancing_status << 7 & 255))
+        return data
+
+    def deserialize(self, data):
+        self.balancing_status = PrimaryBalancingStatus((unpack("<B", data[0:1])[0] & 128) >> 7)
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryHvCellBalancingStatusMsg):
+            return False
+        if self.balancing_status != other.balancing_status:
+            return False
+        return True
+
+class PrimaryInvLSetTorqueMsg:
+    def __init__(self, regid: int = None, lsb: int = None, msb: int = None):
+        if regid is not None:
+            self.regid = int(regid)
+        if lsb is not None:
+            self.lsb = int(lsb)
+        if msb is not None:
+            self.msb = int(msb)
+        self.size = 3
+        self.millis = 20
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BBB", self.regid, self.lsb, self.msb))
+        return data
+
+    def deserialize(self, data):
+        self.regid = int(unpack("<B", data[0:1])[0])
+        self.lsb = int(unpack("<xB", data[0:2])[0])
+        self.msb = int(unpack("<xxB", data[0:3])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryInvLSetTorqueMsg):
+            return False
+        if self.regid != other.regid:
+            return False
+        if self.lsb != other.lsb:
+            return False
+        if self.msb != other.msb:
+            return False
+        return True
+
+class PrimaryInvLResponseMsg:
+    def __init__(self, reg_val: bin = None, reg_id: int = None):
+        if reg_val is not None:
+            self.reg_val = bin(reg_val)
+        if reg_id is not None:
+            self.reg_id = int(reg_id)
+        self.size = 5
+        self.millis = 100
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<BBBBB", (int(self.reg_val,2) >> 24) & 255, (int(self.reg_val,2) >> 16) & 255, (int(self.reg_val,2) >> 8) & 255, (int(self.reg_val,2) >> 0) & 255, self.reg_id))
+        return data
+
+    def deserialize(self, data):
+        self.reg_val = bin((unpack("<BBBB", data[0:4])[0] << 24) | (unpack("<BBBB", data[0:4])[1] << 16) | (unpack("<BBBB", data[0:4])[2] << 8) | (unpack("<BBBB", data[0:4])[3] << 0))
+        self.reg_id = int(unpack("<xxxxB", data[0:5])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryInvLResponseMsg):
+            return False
+        if self.reg_val != other.reg_val:
+            return False
+        if self.reg_id != other.reg_id:
+            return False
+        return True
+

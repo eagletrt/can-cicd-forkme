@@ -8,7 +8,6 @@ extern "C" {
 #include <stdbool.h>
 #include <stdint.h>
 #include <assert.h>
-#include <stdio.h>
 
 /*
 *   NAKED SHARED 
@@ -69,571 +68,408 @@ extern "C" {
     #define getBit(bitset, index)  ((bitset)[(index)/8] &  (1 << (index) % 8) )
 #endif
 
+// Types
 
+typedef union {
+    uint8_t bytes[4];
+    float value;
+} float_t;
 
-typedef uint8_t primary_Hv_Errors[2]; // bitset
-#define primary_Hv_Errors_default { 0, 0 } // bitset filled with zeros
-#define primary_Hv_Errors_LTC_PEC_ERROR 0
-#define primary_Hv_Errors_CELL_UNDER_VOLTAGE 1
-#define primary_Hv_Errors_CELL_OVER_VOLTAGE 2
-#define primary_Hv_Errors_CELL_OVER_TEMPERATURE 3
-#define primary_Hv_Errors_OVER_CURRENT 4
-#define primary_Hv_Errors_ADC_INIT 5
-#define primary_Hv_Errors_ADC_TIMEOUT 6
-#define primary_Hv_Errors_INT_VOLTAGE_MISMATCH 7
-#define primary_Hv_Errors_FEEDBACK_HARD 8
-#define primary_Hv_Errors_FEEDBACK_SOFT 9
+typedef union {
+    uint8_t bytes[8];
+    double value;
+} double_t;
 
-typedef uint8_t primary_Das_Errors[1]; // bitset
-#define primary_Das_Errors_default { 0 } // bitset filled with zeros
-#define primary_Das_Errors_PEDAL_ADC 0
-#define primary_Das_Errors_PEDAL_IMPLAUSIBILITY 1
-#define primary_Das_Errors_IMU_TOUT 2
-#define primary_Das_Errors_IRTS_TOUT 3
-#define primary_Das_Errors_TS_TOUT 4
-#define primary_Das_Errors_INVL_TOUT 5
-#define primary_Das_Errors_INVR_TOUT 6
-#define primary_Das_Errors_FSM 7
+// Frequencies
+#define PRIMARY_STEER_VERSION_MS 1000
+#define PRIMARY_DAS_VERSION_MS 1000
+#define PRIMARY_HV_VERSION_MS 1000
+#define PRIMARY_LV_VERSION_MS 1000
+#define PRIMARY_TLM_VERSION_MS 1000
+#define PRIMARY_TIMESTAMP_MS 1000
+#define PRIMARY_STEER_SYSTEM_STATUS_MS 2000
+#define PRIMARY_TLM_STATUS_MS 1000
+#define PRIMARY_CAR_STATUS_MS 100
+#define PRIMARY_DAS_ERRORS_MS 20
+#define PRIMARY_SPEED_MS 100
+#define PRIMARY_HV_VOLTAGE_MS 20
+#define PRIMARY_HV_CURRENT_MS 20
+#define PRIMARY_HV_TEMP_MS 200
+#define PRIMARY_HV_ERRORS_MS 20
+#define PRIMARY_TS_STATUS_MS 20
+#define PRIMARY_HANDCART_STATUS_MS 500
+#define PRIMARY_STEER_STATUS_MS 100
+#define PRIMARY_LV_CURRENT_MS 500
+#define PRIMARY_LV_VOLTAGE_MS 200
+#define PRIMARY_LV_TEMPERATURE_MS 200
+#define PRIMARY_COOLING_STATUS_MS 1000
+#define PRIMARY_HV_CELLS_VOLTAGE_MS 200
+#define PRIMARY_HV_CELLS_TEMP_MS 100
+#define PRIMARY_HV_CELL_BALANCING_STATUS_MS 500
+#define PRIMARY_INV_L_SET_TORQUE_MS 20
+#define PRIMARY_INV_L_RESPONSE_MS 100
 
-typedef uint8_t primary_Inv_Status[4]; // bitset
-#define primary_Inv_Status_default { 0, 0, 0, 0 } // bitset filled with zeros
-#define primary_Inv_Status_DRIVE_ENABLE 0
-#define primary_Inv_Status_NCR0 1
-#define primary_Inv_Status_LIMP 2
-#define primary_Inv_Status_LIMM 3
-#define primary_Inv_Status_DRIVE_OK 4
-#define primary_Inv_Status_ICNS 5
-#define primary_Inv_Status_T_NLIM 6
-#define primary_Inv_Status_P_N 7
-#define primary_Inv_Status_N_I 8
-#define primary_Inv_Status_N0 9
-#define primary_Inv_Status_RSW 10
-#define primary_Inv_Status_CAL0 11
-#define primary_Inv_Status_CAL 12
-#define primary_Inv_Status_TOL 13
-#define primary_Inv_Status_DRIVE_READY 14
-#define primary_Inv_Status_BRK 15
-#define primary_Inv_Status_SIGN_MAG 16
-#define primary_Inv_Status_NCLIP 17
-#define primary_Inv_Status_NCLIPP 18
-#define primary_Inv_Status_NCLIPM 19
-#define primary_Inv_Status_IRD_DIG 20
-#define primary_Inv_Status_IUSE_RCHD 21
-#define primary_Inv_Status_IRD_N 22
-#define primary_Inv_Status_IRD_TI 23
-#define primary_Inv_Status_IRD_TIR 24
-#define primary_Inv_Status_HZ10 25
-#define primary_Inv_Status_IRD_TM 26
-#define primary_Inv_Status_IRD_ANA 27
-#define primary_Inv_Status_IWCNS 28
-#define primary_Inv_Status_RFE_PULSE 29
-#define primary_Inv_Status_MD 30
-#define primary_Inv_Status_HND_WHL 31
+// Sizes
+#define PRIMARY_STEER_VERSION_SIZE 2
+#define PRIMARY_DAS_VERSION_SIZE 2
+#define PRIMARY_HV_VERSION_SIZE 2
+#define PRIMARY_LV_VERSION_SIZE 2
+#define PRIMARY_TLM_VERSION_SIZE 2
+#define PRIMARY_TIMESTAMP_SIZE 4
+#define PRIMARY_SET_TLM_STATUS_SIZE 3
+#define PRIMARY_STEER_SYSTEM_STATUS_SIZE 1
+#define PRIMARY_MARKER_SIZE 0
+#define PRIMARY_TLM_STATUS_SIZE 3
+#define PRIMARY_CAR_STATUS_SIZE 1
+#define PRIMARY_DAS_ERRORS_SIZE 1
+#define PRIMARY_SPEED_SIZE 8
+#define PRIMARY_HV_VOLTAGE_SIZE 8
+#define PRIMARY_HV_CURRENT_SIZE 4
+#define PRIMARY_HV_TEMP_SIZE 6
+#define PRIMARY_HV_ERRORS_SIZE 4
+#define PRIMARY_TS_STATUS_SIZE 1
+#define PRIMARY_SET_TS_STATUS_SIZE 1
+#define PRIMARY_SET_CELL_BALANCING_STATUS_SIZE 1
+#define PRIMARY_HANDCART_STATUS_SIZE 1
+#define PRIMARY_STEER_STATUS_SIZE 1
+#define PRIMARY_SET_CAR_STATUS_SIZE 1
+#define PRIMARY_SET_PEDALS_RANGE_SIZE 1
+#define PRIMARY_LV_CURRENT_SIZE 1
+#define PRIMARY_LV_VOLTAGE_SIZE 6
+#define PRIMARY_LV_TEMPERATURE_SIZE 2
+#define PRIMARY_COOLING_STATUS_SIZE 3
+#define PRIMARY_HV_CELLS_VOLTAGE_SIZE 7
+#define PRIMARY_HV_CELLS_TEMP_SIZE 8
+#define PRIMARY_HV_CELL_BALANCING_STATUS_SIZE 1
+#define PRIMARY_INV_L_SET_TORQUE_SIZE 3
+#define PRIMARY_INV_L_RESPONSE_SIZE 5
 
-typedef uint8_t primary_Inv_Errors[4]; // bitset
-#define primary_Inv_Errors_default { 0, 0, 0, 0 } // bitset filled with zeros
-#define primary_Inv_Errors_BAD_PARAM 0
-#define primary_Inv_Errors_HW_FAULT 1
-#define primary_Inv_Errors_SAFETY_FAULT 2
-#define primary_Inv_Errors_CAN_TIMEOUT 3
-#define primary_Inv_Errors_ENCODER_ERR 4
-#define primary_Inv_Errors_NO_POWER_VOLTAGE 5
-#define primary_Inv_Errors_HI_MOTOR_TEMP 6
-#define primary_Inv_Errors_HI_DEVICE_TEMP 7
-#define primary_Inv_Errors_OVERVOLTAGE 8
-#define primary_Inv_Errors_OVERCURRENT 9
-#define primary_Inv_Errors_RACEAWAY 10
-#define primary_Inv_Errors_USER_ERR 11
-#define primary_Inv_Errors_UNKNOWN_ERR_12 12
-#define primary_Inv_Errors_UNKNOWN_ERR_13 13
-#define primary_Inv_Errors_CURRENT_ERR 14
-#define primary_Inv_Errors_BALLAST_OVERLOAD 15
-#define primary_Inv_Errors_DEVICE_ID_ERR 16
-#define primary_Inv_Errors_RUN_SIG_FAULT 17
-#define primary_Inv_Errors_UNKNOWN_ERR_19 18
-#define primary_Inv_Errors_UNKNOWN_ERR_20 19
-#define primary_Inv_Errors_POWERVOLTAGE_WARN 20
-#define primary_Inv_Errors_HI_MOTOR_TEMP_WARN 21
-#define primary_Inv_Errors_HI_DEVICE_TEMP_WARN 22
-#define primary_Inv_Errors_VOUT_LIMIT_WARN 23
-#define primary_Inv_Errors_OVERCURRENT_WARN 24
-#define primary_Inv_Errors_RACEAWAY_WARN 25
-#define primary_Inv_Errors_UNKNOWN_ERR_27 26
-#define primary_Inv_Errors_UNKNOWN_ERR_28 27
-#define primary_Inv_Errors_UNKNOWN_ERR_29 28
-#define primary_Inv_Errors_UNKNOWN_ERR_30 29
-#define primary_Inv_Errors_BALLAST_OVERLOAD_WARN 30
+// Bitsets
+typedef uint8_t PrimaryHvErrors[2];
+#define PRIMARY_HV_ERRORS_DEFAULT { 0, 0 }
+#define PRIMARY_HV_ERRORS_LTC_PEC_ERROR 0
+#define PRIMARY_HV_ERRORS_CELL_UNDER_VOLTAGE 1
+#define PRIMARY_HV_ERRORS_CELL_OVER_VOLTAGE 2
+#define PRIMARY_HV_ERRORS_CELL_OVER_TEMPERATURE 3
+#define PRIMARY_HV_ERRORS_OVER_CURRENT 4
+#define PRIMARY_HV_ERRORS_ADC_INIT 5
+#define PRIMARY_HV_ERRORS_ADC_TIMEOUT 6
+#define PRIMARY_HV_ERRORS_INT_VOLTAGE_MISMATCH 7
+#define PRIMARY_HV_ERRORS_FEEDBACK_HARD 8
+#define PRIMARY_HV_ERRORS_FEEDBACK_SOFT 9
 
-typedef uint8_t primary_Inv_IOInfo[2]; // bitset
-#define primary_Inv_IOInfo_default { 0, 0 } // bitset filled with zeros
-#define primary_Inv_IOInfo_LMT1 0
-#define primary_Inv_IOInfo_LMT2 1
-#define primary_Inv_IOInfo_IN2 2
-#define primary_Inv_IOInfo_IN1 3
-#define primary_Inv_IOInfo_FRG 4
-#define primary_Inv_IOInfo_RFE 5
-#define primary_Inv_IOInfo_UNK6 6
-#define primary_Inv_IOInfo_UNK7 7
-#define primary_Inv_IOInfo_OUT1 8
-#define primary_Inv_IOInfo_OUT2 9
-#define primary_Inv_IOInfo_BTB 10
-#define primary_Inv_IOInfo_GO 11
-#define primary_Inv_IOInfo_OUT3 12
-#define primary_Inv_IOInfo_OUT4 13
-#define primary_Inv_IOInfo_G_OFF 14
-#define primary_Inv_IOInfo_BRK1 15
+typedef uint8_t PrimaryDasErrors[1];
+#define PRIMARY_DAS_ERRORS_DEFAULT { 0 }
+#define PRIMARY_DAS_ERRORS_PEDAL_ADC 0
+#define PRIMARY_DAS_ERRORS_PEDAL_IMPLAUSIBILITY 1
+#define PRIMARY_DAS_ERRORS_IMU_TOUT 2
+#define PRIMARY_DAS_ERRORS_IRTS_TOUT 3
+#define PRIMARY_DAS_ERRORS_TS_TOUT 4
+#define PRIMARY_DAS_ERRORS_INVL_TOUT 5
+#define PRIMARY_DAS_ERRORS_INVR_TOUT 6
+#define PRIMARY_DAS_ERRORS_FSM 7
 
-typedef uint8_t primary_Reg_Val[4]; // bitset
-#define primary_Reg_Val_default { 0, 0, 0, 0 } // bitset filled with zeros
+typedef uint8_t PrimaryInvStatus[4];
+#define PRIMARY_INV_STATUS_DEFAULT { 0, 0, 0, 0 }
+#define PRIMARY_INV_STATUS_DRIVE_ENABLE 0
+#define PRIMARY_INV_STATUS_NCR0 1
+#define PRIMARY_INV_STATUS_LIMP 2
+#define PRIMARY_INV_STATUS_LIMM 3
+#define PRIMARY_INV_STATUS_DRIVE_OK 4
+#define PRIMARY_INV_STATUS_ICNS 5
+#define PRIMARY_INV_STATUS_T_NLIM 6
+#define PRIMARY_INV_STATUS_P_N 7
+#define PRIMARY_INV_STATUS_N_I 8
+#define PRIMARY_INV_STATUS_N0 9
+#define PRIMARY_INV_STATUS_RSW 10
+#define PRIMARY_INV_STATUS_CAL0 11
+#define PRIMARY_INV_STATUS_CAL 12
+#define PRIMARY_INV_STATUS_TOL 13
+#define PRIMARY_INV_STATUS_DRIVE_READY 14
+#define PRIMARY_INV_STATUS_BRK 15
+#define PRIMARY_INV_STATUS_SIGN_MAG 16
+#define PRIMARY_INV_STATUS_NCLIP 17
+#define PRIMARY_INV_STATUS_NCLIPP 18
+#define PRIMARY_INV_STATUS_NCLIPM 19
+#define PRIMARY_INV_STATUS_IRD_DIG 20
+#define PRIMARY_INV_STATUS_IUSE_RCHD 21
+#define PRIMARY_INV_STATUS_IRD_N 22
+#define PRIMARY_INV_STATUS_IRD_TI 23
+#define PRIMARY_INV_STATUS_IRD_TIR 24
+#define PRIMARY_INV_STATUS_HZ10 25
+#define PRIMARY_INV_STATUS_IRD_TM 26
+#define PRIMARY_INV_STATUS_IRD_ANA 27
+#define PRIMARY_INV_STATUS_IWCNS 28
+#define PRIMARY_INV_STATUS_RFE_PULSE 29
+#define PRIMARY_INV_STATUS_MD 30
+#define PRIMARY_INV_STATUS_HND_WHL 31
+
+typedef uint8_t PrimaryInvErrors[4];
+#define PRIMARY_INV_ERRORS_DEFAULT { 0, 0, 0, 0 }
+#define PRIMARY_INV_ERRORS_BAD_PARAM 0
+#define PRIMARY_INV_ERRORS_HW_FAULT 1
+#define PRIMARY_INV_ERRORS_SAFETY_FAULT 2
+#define PRIMARY_INV_ERRORS_CAN_TIMEOUT 3
+#define PRIMARY_INV_ERRORS_ENCODER_ERR 4
+#define PRIMARY_INV_ERRORS_NO_POWER_VOLTAGE 5
+#define PRIMARY_INV_ERRORS_HI_MOTOR_TEMP 6
+#define PRIMARY_INV_ERRORS_HI_DEVICE_TEMP 7
+#define PRIMARY_INV_ERRORS_OVERVOLTAGE 8
+#define PRIMARY_INV_ERRORS_OVERCURRENT 9
+#define PRIMARY_INV_ERRORS_RACEAWAY 10
+#define PRIMARY_INV_ERRORS_USER_ERR 11
+#define PRIMARY_INV_ERRORS_UNKNOWN_ERR_12 12
+#define PRIMARY_INV_ERRORS_UNKNOWN_ERR_13 13
+#define PRIMARY_INV_ERRORS_CURRENT_ERR 14
+#define PRIMARY_INV_ERRORS_BALLAST_OVERLOAD 15
+#define PRIMARY_INV_ERRORS_DEVICE_ID_ERR 16
+#define PRIMARY_INV_ERRORS_RUN_SIG_FAULT 17
+#define PRIMARY_INV_ERRORS_UNKNOWN_ERR_19 18
+#define PRIMARY_INV_ERRORS_UNKNOWN_ERR_20 19
+#define PRIMARY_INV_ERRORS_POWERVOLTAGE_WARN 20
+#define PRIMARY_INV_ERRORS_HI_MOTOR_TEMP_WARN 21
+#define PRIMARY_INV_ERRORS_HI_DEVICE_TEMP_WARN 22
+#define PRIMARY_INV_ERRORS_VOUT_LIMIT_WARN 23
+#define PRIMARY_INV_ERRORS_OVERCURRENT_WARN 24
+#define PRIMARY_INV_ERRORS_RACEAWAY_WARN 25
+#define PRIMARY_INV_ERRORS_UNKNOWN_ERR_27 26
+#define PRIMARY_INV_ERRORS_UNKNOWN_ERR_28 27
+#define PRIMARY_INV_ERRORS_UNKNOWN_ERR_29 28
+#define PRIMARY_INV_ERRORS_UNKNOWN_ERR_30 29
+#define PRIMARY_INV_ERRORS_BALLAST_OVERLOAD_WARN 30
+
+typedef uint8_t PrimaryRegVal[4];
+#define PRIMARY_REG_VAL_DEFAULT { 0, 0, 0, 0 }
+
+// Enums
+typedef enum __is_packed {
+    PRIMARY_TLM_STATUS_OFF = 0,
+    PRIMARY_TLM_STATUS_ON = 1,
+} PrimaryTlmStatus;
 
 typedef enum __is_packed {
-    primary_Tlm_Status_Set_OFF = 0,
-    primary_Tlm_Status_Set_ON = 1,
-} primary_Tlm_Status_Set;
+    PRIMARY_RACE_TYPE_ACCELERATION = 0,
+    PRIMARY_RACE_TYPE_SKIDPAD = 1,
+    PRIMARY_RACE_TYPE_AUTOCROSS = 2,
+    PRIMARY_RACE_TYPE_ENDURANCE = 3,
+} PrimaryRaceType;
 
 typedef enum __is_packed {
-    primary_Race_Type_ACCELERATION = 0,
-    primary_Race_Type_SKIDPAD = 1,
-    primary_Race_Type_AUTOCROSS = 2,
-    primary_Race_Type_ENDURANCE = 3,
-} primary_Race_Type;
+    PRIMARY_INVERTER_STATUS_OFF = 0,
+    PRIMARY_INVERTER_STATUS_IDLE = 1,
+    PRIMARY_INVERTER_STATUS_ON = 2,
+} PrimaryInverterStatus;
 
 typedef enum __is_packed {
-    primary_Tlm_Status_ON = 0,
-    primary_Tlm_Status_OFF = 1,
-} primary_Tlm_Status;
+    PRIMARY_CAR_STATUS_IDLE = 0,
+    PRIMARY_CAR_STATUS_SETUP = 1,
+    PRIMARY_CAR_STATUS_RUN = 2,
+} PrimaryCarStatus;
 
 typedef enum __is_packed {
-    primary_Inverter_Status_OFF = 0,
-    primary_Inverter_Status_IDLE = 1,
-    primary_Inverter_Status_ON = 2,
-} primary_Inverter_Status;
+    PRIMARY_TS_STATUS_OFF = 0,
+    PRIMARY_TS_STATUS_PRECHARGE = 1,
+    PRIMARY_TS_STATUS_ON = 2,
+    PRIMARY_TS_STATUS_FATAL = 3,
+} PrimaryTsStatus;
 
 typedef enum __is_packed {
-    primary_Car_Status_IDLE = 0,
-    primary_Car_Status_SETUP = 1,
-    primary_Car_Status_RUN = 2,
-} primary_Car_Status;
+    PRIMARY_TS_STATUS_SET_OFF = 0,
+    PRIMARY_TS_STATUS_SET_ON = 1,
+} PrimaryTsStatusSet;
 
 typedef enum __is_packed {
-    primary_Ts_Status_OFF = 0,
-    primary_Ts_Status_PRECHARGE = 1,
-    primary_Ts_Status_ON = 2,
-    primary_Ts_Status_FATAL = 3,
-} primary_Ts_Status;
+    PRIMARY_SET_BALANCING_STATUS_OFF = 0,
+    PRIMARY_SET_BALANCING_STATUS_ON = 1,
+} PrimarySetBalancingStatus;
 
 typedef enum __is_packed {
-    primary_Ts_Status_Set_OFF = 0,
-    primary_Ts_Status_Set_ON = 1,
-} primary_Ts_Status_Set;
+    PRIMARY_TRACTION_CONTROL_OFF = 0,
+    PRIMARY_TRACTION_CONTROL_SLIP_CONTROL = 1,
+    PRIMARY_TRACTION_CONTROL_TORQUE_VECTORING = 2,
+    PRIMARY_TRACTION_CONTROL_COMPLETE = 3,
+} PrimaryTractionControl;
 
 typedef enum __is_packed {
-    primary_Set_Balancing_Status_OFF = 0,
-    primary_Set_Balancing_Status_ON = 1,
-} primary_Set_Balancing_Status;
+    PRIMARY_MAP_R = 0,
+    PRIMARY_MAP_D20 = 1,
+    PRIMARY_MAP_D40 = 2,
+    PRIMARY_MAP_D60 = 3,
+    PRIMARY_MAP_D80 = 4,
+    PRIMARY_MAP_D100 = 5,
+} PrimaryMap;
 
 typedef enum __is_packed {
-    primary_Traction_Control_OFF = 0,
-    primary_Traction_Control_SLIP_CONTROL = 1,
-    primary_Traction_Control_TORQUE_VECTORING = 2,
-    primary_Traction_Control_COMPLETE = 3,
-} primary_Traction_Control;
+    PRIMARY_CAR_STATUS_SET_IDLE = 0,
+    PRIMARY_CAR_STATUS_SET_RUN = 1,
+} PrimaryCarStatusSet;
 
 typedef enum __is_packed {
-    primary_Map_R = 0,
-    primary_Map_D20 = 1,
-    primary_Map_D40 = 2,
-    primary_Map_D60 = 3,
-    primary_Map_D80 = 4,
-    primary_Map_D100 = 5,
-} primary_Map;
+    PRIMARY_BOUND_SET_MAX = 0,
+    PRIMARY_BOUND_SET_MIN = 1,
+} PrimaryBound;
 
 typedef enum __is_packed {
-    primary_Car_Status_Set_IDLE = 0,
-    primary_Car_Status_Set_RUN = 1,
-} primary_Car_Status_Set;
+    PRIMARY_PEDAL_ACCELERATOR = 0,
+    PRIMARY_PEDAL_BRAKE = 1,
+} PrimaryPedal;
 
 typedef enum __is_packed {
-    primary_Bound_SET_MAX = 0,
-    primary_Bound_SET_MIN = 1,
-} primary_Bound;
+    PRIMARY_BALANCING_STATUS_OFF = 0,
+    PRIMARY_BALANCING_STATUS_ON = 1,
+} PrimaryBalancingStatus;
 
-typedef enum __is_packed {
-    primary_Pedal_ACCELERATOR = 0,
-    primary_Pedal_BRAKE = 1,
-} primary_Pedal;
-
-typedef enum __is_packed {
-    primary_Balancing_Status_OFF = 0,
-    primary_Balancing_Status_ON = 1,
-} primary_Balancing_Status;
-
-/* primary_STEER_VERSION */
-    
-# define PRIMARY_STEER_VERSION_MS 1000
-    
+// Structs
 typedef struct __is_packed {
     uint8_t component_version;
     uint8_t cancicd_version;
-} primary_STEER_VERSION;
-static_assert(sizeof(primary_STEER_VERSION) == 2, "struct size mismatch");
-    
-size_t serialize_primary_STEER_VERSION(uint8_t* buffer, uint8_t component_version, uint8_t cancicd_version);
-size_t deserialize_primary_STEER_VERSION(uint8_t* buffer, primary_STEER_VERSION* primary_steer_version);
+} PrimarySteerVersionMsg;
 
-/* primary_DAS_VERSION */
-    
-# define PRIMARY_DAS_VERSION_MS 1000
-    
 typedef struct __is_packed {
     uint8_t component_version;
     uint8_t cancicd_version;
-} primary_DAS_VERSION;
-static_assert(sizeof(primary_DAS_VERSION) == 2, "struct size mismatch");
-    
-size_t serialize_primary_DAS_VERSION(uint8_t* buffer, uint8_t component_version, uint8_t cancicd_version);
-size_t deserialize_primary_DAS_VERSION(uint8_t* buffer, primary_DAS_VERSION* primary_das_version);
+} PrimaryDasVersionMsg;
 
-/* primary_HV_VERSION */
-    
-# define PRIMARY_HV_VERSION_MS 1000
-    
 typedef struct __is_packed {
     uint8_t component_version;
     uint8_t cancicd_version;
-} primary_HV_VERSION;
-static_assert(sizeof(primary_HV_VERSION) == 2, "struct size mismatch");
-    
-size_t serialize_primary_HV_VERSION(uint8_t* buffer, uint8_t component_version, uint8_t cancicd_version);
-size_t deserialize_primary_HV_VERSION(uint8_t* buffer, primary_HV_VERSION* primary_hv_version);
+} PrimaryHvVersionMsg;
 
-/* primary_LV_VERSION */
-    
-# define PRIMARY_LV_VERSION_MS 1000
-    
 typedef struct __is_packed {
     uint8_t component_version;
     uint8_t cancicd_version;
-} primary_LV_VERSION;
-static_assert(sizeof(primary_LV_VERSION) == 2, "struct size mismatch");
-    
-size_t serialize_primary_LV_VERSION(uint8_t* buffer, uint8_t component_version, uint8_t cancicd_version);
-size_t deserialize_primary_LV_VERSION(uint8_t* buffer, primary_LV_VERSION* primary_lv_version);
+} PrimaryLvVersionMsg;
 
-/* primary_TLM_VERSION */
-    
-# define PRIMARY_TLM_VERSION_MS 1000
-    
 typedef struct __is_packed {
     uint8_t component_version;
     uint8_t cancicd_version;
-} primary_TLM_VERSION;
-static_assert(sizeof(primary_TLM_VERSION) == 2, "struct size mismatch");
-    
-size_t serialize_primary_TLM_VERSION(uint8_t* buffer, uint8_t component_version, uint8_t cancicd_version);
-size_t deserialize_primary_TLM_VERSION(uint8_t* buffer, primary_TLM_VERSION* primary_tlm_version);
+} PrimaryTlmVersionMsg;
 
-/* primary_TIMESTAMP */
-    
-# define PRIMARY_TIMESTAMP_MS 1000
-    
 typedef struct __is_packed {
     uint32_t timestamp;
-} primary_TIMESTAMP;
-static_assert(sizeof(primary_TIMESTAMP) == 4, "struct size mismatch");
-    
-size_t serialize_primary_TIMESTAMP(uint8_t* buffer, uint32_t timestamp);
-size_t deserialize_primary_TIMESTAMP(uint8_t* buffer, primary_TIMESTAMP* primary_timestamp);
+} PrimaryTimestampMsg;
 
-/* primary_SET_TLM_STATUS */
-    
 typedef struct __is_packed {
-    primary_Tlm_Status_Set tlm_status_set;
-    primary_Race_Type race_type;
     uint8_t driver;
     uint8_t circuit;
-} primary_SET_TLM_STATUS;
-static_assert(sizeof(primary_SET_TLM_STATUS) == 4, "struct size mismatch");
-    
-size_t serialize_primary_SET_TLM_STATUS(uint8_t* buffer, primary_Tlm_Status_Set tlm_status_set, primary_Race_Type race_type, uint8_t driver, uint8_t circuit);
-size_t deserialize_primary_SET_TLM_STATUS(uint8_t* buffer, primary_SET_TLM_STATUS* primary_set_tlm_status);
+    PrimaryRaceType race_type;
+    PrimaryTlmStatus tlm_status;
+} PrimarySetTlmStatusMsg;
 
-/* primary_STEER_SYSTEM_STATUS */
-    
-# define PRIMARY_STEER_SYSTEM_STATUS_MS 2000
-    
 typedef struct __is_packed {
     uint8_t soc_temp;
-} primary_STEER_SYSTEM_STATUS;
-static_assert(sizeof(primary_STEER_SYSTEM_STATUS) == 1, "struct size mismatch");
-    
-size_t serialize_primary_STEER_SYSTEM_STATUS(uint8_t* buffer, uint8_t soc_temp);
-size_t deserialize_primary_STEER_SYSTEM_STATUS(uint8_t* buffer, primary_STEER_SYSTEM_STATUS* primary_steer_system_status);
+} PrimarySteerSystemStatusMsg;
 
-/* primary_TLM_STATUS */
-    
-# define PRIMARY_TLM_STATUS_MS 1000
-    
 typedef struct __is_packed {
-    primary_Tlm_Status tlm_status;
-    primary_Race_Type race_type;
+} PrimaryMarkerMsg;
+
+typedef struct __is_packed {
     uint8_t driver;
     uint8_t circuit;
-} primary_TLM_STATUS;
-static_assert(sizeof(primary_TLM_STATUS) == 4, "struct size mismatch");
-    
-size_t serialize_primary_TLM_STATUS(uint8_t* buffer, primary_Tlm_Status tlm_status, primary_Race_Type race_type, uint8_t driver, uint8_t circuit);
-size_t deserialize_primary_TLM_STATUS(uint8_t* buffer, primary_TLM_STATUS* primary_tlm_status);
+    PrimaryRaceType race_type;
+    PrimaryTlmStatus tlm_status;
+} PrimaryTlmStatusMsg;
 
-/* primary_CAR_STATUS */
-    
-# define PRIMARY_CAR_STATUS_MS 100
-    
 typedef struct __is_packed {
-    primary_Inverter_Status inverter_l;
-    primary_Inverter_Status inverter_r;
-    primary_Car_Status car_status;
-} primary_CAR_STATUS;
-static_assert(sizeof(primary_CAR_STATUS) == 3, "struct size mismatch");
-    
-size_t serialize_primary_CAR_STATUS(uint8_t* buffer, primary_Inverter_Status inverter_l, primary_Inverter_Status inverter_r, primary_Car_Status car_status);
-size_t deserialize_primary_CAR_STATUS(uint8_t* buffer, primary_CAR_STATUS* primary_car_status);
+    PrimaryInverterStatus inverter_l;
+    PrimaryInverterStatus inverter_r;
+    PrimaryCarStatus car_status;
+} PrimaryCarStatusMsg;
 
-/* primary_DAS_ERRORS */
-    
-# define PRIMARY_DAS_ERRORS_MS 20
-    
 typedef struct __is_packed {
-    primary_Das_Errors das_error;
-} primary_DAS_ERRORS;
-static_assert(sizeof(primary_DAS_ERRORS) == 1, "struct size mismatch");
-    
-size_t serialize_primary_DAS_ERRORS(uint8_t* buffer, primary_Das_Errors das_error);
-size_t deserialize_primary_DAS_ERRORS(uint8_t* buffer, primary_DAS_ERRORS* primary_das_errors);
+    PrimaryDasErrors das_error;
+} PrimaryDasErrorsMsg;
 
-/* primary_SPEED */
-    
-# define PRIMARY_SPEED_MS 100
-    
 typedef struct __is_packed {
     uint16_t encoder_r;
     uint16_t encoder_l;
     uint16_t inverter_r;
     uint16_t inverter_l;
-} primary_SPEED;
-static_assert(sizeof(primary_SPEED) == 8, "struct size mismatch");
-    
-size_t serialize_primary_SPEED(uint8_t* buffer, uint16_t encoder_r, uint16_t encoder_l, uint16_t inverter_r, uint16_t inverter_l);
-size_t deserialize_primary_SPEED(uint8_t* buffer, primary_SPEED* primary_speed);
+} PrimarySpeedMsg;
 
-/* primary_HV_VOLTAGE */
-    
-# define PRIMARY_HV_VOLTAGE_MS 20
-    
 typedef struct __is_packed {
     uint16_t pack_voltage;
     uint16_t bus_voltage;
     uint16_t max_cell_voltage;
     uint16_t min_cell_voltage;
-} primary_HV_VOLTAGE;
-static_assert(sizeof(primary_HV_VOLTAGE) == 8, "struct size mismatch");
-    
-size_t serialize_primary_HV_VOLTAGE(uint8_t* buffer, uint16_t pack_voltage, uint16_t bus_voltage, uint16_t max_cell_voltage, uint16_t min_cell_voltage);
-size_t deserialize_primary_HV_VOLTAGE(uint8_t* buffer, primary_HV_VOLTAGE* primary_hv_voltage);
+} PrimaryHvVoltageMsg;
 
-/* primary_HV_CURRENT */
-    
-# define PRIMARY_HV_CURRENT_MS 20
-    
 typedef struct __is_packed {
     uint16_t current;
     int16_t power;
-} primary_HV_CURRENT;
-static_assert(sizeof(primary_HV_CURRENT) == 4, "struct size mismatch");
-    
-size_t serialize_primary_HV_CURRENT(uint8_t* buffer, uint16_t current, int16_t power);
-size_t deserialize_primary_HV_CURRENT(uint8_t* buffer, primary_HV_CURRENT* primary_hv_current);
+} PrimaryHvCurrentMsg;
 
-/* primary_HV_TEMP */
-    
-# define PRIMARY_HV_TEMP_MS 200
-    
 typedef struct __is_packed {
     uint16_t average_temp;
     uint16_t max_temp;
     uint16_t min_temp;
-} primary_HV_TEMP;
-static_assert(sizeof(primary_HV_TEMP) == 6, "struct size mismatch");
-    
-size_t serialize_primary_HV_TEMP(uint8_t* buffer, uint16_t average_temp, uint16_t max_temp, uint16_t min_temp);
-size_t deserialize_primary_HV_TEMP(uint8_t* buffer, primary_HV_TEMP* primary_hv_temp);
+} PrimaryHvTempMsg;
 
-/* primary_HV_ERRORS */
-    
-# define PRIMARY_HV_ERRORS_MS 20
-    
 typedef struct __is_packed {
-    primary_Hv_Errors warnings;
-    primary_Hv_Errors errors;
-} primary_HV_ERRORS;
-static_assert(sizeof(primary_HV_ERRORS) == 4, "struct size mismatch");
-    
-size_t serialize_primary_HV_ERRORS(uint8_t* buffer, primary_Hv_Errors warnings, primary_Hv_Errors errors);
-size_t deserialize_primary_HV_ERRORS(uint8_t* buffer, primary_HV_ERRORS* primary_hv_errors);
+    PrimaryHvErrors warnings;
+    PrimaryHvErrors errors;
+} PrimaryHvErrorsMsg;
 
-/* primary_TS_STATUS */
-    
-# define PRIMARY_TS_STATUS_MS 20
-    
 typedef struct __is_packed {
-    primary_Ts_Status ts_status;
-} primary_TS_STATUS;
-static_assert(sizeof(primary_TS_STATUS) == 1, "struct size mismatch");
-    
-size_t serialize_primary_TS_STATUS(uint8_t* buffer, primary_Ts_Status ts_status);
-size_t deserialize_primary_TS_STATUS(uint8_t* buffer, primary_TS_STATUS* primary_ts_status);
+    PrimaryTsStatus ts_status;
+} PrimaryTsStatusMsg;
 
-/* primary_SET_TS_STATUS */
-    
 typedef struct __is_packed {
-    primary_Ts_Status_Set ts_status_set;
-} primary_SET_TS_STATUS;
-static_assert(sizeof(primary_SET_TS_STATUS) == 1, "struct size mismatch");
-    
-size_t serialize_primary_SET_TS_STATUS(uint8_t* buffer, primary_Ts_Status_Set ts_status_set);
-size_t deserialize_primary_SET_TS_STATUS(uint8_t* buffer, primary_SET_TS_STATUS* primary_set_ts_status);
+    PrimaryTsStatusSet ts_status_set;
+} PrimarySetTsStatusMsg;
 
-/* primary_SET_CELL_BALANCING_STATUS */
-    
 typedef struct __is_packed {
-    primary_Set_Balancing_Status set_balancing_status;
-} primary_SET_CELL_BALANCING_STATUS;
-static_assert(sizeof(primary_SET_CELL_BALANCING_STATUS) == 1, "struct size mismatch");
-    
-size_t serialize_primary_SET_CELL_BALANCING_STATUS(uint8_t* buffer, primary_Set_Balancing_Status set_balancing_status);
-size_t deserialize_primary_SET_CELL_BALANCING_STATUS(uint8_t* buffer, primary_SET_CELL_BALANCING_STATUS* primary_set_cell_balancing_status);
+    PrimarySetBalancingStatus set_balancing_status;
+} PrimarySetCellBalancingStatusMsg;
 
-/* primary_HANDCART_STATUS */
-    
-# define PRIMARY_HANDCART_STATUS_MS 500
-    
 typedef struct __is_packed {
     bool connected;
-} primary_HANDCART_STATUS;
-static_assert(sizeof(primary_HANDCART_STATUS) == 1, "struct size mismatch");
-    
-size_t serialize_primary_HANDCART_STATUS(uint8_t* buffer, bool connected);
-size_t deserialize_primary_HANDCART_STATUS(uint8_t* buffer, primary_HANDCART_STATUS* primary_handcart_status);
+} PrimaryHandcartStatusMsg;
 
-/* primary_STEER_STATUS */
-    
-# define PRIMARY_STEER_STATUS_MS 100
-    
 typedef struct __is_packed {
-    primary_Traction_Control traction_control;
-    primary_Map map;
-} primary_STEER_STATUS;
-static_assert(sizeof(primary_STEER_STATUS) == 2, "struct size mismatch");
-    
-size_t serialize_primary_STEER_STATUS(uint8_t* buffer, primary_Traction_Control traction_control, primary_Map map);
-size_t deserialize_primary_STEER_STATUS(uint8_t* buffer, primary_STEER_STATUS* primary_steer_status);
+    PrimaryMap map;
+    PrimaryTractionControl traction_control;
+} PrimarySteerStatusMsg;
 
-/* primary_SET_CAR_STATUS */
-    
 typedef struct __is_packed {
-    primary_Car_Status_Set car_status_set;
-} primary_SET_CAR_STATUS;
-static_assert(sizeof(primary_SET_CAR_STATUS) == 1, "struct size mismatch");
-    
-size_t serialize_primary_SET_CAR_STATUS(uint8_t* buffer, primary_Car_Status_Set car_status_set);
-size_t deserialize_primary_SET_CAR_STATUS(uint8_t* buffer, primary_SET_CAR_STATUS* primary_set_car_status);
+    PrimaryCarStatusSet car_status_set;
+} PrimarySetCarStatusMsg;
 
-/* primary_SET_PEDALS_RANGE */
-    
 typedef struct __is_packed {
-    primary_Bound bound;
-    primary_Pedal pedal;
-} primary_SET_PEDALS_RANGE;
-static_assert(sizeof(primary_SET_PEDALS_RANGE) == 2, "struct size mismatch");
-    
-size_t serialize_primary_SET_PEDALS_RANGE(uint8_t* buffer, primary_Bound bound, primary_Pedal pedal);
-size_t deserialize_primary_SET_PEDALS_RANGE(uint8_t* buffer, primary_SET_PEDALS_RANGE* primary_set_pedals_range);
+    PrimaryBound bound;
+    PrimaryPedal pedal;
+} PrimarySetPedalsRangeMsg;
 
-/* primary_LV_CURRENT */
-    
-# define PRIMARY_LV_CURRENT_MS 500
-    
 typedef struct __is_packed {
     uint8_t current;
-} primary_LV_CURRENT;
-static_assert(sizeof(primary_LV_CURRENT) == 1, "struct size mismatch");
-    
-size_t serialize_primary_LV_CURRENT(uint8_t* buffer, uint8_t current);
-size_t deserialize_primary_LV_CURRENT(uint8_t* buffer, primary_LV_CURRENT* primary_lv_current);
+} PrimaryLvCurrentMsg;
 
-/* primary_LV_VOLTAGE */
-    
-# define PRIMARY_LV_VOLTAGE_MS 200
-    
 typedef struct __is_packed {
+    uint16_t total_voltage;
     uint8_t voltage_1;
     uint8_t voltage_2;
     uint8_t voltage_3;
     uint8_t voltage_4;
-    uint16_t total_voltage;
-} primary_LV_VOLTAGE;
-static_assert(sizeof(primary_LV_VOLTAGE) == 6, "struct size mismatch");
-    
-size_t serialize_primary_LV_VOLTAGE(uint8_t* buffer, uint8_t voltage_1, uint8_t voltage_2, uint8_t voltage_3, uint8_t voltage_4, uint16_t total_voltage);
-size_t deserialize_primary_LV_VOLTAGE(uint8_t* buffer, primary_LV_VOLTAGE* primary_lv_voltage);
+} PrimaryLvVoltageMsg;
 
-/* primary_LV_TEMPERATURE */
-    
-# define PRIMARY_LV_TEMPERATURE_MS 200
-    
 typedef struct __is_packed {
     uint8_t bp_temperature;
     uint8_t dcdc_temperature;
-} primary_LV_TEMPERATURE;
-static_assert(sizeof(primary_LV_TEMPERATURE) == 2, "struct size mismatch");
-    
-size_t serialize_primary_LV_TEMPERATURE(uint8_t* buffer, uint8_t bp_temperature, uint8_t dcdc_temperature);
-size_t deserialize_primary_LV_TEMPERATURE(uint8_t* buffer, primary_LV_TEMPERATURE* primary_lv_temperature);
+} PrimaryLvTemperatureMsg;
 
-/* primary_COOLING_STATUS */
-    
-# define PRIMARY_COOLING_STATUS_MS 1000
-    
 typedef struct __is_packed {
     uint8_t hv_fan_speed;
     uint8_t lv_fan_speed;
     uint8_t pump_speed;
-} primary_COOLING_STATUS;
-static_assert(sizeof(primary_COOLING_STATUS) == 3, "struct size mismatch");
-    
-size_t serialize_primary_COOLING_STATUS(uint8_t* buffer, uint8_t hv_fan_speed, uint8_t lv_fan_speed, uint8_t pump_speed);
-size_t deserialize_primary_COOLING_STATUS(uint8_t* buffer, primary_COOLING_STATUS* primary_cooling_status);
+} PrimaryCoolingStatusMsg;
 
-/* primary_HV_CELLS_VOLTAGE */
-    
-# define PRIMARY_HV_CELLS_VOLTAGE_MS 200
-    
 typedef struct __is_packed {
-    uint8_t cell_index;
-    uint8_t __unused_padding_1;
     uint16_t voltage_0;
     uint16_t voltage_1;
     uint16_t voltage_2;
-} primary_HV_CELLS_VOLTAGE;
-static_assert(sizeof(primary_HV_CELLS_VOLTAGE) == 8, "struct size mismatch");
-    
-size_t serialize_primary_HV_CELLS_VOLTAGE(uint8_t* buffer, uint8_t cell_index, uint16_t voltage_0, uint16_t voltage_1, uint16_t voltage_2);
-size_t deserialize_primary_HV_CELLS_VOLTAGE(uint8_t* buffer, primary_HV_CELLS_VOLTAGE* primary_hv_cells_voltage);
+    uint8_t cell_index;
+} PrimaryHvCellsVoltageMsg;
 
-/* primary_HV_CELLS_TEMP */
-    
-# define PRIMARY_HV_CELLS_TEMP_MS 100
-    
 typedef struct __is_packed {
     uint8_t cell_index;
     uint8_t temp_0;
@@ -643,50 +479,401 @@ typedef struct __is_packed {
     uint8_t temp_4;
     uint8_t temp_5;
     uint8_t temp_6;
-} primary_HV_CELLS_TEMP;
-static_assert(sizeof(primary_HV_CELLS_TEMP) == 8, "struct size mismatch");
-    
-size_t serialize_primary_HV_CELLS_TEMP(uint8_t* buffer, uint8_t cell_index, uint8_t temp_0, uint8_t temp_1, uint8_t temp_2, uint8_t temp_3, uint8_t temp_4, uint8_t temp_5, uint8_t temp_6);
-size_t deserialize_primary_HV_CELLS_TEMP(uint8_t* buffer, primary_HV_CELLS_TEMP* primary_hv_cells_temp);
+} PrimaryHvCellsTempMsg;
 
-/* primary_HV_CELL_BALANCING_STATUS */
-    
-# define PRIMARY_HV_CELL_BALANCING_STATUS_MS 500
-    
 typedef struct __is_packed {
-    primary_Balancing_Status balancing_status;
-} primary_HV_CELL_BALANCING_STATUS;
-static_assert(sizeof(primary_HV_CELL_BALANCING_STATUS) == 1, "struct size mismatch");
-    
-size_t serialize_primary_HV_CELL_BALANCING_STATUS(uint8_t* buffer, primary_Balancing_Status balancing_status);
-size_t deserialize_primary_HV_CELL_BALANCING_STATUS(uint8_t* buffer, primary_HV_CELL_BALANCING_STATUS* primary_hv_cell_balancing_status);
+    PrimaryBalancingStatus balancing_status;
+} PrimaryHvCellBalancingStatusMsg;
 
-/* primary_INV_L_SET_TORQUE */
-    
-# define PRIMARY_INV_L_SET_TORQUE_MS 20
-    
 typedef struct __is_packed {
     uint8_t regid;
     uint8_t lsb;
     uint8_t msb;
-} primary_INV_L_SET_TORQUE;
-static_assert(sizeof(primary_INV_L_SET_TORQUE) == 3, "struct size mismatch");
-    
-size_t serialize_primary_INV_L_SET_TORQUE(uint8_t* buffer, uint8_t regid, uint8_t lsb, uint8_t msb);
-size_t deserialize_primary_INV_L_SET_TORQUE(uint8_t* buffer, primary_INV_L_SET_TORQUE* primary_inv_l_set_torque);
+} PrimaryInvLSetTorqueMsg;
 
-/* primary_INV_L_RESPONSE */
-    
-# define PRIMARY_INV_L_RESPONSE_MS 100
-    
 typedef struct __is_packed {
+    PrimaryRegVal reg_val;
     uint8_t reg_id;
-    primary_Reg_Val reg_val;
-} primary_INV_L_RESPONSE;
-static_assert(sizeof(primary_INV_L_RESPONSE) == 5, "struct size mismatch");
-    
-size_t serialize_primary_INV_L_RESPONSE(uint8_t* buffer, uint8_t reg_id, primary_Reg_Val reg_val);
-size_t deserialize_primary_INV_L_RESPONSE(uint8_t* buffer, primary_INV_L_RESPONSE* primary_inv_l_response);
+} PrimaryInvLResponseMsg;
+
+// Functions
+
+void serialize_PrimarySteerVersion(uint8_t *data, PrimarySteerVersionMsg *msg){
+    data[0] = msg->component_version;
+    data[1] = msg->cancicd_version;
+}
+
+void deserialize_PrimarySteerVersion(uint8_t *data, PrimarySteerVersionMsg *msg){
+    msg->component_version = data[0];
+    msg->cancicd_version = data[1];
+}
+
+void serialize_PrimaryDasVersion(uint8_t *data, PrimaryDasVersionMsg *msg){
+    data[0] = msg->component_version;
+    data[1] = msg->cancicd_version;
+}
+
+void deserialize_PrimaryDasVersion(uint8_t *data, PrimaryDasVersionMsg *msg){
+    msg->component_version = data[0];
+    msg->cancicd_version = data[1];
+}
+
+void serialize_PrimaryHvVersion(uint8_t *data, PrimaryHvVersionMsg *msg){
+    data[0] = msg->component_version;
+    data[1] = msg->cancicd_version;
+}
+
+void deserialize_PrimaryHvVersion(uint8_t *data, PrimaryHvVersionMsg *msg){
+    msg->component_version = data[0];
+    msg->cancicd_version = data[1];
+}
+
+void serialize_PrimaryLvVersion(uint8_t *data, PrimaryLvVersionMsg *msg){
+    data[0] = msg->component_version;
+    data[1] = msg->cancicd_version;
+}
+
+void deserialize_PrimaryLvVersion(uint8_t *data, PrimaryLvVersionMsg *msg){
+    msg->component_version = data[0];
+    msg->cancicd_version = data[1];
+}
+
+void serialize_PrimaryTlmVersion(uint8_t *data, PrimaryTlmVersionMsg *msg){
+    data[0] = msg->component_version;
+    data[1] = msg->cancicd_version;
+}
+
+void deserialize_PrimaryTlmVersion(uint8_t *data, PrimaryTlmVersionMsg *msg){
+    msg->component_version = data[0];
+    msg->cancicd_version = data[1];
+}
+
+void serialize_PrimaryTimestamp(uint8_t *data, PrimaryTimestampMsg *msg){
+    data[0] = msg->timestamp & 255;
+    data[1] = (msg->timestamp >> 8) & 255;
+    data[2] = (msg->timestamp >> 16) & 255;
+    data[3] = (msg->timestamp >> 24) & 255;
+}
+
+void deserialize_PrimaryTimestamp(uint8_t *data, PrimaryTimestampMsg *msg){
+    msg->timestamp = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
+}
+
+void serialize_PrimarySetTlmStatus(uint8_t *data, PrimarySetTlmStatusMsg *msg){
+    data[0] = msg->driver;
+    data[1] = msg->circuit;
+    data[2] = msg->race_type << 6 | msg->tlm_status << 5;
+}
+
+void deserialize_PrimarySetTlmStatus(uint8_t *data, PrimarySetTlmStatusMsg *msg){
+    msg->driver = data[0];
+    msg->circuit = data[1];
+    msg->race_type = (PrimaryRaceType) ((data[2] & 192) >> 6);
+    msg->tlm_status = (PrimaryTlmStatus) ((data[2] & 32) >> 5);
+}
+
+void serialize_PrimarySteerSystemStatus(uint8_t *data, PrimarySteerSystemStatusMsg *msg){
+    data[0] = msg->soc_temp;
+}
+
+void deserialize_PrimarySteerSystemStatus(uint8_t *data, PrimarySteerSystemStatusMsg *msg){
+    msg->soc_temp = data[0];
+}
+
+void serialize_PrimaryMarker(uint8_t *data, PrimaryMarkerMsg *msg){
+}
+
+void deserialize_PrimaryMarker(uint8_t *data, PrimaryMarkerMsg *msg){
+}
+
+void serialize_PrimaryTlmStatus(uint8_t *data, PrimaryTlmStatusMsg *msg){
+    data[0] = msg->driver;
+    data[1] = msg->circuit;
+    data[2] = msg->race_type << 6 | msg->tlm_status << 5;
+}
+
+void deserialize_PrimaryTlmStatus(uint8_t *data, PrimaryTlmStatusMsg *msg){
+    msg->driver = data[0];
+    msg->circuit = data[1];
+    msg->race_type = (PrimaryRaceType) ((data[2] & 192) >> 6);
+    msg->tlm_status = (PrimaryTlmStatus) ((data[2] & 32) >> 5);
+}
+
+void serialize_PrimaryCarStatus(uint8_t *data, PrimaryCarStatusMsg *msg){
+    data[0] = msg->inverter_l << 6 | msg->inverter_r << 4 | msg->car_status << 2;
+}
+
+void deserialize_PrimaryCarStatus(uint8_t *data, PrimaryCarStatusMsg *msg){
+    msg->inverter_l = (PrimaryInverterStatus) ((data[0] & 192) >> 6);
+    msg->inverter_r = (PrimaryInverterStatus) ((data[0] & 48) >> 4);
+    msg->car_status = (PrimaryCarStatus) ((data[0] & 12) >> 2);
+}
+
+void serialize_PrimaryDasErrors(uint8_t *data, PrimaryDasErrorsMsg *msg){
+    data[0] = msg->das_error[0];
+}
+
+void deserialize_PrimaryDasErrors(uint8_t *data, PrimaryDasErrorsMsg *msg){
+    msg->das_error[0] = data[0];
+}
+
+void serialize_PrimarySpeed(uint8_t *data, PrimarySpeedMsg *msg){
+    data[0] = msg->encoder_r & 255;
+    data[1] = (msg->encoder_r >> 8) & 255;
+    data[2] = msg->encoder_l & 255;
+    data[3] = (msg->encoder_l >> 8) & 255;
+    data[4] = msg->inverter_r & 255;
+    data[5] = (msg->inverter_r >> 8) & 255;
+    data[6] = msg->inverter_l & 255;
+    data[7] = (msg->inverter_l >> 8) & 255;
+}
+
+void deserialize_PrimarySpeed(uint8_t *data, PrimarySpeedMsg *msg){
+    msg->encoder_r = data[0] | (data[1] << 8);
+    msg->encoder_l = data[2] | (data[3] << 8);
+    msg->inverter_r = data[4] | (data[5] << 8);
+    msg->inverter_l = data[6] | (data[7] << 8);
+}
+
+void serialize_PrimaryHvVoltage(uint8_t *data, PrimaryHvVoltageMsg *msg){
+    data[0] = msg->pack_voltage & 255;
+    data[1] = (msg->pack_voltage >> 8) & 255;
+    data[2] = msg->bus_voltage & 255;
+    data[3] = (msg->bus_voltage >> 8) & 255;
+    data[4] = msg->max_cell_voltage & 255;
+    data[5] = (msg->max_cell_voltage >> 8) & 255;
+    data[6] = msg->min_cell_voltage & 255;
+    data[7] = (msg->min_cell_voltage >> 8) & 255;
+}
+
+void deserialize_PrimaryHvVoltage(uint8_t *data, PrimaryHvVoltageMsg *msg){
+    msg->pack_voltage = data[0] | (data[1] << 8);
+    msg->bus_voltage = data[2] | (data[3] << 8);
+    msg->max_cell_voltage = data[4] | (data[5] << 8);
+    msg->min_cell_voltage = data[6] | (data[7] << 8);
+}
+
+void serialize_PrimaryHvCurrent(uint8_t *data, PrimaryHvCurrentMsg *msg){
+    data[0] = msg->current & 255;
+    data[1] = (msg->current >> 8) & 255;
+    data[2] = msg->power & 255;
+    data[3] = (msg->power >> 8) & 255;
+}
+
+void deserialize_PrimaryHvCurrent(uint8_t *data, PrimaryHvCurrentMsg *msg){
+    msg->current = data[0] | (data[1] << 8);
+    msg->power = data[2] | (data[3] << 8);
+}
+
+void serialize_PrimaryHvTemp(uint8_t *data, PrimaryHvTempMsg *msg){
+    data[0] = msg->average_temp & 255;
+    data[1] = (msg->average_temp >> 8) & 255;
+    data[2] = msg->max_temp & 255;
+    data[3] = (msg->max_temp >> 8) & 255;
+    data[4] = msg->min_temp & 255;
+    data[5] = (msg->min_temp >> 8) & 255;
+}
+
+void deserialize_PrimaryHvTemp(uint8_t *data, PrimaryHvTempMsg *msg){
+    msg->average_temp = data[0] | (data[1] << 8);
+    msg->max_temp = data[2] | (data[3] << 8);
+    msg->min_temp = data[4] | (data[5] << 8);
+}
+
+void serialize_PrimaryHvErrors(uint8_t *data, PrimaryHvErrorsMsg *msg){
+    data[0] = msg->warnings[0];
+    data[1] = msg->warnings[1];
+    data[2] = msg->errors[0];
+    data[3] = msg->errors[1];
+}
+
+void deserialize_PrimaryHvErrors(uint8_t *data, PrimaryHvErrorsMsg *msg){
+    msg->warnings[0] = data[0];
+    msg->warnings[1] = data[1];
+    msg->errors[0] = data[2];
+    msg->errors[1] = data[3];
+}
+
+void serialize_PrimaryTsStatus(uint8_t *data, PrimaryTsStatusMsg *msg){
+    data[0] = msg->ts_status << 6;
+}
+
+void deserialize_PrimaryTsStatus(uint8_t *data, PrimaryTsStatusMsg *msg){
+    msg->ts_status = (PrimaryTsStatus) ((data[0] & 192) >> 6);
+}
+
+void serialize_PrimarySetTsStatus(uint8_t *data, PrimarySetTsStatusMsg *msg){
+    data[0] = msg->ts_status_set << 7;
+}
+
+void deserialize_PrimarySetTsStatus(uint8_t *data, PrimarySetTsStatusMsg *msg){
+    msg->ts_status_set = (PrimaryTsStatusSet) ((data[0] & 128) >> 7);
+}
+
+void serialize_PrimarySetCellBalancingStatus(uint8_t *data, PrimarySetCellBalancingStatusMsg *msg){
+    data[0] = msg->set_balancing_status << 7;
+}
+
+void deserialize_PrimarySetCellBalancingStatus(uint8_t *data, PrimarySetCellBalancingStatusMsg *msg){
+    msg->set_balancing_status = (PrimarySetBalancingStatus) ((data[0] & 128) >> 7);
+}
+
+void serialize_PrimaryHandcartStatus(uint8_t *data, PrimaryHandcartStatusMsg *msg){
+    data[0] = msg->connected << 7;
+}
+
+void deserialize_PrimaryHandcartStatus(uint8_t *data, PrimaryHandcartStatusMsg *msg){
+    msg->connected = (data[0] & 128) >> 7;
+}
+
+void serialize_PrimarySteerStatus(uint8_t *data, PrimarySteerStatusMsg *msg){
+    data[0] = msg->map << 5 | msg->traction_control << 3;
+}
+
+void deserialize_PrimarySteerStatus(uint8_t *data, PrimarySteerStatusMsg *msg){
+    msg->map = (PrimaryMap) ((data[0] & 224) >> 5);
+    msg->traction_control = (PrimaryTractionControl) ((data[0] & 24) >> 3);
+}
+
+void serialize_PrimarySetCarStatus(uint8_t *data, PrimarySetCarStatusMsg *msg){
+    data[0] = msg->car_status_set << 7;
+}
+
+void deserialize_PrimarySetCarStatus(uint8_t *data, PrimarySetCarStatusMsg *msg){
+    msg->car_status_set = (PrimaryCarStatusSet) ((data[0] & 128) >> 7);
+}
+
+void serialize_PrimarySetPedalsRange(uint8_t *data, PrimarySetPedalsRangeMsg *msg){
+    data[0] = msg->bound << 7 | msg->pedal << 6;
+}
+
+void deserialize_PrimarySetPedalsRange(uint8_t *data, PrimarySetPedalsRangeMsg *msg){
+    msg->bound = (PrimaryBound) ((data[0] & 128) >> 7);
+    msg->pedal = (PrimaryPedal) ((data[0] & 64) >> 6);
+}
+
+void serialize_PrimaryLvCurrent(uint8_t *data, PrimaryLvCurrentMsg *msg){
+    data[0] = msg->current;
+}
+
+void deserialize_PrimaryLvCurrent(uint8_t *data, PrimaryLvCurrentMsg *msg){
+    msg->current = data[0];
+}
+
+void serialize_PrimaryLvVoltage(uint8_t *data, PrimaryLvVoltageMsg *msg){
+    data[0] = msg->total_voltage & 255;
+    data[1] = (msg->total_voltage >> 8) & 255;
+    data[2] = msg->voltage_1;
+    data[3] = msg->voltage_2;
+    data[4] = msg->voltage_3;
+    data[5] = msg->voltage_4;
+}
+
+void deserialize_PrimaryLvVoltage(uint8_t *data, PrimaryLvVoltageMsg *msg){
+    msg->total_voltage = data[0] | (data[1] << 8);
+    msg->voltage_1 = data[2];
+    msg->voltage_2 = data[3];
+    msg->voltage_3 = data[4];
+    msg->voltage_4 = data[5];
+}
+
+void serialize_PrimaryLvTemperature(uint8_t *data, PrimaryLvTemperatureMsg *msg){
+    data[0] = msg->bp_temperature;
+    data[1] = msg->dcdc_temperature;
+}
+
+void deserialize_PrimaryLvTemperature(uint8_t *data, PrimaryLvTemperatureMsg *msg){
+    msg->bp_temperature = data[0];
+    msg->dcdc_temperature = data[1];
+}
+
+void serialize_PrimaryCoolingStatus(uint8_t *data, PrimaryCoolingStatusMsg *msg){
+    data[0] = msg->hv_fan_speed;
+    data[1] = msg->lv_fan_speed;
+    data[2] = msg->pump_speed;
+}
+
+void deserialize_PrimaryCoolingStatus(uint8_t *data, PrimaryCoolingStatusMsg *msg){
+    msg->hv_fan_speed = data[0];
+    msg->lv_fan_speed = data[1];
+    msg->pump_speed = data[2];
+}
+
+void serialize_PrimaryHvCellsVoltage(uint8_t *data, PrimaryHvCellsVoltageMsg *msg){
+    data[0] = msg->voltage_0 & 255;
+    data[1] = (msg->voltage_0 >> 8) & 255;
+    data[2] = msg->voltage_1 & 255;
+    data[3] = (msg->voltage_1 >> 8) & 255;
+    data[4] = msg->voltage_2 & 255;
+    data[5] = (msg->voltage_2 >> 8) & 255;
+    data[6] = msg->cell_index;
+}
+
+void deserialize_PrimaryHvCellsVoltage(uint8_t *data, PrimaryHvCellsVoltageMsg *msg){
+    msg->voltage_0 = data[0] | (data[1] << 8);
+    msg->voltage_1 = data[2] | (data[3] << 8);
+    msg->voltage_2 = data[4] | (data[5] << 8);
+    msg->cell_index = data[6];
+}
+
+void serialize_PrimaryHvCellsTemp(uint8_t *data, PrimaryHvCellsTempMsg *msg){
+    data[0] = msg->cell_index;
+    data[1] = msg->temp_0;
+    data[2] = msg->temp_1;
+    data[3] = msg->temp_2;
+    data[4] = msg->temp_3;
+    data[5] = msg->temp_4;
+    data[6] = msg->temp_5;
+    data[7] = msg->temp_6;
+}
+
+void deserialize_PrimaryHvCellsTemp(uint8_t *data, PrimaryHvCellsTempMsg *msg){
+    msg->cell_index = data[0];
+    msg->temp_0 = data[1];
+    msg->temp_1 = data[2];
+    msg->temp_2 = data[3];
+    msg->temp_3 = data[4];
+    msg->temp_4 = data[5];
+    msg->temp_5 = data[6];
+    msg->temp_6 = data[7];
+}
+
+void serialize_PrimaryHvCellBalancingStatus(uint8_t *data, PrimaryHvCellBalancingStatusMsg *msg){
+    data[0] = msg->balancing_status << 7;
+}
+
+void deserialize_PrimaryHvCellBalancingStatus(uint8_t *data, PrimaryHvCellBalancingStatusMsg *msg){
+    msg->balancing_status = (PrimaryBalancingStatus) ((data[0] & 128) >> 7);
+}
+
+void serialize_PrimaryInvLSetTorque(uint8_t *data, PrimaryInvLSetTorqueMsg *msg){
+    data[0] = msg->regid;
+    data[1] = msg->lsb;
+    data[2] = msg->msb;
+}
+
+void deserialize_PrimaryInvLSetTorque(uint8_t *data, PrimaryInvLSetTorqueMsg *msg){
+    msg->regid = data[0];
+    msg->lsb = data[1];
+    msg->msb = data[2];
+}
+
+void serialize_PrimaryInvLResponse(uint8_t *data, PrimaryInvLResponseMsg *msg){
+    data[0] = msg->reg_val[0];
+    data[1] = msg->reg_val[1];
+    data[2] = msg->reg_val[2];
+    data[3] = msg->reg_val[3];
+    data[4] = msg->reg_id;
+}
+
+void deserialize_PrimaryInvLResponse(uint8_t *data, PrimaryInvLResponseMsg *msg){
+    msg->reg_val[0] = data[0];
+    msg->reg_val[1] = data[1];
+    msg->reg_val[2] = data[2];
+    msg->reg_val[3] = data[3];
+    msg->reg_id = data[4];
+}
+
 #endif
 
 #ifdef __cplusplus

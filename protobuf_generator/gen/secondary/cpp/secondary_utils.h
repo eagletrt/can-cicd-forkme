@@ -23,8 +23,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
     switch(id) {
 
         case 1260: {
-            secondary_IMU_ANGULAR_RATE* secondary_imu_angular_rate_d = (secondary_IMU_ANGULAR_RATE*)malloc(sizeof(secondary_IMU_ANGULAR_RATE));
-            deserialize_secondary_IMU_ANGULAR_RATE(payload, secondary_imu_angular_rate_d);
+            SecondaryImuAngularRateMsg* secondary_imu_angular_rate_d = (SecondaryImuAngularRateMsg*)malloc(SECONDARY_IMU_ANGULAR_RATE_SIZE);
+            deserialize_SecondaryImuAngularRate(payload, secondary_imu_angular_rate_d);
     
             secondary::ImuAngularRate secondary_imu_angular_rate_p;
             secondary_imu_angular_rate_p.set_ang_rate_x(static_cast<uint32_t>(secondary_imu_angular_rate_d->ang_rate_x));
@@ -39,8 +39,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1261: {
-            secondary_IMU_ACCELERATION* secondary_imu_acceleration_d = (secondary_IMU_ACCELERATION*)malloc(sizeof(secondary_IMU_ACCELERATION));
-            deserialize_secondary_IMU_ACCELERATION(payload, secondary_imu_acceleration_d);
+            SecondaryImuAccelerationMsg* secondary_imu_acceleration_d = (SecondaryImuAccelerationMsg*)malloc(SECONDARY_IMU_ACCELERATION_SIZE);
+            deserialize_SecondaryImuAcceleration(payload, secondary_imu_acceleration_d);
     
             secondary::ImuAcceleration secondary_imu_acceleration_p;
             secondary_imu_acceleration_p.set_accel_x(static_cast<uint32_t>(secondary_imu_acceleration_d->accel_x));
@@ -55,8 +55,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1460: {
-            secondary_IRTS_FL_0* secondary_irts_fl_0_d = (secondary_IRTS_FL_0*)malloc(sizeof(secondary_IRTS_FL_0));
-            deserialize_secondary_IRTS_FL_0(payload, secondary_irts_fl_0_d);
+            SecondaryIrtsFl0Msg* secondary_irts_fl_0_d = (SecondaryIrtsFl0Msg*)malloc(SECONDARY_IRTS_FL_0_SIZE);
+            deserialize_SecondaryIrtsFl0(payload, secondary_irts_fl_0_d);
     
             secondary::IrtsFl0 secondary_irts_fl_0_p;
             secondary_irts_fl_0_p.set_channel1(static_cast<uint32_t>(secondary_irts_fl_0_d->channel1));
@@ -72,8 +72,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1461: {
-            secondary_IRTS_FL_1* secondary_irts_fl_1_d = (secondary_IRTS_FL_1*)malloc(sizeof(secondary_IRTS_FL_1));
-            deserialize_secondary_IRTS_FL_1(payload, secondary_irts_fl_1_d);
+            SecondaryIrtsFl1Msg* secondary_irts_fl_1_d = (SecondaryIrtsFl1Msg*)malloc(SECONDARY_IRTS_FL_1_SIZE);
+            deserialize_SecondaryIrtsFl1(payload, secondary_irts_fl_1_d);
     
             secondary::IrtsFl1 secondary_irts_fl_1_p;
             secondary_irts_fl_1_p.set_channel5(static_cast<uint32_t>(secondary_irts_fl_1_d->channel5));
@@ -89,8 +89,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1462: {
-            secondary_IRTS_FL_2* secondary_irts_fl_2_d = (secondary_IRTS_FL_2*)malloc(sizeof(secondary_IRTS_FL_2));
-            deserialize_secondary_IRTS_FL_2(payload, secondary_irts_fl_2_d);
+            SecondaryIrtsFl2Msg* secondary_irts_fl_2_d = (SecondaryIrtsFl2Msg*)malloc(SECONDARY_IRTS_FL_2_SIZE);
+            deserialize_SecondaryIrtsFl2(payload, secondary_irts_fl_2_d);
     
             secondary::IrtsFl2 secondary_irts_fl_2_p;
             secondary_irts_fl_2_p.set_channel9(static_cast<uint32_t>(secondary_irts_fl_2_d->channel9));
@@ -106,8 +106,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1463: {
-            secondary_IRTS_FL_3* secondary_irts_fl_3_d = (secondary_IRTS_FL_3*)malloc(sizeof(secondary_IRTS_FL_3));
-            deserialize_secondary_IRTS_FL_3(payload, secondary_irts_fl_3_d);
+            SecondaryIrtsFl3Msg* secondary_irts_fl_3_d = (SecondaryIrtsFl3Msg*)malloc(SECONDARY_IRTS_FL_3_SIZE);
+            deserialize_SecondaryIrtsFl3(payload, secondary_irts_fl_3_d);
     
             secondary::IrtsFl3 secondary_irts_fl_3_p;
             secondary_irts_fl_3_p.set_channel13(static_cast<uint32_t>(secondary_irts_fl_3_d->channel13));
@@ -123,8 +123,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1464: {
-            secondary_IRTS_FR_0* secondary_irts_fr_0_d = (secondary_IRTS_FR_0*)malloc(sizeof(secondary_IRTS_FR_0));
-            deserialize_secondary_IRTS_FR_0(payload, secondary_irts_fr_0_d);
+            SecondaryIrtsFr0Msg* secondary_irts_fr_0_d = (SecondaryIrtsFr0Msg*)malloc(SECONDARY_IRTS_FR_0_SIZE);
+            deserialize_SecondaryIrtsFr0(payload, secondary_irts_fr_0_d);
     
             secondary::IrtsFr0 secondary_irts_fr_0_p;
             secondary_irts_fr_0_p.set_channel1(static_cast<uint32_t>(secondary_irts_fr_0_d->channel1));
@@ -140,8 +140,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1465: {
-            secondary_IRTS_FR_1* secondary_irts_fr_1_d = (secondary_IRTS_FR_1*)malloc(sizeof(secondary_IRTS_FR_1));
-            deserialize_secondary_IRTS_FR_1(payload, secondary_irts_fr_1_d);
+            SecondaryIrtsFr1Msg* secondary_irts_fr_1_d = (SecondaryIrtsFr1Msg*)malloc(SECONDARY_IRTS_FR_1_SIZE);
+            deserialize_SecondaryIrtsFr1(payload, secondary_irts_fr_1_d);
     
             secondary::IrtsFr1 secondary_irts_fr_1_p;
             secondary_irts_fr_1_p.set_channel5(static_cast<uint32_t>(secondary_irts_fr_1_d->channel5));
@@ -157,8 +157,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1466: {
-            secondary_IRTS_FR_2* secondary_irts_fr_2_d = (secondary_IRTS_FR_2*)malloc(sizeof(secondary_IRTS_FR_2));
-            deserialize_secondary_IRTS_FR_2(payload, secondary_irts_fr_2_d);
+            SecondaryIrtsFr2Msg* secondary_irts_fr_2_d = (SecondaryIrtsFr2Msg*)malloc(SECONDARY_IRTS_FR_2_SIZE);
+            deserialize_SecondaryIrtsFr2(payload, secondary_irts_fr_2_d);
     
             secondary::IrtsFr2 secondary_irts_fr_2_p;
             secondary_irts_fr_2_p.set_channel9(static_cast<uint32_t>(secondary_irts_fr_2_d->channel9));
@@ -174,8 +174,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1467: {
-            secondary_IRTS_FR_3* secondary_irts_fr_3_d = (secondary_IRTS_FR_3*)malloc(sizeof(secondary_IRTS_FR_3));
-            deserialize_secondary_IRTS_FR_3(payload, secondary_irts_fr_3_d);
+            SecondaryIrtsFr3Msg* secondary_irts_fr_3_d = (SecondaryIrtsFr3Msg*)malloc(SECONDARY_IRTS_FR_3_SIZE);
+            deserialize_SecondaryIrtsFr3(payload, secondary_irts_fr_3_d);
     
             secondary::IrtsFr3 secondary_irts_fr_3_p;
             secondary_irts_fr_3_p.set_channel13(static_cast<uint32_t>(secondary_irts_fr_3_d->channel13));
@@ -191,8 +191,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1468: {
-            secondary_IRTS_RL_0* secondary_irts_rl_0_d = (secondary_IRTS_RL_0*)malloc(sizeof(secondary_IRTS_RL_0));
-            deserialize_secondary_IRTS_RL_0(payload, secondary_irts_rl_0_d);
+            SecondaryIrtsRl0Msg* secondary_irts_rl_0_d = (SecondaryIrtsRl0Msg*)malloc(SECONDARY_IRTS_RL_0_SIZE);
+            deserialize_SecondaryIrtsRl0(payload, secondary_irts_rl_0_d);
     
             secondary::IrtsRl0 secondary_irts_rl_0_p;
             secondary_irts_rl_0_p.set_channel1(static_cast<uint32_t>(secondary_irts_rl_0_d->channel1));
@@ -208,8 +208,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1469: {
-            secondary_IRTS_RL_1* secondary_irts_rl_1_d = (secondary_IRTS_RL_1*)malloc(sizeof(secondary_IRTS_RL_1));
-            deserialize_secondary_IRTS_RL_1(payload, secondary_irts_rl_1_d);
+            SecondaryIrtsRl1Msg* secondary_irts_rl_1_d = (SecondaryIrtsRl1Msg*)malloc(SECONDARY_IRTS_RL_1_SIZE);
+            deserialize_SecondaryIrtsRl1(payload, secondary_irts_rl_1_d);
     
             secondary::IrtsRl1 secondary_irts_rl_1_p;
             secondary_irts_rl_1_p.set_channel5(static_cast<uint32_t>(secondary_irts_rl_1_d->channel5));
@@ -225,8 +225,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1470: {
-            secondary_IRTS_RL_2* secondary_irts_rl_2_d = (secondary_IRTS_RL_2*)malloc(sizeof(secondary_IRTS_RL_2));
-            deserialize_secondary_IRTS_RL_2(payload, secondary_irts_rl_2_d);
+            SecondaryIrtsRl2Msg* secondary_irts_rl_2_d = (SecondaryIrtsRl2Msg*)malloc(SECONDARY_IRTS_RL_2_SIZE);
+            deserialize_SecondaryIrtsRl2(payload, secondary_irts_rl_2_d);
     
             secondary::IrtsRl2 secondary_irts_rl_2_p;
             secondary_irts_rl_2_p.set_channel9(static_cast<uint32_t>(secondary_irts_rl_2_d->channel9));
@@ -242,8 +242,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1471: {
-            secondary_IRTS_RL_3* secondary_irts_rl_3_d = (secondary_IRTS_RL_3*)malloc(sizeof(secondary_IRTS_RL_3));
-            deserialize_secondary_IRTS_RL_3(payload, secondary_irts_rl_3_d);
+            SecondaryIrtsRl3Msg* secondary_irts_rl_3_d = (SecondaryIrtsRl3Msg*)malloc(SECONDARY_IRTS_RL_3_SIZE);
+            deserialize_SecondaryIrtsRl3(payload, secondary_irts_rl_3_d);
     
             secondary::IrtsRl3 secondary_irts_rl_3_p;
             secondary_irts_rl_3_p.set_channel13(static_cast<uint32_t>(secondary_irts_rl_3_d->channel13));
@@ -259,8 +259,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1472: {
-            secondary_IRTS_RR_0* secondary_irts_rr_0_d = (secondary_IRTS_RR_0*)malloc(sizeof(secondary_IRTS_RR_0));
-            deserialize_secondary_IRTS_RR_0(payload, secondary_irts_rr_0_d);
+            SecondaryIrtsRr0Msg* secondary_irts_rr_0_d = (SecondaryIrtsRr0Msg*)malloc(SECONDARY_IRTS_RR_0_SIZE);
+            deserialize_SecondaryIrtsRr0(payload, secondary_irts_rr_0_d);
     
             secondary::IrtsRr0 secondary_irts_rr_0_p;
             secondary_irts_rr_0_p.set_channel1(static_cast<uint32_t>(secondary_irts_rr_0_d->channel1));
@@ -276,8 +276,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1473: {
-            secondary_IRTS_RR_1* secondary_irts_rr_1_d = (secondary_IRTS_RR_1*)malloc(sizeof(secondary_IRTS_RR_1));
-            deserialize_secondary_IRTS_RR_1(payload, secondary_irts_rr_1_d);
+            SecondaryIrtsRr1Msg* secondary_irts_rr_1_d = (SecondaryIrtsRr1Msg*)malloc(SECONDARY_IRTS_RR_1_SIZE);
+            deserialize_SecondaryIrtsRr1(payload, secondary_irts_rr_1_d);
     
             secondary::IrtsRr1 secondary_irts_rr_1_p;
             secondary_irts_rr_1_p.set_channel5(static_cast<uint32_t>(secondary_irts_rr_1_d->channel5));
@@ -293,8 +293,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1474: {
-            secondary_IRTS_RR_2* secondary_irts_rr_2_d = (secondary_IRTS_RR_2*)malloc(sizeof(secondary_IRTS_RR_2));
-            deserialize_secondary_IRTS_RR_2(payload, secondary_irts_rr_2_d);
+            SecondaryIrtsRr2Msg* secondary_irts_rr_2_d = (SecondaryIrtsRr2Msg*)malloc(SECONDARY_IRTS_RR_2_SIZE);
+            deserialize_SecondaryIrtsRr2(payload, secondary_irts_rr_2_d);
     
             secondary::IrtsRr2 secondary_irts_rr_2_p;
             secondary_irts_rr_2_p.set_channel9(static_cast<uint32_t>(secondary_irts_rr_2_d->channel9));
@@ -310,8 +310,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1475: {
-            secondary_IRTS_RR_3* secondary_irts_rr_3_d = (secondary_IRTS_RR_3*)malloc(sizeof(secondary_IRTS_RR_3));
-            deserialize_secondary_IRTS_RR_3(payload, secondary_irts_rr_3_d);
+            SecondaryIrtsRr3Msg* secondary_irts_rr_3_d = (SecondaryIrtsRr3Msg*)malloc(SECONDARY_IRTS_RR_3_SIZE);
+            deserialize_SecondaryIrtsRr3(payload, secondary_irts_rr_3_d);
     
             secondary::IrtsRr3 secondary_irts_rr_3_p;
             secondary_irts_rr_3_p.set_channel13(static_cast<uint32_t>(secondary_irts_rr_3_d->channel13));
@@ -327,8 +327,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1025: {
-            secondary_GPS_COORDS* secondary_gps_coords_d = (secondary_GPS_COORDS*)malloc(sizeof(secondary_GPS_COORDS));
-            deserialize_secondary_GPS_COORDS(payload, secondary_gps_coords_d);
+            SecondaryGpsCoordsMsg* secondary_gps_coords_d = (SecondaryGpsCoordsMsg*)malloc(SECONDARY_GPS_COORDS_SIZE);
+            deserialize_SecondaryGpsCoords(payload, secondary_gps_coords_d);
     
             secondary::GpsCoords secondary_gps_coords_p;
             secondary_gps_coords_p.set_latitude(static_cast<float>(secondary_gps_coords_d->latitude));
@@ -342,8 +342,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1057: {
-            secondary_GPS_SPEED* secondary_gps_speed_d = (secondary_GPS_SPEED*)malloc(sizeof(secondary_GPS_SPEED));
-            deserialize_secondary_GPS_SPEED(payload, secondary_gps_speed_d);
+            SecondaryGpsSpeedMsg* secondary_gps_speed_d = (SecondaryGpsSpeedMsg*)malloc(SECONDARY_GPS_SPEED_SIZE);
+            deserialize_SecondaryGpsSpeed(payload, secondary_gps_speed_d);
     
             secondary::GpsSpeed secondary_gps_speed_p;
             secondary_gps_speed_p.set_speed(static_cast<uint32_t>(secondary_gps_speed_d->speed));
@@ -356,8 +356,8 @@ std::string secondary_naked2protobuf(uint32_t id, uint8_t* payload){
         }
 
         case 1089: {
-            secondary_LAP_COUNT* secondary_lap_count_d = (secondary_LAP_COUNT*)malloc(sizeof(secondary_LAP_COUNT));
-            deserialize_secondary_LAP_COUNT(payload, secondary_lap_count_d);
+            SecondaryLapCountMsg* secondary_lap_count_d = (SecondaryLapCountMsg*)malloc(SECONDARY_LAP_COUNT_SIZE);
+            deserialize_SecondaryLapCount(payload, secondary_lap_count_d);
     
             secondary::LapCount secondary_lap_count_p;
             secondary_lap_count_p.set_lap_count(static_cast<uint32_t>(secondary_lap_count_d->lap_count));
