@@ -9,7 +9,7 @@ int main() {
 
     printf("***SecondaryImuAngularRateMsg***\n");
     uint8_t buffer_SecondaryImuAngularRate[SECONDARY_IMU_ANGULAR_RATE_SIZE];
-    SecondaryImuAngularRateMsg SecondaryImuAngularRate_s = { 40385, 16243, 12047 };
+    SecondaryImuAngularRateMsg SecondaryImuAngularRate_s = { 58797, 56793, 16841 };
     
     printf("Before: %hu %hu %hu\n", SecondaryImuAngularRate_s.ang_rate_x, SecondaryImuAngularRate_s.ang_rate_y, SecondaryImuAngularRate_s.ang_rate_z);
     
@@ -19,12 +19,12 @@ int main() {
     
     printf("After:  %hu %hu %hu\n", SecondaryImuAngularRate_d.ang_rate_x, SecondaryImuAngularRate_d.ang_rate_y, SecondaryImuAngularRate_d.ang_rate_z);
     
-    assert(memcmp(&SecondaryImuAngularRate_s, &SecondaryImuAngularRate_d, sizeof(SecondaryImuAngularRateMsg)) == 0);
+    assert(memcmp(&SecondaryImuAngularRate_s, &SecondaryImuAngularRate_d, SECONDARY_IMU_ANGULAR_RATE_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryImuAccelerationMsg***\n");
     uint8_t buffer_SecondaryImuAcceleration[SECONDARY_IMU_ACCELERATION_SIZE];
-    SecondaryImuAccelerationMsg SecondaryImuAcceleration_s = { 30913, 46559, 48703 };
+    SecondaryImuAccelerationMsg SecondaryImuAcceleration_s = { 49277, 56225, 40771 };
     
     printf("Before: %hu %hu %hu\n", SecondaryImuAcceleration_s.accel_x, SecondaryImuAcceleration_s.accel_y, SecondaryImuAcceleration_s.accel_z);
     
@@ -34,12 +34,12 @@ int main() {
     
     printf("After:  %hu %hu %hu\n", SecondaryImuAcceleration_d.accel_x, SecondaryImuAcceleration_d.accel_y, SecondaryImuAcceleration_d.accel_z);
     
-    assert(memcmp(&SecondaryImuAcceleration_s, &SecondaryImuAcceleration_d, sizeof(SecondaryImuAccelerationMsg)) == 0);
+    assert(memcmp(&SecondaryImuAcceleration_s, &SecondaryImuAcceleration_d, SECONDARY_IMU_ACCELERATION_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsFl0Msg***\n");
     uint8_t buffer_SecondaryIrtsFl0[SECONDARY_IRTS_FL_0_SIZE];
-    SecondaryIrtsFl0Msg SecondaryIrtsFl0_s = { 27596, 20174, 48623, 6882 };
+    SecondaryIrtsFl0Msg SecondaryIrtsFl0_s = { 18405, 55772, 24306, 48401 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFl0_s.channel1, SecondaryIrtsFl0_s.channel2, SecondaryIrtsFl0_s.channel3, SecondaryIrtsFl0_s.channel4);
     
@@ -49,12 +49,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsFl0_d.channel1, SecondaryIrtsFl0_d.channel2, SecondaryIrtsFl0_d.channel3, SecondaryIrtsFl0_d.channel4);
     
-    assert(memcmp(&SecondaryIrtsFl0_s, &SecondaryIrtsFl0_d, sizeof(SecondaryIrtsFl0Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsFl0_s, &SecondaryIrtsFl0_d, SECONDARY_IRTS_FL_0_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsFl1Msg***\n");
     uint8_t buffer_SecondaryIrtsFl1[SECONDARY_IRTS_FL_1_SIZE];
-    SecondaryIrtsFl1Msg SecondaryIrtsFl1_s = { 41543, 60564, 50023, 15074 };
+    SecondaryIrtsFl1Msg SecondaryIrtsFl1_s = { 31652, 17494, 36618, 51930 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFl1_s.channel5, SecondaryIrtsFl1_s.channel6, SecondaryIrtsFl1_s.channel7, SecondaryIrtsFl1_s.channel8);
     
@@ -64,12 +64,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsFl1_d.channel5, SecondaryIrtsFl1_d.channel6, SecondaryIrtsFl1_d.channel7, SecondaryIrtsFl1_d.channel8);
     
-    assert(memcmp(&SecondaryIrtsFl1_s, &SecondaryIrtsFl1_d, sizeof(SecondaryIrtsFl1Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsFl1_s, &SecondaryIrtsFl1_d, SECONDARY_IRTS_FL_1_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsFl2Msg***\n");
     uint8_t buffer_SecondaryIrtsFl2[SECONDARY_IRTS_FL_2_SIZE];
-    SecondaryIrtsFl2Msg SecondaryIrtsFl2_s = { 34230, 62138, 4246, 35754 };
+    SecondaryIrtsFl2Msg SecondaryIrtsFl2_s = { 25476, 45561, 36101, 38224 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFl2_s.channel9, SecondaryIrtsFl2_s.channel10, SecondaryIrtsFl2_s.channel11, SecondaryIrtsFl2_s.channel12);
     
@@ -79,12 +79,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsFl2_d.channel9, SecondaryIrtsFl2_d.channel10, SecondaryIrtsFl2_d.channel11, SecondaryIrtsFl2_d.channel12);
     
-    assert(memcmp(&SecondaryIrtsFl2_s, &SecondaryIrtsFl2_d, sizeof(SecondaryIrtsFl2Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsFl2_s, &SecondaryIrtsFl2_d, SECONDARY_IRTS_FL_2_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsFl3Msg***\n");
     uint8_t buffer_SecondaryIrtsFl3[SECONDARY_IRTS_FL_3_SIZE];
-    SecondaryIrtsFl3Msg SecondaryIrtsFl3_s = { 37699, 42791, 52487, 27186 };
+    SecondaryIrtsFl3Msg SecondaryIrtsFl3_s = { 42408, 2479, 50006, 24177 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFl3_s.channel13, SecondaryIrtsFl3_s.channel14, SecondaryIrtsFl3_s.channel15, SecondaryIrtsFl3_s.channel16);
     
@@ -94,12 +94,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsFl3_d.channel13, SecondaryIrtsFl3_d.channel14, SecondaryIrtsFl3_d.channel15, SecondaryIrtsFl3_d.channel16);
     
-    assert(memcmp(&SecondaryIrtsFl3_s, &SecondaryIrtsFl3_d, sizeof(SecondaryIrtsFl3Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsFl3_s, &SecondaryIrtsFl3_d, SECONDARY_IRTS_FL_3_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsFr0Msg***\n");
     uint8_t buffer_SecondaryIrtsFr0[SECONDARY_IRTS_FR_0_SIZE];
-    SecondaryIrtsFr0Msg SecondaryIrtsFr0_s = { 23398, 43879, 18149, 60715 };
+    SecondaryIrtsFr0Msg SecondaryIrtsFr0_s = { 38972, 9716, 3528, 53121 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFr0_s.channel1, SecondaryIrtsFr0_s.channel2, SecondaryIrtsFr0_s.channel3, SecondaryIrtsFr0_s.channel4);
     
@@ -109,12 +109,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsFr0_d.channel1, SecondaryIrtsFr0_d.channel2, SecondaryIrtsFr0_d.channel3, SecondaryIrtsFr0_d.channel4);
     
-    assert(memcmp(&SecondaryIrtsFr0_s, &SecondaryIrtsFr0_d, sizeof(SecondaryIrtsFr0Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsFr0_s, &SecondaryIrtsFr0_d, SECONDARY_IRTS_FR_0_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsFr1Msg***\n");
     uint8_t buffer_SecondaryIrtsFr1[SECONDARY_IRTS_FR_1_SIZE];
-    SecondaryIrtsFr1Msg SecondaryIrtsFr1_s = { 28115, 31893, 33042, 22692 };
+    SecondaryIrtsFr1Msg SecondaryIrtsFr1_s = { 25015, 49069, 65145, 29164 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFr1_s.channel5, SecondaryIrtsFr1_s.channel6, SecondaryIrtsFr1_s.channel7, SecondaryIrtsFr1_s.channel8);
     
@@ -124,12 +124,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsFr1_d.channel5, SecondaryIrtsFr1_d.channel6, SecondaryIrtsFr1_d.channel7, SecondaryIrtsFr1_d.channel8);
     
-    assert(memcmp(&SecondaryIrtsFr1_s, &SecondaryIrtsFr1_d, sizeof(SecondaryIrtsFr1Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsFr1_s, &SecondaryIrtsFr1_d, SECONDARY_IRTS_FR_1_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsFr2Msg***\n");
     uint8_t buffer_SecondaryIrtsFr2[SECONDARY_IRTS_FR_2_SIZE];
-    SecondaryIrtsFr2Msg SecondaryIrtsFr2_s = { 45810, 40559, 64324, 40464 };
+    SecondaryIrtsFr2Msg SecondaryIrtsFr2_s = { 37381, 61509, 34496, 15302 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFr2_s.channel9, SecondaryIrtsFr2_s.channel10, SecondaryIrtsFr2_s.channel11, SecondaryIrtsFr2_s.channel12);
     
@@ -139,12 +139,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsFr2_d.channel9, SecondaryIrtsFr2_d.channel10, SecondaryIrtsFr2_d.channel11, SecondaryIrtsFr2_d.channel12);
     
-    assert(memcmp(&SecondaryIrtsFr2_s, &SecondaryIrtsFr2_d, sizeof(SecondaryIrtsFr2Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsFr2_s, &SecondaryIrtsFr2_d, SECONDARY_IRTS_FR_2_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsFr3Msg***\n");
     uint8_t buffer_SecondaryIrtsFr3[SECONDARY_IRTS_FR_3_SIZE];
-    SecondaryIrtsFr3Msg SecondaryIrtsFr3_s = { 38410, 56432, 50073, 33645 };
+    SecondaryIrtsFr3Msg SecondaryIrtsFr3_s = { 58506, 11018, 63640, 60247 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFr3_s.channel13, SecondaryIrtsFr3_s.channel14, SecondaryIrtsFr3_s.channel15, SecondaryIrtsFr3_s.channel16);
     
@@ -154,12 +154,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsFr3_d.channel13, SecondaryIrtsFr3_d.channel14, SecondaryIrtsFr3_d.channel15, SecondaryIrtsFr3_d.channel16);
     
-    assert(memcmp(&SecondaryIrtsFr3_s, &SecondaryIrtsFr3_d, sizeof(SecondaryIrtsFr3Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsFr3_s, &SecondaryIrtsFr3_d, SECONDARY_IRTS_FR_3_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsRl0Msg***\n");
     uint8_t buffer_SecondaryIrtsRl0[SECONDARY_IRTS_RL_0_SIZE];
-    SecondaryIrtsRl0Msg SecondaryIrtsRl0_s = { 56490, 43655, 20503, 38363 };
+    SecondaryIrtsRl0Msg SecondaryIrtsRl0_s = { 64649, 57036, 19282, 52049 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRl0_s.channel1, SecondaryIrtsRl0_s.channel2, SecondaryIrtsRl0_s.channel3, SecondaryIrtsRl0_s.channel4);
     
@@ -169,12 +169,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsRl0_d.channel1, SecondaryIrtsRl0_d.channel2, SecondaryIrtsRl0_d.channel3, SecondaryIrtsRl0_d.channel4);
     
-    assert(memcmp(&SecondaryIrtsRl0_s, &SecondaryIrtsRl0_d, sizeof(SecondaryIrtsRl0Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsRl0_s, &SecondaryIrtsRl0_d, SECONDARY_IRTS_RL_0_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsRl1Msg***\n");
     uint8_t buffer_SecondaryIrtsRl1[SECONDARY_IRTS_RL_1_SIZE];
-    SecondaryIrtsRl1Msg SecondaryIrtsRl1_s = { 26507, 37991, 10919, 61811 };
+    SecondaryIrtsRl1Msg SecondaryIrtsRl1_s = { 18003, 42417, 40023, 18853 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRl1_s.channel5, SecondaryIrtsRl1_s.channel6, SecondaryIrtsRl1_s.channel7, SecondaryIrtsRl1_s.channel8);
     
@@ -184,12 +184,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsRl1_d.channel5, SecondaryIrtsRl1_d.channel6, SecondaryIrtsRl1_d.channel7, SecondaryIrtsRl1_d.channel8);
     
-    assert(memcmp(&SecondaryIrtsRl1_s, &SecondaryIrtsRl1_d, sizeof(SecondaryIrtsRl1Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsRl1_s, &SecondaryIrtsRl1_d, SECONDARY_IRTS_RL_1_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsRl2Msg***\n");
     uint8_t buffer_SecondaryIrtsRl2[SECONDARY_IRTS_RL_2_SIZE];
-    SecondaryIrtsRl2Msg SecondaryIrtsRl2_s = { 55261, 32316, 51279, 51666 };
+    SecondaryIrtsRl2Msg SecondaryIrtsRl2_s = { 40581, 40778, 49784, 57357 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRl2_s.channel9, SecondaryIrtsRl2_s.channel10, SecondaryIrtsRl2_s.channel11, SecondaryIrtsRl2_s.channel12);
     
@@ -199,12 +199,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsRl2_d.channel9, SecondaryIrtsRl2_d.channel10, SecondaryIrtsRl2_d.channel11, SecondaryIrtsRl2_d.channel12);
     
-    assert(memcmp(&SecondaryIrtsRl2_s, &SecondaryIrtsRl2_d, sizeof(SecondaryIrtsRl2Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsRl2_s, &SecondaryIrtsRl2_d, SECONDARY_IRTS_RL_2_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsRl3Msg***\n");
     uint8_t buffer_SecondaryIrtsRl3[SECONDARY_IRTS_RL_3_SIZE];
-    SecondaryIrtsRl3Msg SecondaryIrtsRl3_s = { 55940, 7748, 14883, 12518 };
+    SecondaryIrtsRl3Msg SecondaryIrtsRl3_s = { 55869, 43329, 46222, 50556 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRl3_s.channel13, SecondaryIrtsRl3_s.channel14, SecondaryIrtsRl3_s.channel15, SecondaryIrtsRl3_s.channel16);
     
@@ -214,12 +214,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsRl3_d.channel13, SecondaryIrtsRl3_d.channel14, SecondaryIrtsRl3_d.channel15, SecondaryIrtsRl3_d.channel16);
     
-    assert(memcmp(&SecondaryIrtsRl3_s, &SecondaryIrtsRl3_d, sizeof(SecondaryIrtsRl3Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsRl3_s, &SecondaryIrtsRl3_d, SECONDARY_IRTS_RL_3_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsRr0Msg***\n");
     uint8_t buffer_SecondaryIrtsRr0[SECONDARY_IRTS_RR_0_SIZE];
-    SecondaryIrtsRr0Msg SecondaryIrtsRr0_s = { 39167, 28939, 22202, 43798 };
+    SecondaryIrtsRr0Msg SecondaryIrtsRr0_s = { 35994, 64215, 35264, 9749 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRr0_s.channel1, SecondaryIrtsRr0_s.channel2, SecondaryIrtsRr0_s.channel3, SecondaryIrtsRr0_s.channel4);
     
@@ -229,12 +229,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsRr0_d.channel1, SecondaryIrtsRr0_d.channel2, SecondaryIrtsRr0_d.channel3, SecondaryIrtsRr0_d.channel4);
     
-    assert(memcmp(&SecondaryIrtsRr0_s, &SecondaryIrtsRr0_d, sizeof(SecondaryIrtsRr0Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsRr0_s, &SecondaryIrtsRr0_d, SECONDARY_IRTS_RR_0_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsRr1Msg***\n");
     uint8_t buffer_SecondaryIrtsRr1[SECONDARY_IRTS_RR_1_SIZE];
-    SecondaryIrtsRr1Msg SecondaryIrtsRr1_s = { 63920, 8985, 2500, 18600 };
+    SecondaryIrtsRr1Msg SecondaryIrtsRr1_s = { 41980, 37640, 50221, 55323 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRr1_s.channel5, SecondaryIrtsRr1_s.channel6, SecondaryIrtsRr1_s.channel7, SecondaryIrtsRr1_s.channel8);
     
@@ -244,12 +244,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsRr1_d.channel5, SecondaryIrtsRr1_d.channel6, SecondaryIrtsRr1_d.channel7, SecondaryIrtsRr1_d.channel8);
     
-    assert(memcmp(&SecondaryIrtsRr1_s, &SecondaryIrtsRr1_d, sizeof(SecondaryIrtsRr1Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsRr1_s, &SecondaryIrtsRr1_d, SECONDARY_IRTS_RR_1_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsRr2Msg***\n");
     uint8_t buffer_SecondaryIrtsRr2[SECONDARY_IRTS_RR_2_SIZE];
-    SecondaryIrtsRr2Msg SecondaryIrtsRr2_s = { 37763, 52006, 7867, 13369 };
+    SecondaryIrtsRr2Msg SecondaryIrtsRr2_s = { 42514, 44106, 25684, 49189 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRr2_s.channel9, SecondaryIrtsRr2_s.channel10, SecondaryIrtsRr2_s.channel11, SecondaryIrtsRr2_s.channel12);
     
@@ -259,12 +259,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsRr2_d.channel9, SecondaryIrtsRr2_d.channel10, SecondaryIrtsRr2_d.channel11, SecondaryIrtsRr2_d.channel12);
     
-    assert(memcmp(&SecondaryIrtsRr2_s, &SecondaryIrtsRr2_d, sizeof(SecondaryIrtsRr2Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsRr2_s, &SecondaryIrtsRr2_d, SECONDARY_IRTS_RR_2_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryIrtsRr3Msg***\n");
     uint8_t buffer_SecondaryIrtsRr3[SECONDARY_IRTS_RR_3_SIZE];
-    SecondaryIrtsRr3Msg SecondaryIrtsRr3_s = { 30988, 47277, 50680, 9050 };
+    SecondaryIrtsRr3Msg SecondaryIrtsRr3_s = { 18096, 64945, 11595, 62466 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRr3_s.channel13, SecondaryIrtsRr3_s.channel14, SecondaryIrtsRr3_s.channel15, SecondaryIrtsRr3_s.channel16);
     
@@ -274,12 +274,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", SecondaryIrtsRr3_d.channel13, SecondaryIrtsRr3_d.channel14, SecondaryIrtsRr3_d.channel15, SecondaryIrtsRr3_d.channel16);
     
-    assert(memcmp(&SecondaryIrtsRr3_s, &SecondaryIrtsRr3_d, sizeof(SecondaryIrtsRr3Msg)) == 0);
+    assert(memcmp(&SecondaryIrtsRr3_s, &SecondaryIrtsRr3_d, SECONDARY_IRTS_RR_3_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryGpsCoordsMsg***\n");
     uint8_t buffer_SecondaryGpsCoords[SECONDARY_GPS_COORDS_SIZE];
-    SecondaryGpsCoordsMsg SecondaryGpsCoords_s = { 0.6232291333338542, 0.10127448835523245 };
+    SecondaryGpsCoordsMsg SecondaryGpsCoords_s = { 0.9062679121109941, 0.7407341139263618 };
     
     printf("Before: %f %f\n", SecondaryGpsCoords_s.latitude, SecondaryGpsCoords_s.longitude);
     
@@ -289,12 +289,12 @@ int main() {
     
     printf("After:  %f %f\n", SecondaryGpsCoords_d.latitude, SecondaryGpsCoords_d.longitude);
     
-    assert(memcmp(&SecondaryGpsCoords_s, &SecondaryGpsCoords_d, sizeof(SecondaryGpsCoordsMsg)) == 0);
+    assert(memcmp(&SecondaryGpsCoords_s, &SecondaryGpsCoords_d, SECONDARY_GPS_COORDS_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryGpsSpeedMsg***\n");
     uint8_t buffer_SecondaryGpsSpeed[SECONDARY_GPS_SPEED_SIZE];
-    SecondaryGpsSpeedMsg SecondaryGpsSpeed_s = { 42522 };
+    SecondaryGpsSpeedMsg SecondaryGpsSpeed_s = { 12831 };
     
     printf("Before: %hu\n", SecondaryGpsSpeed_s.speed);
     
@@ -304,12 +304,12 @@ int main() {
     
     printf("After:  %hu\n", SecondaryGpsSpeed_d.speed);
     
-    assert(memcmp(&SecondaryGpsSpeed_s, &SecondaryGpsSpeed_d, sizeof(SecondaryGpsSpeedMsg)) == 0);
+    assert(memcmp(&SecondaryGpsSpeed_s, &SecondaryGpsSpeed_d, SECONDARY_GPS_SPEED_SIZE) == 0);
     printf("\n");
 
     printf("***SecondaryLapCountMsg***\n");
     uint8_t buffer_SecondaryLapCount[SECONDARY_LAP_COUNT_SIZE];
-    SecondaryLapCountMsg SecondaryLapCount_s = { 2551020555, 66 };
+    SecondaryLapCountMsg SecondaryLapCount_s = { 3702056101, 45 };
     
     printf("Before: %u %hhu\n", SecondaryLapCount_s.timestamp, SecondaryLapCount_s.lap_count);
     
@@ -319,7 +319,7 @@ int main() {
     
     printf("After:  %u %hhu\n", SecondaryLapCount_d.timestamp, SecondaryLapCount_d.lap_count);
     
-    assert(memcmp(&SecondaryLapCount_s, &SecondaryLapCount_d, sizeof(SecondaryLapCountMsg)) == 0);
+    assert(memcmp(&SecondaryLapCount_s, &SecondaryLapCount_d, SECONDARY_LAP_COUNT_SIZE) == 0);
     printf("\n");
 
     return 0;

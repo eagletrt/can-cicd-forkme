@@ -323,26 +323,31 @@ typedef enum __is_packed {
 typedef struct __is_packed {
     uint8_t component_version;
     uint8_t cancicd_version;
+    uint32_t timestamp;
 } PrimarySteerVersionMsg;
 
 typedef struct __is_packed {
     uint8_t component_version;
     uint8_t cancicd_version;
+    uint32_t timestamp;
 } PrimaryDasVersionMsg;
 
 typedef struct __is_packed {
     uint8_t component_version;
     uint8_t cancicd_version;
+    uint32_t timestamp;
 } PrimaryHvVersionMsg;
 
 typedef struct __is_packed {
     uint8_t component_version;
     uint8_t cancicd_version;
+    uint32_t timestamp;
 } PrimaryLvVersionMsg;
 
 typedef struct __is_packed {
     uint8_t component_version;
     uint8_t cancicd_version;
+    uint32_t timestamp;
 } PrimaryTlmVersionMsg;
 
 typedef struct __is_packed {
@@ -354,13 +359,16 @@ typedef struct __is_packed {
     uint8_t circuit;
     PrimaryRaceType race_type;
     PrimaryTlmStatus tlm_status;
+    uint32_t timestamp;
 } PrimarySetTlmStatusMsg;
 
 typedef struct __is_packed {
     uint8_t soc_temp;
+    uint32_t timestamp;
 } PrimarySteerSystemStatusMsg;
 
 typedef struct __is_packed {
+    uint32_t timestamp;
 } PrimaryMarkerMsg;
 
 typedef struct __is_packed {
@@ -368,16 +376,19 @@ typedef struct __is_packed {
     uint8_t circuit;
     PrimaryRaceType race_type;
     PrimaryTlmStatus tlm_status;
+    uint32_t timestamp;
 } PrimaryTlmStatusMsg;
 
 typedef struct __is_packed {
     PrimaryInverterStatus inverter_l;
     PrimaryInverterStatus inverter_r;
     PrimaryCarStatus car_status;
+    uint32_t timestamp;
 } PrimaryCarStatusMsg;
 
 typedef struct __is_packed {
     PrimaryDasErrors das_error;
+    uint32_t timestamp;
 } PrimaryDasErrorsMsg;
 
 typedef struct __is_packed {
@@ -385,6 +396,7 @@ typedef struct __is_packed {
     uint16_t encoder_l;
     uint16_t inverter_r;
     uint16_t inverter_l;
+    uint32_t timestamp;
 } PrimarySpeedMsg;
 
 typedef struct __is_packed {
@@ -392,56 +404,68 @@ typedef struct __is_packed {
     uint16_t bus_voltage;
     uint16_t max_cell_voltage;
     uint16_t min_cell_voltage;
+    uint32_t timestamp;
 } PrimaryHvVoltageMsg;
 
 typedef struct __is_packed {
     uint16_t current;
     int16_t power;
+    uint32_t timestamp;
 } PrimaryHvCurrentMsg;
 
 typedef struct __is_packed {
     uint16_t average_temp;
     uint16_t max_temp;
     uint16_t min_temp;
+    uint32_t timestamp;
 } PrimaryHvTempMsg;
 
 typedef struct __is_packed {
     PrimaryHvErrors warnings;
     PrimaryHvErrors errors;
+    uint32_t timestamp;
 } PrimaryHvErrorsMsg;
 
 typedef struct __is_packed {
     PrimaryTsStatus ts_status;
+    uint32_t timestamp;
 } PrimaryTsStatusMsg;
 
 typedef struct __is_packed {
     PrimaryTsStatusSet ts_status_set;
+    uint32_t timestamp;
 } PrimarySetTsStatusMsg;
 
 typedef struct __is_packed {
     PrimarySetBalancingStatus set_balancing_status;
+    uint32_t timestamp;
 } PrimarySetCellBalancingStatusMsg;
 
 typedef struct __is_packed {
     bool connected;
+    uint32_t timestamp;
 } PrimaryHandcartStatusMsg;
 
 typedef struct __is_packed {
     PrimaryMap map;
     PrimaryTractionControl traction_control;
+    uint32_t timestamp;
 } PrimarySteerStatusMsg;
 
 typedef struct __is_packed {
     PrimaryCarStatusSet car_status_set;
+    uint32_t timestamp;
 } PrimarySetCarStatusMsg;
 
 typedef struct __is_packed {
     PrimaryBound bound;
     PrimaryPedal pedal;
+    uint32_t timestamp;
 } PrimarySetPedalsRangeMsg;
 
 typedef struct __is_packed {
     uint8_t current;
+    uint32_t timestamp;
 } PrimaryLvCurrentMsg;
 
 typedef struct __is_packed {
@@ -450,17 +474,20 @@ typedef struct __is_packed {
     uint8_t voltage_2;
     uint8_t voltage_3;
     uint8_t voltage_4;
+    uint32_t timestamp;
 } PrimaryLvVoltageMsg;
 
 typedef struct __is_packed {
     uint8_t bp_temperature;
     uint8_t dcdc_temperature;
+    uint32_t timestamp;
 } PrimaryLvTemperatureMsg;
 
 typedef struct __is_packed {
     uint8_t hv_fan_speed;
     uint8_t lv_fan_speed;
     uint8_t pump_speed;
+    uint32_t timestamp;
 } PrimaryCoolingStatusMsg;
 
 typedef struct __is_packed {
@@ -468,6 +495,7 @@ typedef struct __is_packed {
     uint16_t voltage_1;
     uint16_t voltage_2;
     uint8_t cell_index;
+    uint32_t timestamp;
 } PrimaryHvCellsVoltageMsg;
 
 typedef struct __is_packed {
@@ -479,21 +507,25 @@ typedef struct __is_packed {
     uint8_t temp_4;
     uint8_t temp_5;
     uint8_t temp_6;
+    uint32_t timestamp;
 } PrimaryHvCellsTempMsg;
 
 typedef struct __is_packed {
     PrimaryBalancingStatus balancing_status;
+    uint32_t timestamp;
 } PrimaryHvCellBalancingStatusMsg;
 
 typedef struct __is_packed {
     uint8_t regid;
     uint8_t lsb;
     uint8_t msb;
+    uint32_t timestamp;
 } PrimaryInvLSetTorqueMsg;
 
 typedef struct __is_packed {
     PrimaryRegVal reg_val;
     uint8_t reg_id;
+    uint32_t timestamp;
 } PrimaryInvLResponseMsg;
 
 // Functions

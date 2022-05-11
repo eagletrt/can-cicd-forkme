@@ -9,12 +9,10 @@ from struct import pack, unpack
 
 class SecondaryImuAngularRateMsg:
     def __init__(self, ang_rate_x: int = None, ang_rate_y: int = None, ang_rate_z: int = None):
-        if ang_rate_x is not None:
-            self.ang_rate_x = int(ang_rate_x)
-        if ang_rate_y is not None:
-            self.ang_rate_y = int(ang_rate_y)
-        if ang_rate_z is not None:
-            self.ang_rate_z = int(ang_rate_z)
+        self.ang_rate_x = int(ang_rate_x) if ang_rate_x is not None else None
+        self.ang_rate_y = int(ang_rate_y) if ang_rate_y is not None else None
+        self.ang_rate_z = int(ang_rate_z) if ang_rate_z is not None else None
+        self.timestamp=int()
         self.size = 6
 
     def serialize(self):
@@ -40,12 +38,10 @@ class SecondaryImuAngularRateMsg:
 
 class SecondaryImuAccelerationMsg:
     def __init__(self, accel_x: int = None, accel_y: int = None, accel_z: int = None):
-        if accel_x is not None:
-            self.accel_x = int(accel_x)
-        if accel_y is not None:
-            self.accel_y = int(accel_y)
-        if accel_z is not None:
-            self.accel_z = int(accel_z)
+        self.accel_x = int(accel_x) if accel_x is not None else None
+        self.accel_y = int(accel_y) if accel_y is not None else None
+        self.accel_z = int(accel_z) if accel_z is not None else None
+        self.timestamp=int()
         self.size = 6
 
     def serialize(self):
@@ -71,14 +67,11 @@ class SecondaryImuAccelerationMsg:
 
 class SecondaryIrtsFl0Msg:
     def __init__(self, channel1: int = None, channel2: int = None, channel3: int = None, channel4: int = None):
-        if channel1 is not None:
-            self.channel1 = int(channel1)
-        if channel2 is not None:
-            self.channel2 = int(channel2)
-        if channel3 is not None:
-            self.channel3 = int(channel3)
-        if channel4 is not None:
-            self.channel4 = int(channel4)
+        self.channel1 = int(channel1) if channel1 is not None else None
+        self.channel2 = int(channel2) if channel2 is not None else None
+        self.channel3 = int(channel3) if channel3 is not None else None
+        self.channel4 = int(channel4) if channel4 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -107,14 +100,11 @@ class SecondaryIrtsFl0Msg:
 
 class SecondaryIrtsFl1Msg:
     def __init__(self, channel5: int = None, channel6: int = None, channel7: int = None, channel8: int = None):
-        if channel5 is not None:
-            self.channel5 = int(channel5)
-        if channel6 is not None:
-            self.channel6 = int(channel6)
-        if channel7 is not None:
-            self.channel7 = int(channel7)
-        if channel8 is not None:
-            self.channel8 = int(channel8)
+        self.channel5 = int(channel5) if channel5 is not None else None
+        self.channel6 = int(channel6) if channel6 is not None else None
+        self.channel7 = int(channel7) if channel7 is not None else None
+        self.channel8 = int(channel8) if channel8 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -143,14 +133,11 @@ class SecondaryIrtsFl1Msg:
 
 class SecondaryIrtsFl2Msg:
     def __init__(self, channel9: int = None, channel10: int = None, channel11: int = None, channel12: int = None):
-        if channel9 is not None:
-            self.channel9 = int(channel9)
-        if channel10 is not None:
-            self.channel10 = int(channel10)
-        if channel11 is not None:
-            self.channel11 = int(channel11)
-        if channel12 is not None:
-            self.channel12 = int(channel12)
+        self.channel9 = int(channel9) if channel9 is not None else None
+        self.channel10 = int(channel10) if channel10 is not None else None
+        self.channel11 = int(channel11) if channel11 is not None else None
+        self.channel12 = int(channel12) if channel12 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -179,14 +166,11 @@ class SecondaryIrtsFl2Msg:
 
 class SecondaryIrtsFl3Msg:
     def __init__(self, channel13: int = None, channel14: int = None, channel15: int = None, channel16: int = None):
-        if channel13 is not None:
-            self.channel13 = int(channel13)
-        if channel14 is not None:
-            self.channel14 = int(channel14)
-        if channel15 is not None:
-            self.channel15 = int(channel15)
-        if channel16 is not None:
-            self.channel16 = int(channel16)
+        self.channel13 = int(channel13) if channel13 is not None else None
+        self.channel14 = int(channel14) if channel14 is not None else None
+        self.channel15 = int(channel15) if channel15 is not None else None
+        self.channel16 = int(channel16) if channel16 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -215,14 +199,11 @@ class SecondaryIrtsFl3Msg:
 
 class SecondaryIrtsFr0Msg:
     def __init__(self, channel1: int = None, channel2: int = None, channel3: int = None, channel4: int = None):
-        if channel1 is not None:
-            self.channel1 = int(channel1)
-        if channel2 is not None:
-            self.channel2 = int(channel2)
-        if channel3 is not None:
-            self.channel3 = int(channel3)
-        if channel4 is not None:
-            self.channel4 = int(channel4)
+        self.channel1 = int(channel1) if channel1 is not None else None
+        self.channel2 = int(channel2) if channel2 is not None else None
+        self.channel3 = int(channel3) if channel3 is not None else None
+        self.channel4 = int(channel4) if channel4 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -251,14 +232,11 @@ class SecondaryIrtsFr0Msg:
 
 class SecondaryIrtsFr1Msg:
     def __init__(self, channel5: int = None, channel6: int = None, channel7: int = None, channel8: int = None):
-        if channel5 is not None:
-            self.channel5 = int(channel5)
-        if channel6 is not None:
-            self.channel6 = int(channel6)
-        if channel7 is not None:
-            self.channel7 = int(channel7)
-        if channel8 is not None:
-            self.channel8 = int(channel8)
+        self.channel5 = int(channel5) if channel5 is not None else None
+        self.channel6 = int(channel6) if channel6 is not None else None
+        self.channel7 = int(channel7) if channel7 is not None else None
+        self.channel8 = int(channel8) if channel8 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -287,14 +265,11 @@ class SecondaryIrtsFr1Msg:
 
 class SecondaryIrtsFr2Msg:
     def __init__(self, channel9: int = None, channel10: int = None, channel11: int = None, channel12: int = None):
-        if channel9 is not None:
-            self.channel9 = int(channel9)
-        if channel10 is not None:
-            self.channel10 = int(channel10)
-        if channel11 is not None:
-            self.channel11 = int(channel11)
-        if channel12 is not None:
-            self.channel12 = int(channel12)
+        self.channel9 = int(channel9) if channel9 is not None else None
+        self.channel10 = int(channel10) if channel10 is not None else None
+        self.channel11 = int(channel11) if channel11 is not None else None
+        self.channel12 = int(channel12) if channel12 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -323,14 +298,11 @@ class SecondaryIrtsFr2Msg:
 
 class SecondaryIrtsFr3Msg:
     def __init__(self, channel13: int = None, channel14: int = None, channel15: int = None, channel16: int = None):
-        if channel13 is not None:
-            self.channel13 = int(channel13)
-        if channel14 is not None:
-            self.channel14 = int(channel14)
-        if channel15 is not None:
-            self.channel15 = int(channel15)
-        if channel16 is not None:
-            self.channel16 = int(channel16)
+        self.channel13 = int(channel13) if channel13 is not None else None
+        self.channel14 = int(channel14) if channel14 is not None else None
+        self.channel15 = int(channel15) if channel15 is not None else None
+        self.channel16 = int(channel16) if channel16 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -359,14 +331,11 @@ class SecondaryIrtsFr3Msg:
 
 class SecondaryIrtsRl0Msg:
     def __init__(self, channel1: int = None, channel2: int = None, channel3: int = None, channel4: int = None):
-        if channel1 is not None:
-            self.channel1 = int(channel1)
-        if channel2 is not None:
-            self.channel2 = int(channel2)
-        if channel3 is not None:
-            self.channel3 = int(channel3)
-        if channel4 is not None:
-            self.channel4 = int(channel4)
+        self.channel1 = int(channel1) if channel1 is not None else None
+        self.channel2 = int(channel2) if channel2 is not None else None
+        self.channel3 = int(channel3) if channel3 is not None else None
+        self.channel4 = int(channel4) if channel4 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -395,14 +364,11 @@ class SecondaryIrtsRl0Msg:
 
 class SecondaryIrtsRl1Msg:
     def __init__(self, channel5: int = None, channel6: int = None, channel7: int = None, channel8: int = None):
-        if channel5 is not None:
-            self.channel5 = int(channel5)
-        if channel6 is not None:
-            self.channel6 = int(channel6)
-        if channel7 is not None:
-            self.channel7 = int(channel7)
-        if channel8 is not None:
-            self.channel8 = int(channel8)
+        self.channel5 = int(channel5) if channel5 is not None else None
+        self.channel6 = int(channel6) if channel6 is not None else None
+        self.channel7 = int(channel7) if channel7 is not None else None
+        self.channel8 = int(channel8) if channel8 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -431,14 +397,11 @@ class SecondaryIrtsRl1Msg:
 
 class SecondaryIrtsRl2Msg:
     def __init__(self, channel9: int = None, channel10: int = None, channel11: int = None, channel12: int = None):
-        if channel9 is not None:
-            self.channel9 = int(channel9)
-        if channel10 is not None:
-            self.channel10 = int(channel10)
-        if channel11 is not None:
-            self.channel11 = int(channel11)
-        if channel12 is not None:
-            self.channel12 = int(channel12)
+        self.channel9 = int(channel9) if channel9 is not None else None
+        self.channel10 = int(channel10) if channel10 is not None else None
+        self.channel11 = int(channel11) if channel11 is not None else None
+        self.channel12 = int(channel12) if channel12 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -467,14 +430,11 @@ class SecondaryIrtsRl2Msg:
 
 class SecondaryIrtsRl3Msg:
     def __init__(self, channel13: int = None, channel14: int = None, channel15: int = None, channel16: int = None):
-        if channel13 is not None:
-            self.channel13 = int(channel13)
-        if channel14 is not None:
-            self.channel14 = int(channel14)
-        if channel15 is not None:
-            self.channel15 = int(channel15)
-        if channel16 is not None:
-            self.channel16 = int(channel16)
+        self.channel13 = int(channel13) if channel13 is not None else None
+        self.channel14 = int(channel14) if channel14 is not None else None
+        self.channel15 = int(channel15) if channel15 is not None else None
+        self.channel16 = int(channel16) if channel16 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -503,14 +463,11 @@ class SecondaryIrtsRl3Msg:
 
 class SecondaryIrtsRr0Msg:
     def __init__(self, channel1: int = None, channel2: int = None, channel3: int = None, channel4: int = None):
-        if channel1 is not None:
-            self.channel1 = int(channel1)
-        if channel2 is not None:
-            self.channel2 = int(channel2)
-        if channel3 is not None:
-            self.channel3 = int(channel3)
-        if channel4 is not None:
-            self.channel4 = int(channel4)
+        self.channel1 = int(channel1) if channel1 is not None else None
+        self.channel2 = int(channel2) if channel2 is not None else None
+        self.channel3 = int(channel3) if channel3 is not None else None
+        self.channel4 = int(channel4) if channel4 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -539,14 +496,11 @@ class SecondaryIrtsRr0Msg:
 
 class SecondaryIrtsRr1Msg:
     def __init__(self, channel5: int = None, channel6: int = None, channel7: int = None, channel8: int = None):
-        if channel5 is not None:
-            self.channel5 = int(channel5)
-        if channel6 is not None:
-            self.channel6 = int(channel6)
-        if channel7 is not None:
-            self.channel7 = int(channel7)
-        if channel8 is not None:
-            self.channel8 = int(channel8)
+        self.channel5 = int(channel5) if channel5 is not None else None
+        self.channel6 = int(channel6) if channel6 is not None else None
+        self.channel7 = int(channel7) if channel7 is not None else None
+        self.channel8 = int(channel8) if channel8 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -575,14 +529,11 @@ class SecondaryIrtsRr1Msg:
 
 class SecondaryIrtsRr2Msg:
     def __init__(self, channel9: int = None, channel10: int = None, channel11: int = None, channel12: int = None):
-        if channel9 is not None:
-            self.channel9 = int(channel9)
-        if channel10 is not None:
-            self.channel10 = int(channel10)
-        if channel11 is not None:
-            self.channel11 = int(channel11)
-        if channel12 is not None:
-            self.channel12 = int(channel12)
+        self.channel9 = int(channel9) if channel9 is not None else None
+        self.channel10 = int(channel10) if channel10 is not None else None
+        self.channel11 = int(channel11) if channel11 is not None else None
+        self.channel12 = int(channel12) if channel12 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -611,14 +562,11 @@ class SecondaryIrtsRr2Msg:
 
 class SecondaryIrtsRr3Msg:
     def __init__(self, channel13: int = None, channel14: int = None, channel15: int = None, channel16: int = None):
-        if channel13 is not None:
-            self.channel13 = int(channel13)
-        if channel14 is not None:
-            self.channel14 = int(channel14)
-        if channel15 is not None:
-            self.channel15 = int(channel15)
-        if channel16 is not None:
-            self.channel16 = int(channel16)
+        self.channel13 = int(channel13) if channel13 is not None else None
+        self.channel14 = int(channel14) if channel14 is not None else None
+        self.channel15 = int(channel15) if channel15 is not None else None
+        self.channel16 = int(channel16) if channel16 is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -647,10 +595,9 @@ class SecondaryIrtsRr3Msg:
 
 class SecondaryGpsCoordsMsg:
     def __init__(self, latitude: float = None, longitude: float = None):
-        if latitude is not None:
-            self.latitude = float(latitude)
-        if longitude is not None:
-            self.longitude = float(longitude)
+        self.latitude = float(latitude) if latitude is not None else None
+        self.longitude = float(longitude) if longitude is not None else None
+        self.timestamp=int()
         self.size = 8
 
     def serialize(self):
@@ -675,8 +622,8 @@ class SecondaryGpsCoordsMsg:
 
 class SecondaryGpsSpeedMsg:
     def __init__(self, speed: int = None):
-        if speed is not None:
-            self.speed = int(speed)
+        self.speed = int(speed) if speed is not None else None
+        self.timestamp=int()
         self.size = 2
 
     def serialize(self):
@@ -696,10 +643,8 @@ class SecondaryGpsSpeedMsg:
 
 class SecondaryLapCountMsg:
     def __init__(self, timestamp: int = None, lap_count: int = None):
-        if timestamp is not None:
-            self.timestamp = int(timestamp)
-        if lap_count is not None:
-            self.lap_count = int(lap_count)
+        self.timestamp = int(timestamp) if timestamp is not None else None
+        self.lap_count = int(lap_count) if lap_count is not None else None
         self.size = 5
 
     def serialize(self):

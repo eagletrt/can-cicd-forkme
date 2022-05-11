@@ -112,12 +112,14 @@ typedef struct __is_packed {
     uint16_t ang_rate_x;
     uint16_t ang_rate_y;
     uint16_t ang_rate_z;
+    uint32_t timestamp;
 } SecondaryImuAngularRateMsg;
 
 typedef struct __is_packed {
     uint16_t accel_x;
     uint16_t accel_y;
     uint16_t accel_z;
+    uint32_t timestamp;
 } SecondaryImuAccelerationMsg;
 
 typedef struct __is_packed {
@@ -125,6 +127,7 @@ typedef struct __is_packed {
     uint16_t channel2;
     uint16_t channel3;
     uint16_t channel4;
+    uint32_t timestamp;
 } SecondaryIrtsFl0Msg;
 
 typedef struct __is_packed {
@@ -132,6 +135,7 @@ typedef struct __is_packed {
     uint16_t channel6;
     uint16_t channel7;
     uint16_t channel8;
+    uint32_t timestamp;
 } SecondaryIrtsFl1Msg;
 
 typedef struct __is_packed {
@@ -139,6 +143,7 @@ typedef struct __is_packed {
     uint16_t channel10;
     uint16_t channel11;
     uint16_t channel12;
+    uint32_t timestamp;
 } SecondaryIrtsFl2Msg;
 
 typedef struct __is_packed {
@@ -146,6 +151,7 @@ typedef struct __is_packed {
     uint16_t channel14;
     uint16_t channel15;
     uint16_t channel16;
+    uint32_t timestamp;
 } SecondaryIrtsFl3Msg;
 
 typedef struct __is_packed {
@@ -153,6 +159,7 @@ typedef struct __is_packed {
     uint16_t channel2;
     uint16_t channel3;
     uint16_t channel4;
+    uint32_t timestamp;
 } SecondaryIrtsFr0Msg;
 
 typedef struct __is_packed {
@@ -160,6 +167,7 @@ typedef struct __is_packed {
     uint16_t channel6;
     uint16_t channel7;
     uint16_t channel8;
+    uint32_t timestamp;
 } SecondaryIrtsFr1Msg;
 
 typedef struct __is_packed {
@@ -167,6 +175,7 @@ typedef struct __is_packed {
     uint16_t channel10;
     uint16_t channel11;
     uint16_t channel12;
+    uint32_t timestamp;
 } SecondaryIrtsFr2Msg;
 
 typedef struct __is_packed {
@@ -174,6 +183,7 @@ typedef struct __is_packed {
     uint16_t channel14;
     uint16_t channel15;
     uint16_t channel16;
+    uint32_t timestamp;
 } SecondaryIrtsFr3Msg;
 
 typedef struct __is_packed {
@@ -181,6 +191,7 @@ typedef struct __is_packed {
     uint16_t channel2;
     uint16_t channel3;
     uint16_t channel4;
+    uint32_t timestamp;
 } SecondaryIrtsRl0Msg;
 
 typedef struct __is_packed {
@@ -188,6 +199,7 @@ typedef struct __is_packed {
     uint16_t channel6;
     uint16_t channel7;
     uint16_t channel8;
+    uint32_t timestamp;
 } SecondaryIrtsRl1Msg;
 
 typedef struct __is_packed {
@@ -195,6 +207,7 @@ typedef struct __is_packed {
     uint16_t channel10;
     uint16_t channel11;
     uint16_t channel12;
+    uint32_t timestamp;
 } SecondaryIrtsRl2Msg;
 
 typedef struct __is_packed {
@@ -202,6 +215,7 @@ typedef struct __is_packed {
     uint16_t channel14;
     uint16_t channel15;
     uint16_t channel16;
+    uint32_t timestamp;
 } SecondaryIrtsRl3Msg;
 
 typedef struct __is_packed {
@@ -209,6 +223,7 @@ typedef struct __is_packed {
     uint16_t channel2;
     uint16_t channel3;
     uint16_t channel4;
+    uint32_t timestamp;
 } SecondaryIrtsRr0Msg;
 
 typedef struct __is_packed {
@@ -216,6 +231,7 @@ typedef struct __is_packed {
     uint16_t channel6;
     uint16_t channel7;
     uint16_t channel8;
+    uint32_t timestamp;
 } SecondaryIrtsRr1Msg;
 
 typedef struct __is_packed {
@@ -223,6 +239,7 @@ typedef struct __is_packed {
     uint16_t channel10;
     uint16_t channel11;
     uint16_t channel12;
+    uint32_t timestamp;
 } SecondaryIrtsRr2Msg;
 
 typedef struct __is_packed {
@@ -230,15 +247,18 @@ typedef struct __is_packed {
     uint16_t channel14;
     uint16_t channel15;
     uint16_t channel16;
+    uint32_t timestamp;
 } SecondaryIrtsRr3Msg;
 
 typedef struct __is_packed {
     float latitude;
     float longitude;
+    uint32_t timestamp;
 } SecondaryGpsCoordsMsg;
 
 typedef struct __is_packed {
     uint16_t speed;
+    uint32_t timestamp;
 } SecondaryGpsSpeedMsg;
 
 typedef struct __is_packed {

@@ -3,7 +3,7 @@ import bms
 
 print("***BmsBoardStatus***")
 
-BmsBoardStatus_s = bms.BmsBoardStatusMsg(231, 1)
+BmsBoardStatus_s = bms.BmsBoardStatusMsg(4, 1)
     
 print(f"Before: {BmsBoardStatus_s.errors} {BmsBoardStatus_s.balancing_status}")
     
@@ -20,7 +20,7 @@ print("")
 
 print("***BmsTemperatures***")
 
-BmsTemperatures_s = bms.BmsTemperaturesMsg(47, 81, 4, 2, 208, 220, 126)
+BmsTemperatures_s = bms.BmsTemperaturesMsg(223, 182, 156, 172, 144, 115, 136)
     
 print(f"Before: {BmsTemperatures_s.start_index} {BmsTemperatures_s.temp0} {BmsTemperatures_s.temp1} {BmsTemperatures_s.temp2} {BmsTemperatures_s.temp3} {BmsTemperatures_s.temp4} {BmsTemperatures_s.temp5}")
     
@@ -37,7 +37,7 @@ print("")
 
 print("***BmsVoltages***")
 
-BmsVoltages_s = bms.BmsVoltagesMsg(58354, 48739, 39336, 196)
+BmsVoltages_s = bms.BmsVoltagesMsg(20583, 45647, 20189, 77)
     
 print(f"Before: {BmsVoltages_s.voltage0} {BmsVoltages_s.voltage1} {BmsVoltages_s.voltage2} {BmsVoltages_s.start_index}")
     
@@ -54,7 +54,7 @@ print("")
 
 print("***BmsBalancing***")
 
-BmsBalancing_s = bms.BmsBalancingMsg(12895162, 209)
+BmsBalancing_s = bms.BmsBalancingMsg(10823162, 248)
     
 print(f"Before: {BmsBalancing_s.cells} {BmsBalancing_s.board_index}")
     
@@ -71,7 +71,7 @@ print("")
 
 print("***BmsFwUpdate***")
 
-BmsFwUpdate_s = bms.BmsFwUpdateMsg(53)
+BmsFwUpdate_s = bms.BmsFwUpdateMsg(151)
     
 print(f"Before: {BmsFwUpdate_s.board_index}")
     

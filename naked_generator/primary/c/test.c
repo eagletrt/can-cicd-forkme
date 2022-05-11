@@ -9,7 +9,7 @@ int main() {
 
     printf("***PrimarySteerVersionMsg***\n");
     uint8_t buffer_PrimarySteerVersion[PRIMARY_STEER_VERSION_SIZE];
-    PrimarySteerVersionMsg PrimarySteerVersion_s = { 63, 100 };
+    PrimarySteerVersionMsg PrimarySteerVersion_s = { 109, 24 };
     
     printf("Before: %hhu %hhu\n", PrimarySteerVersion_s.component_version, PrimarySteerVersion_s.cancicd_version);
     
@@ -19,12 +19,12 @@ int main() {
     
     printf("After:  %hhu %hhu\n", PrimarySteerVersion_d.component_version, PrimarySteerVersion_d.cancicd_version);
     
-    assert(memcmp(&PrimarySteerVersion_s, &PrimarySteerVersion_d, sizeof(PrimarySteerVersionMsg)) == 0);
+    assert(memcmp(&PrimarySteerVersion_s, &PrimarySteerVersion_d, PRIMARY_STEER_VERSION_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryDasVersionMsg***\n");
     uint8_t buffer_PrimaryDasVersion[PRIMARY_DAS_VERSION_SIZE];
-    PrimaryDasVersionMsg PrimaryDasVersion_s = { 46, 36 };
+    PrimaryDasVersionMsg PrimaryDasVersion_s = { 247, 153 };
     
     printf("Before: %hhu %hhu\n", PrimaryDasVersion_s.component_version, PrimaryDasVersion_s.cancicd_version);
     
@@ -34,12 +34,12 @@ int main() {
     
     printf("After:  %hhu %hhu\n", PrimaryDasVersion_d.component_version, PrimaryDasVersion_d.cancicd_version);
     
-    assert(memcmp(&PrimaryDasVersion_s, &PrimaryDasVersion_d, sizeof(PrimaryDasVersionMsg)) == 0);
+    assert(memcmp(&PrimaryDasVersion_s, &PrimaryDasVersion_d, PRIMARY_DAS_VERSION_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryHvVersionMsg***\n");
     uint8_t buffer_PrimaryHvVersion[PRIMARY_HV_VERSION_SIZE];
-    PrimaryHvVersionMsg PrimaryHvVersion_s = { 202, 223 };
+    PrimaryHvVersionMsg PrimaryHvVersion_s = { 95, 55 };
     
     printf("Before: %hhu %hhu\n", PrimaryHvVersion_s.component_version, PrimaryHvVersion_s.cancicd_version);
     
@@ -49,12 +49,12 @@ int main() {
     
     printf("After:  %hhu %hhu\n", PrimaryHvVersion_d.component_version, PrimaryHvVersion_d.cancicd_version);
     
-    assert(memcmp(&PrimaryHvVersion_s, &PrimaryHvVersion_d, sizeof(PrimaryHvVersionMsg)) == 0);
+    assert(memcmp(&PrimaryHvVersion_s, &PrimaryHvVersion_d, PRIMARY_HV_VERSION_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryLvVersionMsg***\n");
     uint8_t buffer_PrimaryLvVersion[PRIMARY_LV_VERSION_SIZE];
-    PrimaryLvVersionMsg PrimaryLvVersion_s = { 187, 36 };
+    PrimaryLvVersionMsg PrimaryLvVersion_s = { 68, 128 };
     
     printf("Before: %hhu %hhu\n", PrimaryLvVersion_s.component_version, PrimaryLvVersion_s.cancicd_version);
     
@@ -64,12 +64,12 @@ int main() {
     
     printf("After:  %hhu %hhu\n", PrimaryLvVersion_d.component_version, PrimaryLvVersion_d.cancicd_version);
     
-    assert(memcmp(&PrimaryLvVersion_s, &PrimaryLvVersion_d, sizeof(PrimaryLvVersionMsg)) == 0);
+    assert(memcmp(&PrimaryLvVersion_s, &PrimaryLvVersion_d, PRIMARY_LV_VERSION_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryTlmVersionMsg***\n");
     uint8_t buffer_PrimaryTlmVersion[PRIMARY_TLM_VERSION_SIZE];
-    PrimaryTlmVersionMsg PrimaryTlmVersion_s = { 129, 33 };
+    PrimaryTlmVersionMsg PrimaryTlmVersion_s = { 242, 251 };
     
     printf("Before: %hhu %hhu\n", PrimaryTlmVersion_s.component_version, PrimaryTlmVersion_s.cancicd_version);
     
@@ -79,12 +79,12 @@ int main() {
     
     printf("After:  %hhu %hhu\n", PrimaryTlmVersion_d.component_version, PrimaryTlmVersion_d.cancicd_version);
     
-    assert(memcmp(&PrimaryTlmVersion_s, &PrimaryTlmVersion_d, sizeof(PrimaryTlmVersionMsg)) == 0);
+    assert(memcmp(&PrimaryTlmVersion_s, &PrimaryTlmVersion_d, PRIMARY_TLM_VERSION_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryTimestampMsg***\n");
     uint8_t buffer_PrimaryTimestamp[PRIMARY_TIMESTAMP_SIZE];
-    PrimaryTimestampMsg PrimaryTimestamp_s = { 2525192796 };
+    PrimaryTimestampMsg PrimaryTimestamp_s = { 64377644 };
     
     printf("Before: %u\n", PrimaryTimestamp_s.timestamp);
     
@@ -94,12 +94,12 @@ int main() {
     
     printf("After:  %u\n", PrimaryTimestamp_d.timestamp);
     
-    assert(memcmp(&PrimaryTimestamp_s, &PrimaryTimestamp_d, sizeof(PrimaryTimestampMsg)) == 0);
+    assert(memcmp(&PrimaryTimestamp_s, &PrimaryTimestamp_d, PRIMARY_TIMESTAMP_SIZE) == 0);
     printf("\n");
 
     printf("***PrimarySetTlmStatusMsg***\n");
     uint8_t buffer_PrimarySetTlmStatus[PRIMARY_SET_TLM_STATUS_SIZE];
-    PrimarySetTlmStatusMsg PrimarySetTlmStatus_s = { 97, 72, 1, 0 };
+    PrimarySetTlmStatusMsg PrimarySetTlmStatus_s = { 10, 75, 0, 0 };
     
     printf("Before: %hhu %hhu %d %d\n", PrimarySetTlmStatus_s.driver, PrimarySetTlmStatus_s.circuit, PrimarySetTlmStatus_s.race_type, PrimarySetTlmStatus_s.tlm_status);
     
@@ -109,12 +109,12 @@ int main() {
     
     printf("After:  %hhu %hhu %d %d\n", PrimarySetTlmStatus_d.driver, PrimarySetTlmStatus_d.circuit, PrimarySetTlmStatus_d.race_type, PrimarySetTlmStatus_d.tlm_status);
     
-    assert(memcmp(&PrimarySetTlmStatus_s, &PrimarySetTlmStatus_d, sizeof(PrimarySetTlmStatusMsg)) == 0);
+    assert(memcmp(&PrimarySetTlmStatus_s, &PrimarySetTlmStatus_d, PRIMARY_SET_TLM_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimarySteerSystemStatusMsg***\n");
     uint8_t buffer_PrimarySteerSystemStatus[PRIMARY_STEER_SYSTEM_STATUS_SIZE];
-    PrimarySteerSystemStatusMsg PrimarySteerSystemStatus_s = { 230 };
+    PrimarySteerSystemStatusMsg PrimarySteerSystemStatus_s = { 118 };
     
     printf("Before: %hhu\n", PrimarySteerSystemStatus_s.soc_temp);
     
@@ -124,7 +124,7 @@ int main() {
     
     printf("After:  %hhu\n", PrimarySteerSystemStatus_d.soc_temp);
     
-    assert(memcmp(&PrimarySteerSystemStatus_s, &PrimarySteerSystemStatus_d, sizeof(PrimarySteerSystemStatusMsg)) == 0);
+    assert(memcmp(&PrimarySteerSystemStatus_s, &PrimarySteerSystemStatus_d, PRIMARY_STEER_SYSTEM_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryMarkerMsg***\n");
@@ -135,12 +135,12 @@ int main() {
     PrimaryMarkerMsg PrimaryMarker_d;
     deserialize_PrimaryMarker(buffer_PrimaryMarker, &PrimaryMarker_d);
     
-    assert(memcmp(&PrimaryMarker_s, &PrimaryMarker_d, sizeof(PrimaryMarkerMsg)) == 0);
+    assert(memcmp(&PrimaryMarker_s, &PrimaryMarker_d, PRIMARY_MARKER_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryTlmStatusMsg***\n");
     uint8_t buffer_PrimaryTlmStatus[PRIMARY_TLM_STATUS_SIZE];
-    PrimaryTlmStatusMsg PrimaryTlmStatus_s = { 93, 233, 1, 0 };
+    PrimaryTlmStatusMsg PrimaryTlmStatus_s = { 24, 243, 0, 1 };
     
     printf("Before: %hhu %hhu %d %d\n", PrimaryTlmStatus_s.driver, PrimaryTlmStatus_s.circuit, PrimaryTlmStatus_s.race_type, PrimaryTlmStatus_s.tlm_status);
     
@@ -150,12 +150,12 @@ int main() {
     
     printf("After:  %hhu %hhu %d %d\n", PrimaryTlmStatus_d.driver, PrimaryTlmStatus_d.circuit, PrimaryTlmStatus_d.race_type, PrimaryTlmStatus_d.tlm_status);
     
-    assert(memcmp(&PrimaryTlmStatus_s, &PrimaryTlmStatus_d, sizeof(PrimaryTlmStatusMsg)) == 0);
+    assert(memcmp(&PrimaryTlmStatus_s, &PrimaryTlmStatus_d, PRIMARY_TLM_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryCarStatusMsg***\n");
     uint8_t buffer_PrimaryCarStatus[PRIMARY_CAR_STATUS_SIZE];
-    PrimaryCarStatusMsg PrimaryCarStatus_s = { 0, 2, 2 };
+    PrimaryCarStatusMsg PrimaryCarStatus_s = { 1, 1, 2 };
     
     printf("Before: %d %d %d\n", PrimaryCarStatus_s.inverter_l, PrimaryCarStatus_s.inverter_r, PrimaryCarStatus_s.car_status);
     
@@ -165,12 +165,12 @@ int main() {
     
     printf("After:  %d %d %d\n", PrimaryCarStatus_d.inverter_l, PrimaryCarStatus_d.inverter_r, PrimaryCarStatus_d.car_status);
     
-    assert(memcmp(&PrimaryCarStatus_s, &PrimaryCarStatus_d, sizeof(PrimaryCarStatusMsg)) == 0);
+    assert(memcmp(&PrimaryCarStatus_s, &PrimaryCarStatus_d, PRIMARY_CAR_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryDasErrorsMsg***\n");
     uint8_t buffer_PrimaryDasErrors[PRIMARY_DAS_ERRORS_SIZE];
-    PrimaryDasErrorsMsg PrimaryDasErrors_s = { { 57 } };
+    PrimaryDasErrorsMsg PrimaryDasErrors_s = { { 33 } };
     
     printf("Before: %hhx\n", PrimaryDasErrors_s.das_error[0]);
     
@@ -180,12 +180,12 @@ int main() {
     
     printf("After:  %hhx\n", PrimaryDasErrors_d.das_error[0]);
     
-    assert(memcmp(&PrimaryDasErrors_s, &PrimaryDasErrors_d, sizeof(PrimaryDasErrorsMsg)) == 0);
+    assert(memcmp(&PrimaryDasErrors_s, &PrimaryDasErrors_d, PRIMARY_DAS_ERRORS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimarySpeedMsg***\n");
     uint8_t buffer_PrimarySpeed[PRIMARY_SPEED_SIZE];
-    PrimarySpeedMsg PrimarySpeed_s = { 23499, 17783, 32955, 59664 };
+    PrimarySpeedMsg PrimarySpeed_s = { 36083, 1412, 11876, 65466 };
     
     printf("Before: %hu %hu %hu %hu\n", PrimarySpeed_s.encoder_r, PrimarySpeed_s.encoder_l, PrimarySpeed_s.inverter_r, PrimarySpeed_s.inverter_l);
     
@@ -195,12 +195,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", PrimarySpeed_d.encoder_r, PrimarySpeed_d.encoder_l, PrimarySpeed_d.inverter_r, PrimarySpeed_d.inverter_l);
     
-    assert(memcmp(&PrimarySpeed_s, &PrimarySpeed_d, sizeof(PrimarySpeedMsg)) == 0);
+    assert(memcmp(&PrimarySpeed_s, &PrimarySpeed_d, PRIMARY_SPEED_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryHvVoltageMsg***\n");
     uint8_t buffer_PrimaryHvVoltage[PRIMARY_HV_VOLTAGE_SIZE];
-    PrimaryHvVoltageMsg PrimaryHvVoltage_s = { 22960, 50375, 13445, 6836 };
+    PrimaryHvVoltageMsg PrimaryHvVoltage_s = { 12050, 15740, 3935, 46 };
     
     printf("Before: %hu %hu %hu %hu\n", PrimaryHvVoltage_s.pack_voltage, PrimaryHvVoltage_s.bus_voltage, PrimaryHvVoltage_s.max_cell_voltage, PrimaryHvVoltage_s.min_cell_voltage);
     
@@ -210,12 +210,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hu\n", PrimaryHvVoltage_d.pack_voltage, PrimaryHvVoltage_d.bus_voltage, PrimaryHvVoltage_d.max_cell_voltage, PrimaryHvVoltage_d.min_cell_voltage);
     
-    assert(memcmp(&PrimaryHvVoltage_s, &PrimaryHvVoltage_d, sizeof(PrimaryHvVoltageMsg)) == 0);
+    assert(memcmp(&PrimaryHvVoltage_s, &PrimaryHvVoltage_d, PRIMARY_HV_VOLTAGE_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryHvCurrentMsg***\n");
     uint8_t buffer_PrimaryHvCurrent[PRIMARY_HV_CURRENT_SIZE];
-    PrimaryHvCurrentMsg PrimaryHvCurrent_s = { 94, 28533 };
+    PrimaryHvCurrentMsg PrimaryHvCurrent_s = { 53387, 31322 };
     
     printf("Before: %hu %hd\n", PrimaryHvCurrent_s.current, PrimaryHvCurrent_s.power);
     
@@ -225,12 +225,12 @@ int main() {
     
     printf("After:  %hu %hd\n", PrimaryHvCurrent_d.current, PrimaryHvCurrent_d.power);
     
-    assert(memcmp(&PrimaryHvCurrent_s, &PrimaryHvCurrent_d, sizeof(PrimaryHvCurrentMsg)) == 0);
+    assert(memcmp(&PrimaryHvCurrent_s, &PrimaryHvCurrent_d, PRIMARY_HV_CURRENT_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryHvTempMsg***\n");
     uint8_t buffer_PrimaryHvTemp[PRIMARY_HV_TEMP_SIZE];
-    PrimaryHvTempMsg PrimaryHvTemp_s = { 43331, 2070, 32502 };
+    PrimaryHvTempMsg PrimaryHvTemp_s = { 48375, 23907, 57125 };
     
     printf("Before: %hu %hu %hu\n", PrimaryHvTemp_s.average_temp, PrimaryHvTemp_s.max_temp, PrimaryHvTemp_s.min_temp);
     
@@ -240,12 +240,12 @@ int main() {
     
     printf("After:  %hu %hu %hu\n", PrimaryHvTemp_d.average_temp, PrimaryHvTemp_d.max_temp, PrimaryHvTemp_d.min_temp);
     
-    assert(memcmp(&PrimaryHvTemp_s, &PrimaryHvTemp_d, sizeof(PrimaryHvTempMsg)) == 0);
+    assert(memcmp(&PrimaryHvTemp_s, &PrimaryHvTemp_d, PRIMARY_HV_TEMP_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryHvErrorsMsg***\n");
     uint8_t buffer_PrimaryHvErrors[PRIMARY_HV_ERRORS_SIZE];
-    PrimaryHvErrorsMsg PrimaryHvErrors_s = { { 13, 200 }, { 31, 22 } };
+    PrimaryHvErrorsMsg PrimaryHvErrors_s = { { 224, 228 }, { 139, 50 } };
     
     printf("Before: %hhx.%hhx %hhx.%hhx\n", PrimaryHvErrors_s.warnings[0], PrimaryHvErrors_s.warnings[1], PrimaryHvErrors_s.errors[0], PrimaryHvErrors_s.errors[1]);
     
@@ -255,12 +255,12 @@ int main() {
     
     printf("After:  %hhx.%hhx %hhx.%hhx\n", PrimaryHvErrors_d.warnings[0], PrimaryHvErrors_d.warnings[1], PrimaryHvErrors_d.errors[0], PrimaryHvErrors_d.errors[1]);
     
-    assert(memcmp(&PrimaryHvErrors_s, &PrimaryHvErrors_d, sizeof(PrimaryHvErrorsMsg)) == 0);
+    assert(memcmp(&PrimaryHvErrors_s, &PrimaryHvErrors_d, PRIMARY_HV_ERRORS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryTsStatusMsg***\n");
     uint8_t buffer_PrimaryTsStatus[PRIMARY_TS_STATUS_SIZE];
-    PrimaryTsStatusMsg PrimaryTsStatus_s = { 2 };
+    PrimaryTsStatusMsg PrimaryTsStatus_s = { 0 };
     
     printf("Before: %d\n", PrimaryTsStatus_s.ts_status);
     
@@ -270,7 +270,7 @@ int main() {
     
     printf("After:  %d\n", PrimaryTsStatus_d.ts_status);
     
-    assert(memcmp(&PrimaryTsStatus_s, &PrimaryTsStatus_d, sizeof(PrimaryTsStatusMsg)) == 0);
+    assert(memcmp(&PrimaryTsStatus_s, &PrimaryTsStatus_d, PRIMARY_TS_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimarySetTsStatusMsg***\n");
@@ -285,12 +285,12 @@ int main() {
     
     printf("After:  %d\n", PrimarySetTsStatus_d.ts_status_set);
     
-    assert(memcmp(&PrimarySetTsStatus_s, &PrimarySetTsStatus_d, sizeof(PrimarySetTsStatusMsg)) == 0);
+    assert(memcmp(&PrimarySetTsStatus_s, &PrimarySetTsStatus_d, PRIMARY_SET_TS_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimarySetCellBalancingStatusMsg***\n");
     uint8_t buffer_PrimarySetCellBalancingStatus[PRIMARY_SET_CELL_BALANCING_STATUS_SIZE];
-    PrimarySetCellBalancingStatusMsg PrimarySetCellBalancingStatus_s = { 1 };
+    PrimarySetCellBalancingStatusMsg PrimarySetCellBalancingStatus_s = { 0 };
     
     printf("Before: %d\n", PrimarySetCellBalancingStatus_s.set_balancing_status);
     
@@ -300,7 +300,7 @@ int main() {
     
     printf("After:  %d\n", PrimarySetCellBalancingStatus_d.set_balancing_status);
     
-    assert(memcmp(&PrimarySetCellBalancingStatus_s, &PrimarySetCellBalancingStatus_d, sizeof(PrimarySetCellBalancingStatusMsg)) == 0);
+    assert(memcmp(&PrimarySetCellBalancingStatus_s, &PrimarySetCellBalancingStatus_d, PRIMARY_SET_CELL_BALANCING_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryHandcartStatusMsg***\n");
@@ -315,12 +315,12 @@ int main() {
     
     printf("After:  %d\n", PrimaryHandcartStatus_d.connected);
     
-    assert(memcmp(&PrimaryHandcartStatus_s, &PrimaryHandcartStatus_d, sizeof(PrimaryHandcartStatusMsg)) == 0);
+    assert(memcmp(&PrimaryHandcartStatus_s, &PrimaryHandcartStatus_d, PRIMARY_HANDCART_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimarySteerStatusMsg***\n");
     uint8_t buffer_PrimarySteerStatus[PRIMARY_STEER_STATUS_SIZE];
-    PrimarySteerStatusMsg PrimarySteerStatus_s = { 3, 2 };
+    PrimarySteerStatusMsg PrimarySteerStatus_s = { 0, 0 };
     
     printf("Before: %d %d\n", PrimarySteerStatus_s.map, PrimarySteerStatus_s.traction_control);
     
@@ -330,12 +330,12 @@ int main() {
     
     printf("After:  %d %d\n", PrimarySteerStatus_d.map, PrimarySteerStatus_d.traction_control);
     
-    assert(memcmp(&PrimarySteerStatus_s, &PrimarySteerStatus_d, sizeof(PrimarySteerStatusMsg)) == 0);
+    assert(memcmp(&PrimarySteerStatus_s, &PrimarySteerStatus_d, PRIMARY_STEER_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimarySetCarStatusMsg***\n");
     uint8_t buffer_PrimarySetCarStatus[PRIMARY_SET_CAR_STATUS_SIZE];
-    PrimarySetCarStatusMsg PrimarySetCarStatus_s = { 1 };
+    PrimarySetCarStatusMsg PrimarySetCarStatus_s = { 0 };
     
     printf("Before: %d\n", PrimarySetCarStatus_s.car_status_set);
     
@@ -345,12 +345,12 @@ int main() {
     
     printf("After:  %d\n", PrimarySetCarStatus_d.car_status_set);
     
-    assert(memcmp(&PrimarySetCarStatus_s, &PrimarySetCarStatus_d, sizeof(PrimarySetCarStatusMsg)) == 0);
+    assert(memcmp(&PrimarySetCarStatus_s, &PrimarySetCarStatus_d, PRIMARY_SET_CAR_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimarySetPedalsRangeMsg***\n");
     uint8_t buffer_PrimarySetPedalsRange[PRIMARY_SET_PEDALS_RANGE_SIZE];
-    PrimarySetPedalsRangeMsg PrimarySetPedalsRange_s = { 0, 1 };
+    PrimarySetPedalsRangeMsg PrimarySetPedalsRange_s = { 1, 1 };
     
     printf("Before: %d %d\n", PrimarySetPedalsRange_s.bound, PrimarySetPedalsRange_s.pedal);
     
@@ -360,12 +360,12 @@ int main() {
     
     printf("After:  %d %d\n", PrimarySetPedalsRange_d.bound, PrimarySetPedalsRange_d.pedal);
     
-    assert(memcmp(&PrimarySetPedalsRange_s, &PrimarySetPedalsRange_d, sizeof(PrimarySetPedalsRangeMsg)) == 0);
+    assert(memcmp(&PrimarySetPedalsRange_s, &PrimarySetPedalsRange_d, PRIMARY_SET_PEDALS_RANGE_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryLvCurrentMsg***\n");
     uint8_t buffer_PrimaryLvCurrent[PRIMARY_LV_CURRENT_SIZE];
-    PrimaryLvCurrentMsg PrimaryLvCurrent_s = { 195 };
+    PrimaryLvCurrentMsg PrimaryLvCurrent_s = { 136 };
     
     printf("Before: %hhu\n", PrimaryLvCurrent_s.current);
     
@@ -375,12 +375,12 @@ int main() {
     
     printf("After:  %hhu\n", PrimaryLvCurrent_d.current);
     
-    assert(memcmp(&PrimaryLvCurrent_s, &PrimaryLvCurrent_d, sizeof(PrimaryLvCurrentMsg)) == 0);
+    assert(memcmp(&PrimaryLvCurrent_s, &PrimaryLvCurrent_d, PRIMARY_LV_CURRENT_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryLvVoltageMsg***\n");
     uint8_t buffer_PrimaryLvVoltage[PRIMARY_LV_VOLTAGE_SIZE];
-    PrimaryLvVoltageMsg PrimaryLvVoltage_s = { 20023, 14, 134, 171, 189 };
+    PrimaryLvVoltageMsg PrimaryLvVoltage_s = { 17794, 184, 175, 3, 48 };
     
     printf("Before: %hu %hhu %hhu %hhu %hhu\n", PrimaryLvVoltage_s.total_voltage, PrimaryLvVoltage_s.voltage_1, PrimaryLvVoltage_s.voltage_2, PrimaryLvVoltage_s.voltage_3, PrimaryLvVoltage_s.voltage_4);
     
@@ -390,12 +390,12 @@ int main() {
     
     printf("After:  %hu %hhu %hhu %hhu %hhu\n", PrimaryLvVoltage_d.total_voltage, PrimaryLvVoltage_d.voltage_1, PrimaryLvVoltage_d.voltage_2, PrimaryLvVoltage_d.voltage_3, PrimaryLvVoltage_d.voltage_4);
     
-    assert(memcmp(&PrimaryLvVoltage_s, &PrimaryLvVoltage_d, sizeof(PrimaryLvVoltageMsg)) == 0);
+    assert(memcmp(&PrimaryLvVoltage_s, &PrimaryLvVoltage_d, PRIMARY_LV_VOLTAGE_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryLvTemperatureMsg***\n");
     uint8_t buffer_PrimaryLvTemperature[PRIMARY_LV_TEMPERATURE_SIZE];
-    PrimaryLvTemperatureMsg PrimaryLvTemperature_s = { 229, 139 };
+    PrimaryLvTemperatureMsg PrimaryLvTemperature_s = { 231, 155 };
     
     printf("Before: %hhu %hhu\n", PrimaryLvTemperature_s.bp_temperature, PrimaryLvTemperature_s.dcdc_temperature);
     
@@ -405,12 +405,12 @@ int main() {
     
     printf("After:  %hhu %hhu\n", PrimaryLvTemperature_d.bp_temperature, PrimaryLvTemperature_d.dcdc_temperature);
     
-    assert(memcmp(&PrimaryLvTemperature_s, &PrimaryLvTemperature_d, sizeof(PrimaryLvTemperatureMsg)) == 0);
+    assert(memcmp(&PrimaryLvTemperature_s, &PrimaryLvTemperature_d, PRIMARY_LV_TEMPERATURE_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryCoolingStatusMsg***\n");
     uint8_t buffer_PrimaryCoolingStatus[PRIMARY_COOLING_STATUS_SIZE];
-    PrimaryCoolingStatusMsg PrimaryCoolingStatus_s = { 76, 141, 167 };
+    PrimaryCoolingStatusMsg PrimaryCoolingStatus_s = { 90, 6, 137 };
     
     printf("Before: %hhu %hhu %hhu\n", PrimaryCoolingStatus_s.hv_fan_speed, PrimaryCoolingStatus_s.lv_fan_speed, PrimaryCoolingStatus_s.pump_speed);
     
@@ -420,12 +420,12 @@ int main() {
     
     printf("After:  %hhu %hhu %hhu\n", PrimaryCoolingStatus_d.hv_fan_speed, PrimaryCoolingStatus_d.lv_fan_speed, PrimaryCoolingStatus_d.pump_speed);
     
-    assert(memcmp(&PrimaryCoolingStatus_s, &PrimaryCoolingStatus_d, sizeof(PrimaryCoolingStatusMsg)) == 0);
+    assert(memcmp(&PrimaryCoolingStatus_s, &PrimaryCoolingStatus_d, PRIMARY_COOLING_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryHvCellsVoltageMsg***\n");
     uint8_t buffer_PrimaryHvCellsVoltage[PRIMARY_HV_CELLS_VOLTAGE_SIZE];
-    PrimaryHvCellsVoltageMsg PrimaryHvCellsVoltage_s = { 51916, 16683, 34619, 126 };
+    PrimaryHvCellsVoltageMsg PrimaryHvCellsVoltage_s = { 17687, 47697, 43830, 215 };
     
     printf("Before: %hu %hu %hu %hhu\n", PrimaryHvCellsVoltage_s.voltage_0, PrimaryHvCellsVoltage_s.voltage_1, PrimaryHvCellsVoltage_s.voltage_2, PrimaryHvCellsVoltage_s.cell_index);
     
@@ -435,12 +435,12 @@ int main() {
     
     printf("After:  %hu %hu %hu %hhu\n", PrimaryHvCellsVoltage_d.voltage_0, PrimaryHvCellsVoltage_d.voltage_1, PrimaryHvCellsVoltage_d.voltage_2, PrimaryHvCellsVoltage_d.cell_index);
     
-    assert(memcmp(&PrimaryHvCellsVoltage_s, &PrimaryHvCellsVoltage_d, sizeof(PrimaryHvCellsVoltageMsg)) == 0);
+    assert(memcmp(&PrimaryHvCellsVoltage_s, &PrimaryHvCellsVoltage_d, PRIMARY_HV_CELLS_VOLTAGE_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryHvCellsTempMsg***\n");
     uint8_t buffer_PrimaryHvCellsTemp[PRIMARY_HV_CELLS_TEMP_SIZE];
-    PrimaryHvCellsTempMsg PrimaryHvCellsTemp_s = { 153, 14, 165, 100, 219, 186, 225, 177 };
+    PrimaryHvCellsTempMsg PrimaryHvCellsTemp_s = { 113, 120, 43, 109, 73, 125, 92, 235 };
     
     printf("Before: %hhu %hhu %hhu %hhu %hhu %hhu %hhu %hhu\n", PrimaryHvCellsTemp_s.cell_index, PrimaryHvCellsTemp_s.temp_0, PrimaryHvCellsTemp_s.temp_1, PrimaryHvCellsTemp_s.temp_2, PrimaryHvCellsTemp_s.temp_3, PrimaryHvCellsTemp_s.temp_4, PrimaryHvCellsTemp_s.temp_5, PrimaryHvCellsTemp_s.temp_6);
     
@@ -450,7 +450,7 @@ int main() {
     
     printf("After:  %hhu %hhu %hhu %hhu %hhu %hhu %hhu %hhu\n", PrimaryHvCellsTemp_d.cell_index, PrimaryHvCellsTemp_d.temp_0, PrimaryHvCellsTemp_d.temp_1, PrimaryHvCellsTemp_d.temp_2, PrimaryHvCellsTemp_d.temp_3, PrimaryHvCellsTemp_d.temp_4, PrimaryHvCellsTemp_d.temp_5, PrimaryHvCellsTemp_d.temp_6);
     
-    assert(memcmp(&PrimaryHvCellsTemp_s, &PrimaryHvCellsTemp_d, sizeof(PrimaryHvCellsTempMsg)) == 0);
+    assert(memcmp(&PrimaryHvCellsTemp_s, &PrimaryHvCellsTemp_d, PRIMARY_HV_CELLS_TEMP_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryHvCellBalancingStatusMsg***\n");
@@ -465,12 +465,12 @@ int main() {
     
     printf("After:  %d\n", PrimaryHvCellBalancingStatus_d.balancing_status);
     
-    assert(memcmp(&PrimaryHvCellBalancingStatus_s, &PrimaryHvCellBalancingStatus_d, sizeof(PrimaryHvCellBalancingStatusMsg)) == 0);
+    assert(memcmp(&PrimaryHvCellBalancingStatus_s, &PrimaryHvCellBalancingStatus_d, PRIMARY_HV_CELL_BALANCING_STATUS_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryInvLSetTorqueMsg***\n");
     uint8_t buffer_PrimaryInvLSetTorque[PRIMARY_INV_L_SET_TORQUE_SIZE];
-    PrimaryInvLSetTorqueMsg PrimaryInvLSetTorque_s = { 20, 26, 123 };
+    PrimaryInvLSetTorqueMsg PrimaryInvLSetTorque_s = { 221, 92, 188 };
     
     printf("Before: %hhu %hhu %hhu\n", PrimaryInvLSetTorque_s.regid, PrimaryInvLSetTorque_s.lsb, PrimaryInvLSetTorque_s.msb);
     
@@ -480,12 +480,12 @@ int main() {
     
     printf("After:  %hhu %hhu %hhu\n", PrimaryInvLSetTorque_d.regid, PrimaryInvLSetTorque_d.lsb, PrimaryInvLSetTorque_d.msb);
     
-    assert(memcmp(&PrimaryInvLSetTorque_s, &PrimaryInvLSetTorque_d, sizeof(PrimaryInvLSetTorqueMsg)) == 0);
+    assert(memcmp(&PrimaryInvLSetTorque_s, &PrimaryInvLSetTorque_d, PRIMARY_INV_L_SET_TORQUE_SIZE) == 0);
     printf("\n");
 
     printf("***PrimaryInvLResponseMsg***\n");
     uint8_t buffer_PrimaryInvLResponse[PRIMARY_INV_L_RESPONSE_SIZE];
-    PrimaryInvLResponseMsg PrimaryInvLResponse_s = { { 176, 57, 153, 230 }, 208 };
+    PrimaryInvLResponseMsg PrimaryInvLResponse_s = { { 176, 179, 221, 212 }, 1 };
     
     printf("Before: %hhx.%hhx.%hhx.%hhx %hhu\n", PrimaryInvLResponse_s.reg_val[0], PrimaryInvLResponse_s.reg_val[1], PrimaryInvLResponse_s.reg_val[2], PrimaryInvLResponse_s.reg_val[3], PrimaryInvLResponse_s.reg_id);
     
@@ -495,7 +495,7 @@ int main() {
     
     printf("After:  %hhx.%hhx.%hhx.%hhx %hhu\n", PrimaryInvLResponse_d.reg_val[0], PrimaryInvLResponse_d.reg_val[1], PrimaryInvLResponse_d.reg_val[2], PrimaryInvLResponse_d.reg_val[3], PrimaryInvLResponse_d.reg_id);
     
-    assert(memcmp(&PrimaryInvLResponse_s, &PrimaryInvLResponse_d, sizeof(PrimaryInvLResponseMsg)) == 0);
+    assert(memcmp(&PrimaryInvLResponse_s, &PrimaryInvLResponse_d, PRIMARY_INV_L_RESPONSE_SIZE) == 0);
     printf("\n");
 
     return 0;

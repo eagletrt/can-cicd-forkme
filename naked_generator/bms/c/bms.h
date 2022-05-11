@@ -132,6 +132,7 @@ typedef enum __is_packed {
 typedef struct __is_packed {
     BmsErrors errors;
     BmsBalancingStatus balancing_status;
+    uint32_t timestamp;
 } BmsBoardStatusMsg;
 
 typedef struct __is_packed {
@@ -142,6 +143,7 @@ typedef struct __is_packed {
     uint8_t temp3;
     uint8_t temp4;
     uint8_t temp5;
+    uint32_t timestamp;
 } BmsTemperaturesMsg;
 
 typedef struct __is_packed {
@@ -149,15 +151,18 @@ typedef struct __is_packed {
     uint16_t voltage1;
     uint16_t voltage2;
     uint8_t start_index;
+    uint32_t timestamp;
 } BmsVoltagesMsg;
 
 typedef struct __is_packed {
     BmsBalancingCells cells;
     uint8_t board_index;
+    uint32_t timestamp;
 } BmsBalancingMsg;
 
 typedef struct __is_packed {
     uint8_t board_index;
+    uint32_t timestamp;
 } BmsFwUpdateMsg;
 
 // Functions

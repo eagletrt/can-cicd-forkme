@@ -166,10 +166,9 @@ class PrimaryBalancingStatus(IntEnum):
 
 class PrimarySteerVersionMsg:
     def __init__(self, component_version: int = None, cancicd_version: int = None):
-        if component_version is not None:
-            self.component_version = int(component_version)
-        if cancicd_version is not None:
-            self.cancicd_version = int(cancicd_version)
+        self.component_version = int(component_version) if component_version is not None else None
+        self.cancicd_version = int(cancicd_version) if cancicd_version is not None else None
+        self.timestamp=int()
         self.size = 2
         self.millis = 1000
 
@@ -193,10 +192,9 @@ class PrimarySteerVersionMsg:
 
 class PrimaryDasVersionMsg:
     def __init__(self, component_version: int = None, cancicd_version: int = None):
-        if component_version is not None:
-            self.component_version = int(component_version)
-        if cancicd_version is not None:
-            self.cancicd_version = int(cancicd_version)
+        self.component_version = int(component_version) if component_version is not None else None
+        self.cancicd_version = int(cancicd_version) if cancicd_version is not None else None
+        self.timestamp=int()
         self.size = 2
         self.millis = 1000
 
@@ -220,10 +218,9 @@ class PrimaryDasVersionMsg:
 
 class PrimaryHvVersionMsg:
     def __init__(self, component_version: int = None, cancicd_version: int = None):
-        if component_version is not None:
-            self.component_version = int(component_version)
-        if cancicd_version is not None:
-            self.cancicd_version = int(cancicd_version)
+        self.component_version = int(component_version) if component_version is not None else None
+        self.cancicd_version = int(cancicd_version) if cancicd_version is not None else None
+        self.timestamp=int()
         self.size = 2
         self.millis = 1000
 
@@ -247,10 +244,9 @@ class PrimaryHvVersionMsg:
 
 class PrimaryLvVersionMsg:
     def __init__(self, component_version: int = None, cancicd_version: int = None):
-        if component_version is not None:
-            self.component_version = int(component_version)
-        if cancicd_version is not None:
-            self.cancicd_version = int(cancicd_version)
+        self.component_version = int(component_version) if component_version is not None else None
+        self.cancicd_version = int(cancicd_version) if cancicd_version is not None else None
+        self.timestamp=int()
         self.size = 2
         self.millis = 1000
 
@@ -274,10 +270,9 @@ class PrimaryLvVersionMsg:
 
 class PrimaryTlmVersionMsg:
     def __init__(self, component_version: int = None, cancicd_version: int = None):
-        if component_version is not None:
-            self.component_version = int(component_version)
-        if cancicd_version is not None:
-            self.cancicd_version = int(cancicd_version)
+        self.component_version = int(component_version) if component_version is not None else None
+        self.cancicd_version = int(cancicd_version) if cancicd_version is not None else None
+        self.timestamp=int()
         self.size = 2
         self.millis = 1000
 
@@ -301,8 +296,7 @@ class PrimaryTlmVersionMsg:
 
 class PrimaryTimestampMsg:
     def __init__(self, timestamp: int = None):
-        if timestamp is not None:
-            self.timestamp = int(timestamp)
+        self.timestamp = int(timestamp) if timestamp is not None else None
         self.size = 4
         self.millis = 1000
 
@@ -323,14 +317,11 @@ class PrimaryTimestampMsg:
 
 class PrimarySetTlmStatusMsg:
     def __init__(self, driver: int = None, circuit: int = None, race_type: PrimaryRaceType = None, tlm_status: PrimaryTlmStatus = None):
-        if driver is not None:
-            self.driver = int(driver)
-        if circuit is not None:
-            self.circuit = int(circuit)
-        if race_type is not None:
-            self.race_type = PrimaryRaceType(race_type)
-        if tlm_status is not None:
-            self.tlm_status = PrimaryTlmStatus(tlm_status)
+        self.driver = int(driver) if driver is not None else None
+        self.circuit = int(circuit) if circuit is not None else None
+        self.race_type = PrimaryRaceType(race_type) if race_type is not None else None
+        self.tlm_status = PrimaryTlmStatus(tlm_status) if tlm_status is not None else None
+        self.timestamp=int()
         self.size = 3
 
     def serialize(self):
@@ -359,8 +350,8 @@ class PrimarySetTlmStatusMsg:
 
 class PrimarySteerSystemStatusMsg:
     def __init__(self, soc_temp: int = None):
-        if soc_temp is not None:
-            self.soc_temp = int(soc_temp)
+        self.soc_temp = int(soc_temp) if soc_temp is not None else None
+        self.timestamp=int()
         self.size = 1
         self.millis = 2000
 
@@ -381,6 +372,7 @@ class PrimarySteerSystemStatusMsg:
 
 class PrimaryMarkerMsg:
     def __init__(self):
+        self.timestamp=int()
         self.size = 0
 
     def serialize(self):
@@ -396,14 +388,11 @@ class PrimaryMarkerMsg:
 
 class PrimaryTlmStatusMsg:
     def __init__(self, driver: int = None, circuit: int = None, race_type: PrimaryRaceType = None, tlm_status: PrimaryTlmStatus = None):
-        if driver is not None:
-            self.driver = int(driver)
-        if circuit is not None:
-            self.circuit = int(circuit)
-        if race_type is not None:
-            self.race_type = PrimaryRaceType(race_type)
-        if tlm_status is not None:
-            self.tlm_status = PrimaryTlmStatus(tlm_status)
+        self.driver = int(driver) if driver is not None else None
+        self.circuit = int(circuit) if circuit is not None else None
+        self.race_type = PrimaryRaceType(race_type) if race_type is not None else None
+        self.tlm_status = PrimaryTlmStatus(tlm_status) if tlm_status is not None else None
+        self.timestamp=int()
         self.size = 3
         self.millis = 1000
 
@@ -433,12 +422,10 @@ class PrimaryTlmStatusMsg:
 
 class PrimaryCarStatusMsg:
     def __init__(self, inverter_l: PrimaryInverterStatus = None, inverter_r: PrimaryInverterStatus = None, car_status: PrimaryCarStatus = None):
-        if inverter_l is not None:
-            self.inverter_l = PrimaryInverterStatus(inverter_l)
-        if inverter_r is not None:
-            self.inverter_r = PrimaryInverterStatus(inverter_r)
-        if car_status is not None:
-            self.car_status = PrimaryCarStatus(car_status)
+        self.inverter_l = PrimaryInverterStatus(inverter_l) if inverter_l is not None else None
+        self.inverter_r = PrimaryInverterStatus(inverter_r) if inverter_r is not None else None
+        self.car_status = PrimaryCarStatus(car_status) if car_status is not None else None
+        self.timestamp=int()
         self.size = 1
         self.millis = 100
 
@@ -465,8 +452,8 @@ class PrimaryCarStatusMsg:
 
 class PrimaryDasErrorsMsg:
     def __init__(self, das_error: bin = None):
-        if das_error is not None:
-            self.das_error = bin(das_error)
+        self.das_error = bin(das_error) if das_error is not None else None
+        self.timestamp=int()
         self.size = 1
         self.millis = 20
 
@@ -487,14 +474,11 @@ class PrimaryDasErrorsMsg:
 
 class PrimarySpeedMsg:
     def __init__(self, encoder_r: int = None, encoder_l: int = None, inverter_r: int = None, inverter_l: int = None):
-        if encoder_r is not None:
-            self.encoder_r = int(encoder_r)
-        if encoder_l is not None:
-            self.encoder_l = int(encoder_l)
-        if inverter_r is not None:
-            self.inverter_r = int(inverter_r)
-        if inverter_l is not None:
-            self.inverter_l = int(inverter_l)
+        self.encoder_r = int(encoder_r) if encoder_r is not None else None
+        self.encoder_l = int(encoder_l) if encoder_l is not None else None
+        self.inverter_r = int(inverter_r) if inverter_r is not None else None
+        self.inverter_l = int(inverter_l) if inverter_l is not None else None
+        self.timestamp=int()
         self.size = 8
         self.millis = 100
 
@@ -524,14 +508,11 @@ class PrimarySpeedMsg:
 
 class PrimaryHvVoltageMsg:
     def __init__(self, pack_voltage: int = None, bus_voltage: int = None, max_cell_voltage: int = None, min_cell_voltage: int = None):
-        if pack_voltage is not None:
-            self.pack_voltage = int(pack_voltage)
-        if bus_voltage is not None:
-            self.bus_voltage = int(bus_voltage)
-        if max_cell_voltage is not None:
-            self.max_cell_voltage = int(max_cell_voltage)
-        if min_cell_voltage is not None:
-            self.min_cell_voltage = int(min_cell_voltage)
+        self.pack_voltage = int(pack_voltage) if pack_voltage is not None else None
+        self.bus_voltage = int(bus_voltage) if bus_voltage is not None else None
+        self.max_cell_voltage = int(max_cell_voltage) if max_cell_voltage is not None else None
+        self.min_cell_voltage = int(min_cell_voltage) if min_cell_voltage is not None else None
+        self.timestamp=int()
         self.size = 8
         self.millis = 20
 
@@ -561,10 +542,9 @@ class PrimaryHvVoltageMsg:
 
 class PrimaryHvCurrentMsg:
     def __init__(self, current: int = None, power: int = None):
-        if current is not None:
-            self.current = int(current)
-        if power is not None:
-            self.power = int(power)
+        self.current = int(current) if current is not None else None
+        self.power = int(power) if power is not None else None
+        self.timestamp=int()
         self.size = 4
         self.millis = 20
 
@@ -588,12 +568,10 @@ class PrimaryHvCurrentMsg:
 
 class PrimaryHvTempMsg:
     def __init__(self, average_temp: int = None, max_temp: int = None, min_temp: int = None):
-        if average_temp is not None:
-            self.average_temp = int(average_temp)
-        if max_temp is not None:
-            self.max_temp = int(max_temp)
-        if min_temp is not None:
-            self.min_temp = int(min_temp)
+        self.average_temp = int(average_temp) if average_temp is not None else None
+        self.max_temp = int(max_temp) if max_temp is not None else None
+        self.min_temp = int(min_temp) if min_temp is not None else None
+        self.timestamp=int()
         self.size = 6
         self.millis = 200
 
@@ -620,10 +598,9 @@ class PrimaryHvTempMsg:
 
 class PrimaryHvErrorsMsg:
     def __init__(self, warnings: bin = None, errors: bin = None):
-        if warnings is not None:
-            self.warnings = bin(warnings)
-        if errors is not None:
-            self.errors = bin(errors)
+        self.warnings = bin(warnings) if warnings is not None else None
+        self.errors = bin(errors) if errors is not None else None
+        self.timestamp=int()
         self.size = 4
         self.millis = 20
 
@@ -647,8 +624,8 @@ class PrimaryHvErrorsMsg:
 
 class PrimaryTsStatusMsg:
     def __init__(self, ts_status: PrimaryTsStatus = None):
-        if ts_status is not None:
-            self.ts_status = PrimaryTsStatus(ts_status)
+        self.ts_status = PrimaryTsStatus(ts_status) if ts_status is not None else None
+        self.timestamp=int()
         self.size = 1
         self.millis = 20
 
@@ -669,8 +646,8 @@ class PrimaryTsStatusMsg:
 
 class PrimarySetTsStatusMsg:
     def __init__(self, ts_status_set: PrimaryTsStatusSet = None):
-        if ts_status_set is not None:
-            self.ts_status_set = PrimaryTsStatusSet(ts_status_set)
+        self.ts_status_set = PrimaryTsStatusSet(ts_status_set) if ts_status_set is not None else None
+        self.timestamp=int()
         self.size = 1
 
     def serialize(self):
@@ -690,8 +667,8 @@ class PrimarySetTsStatusMsg:
 
 class PrimarySetCellBalancingStatusMsg:
     def __init__(self, set_balancing_status: PrimarySetBalancingStatus = None):
-        if set_balancing_status is not None:
-            self.set_balancing_status = PrimarySetBalancingStatus(set_balancing_status)
+        self.set_balancing_status = PrimarySetBalancingStatus(set_balancing_status) if set_balancing_status is not None else None
+        self.timestamp=int()
         self.size = 1
 
     def serialize(self):
@@ -711,8 +688,8 @@ class PrimarySetCellBalancingStatusMsg:
 
 class PrimaryHandcartStatusMsg:
     def __init__(self, connected: bool = None):
-        if connected is not None:
-            self.connected = bool(connected)
+        self.connected = bool(connected) if connected is not None else None
+        self.timestamp=int()
         self.size = 1
         self.millis = 500
 
@@ -733,10 +710,9 @@ class PrimaryHandcartStatusMsg:
 
 class PrimarySteerStatusMsg:
     def __init__(self, map: PrimaryMap = None, traction_control: PrimaryTractionControl = None):
-        if map is not None:
-            self.map = PrimaryMap(map)
-        if traction_control is not None:
-            self.traction_control = PrimaryTractionControl(traction_control)
+        self.map = PrimaryMap(map) if map is not None else None
+        self.traction_control = PrimaryTractionControl(traction_control) if traction_control is not None else None
+        self.timestamp=int()
         self.size = 1
         self.millis = 100
 
@@ -760,8 +736,8 @@ class PrimarySteerStatusMsg:
 
 class PrimarySetCarStatusMsg:
     def __init__(self, car_status_set: PrimaryCarStatusSet = None):
-        if car_status_set is not None:
-            self.car_status_set = PrimaryCarStatusSet(car_status_set)
+        self.car_status_set = PrimaryCarStatusSet(car_status_set) if car_status_set is not None else None
+        self.timestamp=int()
         self.size = 1
 
     def serialize(self):
@@ -781,10 +757,9 @@ class PrimarySetCarStatusMsg:
 
 class PrimarySetPedalsRangeMsg:
     def __init__(self, bound: PrimaryBound = None, pedal: PrimaryPedal = None):
-        if bound is not None:
-            self.bound = PrimaryBound(bound)
-        if pedal is not None:
-            self.pedal = PrimaryPedal(pedal)
+        self.bound = PrimaryBound(bound) if bound is not None else None
+        self.pedal = PrimaryPedal(pedal) if pedal is not None else None
+        self.timestamp=int()
         self.size = 1
 
     def serialize(self):
@@ -807,8 +782,8 @@ class PrimarySetPedalsRangeMsg:
 
 class PrimaryLvCurrentMsg:
     def __init__(self, current: int = None):
-        if current is not None:
-            self.current = int(current)
+        self.current = int(current) if current is not None else None
+        self.timestamp=int()
         self.size = 1
         self.millis = 500
 
@@ -829,16 +804,12 @@ class PrimaryLvCurrentMsg:
 
 class PrimaryLvVoltageMsg:
     def __init__(self, total_voltage: int = None, voltage_1: int = None, voltage_2: int = None, voltage_3: int = None, voltage_4: int = None):
-        if total_voltage is not None:
-            self.total_voltage = int(total_voltage)
-        if voltage_1 is not None:
-            self.voltage_1 = int(voltage_1)
-        if voltage_2 is not None:
-            self.voltage_2 = int(voltage_2)
-        if voltage_3 is not None:
-            self.voltage_3 = int(voltage_3)
-        if voltage_4 is not None:
-            self.voltage_4 = int(voltage_4)
+        self.total_voltage = int(total_voltage) if total_voltage is not None else None
+        self.voltage_1 = int(voltage_1) if voltage_1 is not None else None
+        self.voltage_2 = int(voltage_2) if voltage_2 is not None else None
+        self.voltage_3 = int(voltage_3) if voltage_3 is not None else None
+        self.voltage_4 = int(voltage_4) if voltage_4 is not None else None
+        self.timestamp=int()
         self.size = 6
         self.millis = 200
 
@@ -871,10 +842,9 @@ class PrimaryLvVoltageMsg:
 
 class PrimaryLvTemperatureMsg:
     def __init__(self, bp_temperature: int = None, dcdc_temperature: int = None):
-        if bp_temperature is not None:
-            self.bp_temperature = int(bp_temperature)
-        if dcdc_temperature is not None:
-            self.dcdc_temperature = int(dcdc_temperature)
+        self.bp_temperature = int(bp_temperature) if bp_temperature is not None else None
+        self.dcdc_temperature = int(dcdc_temperature) if dcdc_temperature is not None else None
+        self.timestamp=int()
         self.size = 2
         self.millis = 200
 
@@ -898,12 +868,10 @@ class PrimaryLvTemperatureMsg:
 
 class PrimaryCoolingStatusMsg:
     def __init__(self, hv_fan_speed: int = None, lv_fan_speed: int = None, pump_speed: int = None):
-        if hv_fan_speed is not None:
-            self.hv_fan_speed = int(hv_fan_speed)
-        if lv_fan_speed is not None:
-            self.lv_fan_speed = int(lv_fan_speed)
-        if pump_speed is not None:
-            self.pump_speed = int(pump_speed)
+        self.hv_fan_speed = int(hv_fan_speed) if hv_fan_speed is not None else None
+        self.lv_fan_speed = int(lv_fan_speed) if lv_fan_speed is not None else None
+        self.pump_speed = int(pump_speed) if pump_speed is not None else None
+        self.timestamp=int()
         self.size = 3
         self.millis = 1000
 
@@ -930,14 +898,11 @@ class PrimaryCoolingStatusMsg:
 
 class PrimaryHvCellsVoltageMsg:
     def __init__(self, voltage_0: int = None, voltage_1: int = None, voltage_2: int = None, cell_index: int = None):
-        if voltage_0 is not None:
-            self.voltage_0 = int(voltage_0)
-        if voltage_1 is not None:
-            self.voltage_1 = int(voltage_1)
-        if voltage_2 is not None:
-            self.voltage_2 = int(voltage_2)
-        if cell_index is not None:
-            self.cell_index = int(cell_index)
+        self.voltage_0 = int(voltage_0) if voltage_0 is not None else None
+        self.voltage_1 = int(voltage_1) if voltage_1 is not None else None
+        self.voltage_2 = int(voltage_2) if voltage_2 is not None else None
+        self.cell_index = int(cell_index) if cell_index is not None else None
+        self.timestamp=int()
         self.size = 7
         self.millis = 200
 
@@ -967,22 +932,15 @@ class PrimaryHvCellsVoltageMsg:
 
 class PrimaryHvCellsTempMsg:
     def __init__(self, cell_index: int = None, temp_0: int = None, temp_1: int = None, temp_2: int = None, temp_3: int = None, temp_4: int = None, temp_5: int = None, temp_6: int = None):
-        if cell_index is not None:
-            self.cell_index = int(cell_index)
-        if temp_0 is not None:
-            self.temp_0 = int(temp_0)
-        if temp_1 is not None:
-            self.temp_1 = int(temp_1)
-        if temp_2 is not None:
-            self.temp_2 = int(temp_2)
-        if temp_3 is not None:
-            self.temp_3 = int(temp_3)
-        if temp_4 is not None:
-            self.temp_4 = int(temp_4)
-        if temp_5 is not None:
-            self.temp_5 = int(temp_5)
-        if temp_6 is not None:
-            self.temp_6 = int(temp_6)
+        self.cell_index = int(cell_index) if cell_index is not None else None
+        self.temp_0 = int(temp_0) if temp_0 is not None else None
+        self.temp_1 = int(temp_1) if temp_1 is not None else None
+        self.temp_2 = int(temp_2) if temp_2 is not None else None
+        self.temp_3 = int(temp_3) if temp_3 is not None else None
+        self.temp_4 = int(temp_4) if temp_4 is not None else None
+        self.temp_5 = int(temp_5) if temp_5 is not None else None
+        self.temp_6 = int(temp_6) if temp_6 is not None else None
+        self.timestamp=int()
         self.size = 8
         self.millis = 100
 
@@ -1024,8 +982,8 @@ class PrimaryHvCellsTempMsg:
 
 class PrimaryHvCellBalancingStatusMsg:
     def __init__(self, balancing_status: PrimaryBalancingStatus = None):
-        if balancing_status is not None:
-            self.balancing_status = PrimaryBalancingStatus(balancing_status)
+        self.balancing_status = PrimaryBalancingStatus(balancing_status) if balancing_status is not None else None
+        self.timestamp=int()
         self.size = 1
         self.millis = 500
 
@@ -1046,12 +1004,10 @@ class PrimaryHvCellBalancingStatusMsg:
 
 class PrimaryInvLSetTorqueMsg:
     def __init__(self, regid: int = None, lsb: int = None, msb: int = None):
-        if regid is not None:
-            self.regid = int(regid)
-        if lsb is not None:
-            self.lsb = int(lsb)
-        if msb is not None:
-            self.msb = int(msb)
+        self.regid = int(regid) if regid is not None else None
+        self.lsb = int(lsb) if lsb is not None else None
+        self.msb = int(msb) if msb is not None else None
+        self.timestamp=int()
         self.size = 3
         self.millis = 20
 
@@ -1078,10 +1034,9 @@ class PrimaryInvLSetTorqueMsg:
 
 class PrimaryInvLResponseMsg:
     def __init__(self, reg_val: bin = None, reg_id: int = None):
-        if reg_val is not None:
-            self.reg_val = bin(reg_val)
-        if reg_id is not None:
-            self.reg_id = int(reg_id)
+        self.reg_val = bin(reg_val) if reg_val is not None else None
+        self.reg_id = int(reg_id) if reg_id is not None else None
+        self.timestamp=int()
         self.size = 5
         self.millis = 100
 

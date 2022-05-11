@@ -43,10 +43,9 @@ class BmsBalancingStatus(IntEnum):
 
 class BmsBoardStatusMsg:
     def __init__(self, errors: bin = None, balancing_status: BmsBalancingStatus = None):
-        if errors is not None:
-            self.errors = bin(errors)
-        if balancing_status is not None:
-            self.balancing_status = BmsBalancingStatus(balancing_status)
+        self.errors = bin(errors) if errors is not None else None
+        self.balancing_status = BmsBalancingStatus(balancing_status) if balancing_status is not None else None
+        self.timestamp=int()
         self.size = 2
 
     def serialize(self):
@@ -69,20 +68,14 @@ class BmsBoardStatusMsg:
 
 class BmsTemperaturesMsg:
     def __init__(self, start_index: int = None, temp0: int = None, temp1: int = None, temp2: int = None, temp3: int = None, temp4: int = None, temp5: int = None):
-        if start_index is not None:
-            self.start_index = int(start_index)
-        if temp0 is not None:
-            self.temp0 = int(temp0)
-        if temp1 is not None:
-            self.temp1 = int(temp1)
-        if temp2 is not None:
-            self.temp2 = int(temp2)
-        if temp3 is not None:
-            self.temp3 = int(temp3)
-        if temp4 is not None:
-            self.temp4 = int(temp4)
-        if temp5 is not None:
-            self.temp5 = int(temp5)
+        self.start_index = int(start_index) if start_index is not None else None
+        self.temp0 = int(temp0) if temp0 is not None else None
+        self.temp1 = int(temp1) if temp1 is not None else None
+        self.temp2 = int(temp2) if temp2 is not None else None
+        self.temp3 = int(temp3) if temp3 is not None else None
+        self.temp4 = int(temp4) if temp4 is not None else None
+        self.temp5 = int(temp5) if temp5 is not None else None
+        self.timestamp=int()
         self.size = 7
 
     def serialize(self):
@@ -120,14 +113,11 @@ class BmsTemperaturesMsg:
 
 class BmsVoltagesMsg:
     def __init__(self, voltage0: int = None, voltage1: int = None, voltage2: int = None, start_index: int = None):
-        if voltage0 is not None:
-            self.voltage0 = int(voltage0)
-        if voltage1 is not None:
-            self.voltage1 = int(voltage1)
-        if voltage2 is not None:
-            self.voltage2 = int(voltage2)
-        if start_index is not None:
-            self.start_index = int(start_index)
+        self.voltage0 = int(voltage0) if voltage0 is not None else None
+        self.voltage1 = int(voltage1) if voltage1 is not None else None
+        self.voltage2 = int(voltage2) if voltage2 is not None else None
+        self.start_index = int(start_index) if start_index is not None else None
+        self.timestamp=int()
         self.size = 7
 
     def serialize(self):
@@ -156,10 +146,9 @@ class BmsVoltagesMsg:
 
 class BmsBalancingMsg:
     def __init__(self, cells: bin = None, board_index: int = None):
-        if cells is not None:
-            self.cells = bin(cells)
-        if board_index is not None:
-            self.board_index = int(board_index)
+        self.cells = bin(cells) if cells is not None else None
+        self.board_index = int(board_index) if board_index is not None else None
+        self.timestamp=int()
         self.size = 4
 
     def serialize(self):
@@ -182,8 +171,8 @@ class BmsBalancingMsg:
 
 class BmsFwUpdateMsg:
     def __init__(self, board_index: int = None):
-        if board_index is not None:
-            self.board_index = int(board_index)
+        self.board_index = int(board_index) if board_index is not None else None
+        self.timestamp=int()
         self.size = 1
 
     def serialize(self):
