@@ -223,6 +223,7 @@ class BoardStatus final :
   enum : int {
     kErrorsFieldNumber = 1,
     kBalancingStatusFieldNumber = 2,
+    kTimestampFieldNumber = 3,
   };
   // uint32 errors = 1;
   void clear_errors();
@@ -242,6 +243,15 @@ class BoardStatus final :
   void _internal_set_balancing_status(::bms::BalancingStatusType value);
   public:
 
+  // uint32 timestamp = 3;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:bms.BoardStatus)
  private:
   class _Internal;
@@ -251,6 +261,7 @@ class BoardStatus final :
   typedef void DestructorSkippable_;
   uint32_t errors_;
   int balancing_status_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_bms_2eproto;
 };
@@ -382,6 +393,7 @@ class Temperatures final :
     kTemp3FieldNumber = 5,
     kTemp4FieldNumber = 6,
     kTemp5FieldNumber = 7,
+    kTimestampFieldNumber = 8,
   };
   // uint32 start_index = 1;
   void clear_start_index();
@@ -446,6 +458,15 @@ class Temperatures final :
   void _internal_set_temp5(uint32_t value);
   public:
 
+  // uint32 timestamp = 8;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:bms.Temperatures)
  private:
   class _Internal;
@@ -460,6 +481,7 @@ class Temperatures final :
   uint32_t temp3_;
   uint32_t temp4_;
   uint32_t temp5_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_bms_2eproto;
 };
@@ -588,6 +610,7 @@ class Voltages final :
     kVoltage0FieldNumber = 2,
     kVoltage1FieldNumber = 3,
     kVoltage2FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 start_index = 1;
   void clear_start_index();
@@ -625,6 +648,15 @@ class Voltages final :
   void _internal_set_voltage2(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:bms.Voltages)
  private:
   class _Internal;
@@ -636,6 +668,7 @@ class Voltages final :
   uint32_t voltage0_;
   uint32_t voltage1_;
   uint32_t voltage2_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_bms_2eproto;
 };
@@ -762,6 +795,7 @@ class Balancing final :
   enum : int {
     kBoardIndexFieldNumber = 1,
     kCellsFieldNumber = 2,
+    kTimestampFieldNumber = 3,
   };
   // uint32 board_index = 1;
   void clear_board_index();
@@ -781,6 +815,15 @@ class Balancing final :
   void _internal_set_cells(uint32_t value);
   public:
 
+  // uint32 timestamp = 3;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:bms.Balancing)
  private:
   class _Internal;
@@ -790,6 +833,7 @@ class Balancing final :
   typedef void DestructorSkippable_;
   uint32_t board_index_;
   uint32_t cells_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_bms_2eproto;
 };
@@ -915,6 +959,7 @@ class FwUpdate final :
 
   enum : int {
     kBoardIndexFieldNumber = 1,
+    kTimestampFieldNumber = 2,
   };
   // uint32 board_index = 1;
   void clear_board_index();
@@ -925,6 +970,15 @@ class FwUpdate final :
   void _internal_set_board_index(uint32_t value);
   public:
 
+  // uint32 timestamp = 2;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:bms.FwUpdate)
  private:
   class _Internal;
@@ -933,6 +987,7 @@ class FwUpdate final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   uint32_t board_index_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_bms_2eproto;
 };
@@ -1219,6 +1274,26 @@ inline void BoardStatus::set_balancing_status(::bms::BalancingStatusType value) 
   // @@protoc_insertion_point(field_set:bms.BoardStatus.balancing_status)
 }
 
+// uint32 timestamp = 3;
+inline void BoardStatus::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t BoardStatus::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t BoardStatus::timestamp() const {
+  // @@protoc_insertion_point(field_get:bms.BoardStatus.timestamp)
+  return _internal_timestamp();
+}
+inline void BoardStatus::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void BoardStatus::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:bms.BoardStatus.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // Temperatures
@@ -1363,6 +1438,26 @@ inline void Temperatures::set_temp5(uint32_t value) {
   // @@protoc_insertion_point(field_set:bms.Temperatures.temp5)
 }
 
+// uint32 timestamp = 8;
+inline void Temperatures::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t Temperatures::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t Temperatures::timestamp() const {
+  // @@protoc_insertion_point(field_get:bms.Temperatures.timestamp)
+  return _internal_timestamp();
+}
+inline void Temperatures::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void Temperatures::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:bms.Temperatures.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // Voltages
@@ -1447,6 +1542,26 @@ inline void Voltages::set_voltage2(uint32_t value) {
   // @@protoc_insertion_point(field_set:bms.Voltages.voltage2)
 }
 
+// uint32 timestamp = 5;
+inline void Voltages::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t Voltages::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t Voltages::timestamp() const {
+  // @@protoc_insertion_point(field_get:bms.Voltages.timestamp)
+  return _internal_timestamp();
+}
+inline void Voltages::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void Voltages::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:bms.Voltages.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // Balancing
@@ -1491,6 +1606,26 @@ inline void Balancing::set_cells(uint32_t value) {
   // @@protoc_insertion_point(field_set:bms.Balancing.cells)
 }
 
+// uint32 timestamp = 3;
+inline void Balancing::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t Balancing::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t Balancing::timestamp() const {
+  // @@protoc_insertion_point(field_get:bms.Balancing.timestamp)
+  return _internal_timestamp();
+}
+inline void Balancing::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void Balancing::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:bms.Balancing.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // FwUpdate
@@ -1513,6 +1648,26 @@ inline void FwUpdate::_internal_set_board_index(uint32_t value) {
 inline void FwUpdate::set_board_index(uint32_t value) {
   _internal_set_board_index(value);
   // @@protoc_insertion_point(field_set:bms.FwUpdate.board_index)
+}
+
+// uint32 timestamp = 2;
+inline void FwUpdate::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t FwUpdate::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t FwUpdate::timestamp() const {
+  // @@protoc_insertion_point(field_get:bms.FwUpdate.timestamp)
+  return _internal_timestamp();
+}
+inline void FwUpdate::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void FwUpdate::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:bms.FwUpdate.timestamp)
 }
 
 // -------------------------------------------------------------------

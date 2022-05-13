@@ -262,6 +262,7 @@ class ImuAngularRate final :
     kAngRateXFieldNumber = 1,
     kAngRateYFieldNumber = 2,
     kAngRateZFieldNumber = 3,
+    kTimestampFieldNumber = 4,
   };
   // uint32 ang_rate_x = 1;
   void clear_ang_rate_x();
@@ -290,6 +291,15 @@ class ImuAngularRate final :
   void _internal_set_ang_rate_z(uint32_t value);
   public:
 
+  // uint32 timestamp = 4;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.ImuAngularRate)
  private:
   class _Internal;
@@ -300,6 +310,7 @@ class ImuAngularRate final :
   uint32_t ang_rate_x_;
   uint32_t ang_rate_y_;
   uint32_t ang_rate_z_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -427,6 +438,7 @@ class ImuAcceleration final :
     kAccelXFieldNumber = 1,
     kAccelYFieldNumber = 2,
     kAccelZFieldNumber = 3,
+    kTimestampFieldNumber = 4,
   };
   // uint32 accel_x = 1;
   void clear_accel_x();
@@ -455,6 +467,15 @@ class ImuAcceleration final :
   void _internal_set_accel_z(uint32_t value);
   public:
 
+  // uint32 timestamp = 4;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.ImuAcceleration)
  private:
   class _Internal;
@@ -465,6 +486,7 @@ class ImuAcceleration final :
   uint32_t accel_x_;
   uint32_t accel_y_;
   uint32_t accel_z_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -593,6 +615,7 @@ class IrtsFl0 final :
     kChannel2FieldNumber = 2,
     kChannel3FieldNumber = 3,
     kChannel4FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel1 = 1;
   void clear_channel1();
@@ -630,6 +653,15 @@ class IrtsFl0 final :
   void _internal_set_channel4(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsFl0)
  private:
   class _Internal;
@@ -641,6 +673,7 @@ class IrtsFl0 final :
   uint32_t channel2_;
   uint32_t channel3_;
   uint32_t channel4_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -769,6 +802,7 @@ class IrtsFl1 final :
     kChannel6FieldNumber = 2,
     kChannel7FieldNumber = 3,
     kChannel8FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel5 = 1;
   void clear_channel5();
@@ -806,6 +840,15 @@ class IrtsFl1 final :
   void _internal_set_channel8(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsFl1)
  private:
   class _Internal;
@@ -817,6 +860,7 @@ class IrtsFl1 final :
   uint32_t channel6_;
   uint32_t channel7_;
   uint32_t channel8_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -945,6 +989,7 @@ class IrtsFl2 final :
     kChannel10FieldNumber = 2,
     kChannel11FieldNumber = 3,
     kChannel12FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel9 = 1;
   void clear_channel9();
@@ -982,6 +1027,15 @@ class IrtsFl2 final :
   void _internal_set_channel12(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsFl2)
  private:
   class _Internal;
@@ -993,6 +1047,7 @@ class IrtsFl2 final :
   uint32_t channel10_;
   uint32_t channel11_;
   uint32_t channel12_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -1121,6 +1176,7 @@ class IrtsFl3 final :
     kChannel14FieldNumber = 2,
     kChannel15FieldNumber = 3,
     kChannel16FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel13 = 1;
   void clear_channel13();
@@ -1158,6 +1214,15 @@ class IrtsFl3 final :
   void _internal_set_channel16(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsFl3)
  private:
   class _Internal;
@@ -1169,6 +1234,7 @@ class IrtsFl3 final :
   uint32_t channel14_;
   uint32_t channel15_;
   uint32_t channel16_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -1297,6 +1363,7 @@ class IrtsFr0 final :
     kChannel2FieldNumber = 2,
     kChannel3FieldNumber = 3,
     kChannel4FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel1 = 1;
   void clear_channel1();
@@ -1334,6 +1401,15 @@ class IrtsFr0 final :
   void _internal_set_channel4(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsFr0)
  private:
   class _Internal;
@@ -1345,6 +1421,7 @@ class IrtsFr0 final :
   uint32_t channel2_;
   uint32_t channel3_;
   uint32_t channel4_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -1473,6 +1550,7 @@ class IrtsFr1 final :
     kChannel6FieldNumber = 2,
     kChannel7FieldNumber = 3,
     kChannel8FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel5 = 1;
   void clear_channel5();
@@ -1510,6 +1588,15 @@ class IrtsFr1 final :
   void _internal_set_channel8(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsFr1)
  private:
   class _Internal;
@@ -1521,6 +1608,7 @@ class IrtsFr1 final :
   uint32_t channel6_;
   uint32_t channel7_;
   uint32_t channel8_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -1649,6 +1737,7 @@ class IrtsFr2 final :
     kChannel10FieldNumber = 2,
     kChannel11FieldNumber = 3,
     kChannel12FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel9 = 1;
   void clear_channel9();
@@ -1686,6 +1775,15 @@ class IrtsFr2 final :
   void _internal_set_channel12(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsFr2)
  private:
   class _Internal;
@@ -1697,6 +1795,7 @@ class IrtsFr2 final :
   uint32_t channel10_;
   uint32_t channel11_;
   uint32_t channel12_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -1825,6 +1924,7 @@ class IrtsFr3 final :
     kChannel14FieldNumber = 2,
     kChannel15FieldNumber = 3,
     kChannel16FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel13 = 1;
   void clear_channel13();
@@ -1862,6 +1962,15 @@ class IrtsFr3 final :
   void _internal_set_channel16(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsFr3)
  private:
   class _Internal;
@@ -1873,6 +1982,7 @@ class IrtsFr3 final :
   uint32_t channel14_;
   uint32_t channel15_;
   uint32_t channel16_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -2001,6 +2111,7 @@ class IrtsRl0 final :
     kChannel2FieldNumber = 2,
     kChannel3FieldNumber = 3,
     kChannel4FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel1 = 1;
   void clear_channel1();
@@ -2038,6 +2149,15 @@ class IrtsRl0 final :
   void _internal_set_channel4(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsRl0)
  private:
   class _Internal;
@@ -2049,6 +2169,7 @@ class IrtsRl0 final :
   uint32_t channel2_;
   uint32_t channel3_;
   uint32_t channel4_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -2177,6 +2298,7 @@ class IrtsRl1 final :
     kChannel6FieldNumber = 2,
     kChannel7FieldNumber = 3,
     kChannel8FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel5 = 1;
   void clear_channel5();
@@ -2214,6 +2336,15 @@ class IrtsRl1 final :
   void _internal_set_channel8(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsRl1)
  private:
   class _Internal;
@@ -2225,6 +2356,7 @@ class IrtsRl1 final :
   uint32_t channel6_;
   uint32_t channel7_;
   uint32_t channel8_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -2353,6 +2485,7 @@ class IrtsRl2 final :
     kChannel10FieldNumber = 2,
     kChannel11FieldNumber = 3,
     kChannel12FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel9 = 1;
   void clear_channel9();
@@ -2390,6 +2523,15 @@ class IrtsRl2 final :
   void _internal_set_channel12(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsRl2)
  private:
   class _Internal;
@@ -2401,6 +2543,7 @@ class IrtsRl2 final :
   uint32_t channel10_;
   uint32_t channel11_;
   uint32_t channel12_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -2529,6 +2672,7 @@ class IrtsRl3 final :
     kChannel14FieldNumber = 2,
     kChannel15FieldNumber = 3,
     kChannel16FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel13 = 1;
   void clear_channel13();
@@ -2566,6 +2710,15 @@ class IrtsRl3 final :
   void _internal_set_channel16(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsRl3)
  private:
   class _Internal;
@@ -2577,6 +2730,7 @@ class IrtsRl3 final :
   uint32_t channel14_;
   uint32_t channel15_;
   uint32_t channel16_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -2705,6 +2859,7 @@ class IrtsRr0 final :
     kChannel2FieldNumber = 2,
     kChannel3FieldNumber = 3,
     kChannel4FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel1 = 1;
   void clear_channel1();
@@ -2742,6 +2897,15 @@ class IrtsRr0 final :
   void _internal_set_channel4(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsRr0)
  private:
   class _Internal;
@@ -2753,6 +2917,7 @@ class IrtsRr0 final :
   uint32_t channel2_;
   uint32_t channel3_;
   uint32_t channel4_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -2881,6 +3046,7 @@ class IrtsRr1 final :
     kChannel6FieldNumber = 2,
     kChannel7FieldNumber = 3,
     kChannel8FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel5 = 1;
   void clear_channel5();
@@ -2918,6 +3084,15 @@ class IrtsRr1 final :
   void _internal_set_channel8(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsRr1)
  private:
   class _Internal;
@@ -2929,6 +3104,7 @@ class IrtsRr1 final :
   uint32_t channel6_;
   uint32_t channel7_;
   uint32_t channel8_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -3057,6 +3233,7 @@ class IrtsRr2 final :
     kChannel10FieldNumber = 2,
     kChannel11FieldNumber = 3,
     kChannel12FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel9 = 1;
   void clear_channel9();
@@ -3094,6 +3271,15 @@ class IrtsRr2 final :
   void _internal_set_channel12(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsRr2)
  private:
   class _Internal;
@@ -3105,6 +3291,7 @@ class IrtsRr2 final :
   uint32_t channel10_;
   uint32_t channel11_;
   uint32_t channel12_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -3233,6 +3420,7 @@ class IrtsRr3 final :
     kChannel14FieldNumber = 2,
     kChannel15FieldNumber = 3,
     kChannel16FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
   // uint32 channel13 = 1;
   void clear_channel13();
@@ -3270,6 +3458,15 @@ class IrtsRr3 final :
   void _internal_set_channel16(uint32_t value);
   public:
 
+  // uint32 timestamp = 5;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.IrtsRr3)
  private:
   class _Internal;
@@ -3281,6 +3478,7 @@ class IrtsRr3 final :
   uint32_t channel14_;
   uint32_t channel15_;
   uint32_t channel16_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -3407,6 +3605,7 @@ class GpsCoords final :
   enum : int {
     kLatitudeFieldNumber = 1,
     kLongitudeFieldNumber = 2,
+    kTimestampFieldNumber = 3,
   };
   // float latitude = 1;
   void clear_latitude();
@@ -3426,6 +3625,15 @@ class GpsCoords final :
   void _internal_set_longitude(float value);
   public:
 
+  // uint32 timestamp = 3;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.GpsCoords)
  private:
   class _Internal;
@@ -3435,6 +3643,7 @@ class GpsCoords final :
   typedef void DestructorSkippable_;
   float latitude_;
   float longitude_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -3560,6 +3769,7 @@ class GpsSpeed final :
 
   enum : int {
     kSpeedFieldNumber = 1,
+    kTimestampFieldNumber = 2,
   };
   // uint32 speed = 1;
   void clear_speed();
@@ -3570,6 +3780,15 @@ class GpsSpeed final :
   void _internal_set_speed(uint32_t value);
   public:
 
+  // uint32 timestamp = 2;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:secondary.GpsSpeed)
  private:
   class _Internal;
@@ -3578,6 +3797,7 @@ class GpsSpeed final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   uint32_t speed_;
+  uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_secondary_2eproto;
 };
@@ -4358,6 +4578,26 @@ inline void ImuAngularRate::set_ang_rate_z(uint32_t value) {
   // @@protoc_insertion_point(field_set:secondary.ImuAngularRate.ang_rate_z)
 }
 
+// uint32 timestamp = 4;
+inline void ImuAngularRate::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t ImuAngularRate::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t ImuAngularRate::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.ImuAngularRate.timestamp)
+  return _internal_timestamp();
+}
+inline void ImuAngularRate::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void ImuAngularRate::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.ImuAngularRate.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // ImuAcceleration
@@ -4420,6 +4660,26 @@ inline void ImuAcceleration::_internal_set_accel_z(uint32_t value) {
 inline void ImuAcceleration::set_accel_z(uint32_t value) {
   _internal_set_accel_z(value);
   // @@protoc_insertion_point(field_set:secondary.ImuAcceleration.accel_z)
+}
+
+// uint32 timestamp = 4;
+inline void ImuAcceleration::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t ImuAcceleration::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t ImuAcceleration::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.ImuAcceleration.timestamp)
+  return _internal_timestamp();
+}
+inline void ImuAcceleration::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void ImuAcceleration::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.ImuAcceleration.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -4506,6 +4766,26 @@ inline void IrtsFl0::set_channel4(uint32_t value) {
   // @@protoc_insertion_point(field_set:secondary.IrtsFl0.channel4)
 }
 
+// uint32 timestamp = 5;
+inline void IrtsFl0::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsFl0::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsFl0::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsFl0.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsFl0::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsFl0::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsFl0.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // IrtsFl1
@@ -4588,6 +4868,26 @@ inline void IrtsFl1::_internal_set_channel8(uint32_t value) {
 inline void IrtsFl1::set_channel8(uint32_t value) {
   _internal_set_channel8(value);
   // @@protoc_insertion_point(field_set:secondary.IrtsFl1.channel8)
+}
+
+// uint32 timestamp = 5;
+inline void IrtsFl1::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsFl1::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsFl1::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsFl1.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsFl1::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsFl1::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsFl1.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -4674,6 +4974,26 @@ inline void IrtsFl2::set_channel12(uint32_t value) {
   // @@protoc_insertion_point(field_set:secondary.IrtsFl2.channel12)
 }
 
+// uint32 timestamp = 5;
+inline void IrtsFl2::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsFl2::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsFl2::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsFl2.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsFl2::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsFl2::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsFl2.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // IrtsFl3
@@ -4756,6 +5076,26 @@ inline void IrtsFl3::_internal_set_channel16(uint32_t value) {
 inline void IrtsFl3::set_channel16(uint32_t value) {
   _internal_set_channel16(value);
   // @@protoc_insertion_point(field_set:secondary.IrtsFl3.channel16)
+}
+
+// uint32 timestamp = 5;
+inline void IrtsFl3::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsFl3::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsFl3::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsFl3.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsFl3::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsFl3::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsFl3.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -4842,6 +5182,26 @@ inline void IrtsFr0::set_channel4(uint32_t value) {
   // @@protoc_insertion_point(field_set:secondary.IrtsFr0.channel4)
 }
 
+// uint32 timestamp = 5;
+inline void IrtsFr0::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsFr0::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsFr0::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsFr0.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsFr0::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsFr0::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsFr0.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // IrtsFr1
@@ -4924,6 +5284,26 @@ inline void IrtsFr1::_internal_set_channel8(uint32_t value) {
 inline void IrtsFr1::set_channel8(uint32_t value) {
   _internal_set_channel8(value);
   // @@protoc_insertion_point(field_set:secondary.IrtsFr1.channel8)
+}
+
+// uint32 timestamp = 5;
+inline void IrtsFr1::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsFr1::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsFr1::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsFr1.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsFr1::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsFr1::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsFr1.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -5010,6 +5390,26 @@ inline void IrtsFr2::set_channel12(uint32_t value) {
   // @@protoc_insertion_point(field_set:secondary.IrtsFr2.channel12)
 }
 
+// uint32 timestamp = 5;
+inline void IrtsFr2::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsFr2::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsFr2::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsFr2.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsFr2::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsFr2::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsFr2.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // IrtsFr3
@@ -5092,6 +5492,26 @@ inline void IrtsFr3::_internal_set_channel16(uint32_t value) {
 inline void IrtsFr3::set_channel16(uint32_t value) {
   _internal_set_channel16(value);
   // @@protoc_insertion_point(field_set:secondary.IrtsFr3.channel16)
+}
+
+// uint32 timestamp = 5;
+inline void IrtsFr3::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsFr3::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsFr3::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsFr3.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsFr3::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsFr3::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsFr3.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -5178,6 +5598,26 @@ inline void IrtsRl0::set_channel4(uint32_t value) {
   // @@protoc_insertion_point(field_set:secondary.IrtsRl0.channel4)
 }
 
+// uint32 timestamp = 5;
+inline void IrtsRl0::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsRl0::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsRl0::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsRl0.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsRl0::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsRl0::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsRl0.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // IrtsRl1
@@ -5260,6 +5700,26 @@ inline void IrtsRl1::_internal_set_channel8(uint32_t value) {
 inline void IrtsRl1::set_channel8(uint32_t value) {
   _internal_set_channel8(value);
   // @@protoc_insertion_point(field_set:secondary.IrtsRl1.channel8)
+}
+
+// uint32 timestamp = 5;
+inline void IrtsRl1::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsRl1::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsRl1::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsRl1.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsRl1::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsRl1::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsRl1.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -5346,6 +5806,26 @@ inline void IrtsRl2::set_channel12(uint32_t value) {
   // @@protoc_insertion_point(field_set:secondary.IrtsRl2.channel12)
 }
 
+// uint32 timestamp = 5;
+inline void IrtsRl2::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsRl2::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsRl2::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsRl2.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsRl2::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsRl2::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsRl2.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // IrtsRl3
@@ -5428,6 +5908,26 @@ inline void IrtsRl3::_internal_set_channel16(uint32_t value) {
 inline void IrtsRl3::set_channel16(uint32_t value) {
   _internal_set_channel16(value);
   // @@protoc_insertion_point(field_set:secondary.IrtsRl3.channel16)
+}
+
+// uint32 timestamp = 5;
+inline void IrtsRl3::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsRl3::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsRl3::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsRl3.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsRl3::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsRl3::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsRl3.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -5514,6 +6014,26 @@ inline void IrtsRr0::set_channel4(uint32_t value) {
   // @@protoc_insertion_point(field_set:secondary.IrtsRr0.channel4)
 }
 
+// uint32 timestamp = 5;
+inline void IrtsRr0::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsRr0::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsRr0::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsRr0.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsRr0::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsRr0::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsRr0.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // IrtsRr1
@@ -5596,6 +6116,26 @@ inline void IrtsRr1::_internal_set_channel8(uint32_t value) {
 inline void IrtsRr1::set_channel8(uint32_t value) {
   _internal_set_channel8(value);
   // @@protoc_insertion_point(field_set:secondary.IrtsRr1.channel8)
+}
+
+// uint32 timestamp = 5;
+inline void IrtsRr1::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsRr1::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsRr1::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsRr1.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsRr1::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsRr1::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsRr1.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -5682,6 +6222,26 @@ inline void IrtsRr2::set_channel12(uint32_t value) {
   // @@protoc_insertion_point(field_set:secondary.IrtsRr2.channel12)
 }
 
+// uint32 timestamp = 5;
+inline void IrtsRr2::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsRr2::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsRr2::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsRr2.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsRr2::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsRr2::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsRr2.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // IrtsRr3
@@ -5766,6 +6326,26 @@ inline void IrtsRr3::set_channel16(uint32_t value) {
   // @@protoc_insertion_point(field_set:secondary.IrtsRr3.channel16)
 }
 
+// uint32 timestamp = 5;
+inline void IrtsRr3::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t IrtsRr3::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t IrtsRr3::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.IrtsRr3.timestamp)
+  return _internal_timestamp();
+}
+inline void IrtsRr3::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void IrtsRr3::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.IrtsRr3.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // GpsCoords
@@ -5810,6 +6390,26 @@ inline void GpsCoords::set_longitude(float value) {
   // @@protoc_insertion_point(field_set:secondary.GpsCoords.longitude)
 }
 
+// uint32 timestamp = 3;
+inline void GpsCoords::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t GpsCoords::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t GpsCoords::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.GpsCoords.timestamp)
+  return _internal_timestamp();
+}
+inline void GpsCoords::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void GpsCoords::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.GpsCoords.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // GpsSpeed
@@ -5832,6 +6432,26 @@ inline void GpsSpeed::_internal_set_speed(uint32_t value) {
 inline void GpsSpeed::set_speed(uint32_t value) {
   _internal_set_speed(value);
   // @@protoc_insertion_point(field_set:secondary.GpsSpeed.speed)
+}
+
+// uint32 timestamp = 2;
+inline void GpsSpeed::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t GpsSpeed::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t GpsSpeed::timestamp() const {
+  // @@protoc_insertion_point(field_get:secondary.GpsSpeed.timestamp)
+  return _internal_timestamp();
+}
+inline void GpsSpeed::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void GpsSpeed::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:secondary.GpsSpeed.timestamp)
 }
 
 // -------------------------------------------------------------------

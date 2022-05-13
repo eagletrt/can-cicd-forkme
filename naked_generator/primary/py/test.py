@@ -1,9 +1,9 @@
 import primary
 
 
-print("***PrimarySteerVersion***")
+print("***PrimarySteerVersionMsg***")
 
-PrimarySteerVersion_s = primary.PrimarySteerVersionMsg(41, 118)
+PrimarySteerVersion_s = primary.PrimarySteerVersionMsg(177, 202)
     
 print(f"Before: {PrimarySteerVersion_s.component_version} {PrimarySteerVersion_s.cancicd_version}")
     
@@ -18,9 +18,9 @@ print(f"After:  {PrimarySteerVersion_d.component_version} {PrimarySteerVersion_d
 assert(PrimarySteerVersion_s == PrimarySteerVersion_d)
 print("")
 
-print("***PrimaryDasVersion***")
+print("***PrimaryDasVersionMsg***")
 
-PrimaryDasVersion_s = primary.PrimaryDasVersionMsg(253, 10)
+PrimaryDasVersion_s = primary.PrimaryDasVersionMsg(85, 175)
     
 print(f"Before: {PrimaryDasVersion_s.component_version} {PrimaryDasVersion_s.cancicd_version}")
     
@@ -35,9 +35,9 @@ print(f"After:  {PrimaryDasVersion_d.component_version} {PrimaryDasVersion_d.can
 assert(PrimaryDasVersion_s == PrimaryDasVersion_d)
 print("")
 
-print("***PrimaryHvVersion***")
+print("***PrimaryHvVersionMsg***")
 
-PrimaryHvVersion_s = primary.PrimaryHvVersionMsg(124, 80)
+PrimaryHvVersion_s = primary.PrimaryHvVersionMsg(166, 254)
     
 print(f"Before: {PrimaryHvVersion_s.component_version} {PrimaryHvVersion_s.cancicd_version}")
     
@@ -52,9 +52,9 @@ print(f"After:  {PrimaryHvVersion_d.component_version} {PrimaryHvVersion_d.canci
 assert(PrimaryHvVersion_s == PrimaryHvVersion_d)
 print("")
 
-print("***PrimaryLvVersion***")
+print("***PrimaryLvVersionMsg***")
 
-PrimaryLvVersion_s = primary.PrimaryLvVersionMsg(94, 251)
+PrimaryLvVersion_s = primary.PrimaryLvVersionMsg(229, 137)
     
 print(f"Before: {PrimaryLvVersion_s.component_version} {PrimaryLvVersion_s.cancicd_version}")
     
@@ -69,9 +69,9 @@ print(f"After:  {PrimaryLvVersion_d.component_version} {PrimaryLvVersion_d.canci
 assert(PrimaryLvVersion_s == PrimaryLvVersion_d)
 print("")
 
-print("***PrimaryTlmVersion***")
+print("***PrimaryTlmVersionMsg***")
 
-PrimaryTlmVersion_s = primary.PrimaryTlmVersionMsg(40, 43)
+PrimaryTlmVersion_s = primary.PrimaryTlmVersionMsg(68, 31)
     
 print(f"Before: {PrimaryTlmVersion_s.component_version} {PrimaryTlmVersion_s.cancicd_version}")
     
@@ -86,9 +86,9 @@ print(f"After:  {PrimaryTlmVersion_d.component_version} {PrimaryTlmVersion_d.can
 assert(PrimaryTlmVersion_s == PrimaryTlmVersion_d)
 print("")
 
-print("***PrimaryTimestamp***")
+print("***PrimaryTimestampMsg***")
 
-PrimaryTimestamp_s = primary.PrimaryTimestampMsg(967567434)
+PrimaryTimestamp_s = primary.PrimaryTimestampMsg(32500953)
     
 print(f"Before: {PrimaryTimestamp_s.timestamp}")
     
@@ -103,9 +103,9 @@ print(f"After:  {PrimaryTimestamp_d.timestamp}")
 assert(PrimaryTimestamp_s == PrimaryTimestamp_d)
 print("")
 
-print("***PrimarySetTlmStatus***")
+print("***PrimarySetTlmStatusMsg***")
 
-PrimarySetTlmStatus_s = primary.PrimarySetTlmStatusMsg(80, 6, 0, 1)
+PrimarySetTlmStatus_s = primary.PrimarySetTlmStatusMsg(4, 225, 1, 1)
     
 print(f"Before: {PrimarySetTlmStatus_s.driver} {PrimarySetTlmStatus_s.circuit} {PrimarySetTlmStatus_s.race_type} {PrimarySetTlmStatus_s.tlm_status}")
     
@@ -120,9 +120,9 @@ print(f"After:  {PrimarySetTlmStatus_d.driver} {PrimarySetTlmStatus_d.circuit} {
 assert(PrimarySetTlmStatus_s == PrimarySetTlmStatus_d)
 print("")
 
-print("***PrimarySteerSystemStatus***")
+print("***PrimarySteerSystemStatusMsg***")
 
-PrimarySteerSystemStatus_s = primary.PrimarySteerSystemStatusMsg(87)
+PrimarySteerSystemStatus_s = primary.PrimarySteerSystemStatusMsg(107)
     
 print(f"Before: {PrimarySteerSystemStatus_s.soc_temp}")
     
@@ -137,7 +137,7 @@ print(f"After:  {PrimarySteerSystemStatus_d.soc_temp}")
 assert(PrimarySteerSystemStatus_s == PrimarySteerSystemStatus_d)
 print("")
 
-print("***PrimaryMarker***")
+print("***PrimaryMarkerMsg***")
 
 PrimaryMarker_s = primary.PrimaryMarkerMsg()
     
@@ -149,9 +149,9 @@ PrimaryMarker_d.deserialize(data)
 assert(PrimaryMarker_s == PrimaryMarker_d)
 print("")
 
-print("***PrimaryTlmStatus***")
+print("***PrimaryTlmStatusMsg***")
 
-PrimaryTlmStatus_s = primary.PrimaryTlmStatusMsg(47, 91, 2, 0)
+PrimaryTlmStatus_s = primary.PrimaryTlmStatusMsg(185, 220, 0, 0)
     
 print(f"Before: {PrimaryTlmStatus_s.driver} {PrimaryTlmStatus_s.circuit} {PrimaryTlmStatus_s.race_type} {PrimaryTlmStatus_s.tlm_status}")
     
@@ -166,9 +166,9 @@ print(f"After:  {PrimaryTlmStatus_d.driver} {PrimaryTlmStatus_d.circuit} {Primar
 assert(PrimaryTlmStatus_s == PrimaryTlmStatus_d)
 print("")
 
-print("***PrimaryCarStatus***")
+print("***PrimaryCarStatusMsg***")
 
-PrimaryCarStatus_s = primary.PrimaryCarStatusMsg(2, 2, 0)
+PrimaryCarStatus_s = primary.PrimaryCarStatusMsg(2, 0, 2)
     
 print(f"Before: {PrimaryCarStatus_s.inverter_l} {PrimaryCarStatus_s.inverter_r} {PrimaryCarStatus_s.car_status}")
     
@@ -183,9 +183,9 @@ print(f"After:  {PrimaryCarStatus_d.inverter_l} {PrimaryCarStatus_d.inverter_r} 
 assert(PrimaryCarStatus_s == PrimaryCarStatus_d)
 print("")
 
-print("***PrimaryDasErrors***")
+print("***PrimaryDasErrorsMsg***")
 
-PrimaryDasErrors_s = primary.PrimaryDasErrorsMsg(144)
+PrimaryDasErrors_s = primary.PrimaryDasErrorsMsg(251)
     
 print(f"Before: {PrimaryDasErrors_s.das_error}")
     
@@ -200,9 +200,9 @@ print(f"After:  {PrimaryDasErrors_d.das_error}")
 assert(PrimaryDasErrors_s == PrimaryDasErrors_d)
 print("")
 
-print("***PrimarySpeed***")
+print("***PrimarySpeedMsg***")
 
-PrimarySpeed_s = primary.PrimarySpeedMsg(42409, 45033, 29357, 50945)
+PrimarySpeed_s = primary.PrimarySpeedMsg(28370, 51313, 62618, 7006)
     
 print(f"Before: {PrimarySpeed_s.encoder_r} {PrimarySpeed_s.encoder_l} {PrimarySpeed_s.inverter_r} {PrimarySpeed_s.inverter_l}")
     
@@ -217,9 +217,9 @@ print(f"After:  {PrimarySpeed_d.encoder_r} {PrimarySpeed_d.encoder_l} {PrimarySp
 assert(PrimarySpeed_s == PrimarySpeed_d)
 print("")
 
-print("***PrimaryHvVoltage***")
+print("***PrimaryHvVoltageMsg***")
 
-PrimaryHvVoltage_s = primary.PrimaryHvVoltageMsg(2257, 44163, 61461, 22318)
+PrimaryHvVoltage_s = primary.PrimaryHvVoltageMsg(11259, 61454, 42612, 8387)
     
 print(f"Before: {PrimaryHvVoltage_s.pack_voltage} {PrimaryHvVoltage_s.bus_voltage} {PrimaryHvVoltage_s.max_cell_voltage} {PrimaryHvVoltage_s.min_cell_voltage}")
     
@@ -234,9 +234,9 @@ print(f"After:  {PrimaryHvVoltage_d.pack_voltage} {PrimaryHvVoltage_d.bus_voltag
 assert(PrimaryHvVoltage_s == PrimaryHvVoltage_d)
 print("")
 
-print("***PrimaryHvCurrent***")
+print("***PrimaryHvCurrentMsg***")
 
-PrimaryHvCurrent_s = primary.PrimaryHvCurrentMsg(4502, 23515)
+PrimaryHvCurrent_s = primary.PrimaryHvCurrentMsg(60924, -11879)
     
 print(f"Before: {PrimaryHvCurrent_s.current} {PrimaryHvCurrent_s.power}")
     
@@ -251,9 +251,9 @@ print(f"After:  {PrimaryHvCurrent_d.current} {PrimaryHvCurrent_d.power}")
 assert(PrimaryHvCurrent_s == PrimaryHvCurrent_d)
 print("")
 
-print("***PrimaryHvTemp***")
+print("***PrimaryHvTempMsg***")
 
-PrimaryHvTemp_s = primary.PrimaryHvTempMsg(45935, 17641, 263)
+PrimaryHvTemp_s = primary.PrimaryHvTempMsg(45078, 39123, 47086)
     
 print(f"Before: {PrimaryHvTemp_s.average_temp} {PrimaryHvTemp_s.max_temp} {PrimaryHvTemp_s.min_temp}")
     
@@ -268,9 +268,9 @@ print(f"After:  {PrimaryHvTemp_d.average_temp} {PrimaryHvTemp_d.max_temp} {Prima
 assert(PrimaryHvTemp_s == PrimaryHvTemp_d)
 print("")
 
-print("***PrimaryHvErrors***")
+print("***PrimaryHvErrorsMsg***")
 
-PrimaryHvErrors_s = primary.PrimaryHvErrorsMsg(47888, 11041)
+PrimaryHvErrors_s = primary.PrimaryHvErrorsMsg(1701, 51769)
     
 print(f"Before: {PrimaryHvErrors_s.warnings} {PrimaryHvErrors_s.errors}")
     
@@ -285,7 +285,7 @@ print(f"After:  {PrimaryHvErrors_d.warnings} {PrimaryHvErrors_d.errors}")
 assert(PrimaryHvErrors_s == PrimaryHvErrors_d)
 print("")
 
-print("***PrimaryTsStatus***")
+print("***PrimaryTsStatusMsg***")
 
 PrimaryTsStatus_s = primary.PrimaryTsStatusMsg(2)
     
@@ -302,7 +302,7 @@ print(f"After:  {PrimaryTsStatus_d.ts_status}")
 assert(PrimaryTsStatus_s == PrimaryTsStatus_d)
 print("")
 
-print("***PrimarySetTsStatus***")
+print("***PrimarySetTsStatusMsg***")
 
 PrimarySetTsStatus_s = primary.PrimarySetTsStatusMsg(1)
     
@@ -319,7 +319,7 @@ print(f"After:  {PrimarySetTsStatus_d.ts_status_set}")
 assert(PrimarySetTsStatus_s == PrimarySetTsStatus_d)
 print("")
 
-print("***PrimarySetCellBalancingStatus***")
+print("***PrimarySetCellBalancingStatusMsg***")
 
 PrimarySetCellBalancingStatus_s = primary.PrimarySetCellBalancingStatusMsg(1)
     
@@ -336,9 +336,9 @@ print(f"After:  {PrimarySetCellBalancingStatus_d.set_balancing_status}")
 assert(PrimarySetCellBalancingStatus_s == PrimarySetCellBalancingStatus_d)
 print("")
 
-print("***PrimaryHandcartStatus***")
+print("***PrimaryHandcartStatusMsg***")
 
-PrimaryHandcartStatus_s = primary.PrimaryHandcartStatusMsg(1)
+PrimaryHandcartStatus_s = primary.PrimaryHandcartStatusMsg(0)
     
 print(f"Before: {PrimaryHandcartStatus_s.connected}")
     
@@ -353,9 +353,9 @@ print(f"After:  {PrimaryHandcartStatus_d.connected}")
 assert(PrimaryHandcartStatus_s == PrimaryHandcartStatus_d)
 print("")
 
-print("***PrimarySteerStatus***")
+print("***PrimarySteerStatusMsg***")
 
-PrimarySteerStatus_s = primary.PrimarySteerStatusMsg(4, 2)
+PrimarySteerStatus_s = primary.PrimarySteerStatusMsg(2, 2)
     
 print(f"Before: {PrimarySteerStatus_s.map} {PrimarySteerStatus_s.traction_control}")
     
@@ -370,7 +370,7 @@ print(f"After:  {PrimarySteerStatus_d.map} {PrimarySteerStatus_d.traction_contro
 assert(PrimarySteerStatus_s == PrimarySteerStatus_d)
 print("")
 
-print("***PrimarySetCarStatus***")
+print("***PrimarySetCarStatusMsg***")
 
 PrimarySetCarStatus_s = primary.PrimarySetCarStatusMsg(1)
     
@@ -387,9 +387,9 @@ print(f"After:  {PrimarySetCarStatus_d.car_status_set}")
 assert(PrimarySetCarStatus_s == PrimarySetCarStatus_d)
 print("")
 
-print("***PrimarySetPedalsRange***")
+print("***PrimarySetPedalsRangeMsg***")
 
-PrimarySetPedalsRange_s = primary.PrimarySetPedalsRangeMsg(1, 1)
+PrimarySetPedalsRange_s = primary.PrimarySetPedalsRangeMsg(0, 0)
     
 print(f"Before: {PrimarySetPedalsRange_s.bound} {PrimarySetPedalsRange_s.pedal}")
     
@@ -404,9 +404,9 @@ print(f"After:  {PrimarySetPedalsRange_d.bound} {PrimarySetPedalsRange_d.pedal}"
 assert(PrimarySetPedalsRange_s == PrimarySetPedalsRange_d)
 print("")
 
-print("***PrimaryLvCurrent***")
+print("***PrimaryLvCurrentMsg***")
 
-PrimaryLvCurrent_s = primary.PrimaryLvCurrentMsg(130)
+PrimaryLvCurrent_s = primary.PrimaryLvCurrentMsg(101)
     
 print(f"Before: {PrimaryLvCurrent_s.current}")
     
@@ -421,9 +421,9 @@ print(f"After:  {PrimaryLvCurrent_d.current}")
 assert(PrimaryLvCurrent_s == PrimaryLvCurrent_d)
 print("")
 
-print("***PrimaryLvVoltage***")
+print("***PrimaryLvVoltageMsg***")
 
-PrimaryLvVoltage_s = primary.PrimaryLvVoltageMsg(22104, 46, 178, 35, 18)
+PrimaryLvVoltage_s = primary.PrimaryLvVoltageMsg(29451, 97, 201, 7, 77)
     
 print(f"Before: {PrimaryLvVoltage_s.total_voltage} {PrimaryLvVoltage_s.voltage_1} {PrimaryLvVoltage_s.voltage_2} {PrimaryLvVoltage_s.voltage_3} {PrimaryLvVoltage_s.voltage_4}")
     
@@ -438,9 +438,9 @@ print(f"After:  {PrimaryLvVoltage_d.total_voltage} {PrimaryLvVoltage_d.voltage_1
 assert(PrimaryLvVoltage_s == PrimaryLvVoltage_d)
 print("")
 
-print("***PrimaryLvTemperature***")
+print("***PrimaryLvTemperatureMsg***")
 
-PrimaryLvTemperature_s = primary.PrimaryLvTemperatureMsg(21, 31)
+PrimaryLvTemperature_s = primary.PrimaryLvTemperatureMsg(60, 207)
     
 print(f"Before: {PrimaryLvTemperature_s.bp_temperature} {PrimaryLvTemperature_s.dcdc_temperature}")
     
@@ -455,9 +455,9 @@ print(f"After:  {PrimaryLvTemperature_d.bp_temperature} {PrimaryLvTemperature_d.
 assert(PrimaryLvTemperature_s == PrimaryLvTemperature_d)
 print("")
 
-print("***PrimaryCoolingStatus***")
+print("***PrimaryCoolingStatusMsg***")
 
-PrimaryCoolingStatus_s = primary.PrimaryCoolingStatusMsg(186, 59, 172)
+PrimaryCoolingStatus_s = primary.PrimaryCoolingStatusMsg(224, 137, 51)
     
 print(f"Before: {PrimaryCoolingStatus_s.hv_fan_speed} {PrimaryCoolingStatus_s.lv_fan_speed} {PrimaryCoolingStatus_s.pump_speed}")
     
@@ -472,9 +472,9 @@ print(f"After:  {PrimaryCoolingStatus_d.hv_fan_speed} {PrimaryCoolingStatus_d.lv
 assert(PrimaryCoolingStatus_s == PrimaryCoolingStatus_d)
 print("")
 
-print("***PrimaryHvCellsVoltage***")
+print("***PrimaryHvCellsVoltageMsg***")
 
-PrimaryHvCellsVoltage_s = primary.PrimaryHvCellsVoltageMsg(7641, 53372, 62033, 125)
+PrimaryHvCellsVoltage_s = primary.PrimaryHvCellsVoltageMsg(44588, 30890, 37622, 201)
     
 print(f"Before: {PrimaryHvCellsVoltage_s.voltage_0} {PrimaryHvCellsVoltage_s.voltage_1} {PrimaryHvCellsVoltage_s.voltage_2} {PrimaryHvCellsVoltage_s.cell_index}")
     
@@ -489,9 +489,9 @@ print(f"After:  {PrimaryHvCellsVoltage_d.voltage_0} {PrimaryHvCellsVoltage_d.vol
 assert(PrimaryHvCellsVoltage_s == PrimaryHvCellsVoltage_d)
 print("")
 
-print("***PrimaryHvCellsTemp***")
+print("***PrimaryHvCellsTempMsg***")
 
-PrimaryHvCellsTemp_s = primary.PrimaryHvCellsTempMsg(92, 23, 93, 173, 71, 226, 44, 250)
+PrimaryHvCellsTemp_s = primary.PrimaryHvCellsTempMsg(114, 130, 139, 248, 102, 127, 53, 141)
     
 print(f"Before: {PrimaryHvCellsTemp_s.cell_index} {PrimaryHvCellsTemp_s.temp_0} {PrimaryHvCellsTemp_s.temp_1} {PrimaryHvCellsTemp_s.temp_2} {PrimaryHvCellsTemp_s.temp_3} {PrimaryHvCellsTemp_s.temp_4} {PrimaryHvCellsTemp_s.temp_5} {PrimaryHvCellsTemp_s.temp_6}")
     
@@ -506,9 +506,9 @@ print(f"After:  {PrimaryHvCellsTemp_d.cell_index} {PrimaryHvCellsTemp_d.temp_0} 
 assert(PrimaryHvCellsTemp_s == PrimaryHvCellsTemp_d)
 print("")
 
-print("***PrimaryHvCellBalancingStatus***")
+print("***PrimaryHvCellBalancingStatusMsg***")
 
-PrimaryHvCellBalancingStatus_s = primary.PrimaryHvCellBalancingStatusMsg(0)
+PrimaryHvCellBalancingStatus_s = primary.PrimaryHvCellBalancingStatusMsg(1)
     
 print(f"Before: {PrimaryHvCellBalancingStatus_s.balancing_status}")
     
@@ -523,9 +523,9 @@ print(f"After:  {PrimaryHvCellBalancingStatus_d.balancing_status}")
 assert(PrimaryHvCellBalancingStatus_s == PrimaryHvCellBalancingStatus_d)
 print("")
 
-print("***PrimaryInvLSetTorque***")
+print("***PrimaryInvLSetTorqueMsg***")
 
-PrimaryInvLSetTorque_s = primary.PrimaryInvLSetTorqueMsg(115, 65, 7)
+PrimaryInvLSetTorque_s = primary.PrimaryInvLSetTorqueMsg(120, 104, 225)
     
 print(f"Before: {PrimaryInvLSetTorque_s.regid} {PrimaryInvLSetTorque_s.lsb} {PrimaryInvLSetTorque_s.msb}")
     
@@ -540,9 +540,9 @@ print(f"After:  {PrimaryInvLSetTorque_d.regid} {PrimaryInvLSetTorque_d.lsb} {Pri
 assert(PrimaryInvLSetTorque_s == PrimaryInvLSetTorque_d)
 print("")
 
-print("***PrimaryInvLResponse***")
+print("***PrimaryInvLResponseMsg***")
 
-PrimaryInvLResponse_s = primary.PrimaryInvLResponseMsg(1396630644, 48)
+PrimaryInvLResponse_s = primary.PrimaryInvLResponseMsg(3816119476, 214)
     
 print(f"Before: {PrimaryInvLResponse_s.reg_val} {PrimaryInvLResponse_s.reg_id}")
     

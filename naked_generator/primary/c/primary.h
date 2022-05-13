@@ -530,9 +530,14 @@ typedef struct __is_packed {
 
 // Functions
 
-void serialize_PrimarySteerVersion(uint8_t *data, PrimarySteerVersionMsg *msg){
+void serialize_PrimarySteerVersionMsg(uint8_t *data, PrimarySteerVersionMsg *msg){
     data[0] = msg->component_version;
     data[1] = msg->cancicd_version;
+}
+
+void serialize_PrimarySteerVersion(uint8_t *data, uint8_t component_version, uint8_t cancicd_version){
+    data[0] = component_version;
+    data[1] = cancicd_version;
 }
 
 void deserialize_PrimarySteerVersion(uint8_t *data, PrimarySteerVersionMsg *msg){
@@ -540,9 +545,14 @@ void deserialize_PrimarySteerVersion(uint8_t *data, PrimarySteerVersionMsg *msg)
     msg->cancicd_version = data[1];
 }
 
-void serialize_PrimaryDasVersion(uint8_t *data, PrimaryDasVersionMsg *msg){
+void serialize_PrimaryDasVersionMsg(uint8_t *data, PrimaryDasVersionMsg *msg){
     data[0] = msg->component_version;
     data[1] = msg->cancicd_version;
+}
+
+void serialize_PrimaryDasVersion(uint8_t *data, uint8_t component_version, uint8_t cancicd_version){
+    data[0] = component_version;
+    data[1] = cancicd_version;
 }
 
 void deserialize_PrimaryDasVersion(uint8_t *data, PrimaryDasVersionMsg *msg){
@@ -550,9 +560,14 @@ void deserialize_PrimaryDasVersion(uint8_t *data, PrimaryDasVersionMsg *msg){
     msg->cancicd_version = data[1];
 }
 
-void serialize_PrimaryHvVersion(uint8_t *data, PrimaryHvVersionMsg *msg){
+void serialize_PrimaryHvVersionMsg(uint8_t *data, PrimaryHvVersionMsg *msg){
     data[0] = msg->component_version;
     data[1] = msg->cancicd_version;
+}
+
+void serialize_PrimaryHvVersion(uint8_t *data, uint8_t component_version, uint8_t cancicd_version){
+    data[0] = component_version;
+    data[1] = cancicd_version;
 }
 
 void deserialize_PrimaryHvVersion(uint8_t *data, PrimaryHvVersionMsg *msg){
@@ -560,9 +575,14 @@ void deserialize_PrimaryHvVersion(uint8_t *data, PrimaryHvVersionMsg *msg){
     msg->cancicd_version = data[1];
 }
 
-void serialize_PrimaryLvVersion(uint8_t *data, PrimaryLvVersionMsg *msg){
+void serialize_PrimaryLvVersionMsg(uint8_t *data, PrimaryLvVersionMsg *msg){
     data[0] = msg->component_version;
     data[1] = msg->cancicd_version;
+}
+
+void serialize_PrimaryLvVersion(uint8_t *data, uint8_t component_version, uint8_t cancicd_version){
+    data[0] = component_version;
+    data[1] = cancicd_version;
 }
 
 void deserialize_PrimaryLvVersion(uint8_t *data, PrimaryLvVersionMsg *msg){
@@ -570,9 +590,14 @@ void deserialize_PrimaryLvVersion(uint8_t *data, PrimaryLvVersionMsg *msg){
     msg->cancicd_version = data[1];
 }
 
-void serialize_PrimaryTlmVersion(uint8_t *data, PrimaryTlmVersionMsg *msg){
+void serialize_PrimaryTlmVersionMsg(uint8_t *data, PrimaryTlmVersionMsg *msg){
     data[0] = msg->component_version;
     data[1] = msg->cancicd_version;
+}
+
+void serialize_PrimaryTlmVersion(uint8_t *data, uint8_t component_version, uint8_t cancicd_version){
+    data[0] = component_version;
+    data[1] = cancicd_version;
 }
 
 void deserialize_PrimaryTlmVersion(uint8_t *data, PrimaryTlmVersionMsg *msg){
@@ -580,21 +605,34 @@ void deserialize_PrimaryTlmVersion(uint8_t *data, PrimaryTlmVersionMsg *msg){
     msg->cancicd_version = data[1];
 }
 
-void serialize_PrimaryTimestamp(uint8_t *data, PrimaryTimestampMsg *msg){
+void serialize_PrimaryTimestampMsg(uint8_t *data, PrimaryTimestampMsg *msg){
     data[0] = msg->timestamp & 255;
     data[1] = (msg->timestamp >> 8) & 255;
     data[2] = (msg->timestamp >> 16) & 255;
     data[3] = (msg->timestamp >> 24) & 255;
 }
 
+void serialize_PrimaryTimestamp(uint8_t *data, uint32_t timestamp){
+    data[0] = timestamp & 255;
+    data[1] = (timestamp >> 8) & 255;
+    data[2] = (timestamp >> 16) & 255;
+    data[3] = (timestamp >> 24) & 255;
+}
+
 void deserialize_PrimaryTimestamp(uint8_t *data, PrimaryTimestampMsg *msg){
     msg->timestamp = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
 }
 
-void serialize_PrimarySetTlmStatus(uint8_t *data, PrimarySetTlmStatusMsg *msg){
+void serialize_PrimarySetTlmStatusMsg(uint8_t *data, PrimarySetTlmStatusMsg *msg){
     data[0] = msg->driver;
     data[1] = msg->circuit;
     data[2] = msg->race_type << 6 | msg->tlm_status << 5;
+}
+
+void serialize_PrimarySetTlmStatus(uint8_t *data, uint8_t driver, uint8_t circuit, PrimaryRaceType race_type, PrimaryTlmStatus tlm_status){
+    data[0] = driver;
+    data[1] = circuit;
+    data[2] = race_type << 6 | tlm_status << 5;
 }
 
 void deserialize_PrimarySetTlmStatus(uint8_t *data, PrimarySetTlmStatusMsg *msg){
@@ -604,24 +642,37 @@ void deserialize_PrimarySetTlmStatus(uint8_t *data, PrimarySetTlmStatusMsg *msg)
     msg->tlm_status = (PrimaryTlmStatus) ((data[2] & 32) >> 5);
 }
 
-void serialize_PrimarySteerSystemStatus(uint8_t *data, PrimarySteerSystemStatusMsg *msg){
+void serialize_PrimarySteerSystemStatusMsg(uint8_t *data, PrimarySteerSystemStatusMsg *msg){
     data[0] = msg->soc_temp;
+}
+
+void serialize_PrimarySteerSystemStatus(uint8_t *data, uint8_t soc_temp){
+    data[0] = soc_temp;
 }
 
 void deserialize_PrimarySteerSystemStatus(uint8_t *data, PrimarySteerSystemStatusMsg *msg){
     msg->soc_temp = data[0];
 }
 
-void serialize_PrimaryMarker(uint8_t *data, PrimaryMarkerMsg *msg){
+void serialize_PrimaryMarkerMsg(uint8_t *data, PrimaryMarkerMsg *msg){
+}
+
+void serialize_PrimaryMarker(uint8_t *data){
 }
 
 void deserialize_PrimaryMarker(uint8_t *data, PrimaryMarkerMsg *msg){
 }
 
-void serialize_PrimaryTlmStatus(uint8_t *data, PrimaryTlmStatusMsg *msg){
+void serialize_PrimaryTlmStatusMsg(uint8_t *data, PrimaryTlmStatusMsg *msg){
     data[0] = msg->driver;
     data[1] = msg->circuit;
     data[2] = msg->race_type << 6 | msg->tlm_status << 5;
+}
+
+void serialize_PrimaryTlmStatus(uint8_t *data, uint8_t driver, uint8_t circuit, PrimaryRaceType race_type, PrimaryTlmStatus tlm_status){
+    data[0] = driver;
+    data[1] = circuit;
+    data[2] = race_type << 6 | tlm_status << 5;
 }
 
 void deserialize_PrimaryTlmStatus(uint8_t *data, PrimaryTlmStatusMsg *msg){
@@ -631,8 +682,12 @@ void deserialize_PrimaryTlmStatus(uint8_t *data, PrimaryTlmStatusMsg *msg){
     msg->tlm_status = (PrimaryTlmStatus) ((data[2] & 32) >> 5);
 }
 
-void serialize_PrimaryCarStatus(uint8_t *data, PrimaryCarStatusMsg *msg){
+void serialize_PrimaryCarStatusMsg(uint8_t *data, PrimaryCarStatusMsg *msg){
     data[0] = msg->inverter_l << 6 | msg->inverter_r << 4 | msg->car_status << 2;
+}
+
+void serialize_PrimaryCarStatus(uint8_t *data, PrimaryInverterStatus inverter_l, PrimaryInverterStatus inverter_r, PrimaryCarStatus car_status){
+    data[0] = inverter_l << 6 | inverter_r << 4 | car_status << 2;
 }
 
 void deserialize_PrimaryCarStatus(uint8_t *data, PrimaryCarStatusMsg *msg){
@@ -641,15 +696,19 @@ void deserialize_PrimaryCarStatus(uint8_t *data, PrimaryCarStatusMsg *msg){
     msg->car_status = (PrimaryCarStatus) ((data[0] & 12) >> 2);
 }
 
-void serialize_PrimaryDasErrors(uint8_t *data, PrimaryDasErrorsMsg *msg){
+void serialize_PrimaryDasErrorsMsg(uint8_t *data, PrimaryDasErrorsMsg *msg){
     data[0] = msg->das_error[0];
+}
+
+void serialize_PrimaryDasErrors(uint8_t *data, PrimaryDasErrors das_error){
+    data[0] = das_error[0];
 }
 
 void deserialize_PrimaryDasErrors(uint8_t *data, PrimaryDasErrorsMsg *msg){
     msg->das_error[0] = data[0];
 }
 
-void serialize_PrimarySpeed(uint8_t *data, PrimarySpeedMsg *msg){
+void serialize_PrimarySpeedMsg(uint8_t *data, PrimarySpeedMsg *msg){
     data[0] = msg->encoder_r & 255;
     data[1] = (msg->encoder_r >> 8) & 255;
     data[2] = msg->encoder_l & 255;
@@ -660,6 +719,17 @@ void serialize_PrimarySpeed(uint8_t *data, PrimarySpeedMsg *msg){
     data[7] = (msg->inverter_l >> 8) & 255;
 }
 
+void serialize_PrimarySpeed(uint8_t *data, uint16_t encoder_r, uint16_t encoder_l, uint16_t inverter_r, uint16_t inverter_l){
+    data[0] = encoder_r & 255;
+    data[1] = (encoder_r >> 8) & 255;
+    data[2] = encoder_l & 255;
+    data[3] = (encoder_l >> 8) & 255;
+    data[4] = inverter_r & 255;
+    data[5] = (inverter_r >> 8) & 255;
+    data[6] = inverter_l & 255;
+    data[7] = (inverter_l >> 8) & 255;
+}
+
 void deserialize_PrimarySpeed(uint8_t *data, PrimarySpeedMsg *msg){
     msg->encoder_r = data[0] | (data[1] << 8);
     msg->encoder_l = data[2] | (data[3] << 8);
@@ -667,7 +737,7 @@ void deserialize_PrimarySpeed(uint8_t *data, PrimarySpeedMsg *msg){
     msg->inverter_l = data[6] | (data[7] << 8);
 }
 
-void serialize_PrimaryHvVoltage(uint8_t *data, PrimaryHvVoltageMsg *msg){
+void serialize_PrimaryHvVoltageMsg(uint8_t *data, PrimaryHvVoltageMsg *msg){
     data[0] = msg->pack_voltage & 255;
     data[1] = (msg->pack_voltage >> 8) & 255;
     data[2] = msg->bus_voltage & 255;
@@ -678,6 +748,17 @@ void serialize_PrimaryHvVoltage(uint8_t *data, PrimaryHvVoltageMsg *msg){
     data[7] = (msg->min_cell_voltage >> 8) & 255;
 }
 
+void serialize_PrimaryHvVoltage(uint8_t *data, uint16_t pack_voltage, uint16_t bus_voltage, uint16_t max_cell_voltage, uint16_t min_cell_voltage){
+    data[0] = pack_voltage & 255;
+    data[1] = (pack_voltage >> 8) & 255;
+    data[2] = bus_voltage & 255;
+    data[3] = (bus_voltage >> 8) & 255;
+    data[4] = max_cell_voltage & 255;
+    data[5] = (max_cell_voltage >> 8) & 255;
+    data[6] = min_cell_voltage & 255;
+    data[7] = (min_cell_voltage >> 8) & 255;
+}
+
 void deserialize_PrimaryHvVoltage(uint8_t *data, PrimaryHvVoltageMsg *msg){
     msg->pack_voltage = data[0] | (data[1] << 8);
     msg->bus_voltage = data[2] | (data[3] << 8);
@@ -685,11 +766,18 @@ void deserialize_PrimaryHvVoltage(uint8_t *data, PrimaryHvVoltageMsg *msg){
     msg->min_cell_voltage = data[6] | (data[7] << 8);
 }
 
-void serialize_PrimaryHvCurrent(uint8_t *data, PrimaryHvCurrentMsg *msg){
+void serialize_PrimaryHvCurrentMsg(uint8_t *data, PrimaryHvCurrentMsg *msg){
     data[0] = msg->current & 255;
     data[1] = (msg->current >> 8) & 255;
     data[2] = msg->power & 255;
     data[3] = (msg->power >> 8) & 255;
+}
+
+void serialize_PrimaryHvCurrent(uint8_t *data, uint16_t current, int16_t power){
+    data[0] = current & 255;
+    data[1] = (current >> 8) & 255;
+    data[2] = power & 255;
+    data[3] = (power >> 8) & 255;
 }
 
 void deserialize_PrimaryHvCurrent(uint8_t *data, PrimaryHvCurrentMsg *msg){
@@ -697,7 +785,7 @@ void deserialize_PrimaryHvCurrent(uint8_t *data, PrimaryHvCurrentMsg *msg){
     msg->power = data[2] | (data[3] << 8);
 }
 
-void serialize_PrimaryHvTemp(uint8_t *data, PrimaryHvTempMsg *msg){
+void serialize_PrimaryHvTempMsg(uint8_t *data, PrimaryHvTempMsg *msg){
     data[0] = msg->average_temp & 255;
     data[1] = (msg->average_temp >> 8) & 255;
     data[2] = msg->max_temp & 255;
@@ -706,17 +794,33 @@ void serialize_PrimaryHvTemp(uint8_t *data, PrimaryHvTempMsg *msg){
     data[5] = (msg->min_temp >> 8) & 255;
 }
 
+void serialize_PrimaryHvTemp(uint8_t *data, uint16_t average_temp, uint16_t max_temp, uint16_t min_temp){
+    data[0] = average_temp & 255;
+    data[1] = (average_temp >> 8) & 255;
+    data[2] = max_temp & 255;
+    data[3] = (max_temp >> 8) & 255;
+    data[4] = min_temp & 255;
+    data[5] = (min_temp >> 8) & 255;
+}
+
 void deserialize_PrimaryHvTemp(uint8_t *data, PrimaryHvTempMsg *msg){
     msg->average_temp = data[0] | (data[1] << 8);
     msg->max_temp = data[2] | (data[3] << 8);
     msg->min_temp = data[4] | (data[5] << 8);
 }
 
-void serialize_PrimaryHvErrors(uint8_t *data, PrimaryHvErrorsMsg *msg){
+void serialize_PrimaryHvErrorsMsg(uint8_t *data, PrimaryHvErrorsMsg *msg){
     data[0] = msg->warnings[0];
     data[1] = msg->warnings[1];
     data[2] = msg->errors[0];
     data[3] = msg->errors[1];
+}
+
+void serialize_PrimaryHvErrors(uint8_t *data, PrimaryHvErrors warnings, PrimaryHvErrors errors){
+    data[0] = warnings[0];
+    data[1] = warnings[1];
+    data[2] = errors[0];
+    data[3] = errors[1];
 }
 
 void deserialize_PrimaryHvErrors(uint8_t *data, PrimaryHvErrorsMsg *msg){
@@ -726,40 +830,60 @@ void deserialize_PrimaryHvErrors(uint8_t *data, PrimaryHvErrorsMsg *msg){
     msg->errors[1] = data[3];
 }
 
-void serialize_PrimaryTsStatus(uint8_t *data, PrimaryTsStatusMsg *msg){
+void serialize_PrimaryTsStatusMsg(uint8_t *data, PrimaryTsStatusMsg *msg){
     data[0] = msg->ts_status << 6;
+}
+
+void serialize_PrimaryTsStatus(uint8_t *data, PrimaryTsStatus ts_status){
+    data[0] = ts_status << 6;
 }
 
 void deserialize_PrimaryTsStatus(uint8_t *data, PrimaryTsStatusMsg *msg){
     msg->ts_status = (PrimaryTsStatus) ((data[0] & 192) >> 6);
 }
 
-void serialize_PrimarySetTsStatus(uint8_t *data, PrimarySetTsStatusMsg *msg){
+void serialize_PrimarySetTsStatusMsg(uint8_t *data, PrimarySetTsStatusMsg *msg){
     data[0] = msg->ts_status_set << 7;
+}
+
+void serialize_PrimarySetTsStatus(uint8_t *data, PrimaryTsStatusSet ts_status_set){
+    data[0] = ts_status_set << 7;
 }
 
 void deserialize_PrimarySetTsStatus(uint8_t *data, PrimarySetTsStatusMsg *msg){
     msg->ts_status_set = (PrimaryTsStatusSet) ((data[0] & 128) >> 7);
 }
 
-void serialize_PrimarySetCellBalancingStatus(uint8_t *data, PrimarySetCellBalancingStatusMsg *msg){
+void serialize_PrimarySetCellBalancingStatusMsg(uint8_t *data, PrimarySetCellBalancingStatusMsg *msg){
     data[0] = msg->set_balancing_status << 7;
+}
+
+void serialize_PrimarySetCellBalancingStatus(uint8_t *data, PrimarySetBalancingStatus set_balancing_status){
+    data[0] = set_balancing_status << 7;
 }
 
 void deserialize_PrimarySetCellBalancingStatus(uint8_t *data, PrimarySetCellBalancingStatusMsg *msg){
     msg->set_balancing_status = (PrimarySetBalancingStatus) ((data[0] & 128) >> 7);
 }
 
-void serialize_PrimaryHandcartStatus(uint8_t *data, PrimaryHandcartStatusMsg *msg){
+void serialize_PrimaryHandcartStatusMsg(uint8_t *data, PrimaryHandcartStatusMsg *msg){
     data[0] = msg->connected << 7;
+}
+
+void serialize_PrimaryHandcartStatus(uint8_t *data, bool connected){
+    data[0] = connected << 7;
 }
 
 void deserialize_PrimaryHandcartStatus(uint8_t *data, PrimaryHandcartStatusMsg *msg){
     msg->connected = (data[0] & 128) >> 7;
 }
 
-void serialize_PrimarySteerStatus(uint8_t *data, PrimarySteerStatusMsg *msg){
+void serialize_PrimarySteerStatusMsg(uint8_t *data, PrimarySteerStatusMsg *msg){
     data[0] = msg->map << 5 | msg->traction_control << 3;
+}
+
+void serialize_PrimarySteerStatus(uint8_t *data, PrimaryMap map, PrimaryTractionControl traction_control){
+    data[0] = map << 5 | traction_control << 3;
 }
 
 void deserialize_PrimarySteerStatus(uint8_t *data, PrimarySteerStatusMsg *msg){
@@ -767,16 +891,24 @@ void deserialize_PrimarySteerStatus(uint8_t *data, PrimarySteerStatusMsg *msg){
     msg->traction_control = (PrimaryTractionControl) ((data[0] & 24) >> 3);
 }
 
-void serialize_PrimarySetCarStatus(uint8_t *data, PrimarySetCarStatusMsg *msg){
+void serialize_PrimarySetCarStatusMsg(uint8_t *data, PrimarySetCarStatusMsg *msg){
     data[0] = msg->car_status_set << 7;
+}
+
+void serialize_PrimarySetCarStatus(uint8_t *data, PrimaryCarStatusSet car_status_set){
+    data[0] = car_status_set << 7;
 }
 
 void deserialize_PrimarySetCarStatus(uint8_t *data, PrimarySetCarStatusMsg *msg){
     msg->car_status_set = (PrimaryCarStatusSet) ((data[0] & 128) >> 7);
 }
 
-void serialize_PrimarySetPedalsRange(uint8_t *data, PrimarySetPedalsRangeMsg *msg){
+void serialize_PrimarySetPedalsRangeMsg(uint8_t *data, PrimarySetPedalsRangeMsg *msg){
     data[0] = msg->bound << 7 | msg->pedal << 6;
+}
+
+void serialize_PrimarySetPedalsRange(uint8_t *data, PrimaryBound bound, PrimaryPedal pedal){
+    data[0] = bound << 7 | pedal << 6;
 }
 
 void deserialize_PrimarySetPedalsRange(uint8_t *data, PrimarySetPedalsRangeMsg *msg){
@@ -784,21 +916,34 @@ void deserialize_PrimarySetPedalsRange(uint8_t *data, PrimarySetPedalsRangeMsg *
     msg->pedal = (PrimaryPedal) ((data[0] & 64) >> 6);
 }
 
-void serialize_PrimaryLvCurrent(uint8_t *data, PrimaryLvCurrentMsg *msg){
+void serialize_PrimaryLvCurrentMsg(uint8_t *data, PrimaryLvCurrentMsg *msg){
     data[0] = msg->current;
+}
+
+void serialize_PrimaryLvCurrent(uint8_t *data, uint8_t current){
+    data[0] = current;
 }
 
 void deserialize_PrimaryLvCurrent(uint8_t *data, PrimaryLvCurrentMsg *msg){
     msg->current = data[0];
 }
 
-void serialize_PrimaryLvVoltage(uint8_t *data, PrimaryLvVoltageMsg *msg){
+void serialize_PrimaryLvVoltageMsg(uint8_t *data, PrimaryLvVoltageMsg *msg){
     data[0] = msg->total_voltage & 255;
     data[1] = (msg->total_voltage >> 8) & 255;
     data[2] = msg->voltage_1;
     data[3] = msg->voltage_2;
     data[4] = msg->voltage_3;
     data[5] = msg->voltage_4;
+}
+
+void serialize_PrimaryLvVoltage(uint8_t *data, uint16_t total_voltage, uint8_t voltage_1, uint8_t voltage_2, uint8_t voltage_3, uint8_t voltage_4){
+    data[0] = total_voltage & 255;
+    data[1] = (total_voltage >> 8) & 255;
+    data[2] = voltage_1;
+    data[3] = voltage_2;
+    data[4] = voltage_3;
+    data[5] = voltage_4;
 }
 
 void deserialize_PrimaryLvVoltage(uint8_t *data, PrimaryLvVoltageMsg *msg){
@@ -809,9 +954,14 @@ void deserialize_PrimaryLvVoltage(uint8_t *data, PrimaryLvVoltageMsg *msg){
     msg->voltage_4 = data[5];
 }
 
-void serialize_PrimaryLvTemperature(uint8_t *data, PrimaryLvTemperatureMsg *msg){
+void serialize_PrimaryLvTemperatureMsg(uint8_t *data, PrimaryLvTemperatureMsg *msg){
     data[0] = msg->bp_temperature;
     data[1] = msg->dcdc_temperature;
+}
+
+void serialize_PrimaryLvTemperature(uint8_t *data, uint8_t bp_temperature, uint8_t dcdc_temperature){
+    data[0] = bp_temperature;
+    data[1] = dcdc_temperature;
 }
 
 void deserialize_PrimaryLvTemperature(uint8_t *data, PrimaryLvTemperatureMsg *msg){
@@ -819,10 +969,16 @@ void deserialize_PrimaryLvTemperature(uint8_t *data, PrimaryLvTemperatureMsg *ms
     msg->dcdc_temperature = data[1];
 }
 
-void serialize_PrimaryCoolingStatus(uint8_t *data, PrimaryCoolingStatusMsg *msg){
+void serialize_PrimaryCoolingStatusMsg(uint8_t *data, PrimaryCoolingStatusMsg *msg){
     data[0] = msg->hv_fan_speed;
     data[1] = msg->lv_fan_speed;
     data[2] = msg->pump_speed;
+}
+
+void serialize_PrimaryCoolingStatus(uint8_t *data, uint8_t hv_fan_speed, uint8_t lv_fan_speed, uint8_t pump_speed){
+    data[0] = hv_fan_speed;
+    data[1] = lv_fan_speed;
+    data[2] = pump_speed;
 }
 
 void deserialize_PrimaryCoolingStatus(uint8_t *data, PrimaryCoolingStatusMsg *msg){
@@ -831,7 +987,7 @@ void deserialize_PrimaryCoolingStatus(uint8_t *data, PrimaryCoolingStatusMsg *ms
     msg->pump_speed = data[2];
 }
 
-void serialize_PrimaryHvCellsVoltage(uint8_t *data, PrimaryHvCellsVoltageMsg *msg){
+void serialize_PrimaryHvCellsVoltageMsg(uint8_t *data, PrimaryHvCellsVoltageMsg *msg){
     data[0] = msg->voltage_0 & 255;
     data[1] = (msg->voltage_0 >> 8) & 255;
     data[2] = msg->voltage_1 & 255;
@@ -841,6 +997,16 @@ void serialize_PrimaryHvCellsVoltage(uint8_t *data, PrimaryHvCellsVoltageMsg *ms
     data[6] = msg->cell_index;
 }
 
+void serialize_PrimaryHvCellsVoltage(uint8_t *data, uint16_t voltage_0, uint16_t voltage_1, uint16_t voltage_2, uint8_t cell_index){
+    data[0] = voltage_0 & 255;
+    data[1] = (voltage_0 >> 8) & 255;
+    data[2] = voltage_1 & 255;
+    data[3] = (voltage_1 >> 8) & 255;
+    data[4] = voltage_2 & 255;
+    data[5] = (voltage_2 >> 8) & 255;
+    data[6] = cell_index;
+}
+
 void deserialize_PrimaryHvCellsVoltage(uint8_t *data, PrimaryHvCellsVoltageMsg *msg){
     msg->voltage_0 = data[0] | (data[1] << 8);
     msg->voltage_1 = data[2] | (data[3] << 8);
@@ -848,7 +1014,7 @@ void deserialize_PrimaryHvCellsVoltage(uint8_t *data, PrimaryHvCellsVoltageMsg *
     msg->cell_index = data[6];
 }
 
-void serialize_PrimaryHvCellsTemp(uint8_t *data, PrimaryHvCellsTempMsg *msg){
+void serialize_PrimaryHvCellsTempMsg(uint8_t *data, PrimaryHvCellsTempMsg *msg){
     data[0] = msg->cell_index;
     data[1] = msg->temp_0;
     data[2] = msg->temp_1;
@@ -857,6 +1023,17 @@ void serialize_PrimaryHvCellsTemp(uint8_t *data, PrimaryHvCellsTempMsg *msg){
     data[5] = msg->temp_4;
     data[6] = msg->temp_5;
     data[7] = msg->temp_6;
+}
+
+void serialize_PrimaryHvCellsTemp(uint8_t *data, uint8_t cell_index, uint8_t temp_0, uint8_t temp_1, uint8_t temp_2, uint8_t temp_3, uint8_t temp_4, uint8_t temp_5, uint8_t temp_6){
+    data[0] = cell_index;
+    data[1] = temp_0;
+    data[2] = temp_1;
+    data[3] = temp_2;
+    data[4] = temp_3;
+    data[5] = temp_4;
+    data[6] = temp_5;
+    data[7] = temp_6;
 }
 
 void deserialize_PrimaryHvCellsTemp(uint8_t *data, PrimaryHvCellsTempMsg *msg){
@@ -870,18 +1047,28 @@ void deserialize_PrimaryHvCellsTemp(uint8_t *data, PrimaryHvCellsTempMsg *msg){
     msg->temp_6 = data[7];
 }
 
-void serialize_PrimaryHvCellBalancingStatus(uint8_t *data, PrimaryHvCellBalancingStatusMsg *msg){
+void serialize_PrimaryHvCellBalancingStatusMsg(uint8_t *data, PrimaryHvCellBalancingStatusMsg *msg){
     data[0] = msg->balancing_status << 7;
+}
+
+void serialize_PrimaryHvCellBalancingStatus(uint8_t *data, PrimaryBalancingStatus balancing_status){
+    data[0] = balancing_status << 7;
 }
 
 void deserialize_PrimaryHvCellBalancingStatus(uint8_t *data, PrimaryHvCellBalancingStatusMsg *msg){
     msg->balancing_status = (PrimaryBalancingStatus) ((data[0] & 128) >> 7);
 }
 
-void serialize_PrimaryInvLSetTorque(uint8_t *data, PrimaryInvLSetTorqueMsg *msg){
+void serialize_PrimaryInvLSetTorqueMsg(uint8_t *data, PrimaryInvLSetTorqueMsg *msg){
     data[0] = msg->regid;
     data[1] = msg->lsb;
     data[2] = msg->msb;
+}
+
+void serialize_PrimaryInvLSetTorque(uint8_t *data, uint8_t regid, uint8_t lsb, uint8_t msb){
+    data[0] = regid;
+    data[1] = lsb;
+    data[2] = msb;
 }
 
 void deserialize_PrimaryInvLSetTorque(uint8_t *data, PrimaryInvLSetTorqueMsg *msg){
@@ -890,12 +1077,20 @@ void deserialize_PrimaryInvLSetTorque(uint8_t *data, PrimaryInvLSetTorqueMsg *ms
     msg->msb = data[2];
 }
 
-void serialize_PrimaryInvLResponse(uint8_t *data, PrimaryInvLResponseMsg *msg){
+void serialize_PrimaryInvLResponseMsg(uint8_t *data, PrimaryInvLResponseMsg *msg){
     data[0] = msg->reg_val[0];
     data[1] = msg->reg_val[1];
     data[2] = msg->reg_val[2];
     data[3] = msg->reg_val[3];
     data[4] = msg->reg_id;
+}
+
+void serialize_PrimaryInvLResponse(uint8_t *data, PrimaryRegVal reg_val, uint8_t reg_id){
+    data[0] = reg_val[0];
+    data[1] = reg_val[1];
+    data[2] = reg_val[2];
+    data[3] = reg_val[3];
+    data[4] = reg_id;
 }
 
 void deserialize_PrimaryInvLResponse(uint8_t *data, PrimaryInvLResponseMsg *msg){

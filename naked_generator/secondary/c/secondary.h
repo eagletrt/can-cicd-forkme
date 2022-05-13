@@ -268,7 +268,7 @@ typedef struct __is_packed {
 
 // Functions
 
-void serialize_SecondaryImuAngularRate(uint8_t *data, SecondaryImuAngularRateMsg *msg){
+void serialize_SecondaryImuAngularRateMsg(uint8_t *data, SecondaryImuAngularRateMsg *msg){
     data[0] = msg->ang_rate_x & 255;
     data[1] = (msg->ang_rate_x >> 8) & 255;
     data[2] = msg->ang_rate_y & 255;
@@ -277,13 +277,22 @@ void serialize_SecondaryImuAngularRate(uint8_t *data, SecondaryImuAngularRateMsg
     data[5] = (msg->ang_rate_z >> 8) & 255;
 }
 
+void serialize_SecondaryImuAngularRate(uint8_t *data, uint16_t ang_rate_x, uint16_t ang_rate_y, uint16_t ang_rate_z){
+    data[0] = ang_rate_x & 255;
+    data[1] = (ang_rate_x >> 8) & 255;
+    data[2] = ang_rate_y & 255;
+    data[3] = (ang_rate_y >> 8) & 255;
+    data[4] = ang_rate_z & 255;
+    data[5] = (ang_rate_z >> 8) & 255;
+}
+
 void deserialize_SecondaryImuAngularRate(uint8_t *data, SecondaryImuAngularRateMsg *msg){
     msg->ang_rate_x = data[0] | (data[1] << 8);
     msg->ang_rate_y = data[2] | (data[3] << 8);
     msg->ang_rate_z = data[4] | (data[5] << 8);
 }
 
-void serialize_SecondaryImuAcceleration(uint8_t *data, SecondaryImuAccelerationMsg *msg){
+void serialize_SecondaryImuAccelerationMsg(uint8_t *data, SecondaryImuAccelerationMsg *msg){
     data[0] = msg->accel_x & 255;
     data[1] = (msg->accel_x >> 8) & 255;
     data[2] = msg->accel_y & 255;
@@ -292,13 +301,22 @@ void serialize_SecondaryImuAcceleration(uint8_t *data, SecondaryImuAccelerationM
     data[5] = (msg->accel_z >> 8) & 255;
 }
 
+void serialize_SecondaryImuAcceleration(uint8_t *data, uint16_t accel_x, uint16_t accel_y, uint16_t accel_z){
+    data[0] = accel_x & 255;
+    data[1] = (accel_x >> 8) & 255;
+    data[2] = accel_y & 255;
+    data[3] = (accel_y >> 8) & 255;
+    data[4] = accel_z & 255;
+    data[5] = (accel_z >> 8) & 255;
+}
+
 void deserialize_SecondaryImuAcceleration(uint8_t *data, SecondaryImuAccelerationMsg *msg){
     msg->accel_x = data[0] | (data[1] << 8);
     msg->accel_y = data[2] | (data[3] << 8);
     msg->accel_z = data[4] | (data[5] << 8);
 }
 
-void serialize_SecondaryIrtsFl0(uint8_t *data, SecondaryIrtsFl0Msg *msg){
+void serialize_SecondaryIrtsFl0Msg(uint8_t *data, SecondaryIrtsFl0Msg *msg){
     data[0] = msg->channel1 & 255;
     data[1] = (msg->channel1 >> 8) & 255;
     data[2] = msg->channel2 & 255;
@@ -307,6 +325,17 @@ void serialize_SecondaryIrtsFl0(uint8_t *data, SecondaryIrtsFl0Msg *msg){
     data[5] = (msg->channel3 >> 8) & 255;
     data[6] = msg->channel4 & 255;
     data[7] = (msg->channel4 >> 8) & 255;
+}
+
+void serialize_SecondaryIrtsFl0(uint8_t *data, uint16_t channel1, uint16_t channel2, uint16_t channel3, uint16_t channel4){
+    data[0] = channel1 & 255;
+    data[1] = (channel1 >> 8) & 255;
+    data[2] = channel2 & 255;
+    data[3] = (channel2 >> 8) & 255;
+    data[4] = channel3 & 255;
+    data[5] = (channel3 >> 8) & 255;
+    data[6] = channel4 & 255;
+    data[7] = (channel4 >> 8) & 255;
 }
 
 void deserialize_SecondaryIrtsFl0(uint8_t *data, SecondaryIrtsFl0Msg *msg){
@@ -316,7 +345,7 @@ void deserialize_SecondaryIrtsFl0(uint8_t *data, SecondaryIrtsFl0Msg *msg){
     msg->channel4 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsFl1(uint8_t *data, SecondaryIrtsFl1Msg *msg){
+void serialize_SecondaryIrtsFl1Msg(uint8_t *data, SecondaryIrtsFl1Msg *msg){
     data[0] = msg->channel5 & 255;
     data[1] = (msg->channel5 >> 8) & 255;
     data[2] = msg->channel6 & 255;
@@ -325,6 +354,17 @@ void serialize_SecondaryIrtsFl1(uint8_t *data, SecondaryIrtsFl1Msg *msg){
     data[5] = (msg->channel7 >> 8) & 255;
     data[6] = msg->channel8 & 255;
     data[7] = (msg->channel8 >> 8) & 255;
+}
+
+void serialize_SecondaryIrtsFl1(uint8_t *data, uint16_t channel5, uint16_t channel6, uint16_t channel7, uint16_t channel8){
+    data[0] = channel5 & 255;
+    data[1] = (channel5 >> 8) & 255;
+    data[2] = channel6 & 255;
+    data[3] = (channel6 >> 8) & 255;
+    data[4] = channel7 & 255;
+    data[5] = (channel7 >> 8) & 255;
+    data[6] = channel8 & 255;
+    data[7] = (channel8 >> 8) & 255;
 }
 
 void deserialize_SecondaryIrtsFl1(uint8_t *data, SecondaryIrtsFl1Msg *msg){
@@ -334,7 +374,7 @@ void deserialize_SecondaryIrtsFl1(uint8_t *data, SecondaryIrtsFl1Msg *msg){
     msg->channel8 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsFl2(uint8_t *data, SecondaryIrtsFl2Msg *msg){
+void serialize_SecondaryIrtsFl2Msg(uint8_t *data, SecondaryIrtsFl2Msg *msg){
     data[0] = msg->channel9 & 255;
     data[1] = (msg->channel9 >> 8) & 255;
     data[2] = msg->channel10 & 255;
@@ -343,6 +383,17 @@ void serialize_SecondaryIrtsFl2(uint8_t *data, SecondaryIrtsFl2Msg *msg){
     data[5] = (msg->channel11 >> 8) & 255;
     data[6] = msg->channel12 & 255;
     data[7] = (msg->channel12 >> 8) & 255;
+}
+
+void serialize_SecondaryIrtsFl2(uint8_t *data, uint16_t channel9, uint16_t channel10, uint16_t channel11, uint16_t channel12){
+    data[0] = channel9 & 255;
+    data[1] = (channel9 >> 8) & 255;
+    data[2] = channel10 & 255;
+    data[3] = (channel10 >> 8) & 255;
+    data[4] = channel11 & 255;
+    data[5] = (channel11 >> 8) & 255;
+    data[6] = channel12 & 255;
+    data[7] = (channel12 >> 8) & 255;
 }
 
 void deserialize_SecondaryIrtsFl2(uint8_t *data, SecondaryIrtsFl2Msg *msg){
@@ -352,7 +403,7 @@ void deserialize_SecondaryIrtsFl2(uint8_t *data, SecondaryIrtsFl2Msg *msg){
     msg->channel12 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsFl3(uint8_t *data, SecondaryIrtsFl3Msg *msg){
+void serialize_SecondaryIrtsFl3Msg(uint8_t *data, SecondaryIrtsFl3Msg *msg){
     data[0] = msg->channel13 & 255;
     data[1] = (msg->channel13 >> 8) & 255;
     data[2] = msg->channel14 & 255;
@@ -361,6 +412,17 @@ void serialize_SecondaryIrtsFl3(uint8_t *data, SecondaryIrtsFl3Msg *msg){
     data[5] = (msg->channel15 >> 8) & 255;
     data[6] = msg->channel16 & 255;
     data[7] = (msg->channel16 >> 8) & 255;
+}
+
+void serialize_SecondaryIrtsFl3(uint8_t *data, uint16_t channel13, uint16_t channel14, uint16_t channel15, uint16_t channel16){
+    data[0] = channel13 & 255;
+    data[1] = (channel13 >> 8) & 255;
+    data[2] = channel14 & 255;
+    data[3] = (channel14 >> 8) & 255;
+    data[4] = channel15 & 255;
+    data[5] = (channel15 >> 8) & 255;
+    data[6] = channel16 & 255;
+    data[7] = (channel16 >> 8) & 255;
 }
 
 void deserialize_SecondaryIrtsFl3(uint8_t *data, SecondaryIrtsFl3Msg *msg){
@@ -370,7 +432,7 @@ void deserialize_SecondaryIrtsFl3(uint8_t *data, SecondaryIrtsFl3Msg *msg){
     msg->channel16 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsFr0(uint8_t *data, SecondaryIrtsFr0Msg *msg){
+void serialize_SecondaryIrtsFr0Msg(uint8_t *data, SecondaryIrtsFr0Msg *msg){
     data[0] = msg->channel1 & 255;
     data[1] = (msg->channel1 >> 8) & 255;
     data[2] = msg->channel2 & 255;
@@ -379,6 +441,17 @@ void serialize_SecondaryIrtsFr0(uint8_t *data, SecondaryIrtsFr0Msg *msg){
     data[5] = (msg->channel3 >> 8) & 255;
     data[6] = msg->channel4 & 255;
     data[7] = (msg->channel4 >> 8) & 255;
+}
+
+void serialize_SecondaryIrtsFr0(uint8_t *data, uint16_t channel1, uint16_t channel2, uint16_t channel3, uint16_t channel4){
+    data[0] = channel1 & 255;
+    data[1] = (channel1 >> 8) & 255;
+    data[2] = channel2 & 255;
+    data[3] = (channel2 >> 8) & 255;
+    data[4] = channel3 & 255;
+    data[5] = (channel3 >> 8) & 255;
+    data[6] = channel4 & 255;
+    data[7] = (channel4 >> 8) & 255;
 }
 
 void deserialize_SecondaryIrtsFr0(uint8_t *data, SecondaryIrtsFr0Msg *msg){
@@ -388,7 +461,7 @@ void deserialize_SecondaryIrtsFr0(uint8_t *data, SecondaryIrtsFr0Msg *msg){
     msg->channel4 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsFr1(uint8_t *data, SecondaryIrtsFr1Msg *msg){
+void serialize_SecondaryIrtsFr1Msg(uint8_t *data, SecondaryIrtsFr1Msg *msg){
     data[0] = msg->channel5 & 255;
     data[1] = (msg->channel5 >> 8) & 255;
     data[2] = msg->channel6 & 255;
@@ -397,6 +470,17 @@ void serialize_SecondaryIrtsFr1(uint8_t *data, SecondaryIrtsFr1Msg *msg){
     data[5] = (msg->channel7 >> 8) & 255;
     data[6] = msg->channel8 & 255;
     data[7] = (msg->channel8 >> 8) & 255;
+}
+
+void serialize_SecondaryIrtsFr1(uint8_t *data, uint16_t channel5, uint16_t channel6, uint16_t channel7, uint16_t channel8){
+    data[0] = channel5 & 255;
+    data[1] = (channel5 >> 8) & 255;
+    data[2] = channel6 & 255;
+    data[3] = (channel6 >> 8) & 255;
+    data[4] = channel7 & 255;
+    data[5] = (channel7 >> 8) & 255;
+    data[6] = channel8 & 255;
+    data[7] = (channel8 >> 8) & 255;
 }
 
 void deserialize_SecondaryIrtsFr1(uint8_t *data, SecondaryIrtsFr1Msg *msg){
@@ -406,7 +490,7 @@ void deserialize_SecondaryIrtsFr1(uint8_t *data, SecondaryIrtsFr1Msg *msg){
     msg->channel8 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsFr2(uint8_t *data, SecondaryIrtsFr2Msg *msg){
+void serialize_SecondaryIrtsFr2Msg(uint8_t *data, SecondaryIrtsFr2Msg *msg){
     data[0] = msg->channel9 & 255;
     data[1] = (msg->channel9 >> 8) & 255;
     data[2] = msg->channel10 & 255;
@@ -415,6 +499,17 @@ void serialize_SecondaryIrtsFr2(uint8_t *data, SecondaryIrtsFr2Msg *msg){
     data[5] = (msg->channel11 >> 8) & 255;
     data[6] = msg->channel12 & 255;
     data[7] = (msg->channel12 >> 8) & 255;
+}
+
+void serialize_SecondaryIrtsFr2(uint8_t *data, uint16_t channel9, uint16_t channel10, uint16_t channel11, uint16_t channel12){
+    data[0] = channel9 & 255;
+    data[1] = (channel9 >> 8) & 255;
+    data[2] = channel10 & 255;
+    data[3] = (channel10 >> 8) & 255;
+    data[4] = channel11 & 255;
+    data[5] = (channel11 >> 8) & 255;
+    data[6] = channel12 & 255;
+    data[7] = (channel12 >> 8) & 255;
 }
 
 void deserialize_SecondaryIrtsFr2(uint8_t *data, SecondaryIrtsFr2Msg *msg){
@@ -424,7 +519,7 @@ void deserialize_SecondaryIrtsFr2(uint8_t *data, SecondaryIrtsFr2Msg *msg){
     msg->channel12 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsFr3(uint8_t *data, SecondaryIrtsFr3Msg *msg){
+void serialize_SecondaryIrtsFr3Msg(uint8_t *data, SecondaryIrtsFr3Msg *msg){
     data[0] = msg->channel13 & 255;
     data[1] = (msg->channel13 >> 8) & 255;
     data[2] = msg->channel14 & 255;
@@ -433,6 +528,17 @@ void serialize_SecondaryIrtsFr3(uint8_t *data, SecondaryIrtsFr3Msg *msg){
     data[5] = (msg->channel15 >> 8) & 255;
     data[6] = msg->channel16 & 255;
     data[7] = (msg->channel16 >> 8) & 255;
+}
+
+void serialize_SecondaryIrtsFr3(uint8_t *data, uint16_t channel13, uint16_t channel14, uint16_t channel15, uint16_t channel16){
+    data[0] = channel13 & 255;
+    data[1] = (channel13 >> 8) & 255;
+    data[2] = channel14 & 255;
+    data[3] = (channel14 >> 8) & 255;
+    data[4] = channel15 & 255;
+    data[5] = (channel15 >> 8) & 255;
+    data[6] = channel16 & 255;
+    data[7] = (channel16 >> 8) & 255;
 }
 
 void deserialize_SecondaryIrtsFr3(uint8_t *data, SecondaryIrtsFr3Msg *msg){
@@ -442,7 +548,7 @@ void deserialize_SecondaryIrtsFr3(uint8_t *data, SecondaryIrtsFr3Msg *msg){
     msg->channel16 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsRl0(uint8_t *data, SecondaryIrtsRl0Msg *msg){
+void serialize_SecondaryIrtsRl0Msg(uint8_t *data, SecondaryIrtsRl0Msg *msg){
     data[0] = msg->channel1 & 255;
     data[1] = (msg->channel1 >> 8) & 255;
     data[2] = msg->channel2 & 255;
@@ -451,6 +557,17 @@ void serialize_SecondaryIrtsRl0(uint8_t *data, SecondaryIrtsRl0Msg *msg){
     data[5] = (msg->channel3 >> 8) & 255;
     data[6] = msg->channel4 & 255;
     data[7] = (msg->channel4 >> 8) & 255;
+}
+
+void serialize_SecondaryIrtsRl0(uint8_t *data, uint16_t channel1, uint16_t channel2, uint16_t channel3, uint16_t channel4){
+    data[0] = channel1 & 255;
+    data[1] = (channel1 >> 8) & 255;
+    data[2] = channel2 & 255;
+    data[3] = (channel2 >> 8) & 255;
+    data[4] = channel3 & 255;
+    data[5] = (channel3 >> 8) & 255;
+    data[6] = channel4 & 255;
+    data[7] = (channel4 >> 8) & 255;
 }
 
 void deserialize_SecondaryIrtsRl0(uint8_t *data, SecondaryIrtsRl0Msg *msg){
@@ -460,7 +577,7 @@ void deserialize_SecondaryIrtsRl0(uint8_t *data, SecondaryIrtsRl0Msg *msg){
     msg->channel4 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsRl1(uint8_t *data, SecondaryIrtsRl1Msg *msg){
+void serialize_SecondaryIrtsRl1Msg(uint8_t *data, SecondaryIrtsRl1Msg *msg){
     data[0] = msg->channel5 & 255;
     data[1] = (msg->channel5 >> 8) & 255;
     data[2] = msg->channel6 & 255;
@@ -471,6 +588,17 @@ void serialize_SecondaryIrtsRl1(uint8_t *data, SecondaryIrtsRl1Msg *msg){
     data[7] = (msg->channel8 >> 8) & 255;
 }
 
+void serialize_SecondaryIrtsRl1(uint8_t *data, uint16_t channel5, uint16_t channel6, uint16_t channel7, uint16_t channel8){
+    data[0] = channel5 & 255;
+    data[1] = (channel5 >> 8) & 255;
+    data[2] = channel6 & 255;
+    data[3] = (channel6 >> 8) & 255;
+    data[4] = channel7 & 255;
+    data[5] = (channel7 >> 8) & 255;
+    data[6] = channel8 & 255;
+    data[7] = (channel8 >> 8) & 255;
+}
+
 void deserialize_SecondaryIrtsRl1(uint8_t *data, SecondaryIrtsRl1Msg *msg){
     msg->channel5 = data[0] | (data[1] << 8);
     msg->channel6 = data[2] | (data[3] << 8);
@@ -478,7 +606,7 @@ void deserialize_SecondaryIrtsRl1(uint8_t *data, SecondaryIrtsRl1Msg *msg){
     msg->channel8 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsRl2(uint8_t *data, SecondaryIrtsRl2Msg *msg){
+void serialize_SecondaryIrtsRl2Msg(uint8_t *data, SecondaryIrtsRl2Msg *msg){
     data[0] = msg->channel9 & 255;
     data[1] = (msg->channel9 >> 8) & 255;
     data[2] = msg->channel10 & 255;
@@ -489,6 +617,17 @@ void serialize_SecondaryIrtsRl2(uint8_t *data, SecondaryIrtsRl2Msg *msg){
     data[7] = (msg->channel12 >> 8) & 255;
 }
 
+void serialize_SecondaryIrtsRl2(uint8_t *data, uint16_t channel9, uint16_t channel10, uint16_t channel11, uint16_t channel12){
+    data[0] = channel9 & 255;
+    data[1] = (channel9 >> 8) & 255;
+    data[2] = channel10 & 255;
+    data[3] = (channel10 >> 8) & 255;
+    data[4] = channel11 & 255;
+    data[5] = (channel11 >> 8) & 255;
+    data[6] = channel12 & 255;
+    data[7] = (channel12 >> 8) & 255;
+}
+
 void deserialize_SecondaryIrtsRl2(uint8_t *data, SecondaryIrtsRl2Msg *msg){
     msg->channel9 = data[0] | (data[1] << 8);
     msg->channel10 = data[2] | (data[3] << 8);
@@ -496,7 +635,7 @@ void deserialize_SecondaryIrtsRl2(uint8_t *data, SecondaryIrtsRl2Msg *msg){
     msg->channel12 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsRl3(uint8_t *data, SecondaryIrtsRl3Msg *msg){
+void serialize_SecondaryIrtsRl3Msg(uint8_t *data, SecondaryIrtsRl3Msg *msg){
     data[0] = msg->channel13 & 255;
     data[1] = (msg->channel13 >> 8) & 255;
     data[2] = msg->channel14 & 255;
@@ -507,6 +646,17 @@ void serialize_SecondaryIrtsRl3(uint8_t *data, SecondaryIrtsRl3Msg *msg){
     data[7] = (msg->channel16 >> 8) & 255;
 }
 
+void serialize_SecondaryIrtsRl3(uint8_t *data, uint16_t channel13, uint16_t channel14, uint16_t channel15, uint16_t channel16){
+    data[0] = channel13 & 255;
+    data[1] = (channel13 >> 8) & 255;
+    data[2] = channel14 & 255;
+    data[3] = (channel14 >> 8) & 255;
+    data[4] = channel15 & 255;
+    data[5] = (channel15 >> 8) & 255;
+    data[6] = channel16 & 255;
+    data[7] = (channel16 >> 8) & 255;
+}
+
 void deserialize_SecondaryIrtsRl3(uint8_t *data, SecondaryIrtsRl3Msg *msg){
     msg->channel13 = data[0] | (data[1] << 8);
     msg->channel14 = data[2] | (data[3] << 8);
@@ -514,7 +664,7 @@ void deserialize_SecondaryIrtsRl3(uint8_t *data, SecondaryIrtsRl3Msg *msg){
     msg->channel16 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsRr0(uint8_t *data, SecondaryIrtsRr0Msg *msg){
+void serialize_SecondaryIrtsRr0Msg(uint8_t *data, SecondaryIrtsRr0Msg *msg){
     data[0] = msg->channel1 & 255;
     data[1] = (msg->channel1 >> 8) & 255;
     data[2] = msg->channel2 & 255;
@@ -525,6 +675,17 @@ void serialize_SecondaryIrtsRr0(uint8_t *data, SecondaryIrtsRr0Msg *msg){
     data[7] = (msg->channel4 >> 8) & 255;
 }
 
+void serialize_SecondaryIrtsRr0(uint8_t *data, uint16_t channel1, uint16_t channel2, uint16_t channel3, uint16_t channel4){
+    data[0] = channel1 & 255;
+    data[1] = (channel1 >> 8) & 255;
+    data[2] = channel2 & 255;
+    data[3] = (channel2 >> 8) & 255;
+    data[4] = channel3 & 255;
+    data[5] = (channel3 >> 8) & 255;
+    data[6] = channel4 & 255;
+    data[7] = (channel4 >> 8) & 255;
+}
+
 void deserialize_SecondaryIrtsRr0(uint8_t *data, SecondaryIrtsRr0Msg *msg){
     msg->channel1 = data[0] | (data[1] << 8);
     msg->channel2 = data[2] | (data[3] << 8);
@@ -532,7 +693,7 @@ void deserialize_SecondaryIrtsRr0(uint8_t *data, SecondaryIrtsRr0Msg *msg){
     msg->channel4 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsRr1(uint8_t *data, SecondaryIrtsRr1Msg *msg){
+void serialize_SecondaryIrtsRr1Msg(uint8_t *data, SecondaryIrtsRr1Msg *msg){
     data[0] = msg->channel5 & 255;
     data[1] = (msg->channel5 >> 8) & 255;
     data[2] = msg->channel6 & 255;
@@ -543,6 +704,17 @@ void serialize_SecondaryIrtsRr1(uint8_t *data, SecondaryIrtsRr1Msg *msg){
     data[7] = (msg->channel8 >> 8) & 255;
 }
 
+void serialize_SecondaryIrtsRr1(uint8_t *data, uint16_t channel5, uint16_t channel6, uint16_t channel7, uint16_t channel8){
+    data[0] = channel5 & 255;
+    data[1] = (channel5 >> 8) & 255;
+    data[2] = channel6 & 255;
+    data[3] = (channel6 >> 8) & 255;
+    data[4] = channel7 & 255;
+    data[5] = (channel7 >> 8) & 255;
+    data[6] = channel8 & 255;
+    data[7] = (channel8 >> 8) & 255;
+}
+
 void deserialize_SecondaryIrtsRr1(uint8_t *data, SecondaryIrtsRr1Msg *msg){
     msg->channel5 = data[0] | (data[1] << 8);
     msg->channel6 = data[2] | (data[3] << 8);
@@ -550,7 +722,7 @@ void deserialize_SecondaryIrtsRr1(uint8_t *data, SecondaryIrtsRr1Msg *msg){
     msg->channel8 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsRr2(uint8_t *data, SecondaryIrtsRr2Msg *msg){
+void serialize_SecondaryIrtsRr2Msg(uint8_t *data, SecondaryIrtsRr2Msg *msg){
     data[0] = msg->channel9 & 255;
     data[1] = (msg->channel9 >> 8) & 255;
     data[2] = msg->channel10 & 255;
@@ -561,6 +733,17 @@ void serialize_SecondaryIrtsRr2(uint8_t *data, SecondaryIrtsRr2Msg *msg){
     data[7] = (msg->channel12 >> 8) & 255;
 }
 
+void serialize_SecondaryIrtsRr2(uint8_t *data, uint16_t channel9, uint16_t channel10, uint16_t channel11, uint16_t channel12){
+    data[0] = channel9 & 255;
+    data[1] = (channel9 >> 8) & 255;
+    data[2] = channel10 & 255;
+    data[3] = (channel10 >> 8) & 255;
+    data[4] = channel11 & 255;
+    data[5] = (channel11 >> 8) & 255;
+    data[6] = channel12 & 255;
+    data[7] = (channel12 >> 8) & 255;
+}
+
 void deserialize_SecondaryIrtsRr2(uint8_t *data, SecondaryIrtsRr2Msg *msg){
     msg->channel9 = data[0] | (data[1] << 8);
     msg->channel10 = data[2] | (data[3] << 8);
@@ -568,7 +751,7 @@ void deserialize_SecondaryIrtsRr2(uint8_t *data, SecondaryIrtsRr2Msg *msg){
     msg->channel12 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryIrtsRr3(uint8_t *data, SecondaryIrtsRr3Msg *msg){
+void serialize_SecondaryIrtsRr3Msg(uint8_t *data, SecondaryIrtsRr3Msg *msg){
     data[0] = msg->channel13 & 255;
     data[1] = (msg->channel13 >> 8) & 255;
     data[2] = msg->channel14 & 255;
@@ -579,6 +762,17 @@ void serialize_SecondaryIrtsRr3(uint8_t *data, SecondaryIrtsRr3Msg *msg){
     data[7] = (msg->channel16 >> 8) & 255;
 }
 
+void serialize_SecondaryIrtsRr3(uint8_t *data, uint16_t channel13, uint16_t channel14, uint16_t channel15, uint16_t channel16){
+    data[0] = channel13 & 255;
+    data[1] = (channel13 >> 8) & 255;
+    data[2] = channel14 & 255;
+    data[3] = (channel14 >> 8) & 255;
+    data[4] = channel15 & 255;
+    data[5] = (channel15 >> 8) & 255;
+    data[6] = channel16 & 255;
+    data[7] = (channel16 >> 8) & 255;
+}
+
 void deserialize_SecondaryIrtsRr3(uint8_t *data, SecondaryIrtsRr3Msg *msg){
     msg->channel13 = data[0] | (data[1] << 8);
     msg->channel14 = data[2] | (data[3] << 8);
@@ -586,7 +780,7 @@ void deserialize_SecondaryIrtsRr3(uint8_t *data, SecondaryIrtsRr3Msg *msg){
     msg->channel16 = data[6] | (data[7] << 8);
 }
 
-void serialize_SecondaryGpsCoords(uint8_t *data, SecondaryGpsCoordsMsg *msg){
+void serialize_SecondaryGpsCoordsMsg(uint8_t *data, SecondaryGpsCoordsMsg *msg){
     data[0] = ((float_t) msg->latitude).bytes[0];
     data[1] = ((float_t) msg->latitude).bytes[1];
     data[2] = ((float_t) msg->latitude).bytes[2];
@@ -597,26 +791,50 @@ void serialize_SecondaryGpsCoords(uint8_t *data, SecondaryGpsCoordsMsg *msg){
     data[7] = ((float_t) msg->longitude).bytes[3];
 }
 
+void serialize_SecondaryGpsCoords(uint8_t *data, float latitude, float longitude){
+    data[0] = ((float_t) latitude).bytes[0];
+    data[1] = ((float_t) latitude).bytes[1];
+    data[2] = ((float_t) latitude).bytes[2];
+    data[3] = ((float_t) latitude).bytes[3];
+    data[4] = ((float_t) longitude).bytes[0];
+    data[5] = ((float_t) longitude).bytes[1];
+    data[6] = ((float_t) longitude).bytes[2];
+    data[7] = ((float_t) longitude).bytes[3];
+}
+
 void deserialize_SecondaryGpsCoords(uint8_t *data, SecondaryGpsCoordsMsg *msg){
     msg->latitude = ((float_t) {data[0], data[1], data[2], data[3]}).value;
     msg->longitude = ((float_t) {data[4], data[5], data[6], data[7]}).value;
 }
 
-void serialize_SecondaryGpsSpeed(uint8_t *data, SecondaryGpsSpeedMsg *msg){
+void serialize_SecondaryGpsSpeedMsg(uint8_t *data, SecondaryGpsSpeedMsg *msg){
     data[0] = msg->speed & 255;
     data[1] = (msg->speed >> 8) & 255;
+}
+
+void serialize_SecondaryGpsSpeed(uint8_t *data, uint16_t speed){
+    data[0] = speed & 255;
+    data[1] = (speed >> 8) & 255;
 }
 
 void deserialize_SecondaryGpsSpeed(uint8_t *data, SecondaryGpsSpeedMsg *msg){
     msg->speed = data[0] | (data[1] << 8);
 }
 
-void serialize_SecondaryLapCount(uint8_t *data, SecondaryLapCountMsg *msg){
+void serialize_SecondaryLapCountMsg(uint8_t *data, SecondaryLapCountMsg *msg){
     data[0] = msg->timestamp & 255;
     data[1] = (msg->timestamp >> 8) & 255;
     data[2] = (msg->timestamp >> 16) & 255;
     data[3] = (msg->timestamp >> 24) & 255;
     data[4] = msg->lap_count;
+}
+
+void serialize_SecondaryLapCount(uint8_t *data, uint32_t timestamp, uint8_t lap_count){
+    data[0] = timestamp & 255;
+    data[1] = (timestamp >> 8) & 255;
+    data[2] = (timestamp >> 16) & 255;
+    data[3] = (timestamp >> 24) & 255;
+    data[4] = lap_count;
 }
 
 void deserialize_SecondaryLapCount(uint8_t *data, SecondaryLapCountMsg *msg){

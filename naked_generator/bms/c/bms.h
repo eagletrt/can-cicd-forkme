@@ -167,9 +167,14 @@ typedef struct __is_packed {
 
 // Functions
 
-void serialize_BmsBoardStatus(uint8_t *data, BmsBoardStatusMsg *msg){
+void serialize_BmsBoardStatusMsg(uint8_t *data, BmsBoardStatusMsg *msg){
     data[0] = msg->errors[0];
     data[1] = msg->balancing_status << 7;
+}
+
+void serialize_BmsBoardStatus(uint8_t *data, BmsErrors errors, BmsBalancingStatus balancing_status){
+    data[0] = errors[0];
+    data[1] = balancing_status << 7;
 }
 
 void deserialize_BmsBoardStatus(uint8_t *data, BmsBoardStatusMsg *msg){
@@ -177,7 +182,7 @@ void deserialize_BmsBoardStatus(uint8_t *data, BmsBoardStatusMsg *msg){
     msg->balancing_status = (BmsBalancingStatus) ((data[1] & 128) >> 7);
 }
 
-void serialize_BmsTemperatures(uint8_t *data, BmsTemperaturesMsg *msg){
+void serialize_BmsTemperaturesMsg(uint8_t *data, BmsTemperaturesMsg *msg){
     data[0] = msg->start_index;
     data[1] = msg->temp0;
     data[2] = msg->temp1;
@@ -185,6 +190,16 @@ void serialize_BmsTemperatures(uint8_t *data, BmsTemperaturesMsg *msg){
     data[4] = msg->temp3;
     data[5] = msg->temp4;
     data[6] = msg->temp5;
+}
+
+void serialize_BmsTemperatures(uint8_t *data, uint8_t start_index, uint8_t temp0, uint8_t temp1, uint8_t temp2, uint8_t temp3, uint8_t temp4, uint8_t temp5){
+    data[0] = start_index;
+    data[1] = temp0;
+    data[2] = temp1;
+    data[3] = temp2;
+    data[4] = temp3;
+    data[5] = temp4;
+    data[6] = temp5;
 }
 
 void deserialize_BmsTemperatures(uint8_t *data, BmsTemperaturesMsg *msg){
@@ -197,7 +212,7 @@ void deserialize_BmsTemperatures(uint8_t *data, BmsTemperaturesMsg *msg){
     msg->temp5 = data[6];
 }
 
-void serialize_BmsVoltages(uint8_t *data, BmsVoltagesMsg *msg){
+void serialize_BmsVoltagesMsg(uint8_t *data, BmsVoltagesMsg *msg){
     data[0] = msg->voltage0 & 255;
     data[1] = (msg->voltage0 >> 8) & 255;
     data[2] = msg->voltage1 & 255;
@@ -207,6 +222,16 @@ void serialize_BmsVoltages(uint8_t *data, BmsVoltagesMsg *msg){
     data[6] = msg->start_index;
 }
 
+void serialize_BmsVoltages(uint8_t *data, uint16_t voltage0, uint16_t voltage1, uint16_t voltage2, uint8_t start_index){
+    data[0] = voltage0 & 255;
+    data[1] = (voltage0 >> 8) & 255;
+    data[2] = voltage1 & 255;
+    data[3] = (voltage1 >> 8) & 255;
+    data[4] = voltage2 & 255;
+    data[5] = (voltage2 >> 8) & 255;
+    data[6] = start_index;
+}
+
 void deserialize_BmsVoltages(uint8_t *data, BmsVoltagesMsg *msg){
     msg->voltage0 = data[0] | (data[1] << 8);
     msg->voltage1 = data[2] | (data[3] << 8);
@@ -214,11 +239,18 @@ void deserialize_BmsVoltages(uint8_t *data, BmsVoltagesMsg *msg){
     msg->start_index = data[6];
 }
 
-void serialize_BmsBalancing(uint8_t *data, BmsBalancingMsg *msg){
+void serialize_BmsBalancingMsg(uint8_t *data, BmsBalancingMsg *msg){
     data[0] = msg->cells[0];
     data[1] = msg->cells[1];
     data[2] = msg->cells[2];
     data[3] = msg->board_index;
+}
+
+void serialize_BmsBalancing(uint8_t *data, BmsBalancingCells cells, uint8_t board_index){
+    data[0] = cells[0];
+    data[1] = cells[1];
+    data[2] = cells[2];
+    data[3] = board_index;
 }
 
 void deserialize_BmsBalancing(uint8_t *data, BmsBalancingMsg *msg){
@@ -228,8 +260,12 @@ void deserialize_BmsBalancing(uint8_t *data, BmsBalancingMsg *msg){
     msg->board_index = data[3];
 }
 
-void serialize_BmsFwUpdate(uint8_t *data, BmsFwUpdateMsg *msg){
+void serialize_BmsFwUpdateMsg(uint8_t *data, BmsFwUpdateMsg *msg){
     data[0] = msg->board_index;
+}
+
+void serialize_BmsFwUpdate(uint8_t *data, uint8_t board_index){
+    data[0] = board_index;
 }
 
 void deserialize_BmsFwUpdate(uint8_t *data, BmsFwUpdateMsg *msg){

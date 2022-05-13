@@ -13,25 +13,25 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tbms.proto\x12\x03\x62ms\"Q\n\x0b\x42oardStatus\x12\x0e\n\x06\x65rrors\x18\x01 \x01(\r\x12\x32\n\x10\x62\x61lancing_status\x18\x02 \x01(\x0e\x32\x18.bms.BalancingStatusType\"}\n\x0cTemperatures\x12\x13\n\x0bstart_index\x18\x01 \x01(\r\x12\r\n\x05temp0\x18\x02 \x01(\r\x12\r\n\x05temp1\x18\x03 \x01(\r\x12\r\n\x05temp2\x18\x04 \x01(\r\x12\r\n\x05temp3\x18\x05 \x01(\r\x12\r\n\x05temp4\x18\x06 \x01(\r\x12\r\n\x05temp5\x18\x07 \x01(\r\"U\n\x08Voltages\x12\x13\n\x0bstart_index\x18\x01 \x01(\r\x12\x10\n\x08voltage0\x18\x02 \x01(\r\x12\x10\n\x08voltage1\x18\x03 \x01(\r\x12\x10\n\x08voltage2\x18\x04 \x01(\r\"/\n\tBalancing\x12\x13\n\x0b\x62oard_index\x18\x01 \x01(\r\x12\r\n\x05\x63\x65lls\x18\x02 \x01(\r\"\x1f\n\x08\x46wUpdate\x12\x13\n\x0b\x62oard_index\x18\x01 \x01(\r\"\xc2\x01\n\tBmsFenice\x12&\n\x0c\x62oard_status\x18\x01 \x03(\x0b\x32\x10.bms.BoardStatus\x12\'\n\x0ctemperatures\x18\x02 \x03(\x0b\x32\x11.bms.Temperatures\x12\x1f\n\x08voltages\x18\x03 \x03(\x0b\x32\r.bms.Voltages\x12!\n\tbalancing\x18\x04 \x03(\x0b\x32\x0e.bms.Balancing\x12 \n\tfw_update\x18\x05 \x03(\x0b\x32\r.bms.FwUpdate*O\n\x13\x42\x61lancingStatusType\x12\x18\n\x14\x42\x41LANCING_STATUS_OFF\x10\x00\x12\x1e\n\x1a\x42\x41LANCING_STATUS_DISCHARGE\x10\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tbms.proto\x12\x03\x62ms\"d\n\x0b\x42oardStatus\x12\x0e\n\x06\x65rrors\x18\x01 \x01(\r\x12\x32\n\x10\x62\x61lancing_status\x18\x02 \x01(\x0e\x32\x18.bms.BalancingStatusType\x12\x11\n\ttimestamp\x18\x03 \x01(\r\"\x90\x01\n\x0cTemperatures\x12\x13\n\x0bstart_index\x18\x01 \x01(\r\x12\r\n\x05temp0\x18\x02 \x01(\r\x12\r\n\x05temp1\x18\x03 \x01(\r\x12\r\n\x05temp2\x18\x04 \x01(\r\x12\r\n\x05temp3\x18\x05 \x01(\r\x12\r\n\x05temp4\x18\x06 \x01(\r\x12\r\n\x05temp5\x18\x07 \x01(\r\x12\x11\n\ttimestamp\x18\x08 \x01(\r\"h\n\x08Voltages\x12\x13\n\x0bstart_index\x18\x01 \x01(\r\x12\x10\n\x08voltage0\x18\x02 \x01(\r\x12\x10\n\x08voltage1\x18\x03 \x01(\r\x12\x10\n\x08voltage2\x18\x04 \x01(\r\x12\x11\n\ttimestamp\x18\x05 \x01(\r\"B\n\tBalancing\x12\x13\n\x0b\x62oard_index\x18\x01 \x01(\r\x12\r\n\x05\x63\x65lls\x18\x02 \x01(\r\x12\x11\n\ttimestamp\x18\x03 \x01(\r\"2\n\x08\x46wUpdate\x12\x13\n\x0b\x62oard_index\x18\x01 \x01(\r\x12\x11\n\ttimestamp\x18\x02 \x01(\r\"\xc2\x01\n\tBmsFenice\x12&\n\x0c\x62oard_status\x18\x01 \x03(\x0b\x32\x10.bms.BoardStatus\x12\'\n\x0ctemperatures\x18\x02 \x03(\x0b\x32\x11.bms.Temperatures\x12\x1f\n\x08voltages\x18\x03 \x03(\x0b\x32\r.bms.Voltages\x12!\n\tbalancing\x18\x04 \x03(\x0b\x32\x0e.bms.Balancing\x12 \n\tfw_update\x18\x05 \x03(\x0b\x32\r.bms.FwUpdate*O\n\x13\x42\x61lancingStatusType\x12\x18\n\x14\x42\x41LANCING_STATUS_OFF\x10\x00\x12\x1e\n\x1a\x42\x41LANCING_STATUS_DISCHARGE\x10\x01\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'bms_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _BALANCINGSTATUSTYPE._serialized_start=594
-  _BALANCINGSTATUSTYPE._serialized_end=673
+  _BALANCINGSTATUSTYPE._serialized_start=690
+  _BALANCINGSTATUSTYPE._serialized_end=769
   _BOARDSTATUS._serialized_start=18
-  _BOARDSTATUS._serialized_end=99
-  _TEMPERATURES._serialized_start=101
-  _TEMPERATURES._serialized_end=226
-  _VOLTAGES._serialized_start=228
-  _VOLTAGES._serialized_end=313
-  _BALANCING._serialized_start=315
-  _BALANCING._serialized_end=362
-  _FWUPDATE._serialized_start=364
-  _FWUPDATE._serialized_end=395
-  _BMSFENICE._serialized_start=398
-  _BMSFENICE._serialized_end=592
+  _BOARDSTATUS._serialized_end=118
+  _TEMPERATURES._serialized_start=121
+  _TEMPERATURES._serialized_end=265
+  _VOLTAGES._serialized_start=267
+  _VOLTAGES._serialized_end=371
+  _BALANCING._serialized_start=373
+  _BALANCING._serialized_end=439
+  _FWUPDATE._serialized_start=441
+  _FWUPDATE._serialized_end=491
+  _BMSFENICE._serialized_start=494
+  _BMSFENICE._serialized_end=688
 # @@protoc_insertion_point(module_scope)

@@ -9,11 +9,11 @@ int main() {
 
     printf("***BmsBoardStatusMsg***\n");
     uint8_t buffer_BmsBoardStatus[BMS_BOARD_STATUS_SIZE];
-    BmsBoardStatusMsg BmsBoardStatus_s = { { 81 }, 0 };
+    BmsBoardStatusMsg BmsBoardStatus_s = { { 94 }, 0 };
     
     printf("Before: %hhx %d\n", BmsBoardStatus_s.errors[0], BmsBoardStatus_s.balancing_status);
     
-    serialize_BmsBoardStatus(buffer_BmsBoardStatus, &BmsBoardStatus_s);
+    serialize_BmsBoardStatusMsg(buffer_BmsBoardStatus, &BmsBoardStatus_s);
     BmsBoardStatusMsg BmsBoardStatus_d;
     deserialize_BmsBoardStatus(buffer_BmsBoardStatus, &BmsBoardStatus_d);
     
@@ -24,11 +24,11 @@ int main() {
 
     printf("***BmsTemperaturesMsg***\n");
     uint8_t buffer_BmsTemperatures[BMS_TEMPERATURES_SIZE];
-    BmsTemperaturesMsg BmsTemperatures_s = { 197, 100, 66, 195, 109, 6, 14 };
+    BmsTemperaturesMsg BmsTemperatures_s = { 121, 84, 106, 163, 100, 43, 147 };
     
     printf("Before: %hhu %hhu %hhu %hhu %hhu %hhu %hhu\n", BmsTemperatures_s.start_index, BmsTemperatures_s.temp0, BmsTemperatures_s.temp1, BmsTemperatures_s.temp2, BmsTemperatures_s.temp3, BmsTemperatures_s.temp4, BmsTemperatures_s.temp5);
     
-    serialize_BmsTemperatures(buffer_BmsTemperatures, &BmsTemperatures_s);
+    serialize_BmsTemperaturesMsg(buffer_BmsTemperatures, &BmsTemperatures_s);
     BmsTemperaturesMsg BmsTemperatures_d;
     deserialize_BmsTemperatures(buffer_BmsTemperatures, &BmsTemperatures_d);
     
@@ -39,11 +39,11 @@ int main() {
 
     printf("***BmsVoltagesMsg***\n");
     uint8_t buffer_BmsVoltages[BMS_VOLTAGES_SIZE];
-    BmsVoltagesMsg BmsVoltages_s = { 64691, 6863, 16843, 138 };
+    BmsVoltagesMsg BmsVoltages_s = { 22679, 64378, 27544, 148 };
     
     printf("Before: %hu %hu %hu %hhu\n", BmsVoltages_s.voltage0, BmsVoltages_s.voltage1, BmsVoltages_s.voltage2, BmsVoltages_s.start_index);
     
-    serialize_BmsVoltages(buffer_BmsVoltages, &BmsVoltages_s);
+    serialize_BmsVoltagesMsg(buffer_BmsVoltages, &BmsVoltages_s);
     BmsVoltagesMsg BmsVoltages_d;
     deserialize_BmsVoltages(buffer_BmsVoltages, &BmsVoltages_d);
     
@@ -54,11 +54,11 @@ int main() {
 
     printf("***BmsBalancingMsg***\n");
     uint8_t buffer_BmsBalancing[BMS_BALANCING_SIZE];
-    BmsBalancingMsg BmsBalancing_s = { { 196, 165, 100 }, 107 };
+    BmsBalancingMsg BmsBalancing_s = { { 220, 191, 67 }, 66 };
     
     printf("Before: %hhx.%hhx.%hhx %hhu\n", BmsBalancing_s.cells[0], BmsBalancing_s.cells[1], BmsBalancing_s.cells[2], BmsBalancing_s.board_index);
     
-    serialize_BmsBalancing(buffer_BmsBalancing, &BmsBalancing_s);
+    serialize_BmsBalancingMsg(buffer_BmsBalancing, &BmsBalancing_s);
     BmsBalancingMsg BmsBalancing_d;
     deserialize_BmsBalancing(buffer_BmsBalancing, &BmsBalancing_d);
     
@@ -69,11 +69,11 @@ int main() {
 
     printf("***BmsFwUpdateMsg***\n");
     uint8_t buffer_BmsFwUpdate[BMS_FW_UPDATE_SIZE];
-    BmsFwUpdateMsg BmsFwUpdate_s = { 3 };
+    BmsFwUpdateMsg BmsFwUpdate_s = { 175 };
     
     printf("Before: %hhu\n", BmsFwUpdate_s.board_index);
     
-    serialize_BmsFwUpdate(buffer_BmsFwUpdate, &BmsFwUpdate_s);
+    serialize_BmsFwUpdateMsg(buffer_BmsFwUpdate, &BmsFwUpdate_s);
     BmsFwUpdateMsg BmsFwUpdate_d;
     deserialize_BmsFwUpdate(buffer_BmsFwUpdate, &BmsFwUpdate_d);
     
