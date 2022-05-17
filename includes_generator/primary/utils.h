@@ -75,9 +75,12 @@ void primary_msgname_from_id(uint32_t msg_id, char buffer[static 26]) {
             strcpy(buffer, "LV_VOLTAGE");
             break;
         case 838:
-            strcpy(buffer, "LV_TEMPERATURE");
+            strcpy(buffer, "LV_TOTAL_VOLTAGE");
             break;
         case 870:
+            strcpy(buffer, "LV_TEMPERATURE");
+            break;
+        case 902:
             strcpy(buffer, "COOLING_STATUS");
             break;
         case 1:

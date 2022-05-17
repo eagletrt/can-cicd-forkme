@@ -9,7 +9,7 @@ int main() {
 
     printf("***BmsBoardStatusMsg***\n");
     uint8_t buffer_BmsBoardStatus[BMS_BOARD_STATUS_SIZE];
-    BmsBoardStatusMsg BmsBoardStatus_s = { { 94 }, 0 };
+    BmsBoardStatusMsg BmsBoardStatus_s = { { 40 }, 1 };
     
     printf("Before: %hhx %d\n", BmsBoardStatus_s.errors[0], BmsBoardStatus_s.balancing_status);
     
@@ -24,7 +24,7 @@ int main() {
 
     printf("***BmsTemperaturesMsg***\n");
     uint8_t buffer_BmsTemperatures[BMS_TEMPERATURES_SIZE];
-    BmsTemperaturesMsg BmsTemperatures_s = { 121, 84, 106, 163, 100, 43, 147 };
+    BmsTemperaturesMsg BmsTemperatures_s = { 158, 114, 146, 245, 17, 7, 134 };
     
     printf("Before: %hhu %hhu %hhu %hhu %hhu %hhu %hhu\n", BmsTemperatures_s.start_index, BmsTemperatures_s.temp0, BmsTemperatures_s.temp1, BmsTemperatures_s.temp2, BmsTemperatures_s.temp3, BmsTemperatures_s.temp4, BmsTemperatures_s.temp5);
     
@@ -39,7 +39,7 @@ int main() {
 
     printf("***BmsVoltagesMsg***\n");
     uint8_t buffer_BmsVoltages[BMS_VOLTAGES_SIZE];
-    BmsVoltagesMsg BmsVoltages_s = { 22679, 64378, 27544, 148 };
+    BmsVoltagesMsg BmsVoltages_s = { 17878, 29591, 20247, 246 };
     
     printf("Before: %hu %hu %hu %hhu\n", BmsVoltages_s.voltage0, BmsVoltages_s.voltage1, BmsVoltages_s.voltage2, BmsVoltages_s.start_index);
     
@@ -54,7 +54,7 @@ int main() {
 
     printf("***BmsBalancingMsg***\n");
     uint8_t buffer_BmsBalancing[BMS_BALANCING_SIZE];
-    BmsBalancingMsg BmsBalancing_s = { { 220, 191, 67 }, 66 };
+    BmsBalancingMsg BmsBalancing_s = { { 56, 206, 239 }, 73 };
     
     printf("Before: %hhx.%hhx.%hhx %hhu\n", BmsBalancing_s.cells[0], BmsBalancing_s.cells[1], BmsBalancing_s.cells[2], BmsBalancing_s.board_index);
     
@@ -69,7 +69,7 @@ int main() {
 
     printf("***BmsFwUpdateMsg***\n");
     uint8_t buffer_BmsFwUpdate[BMS_FW_UPDATE_SIZE];
-    BmsFwUpdateMsg BmsFwUpdate_s = { 175 };
+    BmsFwUpdateMsg BmsFwUpdate_s = { 20 };
     
     printf("Before: %hhu\n", BmsFwUpdate_s.board_index);
     

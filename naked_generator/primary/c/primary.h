@@ -101,6 +101,7 @@ typedef union {
 #define PRIMARY_STEER_STATUS_MS 100
 #define PRIMARY_LV_CURRENT_MS 500
 #define PRIMARY_LV_VOLTAGE_MS 200
+#define PRIMARY_LV_TOTAL_VOLTAGE_MS 200
 #define PRIMARY_LV_TEMPERATURE_MS 200
 #define PRIMARY_COOLING_STATUS_MS 1000
 #define PRIMARY_HV_CELLS_VOLTAGE_MS 200
@@ -135,7 +136,8 @@ typedef union {
 #define PRIMARY_SET_CAR_STATUS_SIZE 1
 #define PRIMARY_SET_PEDALS_RANGE_SIZE 1
 #define PRIMARY_LV_CURRENT_SIZE 1
-#define PRIMARY_LV_VOLTAGE_SIZE 6
+#define PRIMARY_LV_VOLTAGE_SIZE 8
+#define PRIMARY_LV_TOTAL_VOLTAGE_SIZE 2
 #define PRIMARY_LV_TEMPERATURE_SIZE 2
 #define PRIMARY_COOLING_STATUS_SIZE 3
 #define PRIMARY_HV_CELLS_VOLTAGE_SIZE 7
@@ -469,13 +471,17 @@ typedef struct __is_packed {
 } PrimaryLvCurrentMsg;
 
 typedef struct __is_packed {
-    uint16_t total_voltage;
-    uint8_t voltage_1;
-    uint8_t voltage_2;
-    uint8_t voltage_3;
-    uint8_t voltage_4;
+    uint16_t voltage_1;
+    uint16_t voltage_2;
+    uint16_t voltage_3;
+    uint16_t voltage_4;
     uint32_t timestamp;
 } PrimaryLvVoltageMsg;
+
+typedef struct __is_packed {
+    uint16_t total_voltage;
+    uint32_t timestamp;
+} PrimaryLvTotalVoltageMsg;
 
 typedef struct __is_packed {
     uint8_t bp_temperature;
@@ -929,29 +935,46 @@ void deserialize_PrimaryLvCurrent(uint8_t *data, PrimaryLvCurrentMsg *msg){
 }
 
 void serialize_PrimaryLvVoltageMsg(uint8_t *data, PrimaryLvVoltageMsg *msg){
-    data[0] = msg->total_voltage & 255;
-    data[1] = (msg->total_voltage >> 8) & 255;
-    data[2] = msg->voltage_1;
-    data[3] = msg->voltage_2;
-    data[4] = msg->voltage_3;
-    data[5] = msg->voltage_4;
+    data[0] = msg->voltage_1 & 255;
+    data[1] = (msg->voltage_1 >> 8) & 255;
+    data[2] = msg->voltage_2 & 255;
+    data[3] = (msg->voltage_2 >> 8) & 255;
+    data[4] = msg->voltage_3 & 255;
+    data[5] = (msg->voltage_3 >> 8) & 255;
+    data[6] = msg->voltage_4 & 255;
+    data[7] = (msg->voltage_4 >> 8) & 255;
 }
 
-void serialize_PrimaryLvVoltage(uint8_t *data, uint16_t total_voltage, uint8_t voltage_1, uint8_t voltage_2, uint8_t voltage_3, uint8_t voltage_4){
-    data[0] = total_voltage & 255;
-    data[1] = (total_voltage >> 8) & 255;
-    data[2] = voltage_1;
-    data[3] = voltage_2;
-    data[4] = voltage_3;
-    data[5] = voltage_4;
+void serialize_PrimaryLvVoltage(uint8_t *data, uint16_t voltage_1, uint16_t voltage_2, uint16_t voltage_3, uint16_t voltage_4){
+    data[0] = voltage_1 & 255;
+    data[1] = (voltage_1 >> 8) & 255;
+    data[2] = voltage_2 & 255;
+    data[3] = (voltage_2 >> 8) & 255;
+    data[4] = voltage_3 & 255;
+    data[5] = (voltage_3 >> 8) & 255;
+    data[6] = voltage_4 & 255;
+    data[7] = (voltage_4 >> 8) & 255;
 }
 
 void deserialize_PrimaryLvVoltage(uint8_t *data, PrimaryLvVoltageMsg *msg){
+    msg->voltage_1 = data[0] | (data[1] << 8);
+    msg->voltage_2 = data[2] | (data[3] << 8);
+    msg->voltage_3 = data[4] | (data[5] << 8);
+    msg->voltage_4 = data[6] | (data[7] << 8);
+}
+
+void serialize_PrimaryLvTotalVoltageMsg(uint8_t *data, PrimaryLvTotalVoltageMsg *msg){
+    data[0] = msg->total_voltage & 255;
+    data[1] = (msg->total_voltage >> 8) & 255;
+}
+
+void serialize_PrimaryLvTotalVoltage(uint8_t *data, uint16_t total_voltage){
+    data[0] = total_voltage & 255;
+    data[1] = (total_voltage >> 8) & 255;
+}
+
+void deserialize_PrimaryLvTotalVoltage(uint8_t *data, PrimaryLvTotalVoltageMsg *msg){
     msg->total_voltage = data[0] | (data[1] << 8);
-    msg->voltage_1 = data[2];
-    msg->voltage_2 = data[3];
-    msg->voltage_3 = data[4];
-    msg->voltage_4 = data[5];
 }
 
 void serialize_PrimaryLvTemperatureMsg(uint8_t *data, PrimaryLvTemperatureMsg *msg){

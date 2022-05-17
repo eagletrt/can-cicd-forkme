@@ -803,32 +803,28 @@ class PrimaryLvCurrentMsg:
         return True
 
 class PrimaryLvVoltageMsg:
-    def __init__(self, total_voltage: int = None, voltage_1: int = None, voltage_2: int = None, voltage_3: int = None, voltage_4: int = None):
-        self.total_voltage = int(total_voltage) if total_voltage is not None else None
+    def __init__(self, voltage_1: int = None, voltage_2: int = None, voltage_3: int = None, voltage_4: int = None):
         self.voltage_1 = int(voltage_1) if voltage_1 is not None else None
         self.voltage_2 = int(voltage_2) if voltage_2 is not None else None
         self.voltage_3 = int(voltage_3) if voltage_3 is not None else None
         self.voltage_4 = int(voltage_4) if voltage_4 is not None else None
         self.timestamp=int()
-        self.size = 6
+        self.size = 8
         self.millis = 200
 
     def serialize(self):
         data = bytearray()
-        data.extend(pack("<HBBBB", self.total_voltage, self.voltage_1, self.voltage_2, self.voltage_3, self.voltage_4))
+        data.extend(pack("<HHHH", self.voltage_1, self.voltage_2, self.voltage_3, self.voltage_4))
         return data
 
     def deserialize(self, data):
-        self.total_voltage = int(unpack("<H", data[0:2])[0])
-        self.voltage_1 = int(unpack("<xxB", data[0:3])[0])
-        self.voltage_2 = int(unpack("<xxxB", data[0:4])[0])
-        self.voltage_3 = int(unpack("<xxxxB", data[0:5])[0])
-        self.voltage_4 = int(unpack("<xxxxxB", data[0:6])[0])
+        self.voltage_1 = int(unpack("<H", data[0:2])[0])
+        self.voltage_2 = int(unpack("<xxH", data[0:4])[0])
+        self.voltage_3 = int(unpack("<xxxxH", data[0:6])[0])
+        self.voltage_4 = int(unpack("<xxxxxxH", data[0:8])[0])
 
     def __eq__(self, other):
         if not isinstance(other, PrimaryLvVoltageMsg):
-            return False
-        if self.total_voltage != other.total_voltage:
             return False
         if self.voltage_1 != other.voltage_1:
             return False
@@ -837,6 +833,28 @@ class PrimaryLvVoltageMsg:
         if self.voltage_3 != other.voltage_3:
             return False
         if self.voltage_4 != other.voltage_4:
+            return False
+        return True
+
+class PrimaryLvTotalVoltageMsg:
+    def __init__(self, total_voltage: int = None):
+        self.total_voltage = int(total_voltage) if total_voltage is not None else None
+        self.timestamp=int()
+        self.size = 2
+        self.millis = 200
+
+    def serialize(self):
+        data = bytearray()
+        data.extend(pack("<H", self.total_voltage))
+        return data
+
+    def deserialize(self, data):
+        self.total_voltage = int(unpack("<H", data[0:2])[0])
+
+    def __eq__(self, other):
+        if not isinstance(other, PrimaryLvTotalVoltageMsg):
+            return False
+        if self.total_voltage != other.total_voltage:
             return False
         return True
 

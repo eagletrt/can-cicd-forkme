@@ -9,7 +9,7 @@ int main() {
 
     printf("***SecondaryImuAngularRateMsg***\n");
     uint8_t buffer_SecondaryImuAngularRate[SECONDARY_IMU_ANGULAR_RATE_SIZE];
-    SecondaryImuAngularRateMsg SecondaryImuAngularRate_s = { 37649, 21245, 6292 };
+    SecondaryImuAngularRateMsg SecondaryImuAngularRate_s = { 35942, 59017, 63651 };
     
     printf("Before: %hu %hu %hu\n", SecondaryImuAngularRate_s.ang_rate_x, SecondaryImuAngularRate_s.ang_rate_y, SecondaryImuAngularRate_s.ang_rate_z);
     
@@ -24,7 +24,7 @@ int main() {
 
     printf("***SecondaryImuAccelerationMsg***\n");
     uint8_t buffer_SecondaryImuAcceleration[SECONDARY_IMU_ACCELERATION_SIZE];
-    SecondaryImuAccelerationMsg SecondaryImuAcceleration_s = { 31216, 42038, 45818 };
+    SecondaryImuAccelerationMsg SecondaryImuAcceleration_s = { 21785, 33538, 54743 };
     
     printf("Before: %hu %hu %hu\n", SecondaryImuAcceleration_s.accel_x, SecondaryImuAcceleration_s.accel_y, SecondaryImuAcceleration_s.accel_z);
     
@@ -39,7 +39,7 @@ int main() {
 
     printf("***SecondaryIrtsFl0Msg***\n");
     uint8_t buffer_SecondaryIrtsFl0[SECONDARY_IRTS_FL_0_SIZE];
-    SecondaryIrtsFl0Msg SecondaryIrtsFl0_s = { 64366, 25786, 41341, 32542 };
+    SecondaryIrtsFl0Msg SecondaryIrtsFl0_s = { 3689, 62703, 29910, 64845 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFl0_s.channel1, SecondaryIrtsFl0_s.channel2, SecondaryIrtsFl0_s.channel3, SecondaryIrtsFl0_s.channel4);
     
@@ -54,7 +54,7 @@ int main() {
 
     printf("***SecondaryIrtsFl1Msg***\n");
     uint8_t buffer_SecondaryIrtsFl1[SECONDARY_IRTS_FL_1_SIZE];
-    SecondaryIrtsFl1Msg SecondaryIrtsFl1_s = { 6415, 12958, 380, 6270 };
+    SecondaryIrtsFl1Msg SecondaryIrtsFl1_s = { 7474, 5700, 27530, 30335 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFl1_s.channel5, SecondaryIrtsFl1_s.channel6, SecondaryIrtsFl1_s.channel7, SecondaryIrtsFl1_s.channel8);
     
@@ -69,7 +69,7 @@ int main() {
 
     printf("***SecondaryIrtsFl2Msg***\n");
     uint8_t buffer_SecondaryIrtsFl2[SECONDARY_IRTS_FL_2_SIZE];
-    SecondaryIrtsFl2Msg SecondaryIrtsFl2_s = { 26927, 14573, 58600, 52399 };
+    SecondaryIrtsFl2Msg SecondaryIrtsFl2_s = { 14272, 14151, 9474, 1529 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFl2_s.channel9, SecondaryIrtsFl2_s.channel10, SecondaryIrtsFl2_s.channel11, SecondaryIrtsFl2_s.channel12);
     
@@ -84,7 +84,7 @@ int main() {
 
     printf("***SecondaryIrtsFl3Msg***\n");
     uint8_t buffer_SecondaryIrtsFl3[SECONDARY_IRTS_FL_3_SIZE];
-    SecondaryIrtsFl3Msg SecondaryIrtsFl3_s = { 21734, 32394, 25080, 16844 };
+    SecondaryIrtsFl3Msg SecondaryIrtsFl3_s = { 17196, 51945, 52713, 9820 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFl3_s.channel13, SecondaryIrtsFl3_s.channel14, SecondaryIrtsFl3_s.channel15, SecondaryIrtsFl3_s.channel16);
     
@@ -99,7 +99,7 @@ int main() {
 
     printf("***SecondaryIrtsFr0Msg***\n");
     uint8_t buffer_SecondaryIrtsFr0[SECONDARY_IRTS_FR_0_SIZE];
-    SecondaryIrtsFr0Msg SecondaryIrtsFr0_s = { 62773, 48956, 41701, 33179 };
+    SecondaryIrtsFr0Msg SecondaryIrtsFr0_s = { 8877, 36735, 14674, 29046 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFr0_s.channel1, SecondaryIrtsFr0_s.channel2, SecondaryIrtsFr0_s.channel3, SecondaryIrtsFr0_s.channel4);
     
@@ -114,7 +114,7 @@ int main() {
 
     printf("***SecondaryIrtsFr1Msg***\n");
     uint8_t buffer_SecondaryIrtsFr1[SECONDARY_IRTS_FR_1_SIZE];
-    SecondaryIrtsFr1Msg SecondaryIrtsFr1_s = { 44677, 31709, 35532, 17909 };
+    SecondaryIrtsFr1Msg SecondaryIrtsFr1_s = { 40284, 21554, 44354, 31212 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFr1_s.channel5, SecondaryIrtsFr1_s.channel6, SecondaryIrtsFr1_s.channel7, SecondaryIrtsFr1_s.channel8);
     
@@ -129,7 +129,7 @@ int main() {
 
     printf("***SecondaryIrtsFr2Msg***\n");
     uint8_t buffer_SecondaryIrtsFr2[SECONDARY_IRTS_FR_2_SIZE];
-    SecondaryIrtsFr2Msg SecondaryIrtsFr2_s = { 39477, 31339, 10943, 13712 };
+    SecondaryIrtsFr2Msg SecondaryIrtsFr2_s = { 6383, 26662, 2926, 58167 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFr2_s.channel9, SecondaryIrtsFr2_s.channel10, SecondaryIrtsFr2_s.channel11, SecondaryIrtsFr2_s.channel12);
     
@@ -144,7 +144,7 @@ int main() {
 
     printf("***SecondaryIrtsFr3Msg***\n");
     uint8_t buffer_SecondaryIrtsFr3[SECONDARY_IRTS_FR_3_SIZE];
-    SecondaryIrtsFr3Msg SecondaryIrtsFr3_s = { 9976, 64054, 26244, 30425 };
+    SecondaryIrtsFr3Msg SecondaryIrtsFr3_s = { 26373, 64321, 19111, 38667 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsFr3_s.channel13, SecondaryIrtsFr3_s.channel14, SecondaryIrtsFr3_s.channel15, SecondaryIrtsFr3_s.channel16);
     
@@ -159,7 +159,7 @@ int main() {
 
     printf("***SecondaryIrtsRl0Msg***\n");
     uint8_t buffer_SecondaryIrtsRl0[SECONDARY_IRTS_RL_0_SIZE];
-    SecondaryIrtsRl0Msg SecondaryIrtsRl0_s = { 63131, 49573, 19001, 4114 };
+    SecondaryIrtsRl0Msg SecondaryIrtsRl0_s = { 54049, 12748, 15082, 432 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRl0_s.channel1, SecondaryIrtsRl0_s.channel2, SecondaryIrtsRl0_s.channel3, SecondaryIrtsRl0_s.channel4);
     
@@ -174,7 +174,7 @@ int main() {
 
     printf("***SecondaryIrtsRl1Msg***\n");
     uint8_t buffer_SecondaryIrtsRl1[SECONDARY_IRTS_RL_1_SIZE];
-    SecondaryIrtsRl1Msg SecondaryIrtsRl1_s = { 12551, 35585, 29960, 12938 };
+    SecondaryIrtsRl1Msg SecondaryIrtsRl1_s = { 23333, 18269, 2288, 33188 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRl1_s.channel5, SecondaryIrtsRl1_s.channel6, SecondaryIrtsRl1_s.channel7, SecondaryIrtsRl1_s.channel8);
     
@@ -189,7 +189,7 @@ int main() {
 
     printf("***SecondaryIrtsRl2Msg***\n");
     uint8_t buffer_SecondaryIrtsRl2[SECONDARY_IRTS_RL_2_SIZE];
-    SecondaryIrtsRl2Msg SecondaryIrtsRl2_s = { 56623, 53294, 64724, 59463 };
+    SecondaryIrtsRl2Msg SecondaryIrtsRl2_s = { 16890, 49703, 64018, 51405 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRl2_s.channel9, SecondaryIrtsRl2_s.channel10, SecondaryIrtsRl2_s.channel11, SecondaryIrtsRl2_s.channel12);
     
@@ -204,7 +204,7 @@ int main() {
 
     printf("***SecondaryIrtsRl3Msg***\n");
     uint8_t buffer_SecondaryIrtsRl3[SECONDARY_IRTS_RL_3_SIZE];
-    SecondaryIrtsRl3Msg SecondaryIrtsRl3_s = { 6618, 32236, 43115, 47764 };
+    SecondaryIrtsRl3Msg SecondaryIrtsRl3_s = { 12825, 6891, 10505, 22719 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRl3_s.channel13, SecondaryIrtsRl3_s.channel14, SecondaryIrtsRl3_s.channel15, SecondaryIrtsRl3_s.channel16);
     
@@ -219,7 +219,7 @@ int main() {
 
     printf("***SecondaryIrtsRr0Msg***\n");
     uint8_t buffer_SecondaryIrtsRr0[SECONDARY_IRTS_RR_0_SIZE];
-    SecondaryIrtsRr0Msg SecondaryIrtsRr0_s = { 14792, 58929, 12058, 8390 };
+    SecondaryIrtsRr0Msg SecondaryIrtsRr0_s = { 63472, 52869, 33371, 64242 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRr0_s.channel1, SecondaryIrtsRr0_s.channel2, SecondaryIrtsRr0_s.channel3, SecondaryIrtsRr0_s.channel4);
     
@@ -234,7 +234,7 @@ int main() {
 
     printf("***SecondaryIrtsRr1Msg***\n");
     uint8_t buffer_SecondaryIrtsRr1[SECONDARY_IRTS_RR_1_SIZE];
-    SecondaryIrtsRr1Msg SecondaryIrtsRr1_s = { 29070, 7332, 9935, 26593 };
+    SecondaryIrtsRr1Msg SecondaryIrtsRr1_s = { 14363, 9107, 38808, 25375 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRr1_s.channel5, SecondaryIrtsRr1_s.channel6, SecondaryIrtsRr1_s.channel7, SecondaryIrtsRr1_s.channel8);
     
@@ -249,7 +249,7 @@ int main() {
 
     printf("***SecondaryIrtsRr2Msg***\n");
     uint8_t buffer_SecondaryIrtsRr2[SECONDARY_IRTS_RR_2_SIZE];
-    SecondaryIrtsRr2Msg SecondaryIrtsRr2_s = { 19474, 18576, 29107, 23635 };
+    SecondaryIrtsRr2Msg SecondaryIrtsRr2_s = { 28872, 43138, 10486, 8752 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRr2_s.channel9, SecondaryIrtsRr2_s.channel10, SecondaryIrtsRr2_s.channel11, SecondaryIrtsRr2_s.channel12);
     
@@ -264,7 +264,7 @@ int main() {
 
     printf("***SecondaryIrtsRr3Msg***\n");
     uint8_t buffer_SecondaryIrtsRr3[SECONDARY_IRTS_RR_3_SIZE];
-    SecondaryIrtsRr3Msg SecondaryIrtsRr3_s = { 29164, 51691, 1918, 4874 };
+    SecondaryIrtsRr3Msg SecondaryIrtsRr3_s = { 12148, 34630, 10915, 57547 };
     
     printf("Before: %hu %hu %hu %hu\n", SecondaryIrtsRr3_s.channel13, SecondaryIrtsRr3_s.channel14, SecondaryIrtsRr3_s.channel15, SecondaryIrtsRr3_s.channel16);
     
@@ -279,7 +279,7 @@ int main() {
 
     printf("***SecondaryGpsCoordsMsg***\n");
     uint8_t buffer_SecondaryGpsCoords[SECONDARY_GPS_COORDS_SIZE];
-    SecondaryGpsCoordsMsg SecondaryGpsCoords_s = { 0.11130617948393595, 0.6372649712643258 };
+    SecondaryGpsCoordsMsg SecondaryGpsCoords_s = { 0.8967725027419801, 0.1952614055311176 };
     
     printf("Before: %f %f\n", SecondaryGpsCoords_s.latitude, SecondaryGpsCoords_s.longitude);
     
@@ -294,7 +294,7 @@ int main() {
 
     printf("***SecondaryGpsSpeedMsg***\n");
     uint8_t buffer_SecondaryGpsSpeed[SECONDARY_GPS_SPEED_SIZE];
-    SecondaryGpsSpeedMsg SecondaryGpsSpeed_s = { 29080 };
+    SecondaryGpsSpeedMsg SecondaryGpsSpeed_s = { 48987 };
     
     printf("Before: %hu\n", SecondaryGpsSpeed_s.speed);
     
@@ -309,7 +309,7 @@ int main() {
 
     printf("***SecondaryLapCountMsg***\n");
     uint8_t buffer_SecondaryLapCount[SECONDARY_LAP_COUNT_SIZE];
-    SecondaryLapCountMsg SecondaryLapCount_s = { 125252224, 116 };
+    SecondaryLapCountMsg SecondaryLapCount_s = { 1430366652, 42 };
     
     printf("Before: %u %hhu\n", SecondaryLapCount_s.timestamp, SecondaryLapCount_s.lap_count);
     

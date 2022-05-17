@@ -131,17 +131,21 @@
 */
 #define PRIMARY_ID_LV_CURRENT 0b01100000110
 /*
-* Voltages of LV battery pack: total voltage 16 bit [12,17.2]V (0x0000 under_voltage,0xFFFF over_voltage), 4x single cell voltage 8bit [3,4.2]V 0.005mV/bit (no additional info, 0x000 is 3V 0xFFFF is 4.2V)
+* Voltages of LV battery pack: 4x single cell voltage 8bit [3,4.2]V 0.005mV/bit (no additional info, 0x000 is 3V 0xFFFF is 4.2V)
 */
 #define PRIMARY_ID_LV_VOLTAGE 0b01100100110
 /*
+* Voltage of LV battery pack: total voltage 16 bit [12,17.2]V (0x0000 under_voltage,0xFFFF over_voltage)
+*/
+#define PRIMARY_ID_LV_TOTAL_VOLTAGE 0b01101000110
+/*
 * Temperature of LV battery pack,[0,80]Celsius, uint8 0.32C/bit. battery pack and dcdc converter
 */
-#define PRIMARY_ID_LV_TEMPERATURE 0b01101000110
+#define PRIMARY_ID_LV_TEMPERATURE 0b01101100110
 /*
 * Percentage value 0% to 100% of bms_hv_fans, bms_lv_fans, pump_speed, 8bit
 */
-#define PRIMARY_ID_COOLING_STATUS 0b01101100110
+#define PRIMARY_ID_COOLING_STATUS 0b01110000110
 
 /* TOPIC HANDCART */
 #define TOPIC_HANDCART_MASK 0b00000011111

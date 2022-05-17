@@ -97,6 +97,9 @@ extern LvCurrentDefaultTypeInternal _LvCurrent_default_instance_;
 class LvTemperature;
 struct LvTemperatureDefaultTypeInternal;
 extern LvTemperatureDefaultTypeInternal _LvTemperature_default_instance_;
+class LvTotalVoltage;
+struct LvTotalVoltageDefaultTypeInternal;
+extern LvTotalVoltageDefaultTypeInternal _LvTotalVoltage_default_instance_;
 class LvVersion;
 struct LvVersionDefaultTypeInternal;
 extern LvVersionDefaultTypeInternal _LvVersion_default_instance_;
@@ -167,6 +170,7 @@ template<> ::primary::InvLResponse* Arena::CreateMaybeMessage<::primary::InvLRes
 template<> ::primary::InvLSetTorque* Arena::CreateMaybeMessage<::primary::InvLSetTorque>(Arena*);
 template<> ::primary::LvCurrent* Arena::CreateMaybeMessage<::primary::LvCurrent>(Arena*);
 template<> ::primary::LvTemperature* Arena::CreateMaybeMessage<::primary::LvTemperature>(Arena*);
+template<> ::primary::LvTotalVoltage* Arena::CreateMaybeMessage<::primary::LvTotalVoltage>(Arena*);
 template<> ::primary::LvVersion* Arena::CreateMaybeMessage<::primary::LvVersion>(Arena*);
 template<> ::primary::LvVoltage* Arena::CreateMaybeMessage<::primary::LvVoltage>(Arena*);
 template<> ::primary::Marker* Arena::CreateMaybeMessage<::primary::Marker>(Arena*);
@@ -4748,23 +4752,13 @@ class LvVoltage final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTotalVoltageFieldNumber = 1,
-    kVoltage1FieldNumber = 2,
-    kVoltage2FieldNumber = 3,
-    kVoltage3FieldNumber = 4,
-    kVoltage4FieldNumber = 5,
-    kTimestampFieldNumber = 6,
+    kVoltage1FieldNumber = 1,
+    kVoltage2FieldNumber = 2,
+    kVoltage3FieldNumber = 3,
+    kVoltage4FieldNumber = 4,
+    kTimestampFieldNumber = 5,
   };
-  // uint32 total_voltage = 1;
-  void clear_total_voltage();
-  uint32_t total_voltage() const;
-  void set_total_voltage(uint32_t value);
-  private:
-  uint32_t _internal_total_voltage() const;
-  void _internal_set_total_voltage(uint32_t value);
-  public:
-
-  // uint32 voltage_1 = 2;
+  // uint32 voltage_1 = 1;
   void clear_voltage_1();
   uint32_t voltage_1() const;
   void set_voltage_1(uint32_t value);
@@ -4773,7 +4767,7 @@ class LvVoltage final :
   void _internal_set_voltage_1(uint32_t value);
   public:
 
-  // uint32 voltage_2 = 3;
+  // uint32 voltage_2 = 2;
   void clear_voltage_2();
   uint32_t voltage_2() const;
   void set_voltage_2(uint32_t value);
@@ -4782,7 +4776,7 @@ class LvVoltage final :
   void _internal_set_voltage_2(uint32_t value);
   public:
 
-  // uint32 voltage_3 = 4;
+  // uint32 voltage_3 = 3;
   void clear_voltage_3();
   uint32_t voltage_3() const;
   void set_voltage_3(uint32_t value);
@@ -4791,7 +4785,7 @@ class LvVoltage final :
   void _internal_set_voltage_3(uint32_t value);
   public:
 
-  // uint32 voltage_4 = 5;
+  // uint32 voltage_4 = 4;
   void clear_voltage_4();
   uint32_t voltage_4() const;
   void set_voltage_4(uint32_t value);
@@ -4800,7 +4794,7 @@ class LvVoltage final :
   void _internal_set_voltage_4(uint32_t value);
   public:
 
-  // uint32 timestamp = 6;
+  // uint32 timestamp = 5;
   void clear_timestamp();
   uint32_t timestamp() const;
   void set_timestamp(uint32_t value);
@@ -4816,11 +4810,164 @@ class LvVoltage final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t total_voltage_;
   uint32_t voltage_1_;
   uint32_t voltage_2_;
   uint32_t voltage_3_;
   uint32_t voltage_4_;
+  uint32_t timestamp_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_primary_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LvTotalVoltage final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:primary.LvTotalVoltage) */ {
+ public:
+  inline LvTotalVoltage() : LvTotalVoltage(nullptr) {}
+  ~LvTotalVoltage() override;
+  explicit PROTOBUF_CONSTEXPR LvTotalVoltage(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  LvTotalVoltage(const LvTotalVoltage& from);
+  LvTotalVoltage(LvTotalVoltage&& from) noexcept
+    : LvTotalVoltage() {
+    *this = ::std::move(from);
+  }
+
+  inline LvTotalVoltage& operator=(const LvTotalVoltage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LvTotalVoltage& operator=(LvTotalVoltage&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const LvTotalVoltage& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const LvTotalVoltage* internal_default_instance() {
+    return reinterpret_cast<const LvTotalVoltage*>(
+               &_LvTotalVoltage_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    26;
+
+  friend void swap(LvTotalVoltage& a, LvTotalVoltage& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LvTotalVoltage* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LvTotalVoltage* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  LvTotalVoltage* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<LvTotalVoltage>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const LvTotalVoltage& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const LvTotalVoltage& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LvTotalVoltage* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "primary.LvTotalVoltage";
+  }
+  protected:
+  explicit LvTotalVoltage(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTotalVoltageFieldNumber = 1,
+    kTimestampFieldNumber = 2,
+  };
+  // uint32 total_voltage = 1;
+  void clear_total_voltage();
+  uint32_t total_voltage() const;
+  void set_total_voltage(uint32_t value);
+  private:
+  uint32_t _internal_total_voltage() const;
+  void _internal_set_total_voltage(uint32_t value);
+  public:
+
+  // uint32 timestamp = 2;
+  void clear_timestamp();
+  uint32_t timestamp() const;
+  void set_timestamp(uint32_t value);
+  private:
+  uint32_t _internal_timestamp() const;
+  void _internal_set_timestamp(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:primary.LvTotalVoltage)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  uint32_t total_voltage_;
   uint32_t timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_primary_2eproto;
@@ -4875,7 +5022,7 @@ class LvTemperature final :
                &_LvTemperature_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(LvTemperature& a, LvTemperature& b) {
     a.Swap(&b);
@@ -5040,7 +5187,7 @@ class CoolingStatus final :
                &_CoolingStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CoolingStatus& a, CoolingStatus& b) {
     a.Swap(&b);
@@ -5216,7 +5363,7 @@ class HvCellsVoltage final :
                &_HvCellsVoltage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(HvCellsVoltage& a, HvCellsVoltage& b) {
     a.Swap(&b);
@@ -5403,7 +5550,7 @@ class HvCellsTemp final :
                &_HvCellsTemp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(HvCellsTemp& a, HvCellsTemp& b) {
     a.Swap(&b);
@@ -5634,7 +5781,7 @@ class HvCellBalancingStatus final :
                &_HvCellBalancingStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(HvCellBalancingStatus& a, HvCellBalancingStatus& b) {
     a.Swap(&b);
@@ -5788,7 +5935,7 @@ class InvLSetTorque final :
                &_InvLSetTorque_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(InvLSetTorque& a, InvLSetTorque& b) {
     a.Swap(&b);
@@ -5964,7 +6111,7 @@ class InvLResponse final :
                &_InvLResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(InvLResponse& a, InvLResponse& b) {
     a.Swap(&b);
@@ -6129,7 +6276,7 @@ class PrimaryFenice final :
                &_PrimaryFenice_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(PrimaryFenice& a, PrimaryFenice& b) {
     a.Swap(&b);
@@ -6226,13 +6373,14 @@ class PrimaryFenice final :
     kSetPedalsRangeFieldNumber = 24,
     kLvCurrentFieldNumber = 25,
     kLvVoltageFieldNumber = 26,
-    kLvTemperatureFieldNumber = 27,
-    kCoolingStatusFieldNumber = 28,
-    kHvCellsVoltageFieldNumber = 29,
-    kHvCellsTempFieldNumber = 30,
-    kHvCellBalancingStatusFieldNumber = 31,
-    kInvLSetTorqueFieldNumber = 32,
-    kInvLResponseFieldNumber = 33,
+    kLvTotalVoltageFieldNumber = 27,
+    kLvTemperatureFieldNumber = 28,
+    kCoolingStatusFieldNumber = 29,
+    kHvCellsVoltageFieldNumber = 30,
+    kHvCellsTempFieldNumber = 31,
+    kHvCellBalancingStatusFieldNumber = 32,
+    kInvLSetTorqueFieldNumber = 33,
+    kInvLResponseFieldNumber = 34,
   };
   // repeated .primary.SteerVersion steer_version = 1;
   int steer_version_size() const;
@@ -6702,7 +6850,25 @@ class PrimaryFenice final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::LvVoltage >&
       lv_voltage() const;
 
-  // repeated .primary.LvTemperature lv_temperature = 27;
+  // repeated .primary.LvTotalVoltage lv_total_voltage = 27;
+  int lv_total_voltage_size() const;
+  private:
+  int _internal_lv_total_voltage_size() const;
+  public:
+  void clear_lv_total_voltage();
+  ::primary::LvTotalVoltage* mutable_lv_total_voltage(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::LvTotalVoltage >*
+      mutable_lv_total_voltage();
+  private:
+  const ::primary::LvTotalVoltage& _internal_lv_total_voltage(int index) const;
+  ::primary::LvTotalVoltage* _internal_add_lv_total_voltage();
+  public:
+  const ::primary::LvTotalVoltage& lv_total_voltage(int index) const;
+  ::primary::LvTotalVoltage* add_lv_total_voltage();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::LvTotalVoltage >&
+      lv_total_voltage() const;
+
+  // repeated .primary.LvTemperature lv_temperature = 28;
   int lv_temperature_size() const;
   private:
   int _internal_lv_temperature_size() const;
@@ -6720,7 +6886,7 @@ class PrimaryFenice final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::LvTemperature >&
       lv_temperature() const;
 
-  // repeated .primary.CoolingStatus cooling_status = 28;
+  // repeated .primary.CoolingStatus cooling_status = 29;
   int cooling_status_size() const;
   private:
   int _internal_cooling_status_size() const;
@@ -6738,7 +6904,7 @@ class PrimaryFenice final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::CoolingStatus >&
       cooling_status() const;
 
-  // repeated .primary.HvCellsVoltage hv_cells_voltage = 29;
+  // repeated .primary.HvCellsVoltage hv_cells_voltage = 30;
   int hv_cells_voltage_size() const;
   private:
   int _internal_hv_cells_voltage_size() const;
@@ -6756,7 +6922,7 @@ class PrimaryFenice final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::HvCellsVoltage >&
       hv_cells_voltage() const;
 
-  // repeated .primary.HvCellsTemp hv_cells_temp = 30;
+  // repeated .primary.HvCellsTemp hv_cells_temp = 31;
   int hv_cells_temp_size() const;
   private:
   int _internal_hv_cells_temp_size() const;
@@ -6774,7 +6940,7 @@ class PrimaryFenice final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::HvCellsTemp >&
       hv_cells_temp() const;
 
-  // repeated .primary.HvCellBalancingStatus hv_cell_balancing_status = 31;
+  // repeated .primary.HvCellBalancingStatus hv_cell_balancing_status = 32;
   int hv_cell_balancing_status_size() const;
   private:
   int _internal_hv_cell_balancing_status_size() const;
@@ -6792,7 +6958,7 @@ class PrimaryFenice final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::HvCellBalancingStatus >&
       hv_cell_balancing_status() const;
 
-  // repeated .primary.InvLSetTorque inv_l_set_torque = 32;
+  // repeated .primary.InvLSetTorque inv_l_set_torque = 33;
   int inv_l_set_torque_size() const;
   private:
   int _internal_inv_l_set_torque_size() const;
@@ -6810,7 +6976,7 @@ class PrimaryFenice final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::InvLSetTorque >&
       inv_l_set_torque() const;
 
-  // repeated .primary.InvLResponse inv_l_response = 33;
+  // repeated .primary.InvLResponse inv_l_response = 34;
   int inv_l_response_size() const;
   private:
   int _internal_inv_l_response_size() const;
@@ -6861,6 +7027,7 @@ class PrimaryFenice final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::SetPedalsRange > set_pedals_range_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::LvCurrent > lv_current_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::LvVoltage > lv_voltage_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::LvTotalVoltage > lv_total_voltage_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::LvTemperature > lv_temperature_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::CoolingStatus > cooling_status_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::HvCellsVoltage > hv_cells_voltage_;
@@ -8442,27 +8609,7 @@ inline void LvCurrent::set_timestamp(uint32_t value) {
 
 // LvVoltage
 
-// uint32 total_voltage = 1;
-inline void LvVoltage::clear_total_voltage() {
-  total_voltage_ = 0u;
-}
-inline uint32_t LvVoltage::_internal_total_voltage() const {
-  return total_voltage_;
-}
-inline uint32_t LvVoltage::total_voltage() const {
-  // @@protoc_insertion_point(field_get:primary.LvVoltage.total_voltage)
-  return _internal_total_voltage();
-}
-inline void LvVoltage::_internal_set_total_voltage(uint32_t value) {
-  
-  total_voltage_ = value;
-}
-inline void LvVoltage::set_total_voltage(uint32_t value) {
-  _internal_set_total_voltage(value);
-  // @@protoc_insertion_point(field_set:primary.LvVoltage.total_voltage)
-}
-
-// uint32 voltage_1 = 2;
+// uint32 voltage_1 = 1;
 inline void LvVoltage::clear_voltage_1() {
   voltage_1_ = 0u;
 }
@@ -8482,7 +8629,7 @@ inline void LvVoltage::set_voltage_1(uint32_t value) {
   // @@protoc_insertion_point(field_set:primary.LvVoltage.voltage_1)
 }
 
-// uint32 voltage_2 = 3;
+// uint32 voltage_2 = 2;
 inline void LvVoltage::clear_voltage_2() {
   voltage_2_ = 0u;
 }
@@ -8502,7 +8649,7 @@ inline void LvVoltage::set_voltage_2(uint32_t value) {
   // @@protoc_insertion_point(field_set:primary.LvVoltage.voltage_2)
 }
 
-// uint32 voltage_3 = 4;
+// uint32 voltage_3 = 3;
 inline void LvVoltage::clear_voltage_3() {
   voltage_3_ = 0u;
 }
@@ -8522,7 +8669,7 @@ inline void LvVoltage::set_voltage_3(uint32_t value) {
   // @@protoc_insertion_point(field_set:primary.LvVoltage.voltage_3)
 }
 
-// uint32 voltage_4 = 5;
+// uint32 voltage_4 = 4;
 inline void LvVoltage::clear_voltage_4() {
   voltage_4_ = 0u;
 }
@@ -8542,7 +8689,7 @@ inline void LvVoltage::set_voltage_4(uint32_t value) {
   // @@protoc_insertion_point(field_set:primary.LvVoltage.voltage_4)
 }
 
-// uint32 timestamp = 6;
+// uint32 timestamp = 5;
 inline void LvVoltage::clear_timestamp() {
   timestamp_ = 0u;
 }
@@ -8560,6 +8707,50 @@ inline void LvVoltage::_internal_set_timestamp(uint32_t value) {
 inline void LvVoltage::set_timestamp(uint32_t value) {
   _internal_set_timestamp(value);
   // @@protoc_insertion_point(field_set:primary.LvVoltage.timestamp)
+}
+
+// -------------------------------------------------------------------
+
+// LvTotalVoltage
+
+// uint32 total_voltage = 1;
+inline void LvTotalVoltage::clear_total_voltage() {
+  total_voltage_ = 0u;
+}
+inline uint32_t LvTotalVoltage::_internal_total_voltage() const {
+  return total_voltage_;
+}
+inline uint32_t LvTotalVoltage::total_voltage() const {
+  // @@protoc_insertion_point(field_get:primary.LvTotalVoltage.total_voltage)
+  return _internal_total_voltage();
+}
+inline void LvTotalVoltage::_internal_set_total_voltage(uint32_t value) {
+  
+  total_voltage_ = value;
+}
+inline void LvTotalVoltage::set_total_voltage(uint32_t value) {
+  _internal_set_total_voltage(value);
+  // @@protoc_insertion_point(field_set:primary.LvTotalVoltage.total_voltage)
+}
+
+// uint32 timestamp = 2;
+inline void LvTotalVoltage::clear_timestamp() {
+  timestamp_ = 0u;
+}
+inline uint32_t LvTotalVoltage::_internal_timestamp() const {
+  return timestamp_;
+}
+inline uint32_t LvTotalVoltage::timestamp() const {
+  // @@protoc_insertion_point(field_get:primary.LvTotalVoltage.timestamp)
+  return _internal_timestamp();
+}
+inline void LvTotalVoltage::_internal_set_timestamp(uint32_t value) {
+  
+  timestamp_ = value;
+}
+inline void LvTotalVoltage::set_timestamp(uint32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:primary.LvTotalVoltage.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -10234,7 +10425,47 @@ PrimaryFenice::lv_voltage() const {
   return lv_voltage_;
 }
 
-// repeated .primary.LvTemperature lv_temperature = 27;
+// repeated .primary.LvTotalVoltage lv_total_voltage = 27;
+inline int PrimaryFenice::_internal_lv_total_voltage_size() const {
+  return lv_total_voltage_.size();
+}
+inline int PrimaryFenice::lv_total_voltage_size() const {
+  return _internal_lv_total_voltage_size();
+}
+inline void PrimaryFenice::clear_lv_total_voltage() {
+  lv_total_voltage_.Clear();
+}
+inline ::primary::LvTotalVoltage* PrimaryFenice::mutable_lv_total_voltage(int index) {
+  // @@protoc_insertion_point(field_mutable:primary.PrimaryFenice.lv_total_voltage)
+  return lv_total_voltage_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::LvTotalVoltage >*
+PrimaryFenice::mutable_lv_total_voltage() {
+  // @@protoc_insertion_point(field_mutable_list:primary.PrimaryFenice.lv_total_voltage)
+  return &lv_total_voltage_;
+}
+inline const ::primary::LvTotalVoltage& PrimaryFenice::_internal_lv_total_voltage(int index) const {
+  return lv_total_voltage_.Get(index);
+}
+inline const ::primary::LvTotalVoltage& PrimaryFenice::lv_total_voltage(int index) const {
+  // @@protoc_insertion_point(field_get:primary.PrimaryFenice.lv_total_voltage)
+  return _internal_lv_total_voltage(index);
+}
+inline ::primary::LvTotalVoltage* PrimaryFenice::_internal_add_lv_total_voltage() {
+  return lv_total_voltage_.Add();
+}
+inline ::primary::LvTotalVoltage* PrimaryFenice::add_lv_total_voltage() {
+  ::primary::LvTotalVoltage* _add = _internal_add_lv_total_voltage();
+  // @@protoc_insertion_point(field_add:primary.PrimaryFenice.lv_total_voltage)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::primary::LvTotalVoltage >&
+PrimaryFenice::lv_total_voltage() const {
+  // @@protoc_insertion_point(field_list:primary.PrimaryFenice.lv_total_voltage)
+  return lv_total_voltage_;
+}
+
+// repeated .primary.LvTemperature lv_temperature = 28;
 inline int PrimaryFenice::_internal_lv_temperature_size() const {
   return lv_temperature_.size();
 }
@@ -10274,7 +10505,7 @@ PrimaryFenice::lv_temperature() const {
   return lv_temperature_;
 }
 
-// repeated .primary.CoolingStatus cooling_status = 28;
+// repeated .primary.CoolingStatus cooling_status = 29;
 inline int PrimaryFenice::_internal_cooling_status_size() const {
   return cooling_status_.size();
 }
@@ -10314,7 +10545,7 @@ PrimaryFenice::cooling_status() const {
   return cooling_status_;
 }
 
-// repeated .primary.HvCellsVoltage hv_cells_voltage = 29;
+// repeated .primary.HvCellsVoltage hv_cells_voltage = 30;
 inline int PrimaryFenice::_internal_hv_cells_voltage_size() const {
   return hv_cells_voltage_.size();
 }
@@ -10354,7 +10585,7 @@ PrimaryFenice::hv_cells_voltage() const {
   return hv_cells_voltage_;
 }
 
-// repeated .primary.HvCellsTemp hv_cells_temp = 30;
+// repeated .primary.HvCellsTemp hv_cells_temp = 31;
 inline int PrimaryFenice::_internal_hv_cells_temp_size() const {
   return hv_cells_temp_.size();
 }
@@ -10394,7 +10625,7 @@ PrimaryFenice::hv_cells_temp() const {
   return hv_cells_temp_;
 }
 
-// repeated .primary.HvCellBalancingStatus hv_cell_balancing_status = 31;
+// repeated .primary.HvCellBalancingStatus hv_cell_balancing_status = 32;
 inline int PrimaryFenice::_internal_hv_cell_balancing_status_size() const {
   return hv_cell_balancing_status_.size();
 }
@@ -10434,7 +10665,7 @@ PrimaryFenice::hv_cell_balancing_status() const {
   return hv_cell_balancing_status_;
 }
 
-// repeated .primary.InvLSetTorque inv_l_set_torque = 32;
+// repeated .primary.InvLSetTorque inv_l_set_torque = 33;
 inline int PrimaryFenice::_internal_inv_l_set_torque_size() const {
   return inv_l_set_torque_.size();
 }
@@ -10474,7 +10705,7 @@ PrimaryFenice::inv_l_set_torque() const {
   return inv_l_set_torque_;
 }
 
-// repeated .primary.InvLResponse inv_l_response = 33;
+// repeated .primary.InvLResponse inv_l_response = 34;
 inline int PrimaryFenice::_internal_inv_l_response_size() const {
   return inv_l_response_.size();
 }
@@ -10517,6 +10748,8 @@ PrimaryFenice::inv_l_response() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
